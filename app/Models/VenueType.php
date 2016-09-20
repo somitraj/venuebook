@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class VenueType extends Model {
 
 
     public function venues() {
-        return $this->hasMany(\App\Models\Venue::class, 'venue_type_id', 'id');
+        return $this->hasMany(\Venue\Models\Venue::class, 'venue_type_id', 'id');
     }
 
 

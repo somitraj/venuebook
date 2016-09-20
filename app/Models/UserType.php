@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +13,11 @@ class UserType extends Model {
 
 
     public function tblMessageBoxes() {
-        return $this->hasMany(\App\Models\TblMessageBox::class, 'user_id', 'id');
+        return $this->hasMany(\Venue\Models\TblMessageBox::class, 'user_id', 'id');
     }
 
     public function users() {
-        return $this->hasMany(\App\Models\User::class, 'user_type_id', 'id');
+        return $this->hasMany(\Venue\Models\User::class, 'user_type_id', 'id');
     }
 
 

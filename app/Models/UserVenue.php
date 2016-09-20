@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +13,11 @@ class UserVenue extends Model {
 
 
     public function user() {
-        return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
+        return $this->belongsTo(\Venue\Models\User::class, 'user_id', 'id');
     }
 
     public function venue() {
-        return $this->belongsTo(\App\Models\Venue::class, 'venue_id', 'id');
+        return $this->belongsTo(\Venue\Models\Venue::class, 'venue_id', 'id');
     }
 
 

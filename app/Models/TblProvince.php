@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,15 +13,15 @@ class TblProvince extends Model {
 
 
     public function tblCountry() {
-        return $this->belongsTo(\App\Models\TblCountry::class, 'country_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblCountry::class, 'country_id', 'id');
     }
 
     public function userInfos() {
-        return $this->hasMany(\App\Models\UserInfo::class, 'province_id', 'id');
+        return $this->hasMany(\Venue\Models\UserInfo::class, 'province_id', 'id');
     }
 
     public function venues() {
-        return $this->hasMany(\App\Models\Venue::class, 'province_id', 'id');
+        return $this->hasMany(\Venue\Models\Venue::class, 'province_id', 'id');
     }
 
 

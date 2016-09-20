@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,43 +13,43 @@ class Venue extends Model {
 
 
     public function tblCountry() {
-        return $this->belongsTo(\App\Models\TblCountry::class, 'country_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblCountry::class, 'country_id', 'id');
     }
 
     public function tblDistrict() {
-        return $this->belongsTo(\App\Models\TblDistrict::class, 'district_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblDistrict::class, 'district_id', 'id');
     }
 
     public function tblProvince() {
-        return $this->belongsTo(\App\Models\TblProvince::class, 'province_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblProvince::class, 'province_id', 'id');
     }
 
     public function venueType() {
-        return $this->belongsTo(\App\Models\VenueType::class, 'venue_type_id', 'id');
+        return $this->belongsTo(\Venue\Models\VenueType::class, 'venue_type_id', 'id');
     }
 
     public function tblZone() {
-        return $this->belongsTo(\App\Models\TblZone::class, 'zone_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblZone::class, 'zone_id', 'id');
     }
 
     public function users() {
-        return $this->belongsToMany(\App\Models\User::class, 'user_venue', 'venue_id', 'user_id');
+        return $this->belongsToMany(\Venue\Models\User::class, 'user_venue', 'venue_id', 'user_id');
     }
 
     public function tblMenuItems() {
-        return $this->belongsToMany(\App\Models\TblMenuItem::class, 'venue_menu_items', 'venue_id', 'menu_item_id');
+        return $this->belongsToMany(\Venue\Models\TblMenuItem::class, 'venue_menu_items', 'venue_id', 'menu_item_id');
     }
 
     public function tblBookings() {
-        return $this->hasMany(\App\Models\TblBooking::class, 'venue_id', 'id');
+        return $this->hasMany(\Venue\Models\TblBooking::class, 'venue_id', 'id');
     }
 
     public function userVenues() {
-        return $this->hasMany(\App\Models\UserVenue::class, 'venue_id', 'id');
+        return $this->hasMany(\Venue\Models\UserVenue::class, 'venue_id', 'id');
     }
 
     public function venueMenuItems() {
-        return $this->hasMany(\App\Models\VenueMenuItem::class, 'venue_id', 'id');
+        return $this->hasMany(\Venue\Models\VenueMenuItem::class, 'venue_id', 'id');
     }
 
 
