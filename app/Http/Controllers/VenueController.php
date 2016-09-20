@@ -9,9 +9,10 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
-    public function create(FormBuilder $formBuilder)
+    public function create(/*FormBuilder $formBuilder*/)
     {
-        $form=$formBuilder->create(\Venue\Forms\user::class);
-        return view('VenueMaster', ['form'=>$form]);
+       /* $form=$formBuilder->create(\Venue\Forms\user::class);
+        return view('VenueMaster', ['form'=>$form]);*/
+        return view('Layout.MainLayout');
     }
 }
