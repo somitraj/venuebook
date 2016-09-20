@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class TblProvince extends Model {
 
 
     public function tblCountry() {
-        return $this->belongsTo(\App\Models\TblCountry::class, 'country_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblCountry::class, 'country_id', 'id');
     }
 
 

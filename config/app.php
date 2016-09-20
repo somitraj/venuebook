@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Venue\Providers\AppServiceProvider::class,
+        // Venue\Providers\BroadcastServiceProvider::class,
+        Venue\Providers\AuthServiceProvider::class,
+        Venue\Providers\EventServiceProvider::class,
+        Venue\Providers\RouteServiceProvider::class,
 
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,//added
         Way\Generators\GeneratorsServiceProvider::class,

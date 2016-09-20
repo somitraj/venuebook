@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Venue\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use Venue\Http\Requests;
 use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
     public function create(FormBuilder $formBuilder)
     {
-        $form=$formBuilder->create(\App\Forms\user::class);
+        $form=$formBuilder->create(\Venue\Forms\user::class);
         return view('VenueMaster', ['form'=>$form]);
     }
 }

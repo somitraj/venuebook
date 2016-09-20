@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class UserType extends Model {
 
 
     public function users() {
-        return $this->hasMany(\App\Models\User::class, 'user_type_id', 'id');
+        return $this->hasMany(\Venue\Models\User::class, 'user_type_id', 'id');
     }
 
 
