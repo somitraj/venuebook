@@ -1,10 +1,10 @@
 <?php
 
 
-/*Route::get('/',[
-    'uses'=>'VenueController@create'*/
+Route::get('/',[
+    'uses'=>'VenueController@create'
 
-    Route::get('/', function () {
+/*    Route::get('/', function () {
         return view('');
     });
 Route::get('home','curdoperation@home');
@@ -13,9 +13,10 @@ Route::get('update','curdoperation@update');
 Route::get('read','curdoperation@read');
 Route::get('delete','curdoperation@delete');
 
-Route::post('insert','curdoperation@insert');
+Route::post('insert','curdoperation@insert');*/
 
-?>
+
 
 ]);
+?>
 
