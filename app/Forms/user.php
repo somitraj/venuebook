@@ -10,8 +10,8 @@ class user extends Form
     {
         $this->add('firstname','text',[
             'label'=>'Name',
-            'labelAttr'=>['class'=>'form-control'],
-            'attr'=>['class'=>'col-md-4','id'=>'1']
+            'label_attr'=>['class'=>'col-md-4 label-control'],
+            'attr'=>['class'=>'form-control','id'=>'1'],
         ]);
     }
 }
