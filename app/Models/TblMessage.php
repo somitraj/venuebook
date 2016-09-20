@@ -12,5 +12,9 @@ class TblMessage extends Model {
     protected $fillable = ['id', 'title', 'body'];
 
 
+    public function tblMessageBoxes() {
+        return $this->hasMany(\Venue\Models\TblMessageBox::class, 'message_id', 'id');
+    }
+
 
 }

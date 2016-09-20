@@ -12,5 +12,25 @@ class UserInfo extends Model {
     protected $fillable = ['id', 'user_id', 'first_name', 'last_name', 'date_of_birth', 'nationality_id', 'phone_no', 'mobile_no', 'country_id', 'province_id', 'zone_id', 'district_id', 'locality', 'profile_image', 'identity_image'];
 
 
+    public function tblCountry() {
+        return $this->belongsTo(\Venue\Models\TblCountry::class, 'country_id', 'id');
+    }
+
+    public function tblDistrict() {
+        return $this->belongsTo(\Venue\Models\TblDistrict::class, 'district_id', 'id');
+    }
+
+    public function tblProvince() {
+        return $this->belongsTo(\Venue\Models\TblProvince::class, 'province_id', 'id');
+    }
+
+    public function user() {
+        return $this->belongsTo(\Venue\Models\User::class, 'user_id', 'id');
+    }
+
+    public function tblZone() {
+        return $this->belongsTo(\Venue\Models\TblZone::class, 'zone_id', 'id');
+    }
+
 
 }
