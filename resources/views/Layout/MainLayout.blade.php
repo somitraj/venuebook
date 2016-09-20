@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> {{--imp to make responsive--}}
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
 
@@ -30,12 +30,13 @@
             <img src="images/banner.jpg" >
         </div>
     </div>
-    {{--  <nav class="navbar navbar-default">
+     <div class="navbar navbar-default">
                       <div class="navbar-header">
 
-            {{--  </div>--}}
+              </div>
     {{--
                     </div>--}}
+
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">Contact Us</a></li>
@@ -43,12 +44,14 @@
         <li><a href="#">Register</a></li>
         <li><a href="#">Login</a></li>
     </ul>
+</div>
+
 
 
 
 {{--</nav>--}}
 
-<div>
+
     <div class="row">
         <div class="form-group col-lg-4">
         </div>
@@ -56,10 +59,13 @@
         <div class="form-group col-lg-5">
             <div class="input-group">
                 <input type="text" class="form-control" id="usr" value="Search Your Venue By Capacity / Location">
+
                 <span class="input-group-btn"><button type="button" class="btn btn-primary">Search</button></span>
-                {{--   <h6><a href="#"> advanced search>></a></h6>--}}
+
             </div>
-        </div>
+            <h6><a href="#"> advanced search>></a></h6>
+
+
 
 
 
