@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Venue\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -11,7 +11,7 @@ class LoginController extends BaseController
 {
     public function create(FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(App\Forms\LoginForm::class, [
+        $form = $formBuilder->create(Venue\Forms\LoginForm::class, [
 {
 
 }

@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,23 +13,23 @@ class TblZone extends Model {
 
 
     public function tblZone() {
-        return $this->belongsTo(\App\Models\TblZone::class, 'province_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblZone::class, 'province_id', 'id');
     }
 
     public function tblDistricts() {
-        return $this->hasMany(\App\Models\TblDistrict::class, 'zone_id', 'id');
+        return $this->hasMany(\Venue\Models\TblDistrict::class, 'zone_id', 'id');
     }
 
     public function tblZones() {
-        return $this->hasMany(\App\Models\TblZone::class, 'province_id', 'id');
+        return $this->hasMany(\Venue\Models\TblZone::class, 'province_id', 'id');
     }
 
     public function userInfos() {
-        return $this->hasMany(\App\Models\UserInfo::class, 'zone_id', 'id');
+        return $this->hasMany(\Venue\Models\UserInfo::class, 'zone_id', 'id');
     }
 
     public function venues() {
-        return $this->hasMany(\App\Models\Venue::class, 'zone_id', 'id');
+        return $this->hasMany(\Venue\Models\Venue::class, 'zone_id', 'id');
     }
 
 

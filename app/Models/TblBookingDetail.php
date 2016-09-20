@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class TblBookingDetail extends Model {
 
 
     public function tblBooking() {
-        return $this->belongsTo(\App\Models\TblBooking::class, 'booking_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblBooking::class, 'booking_id', 'id');
     }
 
 
