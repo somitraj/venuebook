@@ -20,5 +20,10 @@ Route::get('/Feedback',[
     'as'=>'web.Feedback',
     'uses'=>'FeedbackController@Feedback'
 ]);
+Route::get('/Register',[
+    'as'=>'web.Register',
+    'uses'=>'UserController@Register'
+
+]);
 ?>
 

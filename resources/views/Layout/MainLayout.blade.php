@@ -38,8 +38,8 @@
     <ul class="nav navbar-nav">
         <li class="active" ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
         <li><a href="#" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
-        <li><a href="#" class="glyphicon glyphicon-tags"> Feedback</a></li>
-        <li><a href="#" class="glyphicon glyphicon-pencil"> Register</a></li>
+        <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
         <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
     </ul>
          </div>
