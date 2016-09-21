@@ -15,7 +15,7 @@
 
         <div class="form-group col-lg-5">
             <div class="input-group">
-                <input type="text" class="form-control" id="usr" value="Search Your Venue By Capacity / Location">
+                <input type="text" class="form-control" id="usr" placeholder="Search Your Venue By Capacity / Location">
 
                 <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
 

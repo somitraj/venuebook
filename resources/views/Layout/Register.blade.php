@@ -9,7 +9,7 @@
 @extends('Layout/MainLayout')
 @section('content')
     <div class="row">
-       <div class="col-md-8 col-md-offset-2">
+       <div class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">
            <div class="panel-primary">
                <div class="panel-heading">
                    Register
