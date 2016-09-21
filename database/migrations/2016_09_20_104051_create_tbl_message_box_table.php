@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUsersTable extends Migration {
+class CreateTblMessageBoxTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,13 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function(Blueprint $table)
+		Schema::create('tbl_message_box', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('username', 32)->nullable();
-			$table->string('password', 32);
-			$table->string('email');
-			$table->integer('user_type_id')->nullable()->index('fk_user_type');
+			$table->integer('user_id')->nullable();
+			$table->integer('box_type_id')->nullable();
+			$table->integer('message_id')->nullable();
+			$table->boolean('is_read');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::drop('tbl_message_box');
 	}
 
 }
