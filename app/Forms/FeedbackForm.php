@@ -10,7 +10,7 @@ class FeedbackForm extends Form
     {
         $this
             ->add('First Name','text', [
-                'wrapper' => ['class' => 'form-group row'],
+                'wrapper' => ['class' => 'form-group '],
                 'label_attr'=>['class'=>'col-md-4 control-label'],
                 'attr' => ['class' =>'col-md-8 form-control field-input']
 
@@ -18,14 +18,14 @@ class FeedbackForm extends Form
             )
 
             ->add('Last Name','text', [
-                'wrapper' => ['class' => 'form-group row'],
+                'wrapper' => ['class' => 'form-group '],
                     'label_attr'=>['class'=>'col-md-4 control-label'],
                 'attr' => ['class' => 'col-md-8 form-control field-input']
 
                  ]
             )
             ->add('E-mail','text', [
-                    'wrapper' => ['class' => 'form-group row'],
+                    'wrapper' => ['class' => 'form-group'],
                     'label_attr'=>['class'=>'col-md-4 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
@@ -33,7 +33,7 @@ class FeedbackForm extends Form
             )
 
             ->add('Comment','textarea', [
-            'wrapper' => ['class' => 'form-group row'],
+            'wrapper' => ['class' => 'form-group '],
                     'label_attr'=>['class'=>'col-md-4 control-label'],
                 'attr' => ['class' => 'col-md-8 form-control field-input']
             ]
