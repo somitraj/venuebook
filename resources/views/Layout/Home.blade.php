@@ -12,6 +12,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <link href="css/custom.css" rel="stylesheet">
 
 
 
@@ -22,12 +23,12 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
+        {{--<div class="col-md-1">
             <img src="images/logo.png" height="120" width="120">
 
-        </div>
+        </div>--}}
         <div class="col-md-11">
-            <img src="images/banner.jpg" >
+            <img src="images/banner1.jpg" >
         </div>
     </div>
      <div class="navbar navbar-default">
@@ -38,11 +39,11 @@
                     </div>--}}
 
     <ul class="nav navbar-nav">
-        <li class="active" ><a href="#" class="glyphicon glyphicon-home"> Home</a></li>
+        <li class="active" ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
         <li><a href="#" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
         <li><a href="#" class="glyphicon glyphicon-tags"> Feedback</a></li>
         <li><a href="#" class="glyphicon glyphicon-pencil"> Register</a></li>
-        <li><a href="#" class="glyphicon glyphicon-hand-right"> Login</a></li>
+        <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
     </ul>
 </div>
 
