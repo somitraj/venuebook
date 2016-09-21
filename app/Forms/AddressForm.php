@@ -4,7 +4,7 @@ namespace Venue\Forms;
 
 use Kris\LaravelFormBuilder\Form;
 
-class RegistrationForm extends Form
+class AddressForm extends Form
 {
     public function buildForm()
     {
