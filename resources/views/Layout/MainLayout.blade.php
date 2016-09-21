@@ -38,11 +38,11 @@
                     </div>--}}
 
     <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Feedback</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Login</a></li>
+        <li class="active" ><a href="#" class="glyphicon glyphicon-home"> Home</a></li>
+        <li><a href="#" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
+        <li><a href="#" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li><a href="#" class="glyphicon glyphicon-pencil"> Register</a></li>
+        <li><a href="#" class="glyphicon glyphicon-hand-right"> Login</a></li>
     </ul>
 </div>
 

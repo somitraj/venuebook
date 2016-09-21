@@ -9,6 +9,22 @@ class LoginForm extends Form
     public function buildForm()
     {
         $this
-            ->add('name','text');
+            ->add('email','text', [
+                'wrapper' => ['class' => 'form-group row'],
+                'attr' => ['class' => 'form-control field-input']
+
+                ]
+            )
+
+            ->add('password','password', [
+                'wrapper' => ['class' => 'form-group row'],
+                'attr' => ['class' => 'form-control field-input']
+
+                 ]
+            )
+
+            ->add('remember me','checkbox')
+
+            ->add('submit','submit');
     }
 }
