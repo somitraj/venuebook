@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> {{--imp to make responsive--}}
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="css/custom.css" rel="stylesheet">
