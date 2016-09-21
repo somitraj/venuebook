@@ -9,7 +9,7 @@ class RegistrationForm extends Form
     public function buildForm()
     {
         $this
-            ->add('Login Name','text',[
+            ->add('','text',[
                 'wrapper' =>['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-4 control-label'],
                 'attr' =>['class' => 'col-md-8 form-control field-input']

@@ -11,14 +11,16 @@ class LoginForm extends Form
         $this
             ->add('email','text', [
                 'wrapper' => ['class' => 'form-group row'],
-                'attr' => ['class' => 'form-control field-input']
+                   /* 'label_attr'=>['class'=>'col-md-4 control-label'],*/
+                'attr' => ['class' => '/*col-md-8*/ form-control field-input']
 
                 ]
             )
 
             ->add('password','password', [
-                'wrapper' => ['class' => 'form-group row'],
-                'attr' => ['class' => 'form-control field-input']
+                    'wrapper' => ['class' => 'form-group row'],
+                   /* 'label_attr'=>['class'=>'col-md-4 control-label'],*/
+                'attr' => ['class' => '/*col-md-8*/ form-control field-input']
 
                  ]
             )
