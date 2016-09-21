@@ -10,14 +10,14 @@ class LoginForm extends Form
     {
         $this
             ->add('email','text', [
-                'wrapper' => ['class' => 'form-group row'],
+                'wrapper' => ['class' => 'form-group'],
                 'attr' => ['class' => 'form-control field-input']
 
                 ]
             )
 
             ->add('password','password', [
-                'wrapper' => ['class' => 'form-group row'],
+                'wrapper' => ['class' => 'form-group'],
                 'attr' => ['class' => 'form-control field-input']
 
                  ]
@@ -25,6 +25,7 @@ class LoginForm extends Form
 
             ->add('remember me','checkbox')
 
-            ->add('submit','submit');
+            ->add('submit','submit',['attr'=>['class'=>'btn btn-primary btn-block']])
+            ->add('Forgot Password?','submit',['attr'=>['class'=>'btn btn-primary btn-block']]);
     }
 }
