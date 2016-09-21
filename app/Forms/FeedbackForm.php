@@ -10,31 +10,31 @@ class FeedbackForm extends Form
     {
         $this
             ->add('First Name','text', [
-                'wrapper' => ['class' => 'form-group '],
-                'label_attr'=>['class'=>'col-md-4 control-label'],
+                'wrapper' => ['class' => 'form-group row'],
+                'label_attr'=>['class'=>'col-md-3 control-label'],
                 'attr' => ['class' =>'col-md-8 form-control field-input']
 
                 ]
             )
 
             ->add('Last Name','text', [
-                'wrapper' => ['class' => 'form-group '],
-                    'label_attr'=>['class'=>'col-md-4 control-label'],
+                'wrapper' => ['class' => 'form-group row'],
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
                 'attr' => ['class' => 'col-md-8 form-control field-input']
 
                  ]
             )
             ->add('E-mail','text', [
-                    'wrapper' => ['class' => 'form-group'],
-                    'label_attr'=>['class'=>'col-md-4 control-label'],
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
 
             ->add('Comment','textarea', [
-            'wrapper' => ['class' => 'form-group '],
-                    'label_attr'=>['class'=>'col-md-4 control-label'],
+            'wrapper' => ['class' => 'form-group row'],
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
                 'attr' => ['class' => 'col-md-8 form-control field-input']
             ]
             )
