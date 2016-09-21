@@ -11,6 +11,8 @@ Route::get('/login',[
 Route::get('/Feedback',[
     'as'=>'web.Feedback',
     'uses'=>'FeedbackController@Feedback'
+
+
 ]);
 ?>
 
