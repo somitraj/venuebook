@@ -4,6 +4,8 @@
 Route::get('/',[
     'uses'=>'VenueController@create'
 
+/*Route::get()*/
+
 /*    Route::get('/', function () {
         return view('');
     });
