@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class TblDistrict extends Model {
 
 
     public function tblZone() {
-        return $this->belongsTo(\App\Models\TblZone::class, 'zone_id', 'id');
+        return $this->belongsTo(\Venue\Models\TblZone::class, 'zone_id', 'id');
     }
 
 

@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace Venue\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +13,11 @@ class TblMenuItem extends Model {
 
 
     public function venues() {
-        return $this->belongsToMany(\App\Models\Venue::class, 'venue_menu_items', 'menu_item_id', 'venue_id');
+        return $this->belongsToMany(\Venue\Models\Venue::class, 'venue_menu_items', 'menu_item_id', 'venue_id');
     }
 
     public function venueMenuItems() {
-        return $this->hasMany(\App\Models\VenueMenuItem::class, 'menu_item_id', 'id');
+        return $this->hasMany(\Venue\Models\VenueMenuItem::class, 'menu_item_id', 'id');
     }
 
 
