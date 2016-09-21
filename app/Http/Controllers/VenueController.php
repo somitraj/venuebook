@@ -13,6 +13,6 @@ class VenueController extends Controller
     {
        /* $form=$formBuilder->create(\Venue\Forms\user::class);
         return view('VenueMaster', ['form'=>$form]);*/
-        return view('Layout.MainLayout');
+        return view('Layout.Home');
     }
 }
