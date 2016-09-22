@@ -12,7 +12,7 @@
                 <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                        Login
+                                        <p style="text-align:center">Login</p>
                                 </div>
                                 <div class="panel-body">
                                         {!! form($form) !!}
