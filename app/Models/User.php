@@ -16,5 +16,21 @@ class User extends Model {
         return $this->belongsTo(\Venue\Models\UserType::class, 'user_type_id', 'id');
     }
 
+    public function venues() {
+        return $this->belongsToMany(\Venue\Models\Venue::class, 'user_venue', 'user_id', 'venue_id');
+    }
+
+    public function tblBookings() {
+        return $this->hasMany(\Venue\Models\TblBooking::class, 'user_id', 'id');
+    }
+
+    public function userInfos() {
+        return $this->hasMany(\Venue\Models\UserInfo::class, 'user_id', 'id');
+    }
+
+    public function userVenues() {
+        return $this->hasMany(\Venue\Models\UserVenue::class, 'user_id', 'id');
+    }
+
 
 }
