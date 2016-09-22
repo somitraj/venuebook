@@ -12,7 +12,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel-primary">
                 <div class="panel-heading">
-                    Address
+                    <p style="text-align:center"> Address</p>
                 </div>
                 <div class="panel-body">
                     {!! form($form) !!}

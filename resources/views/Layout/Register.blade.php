@@ -12,7 +12,8 @@
        <div class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">
            <div class="panel-primary">
                <div class="panel-heading">
-                   Register
+                   <p style="text-align:center">Register</p>
+
                </div>
                <div class="panel-body">
                    {!! form($form) !!}
