@@ -38,10 +38,7 @@
             <img class="img-responsive" src="images/banner2.jpg" >
         </div>
     </div>
-     <nav class="navbar navbar-default">
-                      <div class="navbar-header">
 
-              </div>
 @yield('menu')
 
 

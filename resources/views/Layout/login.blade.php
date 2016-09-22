@@ -8,6 +8,10 @@
         ?>
 @extends('Layout/MainLayout')
 @section('menu')
+        <nav class="navbar navbar-default">
+                <div class="navbar-header">
+
+                </div>
         <ul class="nav navbar-nav">
                 <li ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
                 <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
