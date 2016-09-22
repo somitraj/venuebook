@@ -26,6 +26,5 @@ Route::get('/Contact',[
 ]);
 
 
-
 ?>
 
