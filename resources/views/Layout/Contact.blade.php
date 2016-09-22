@@ -10,22 +10,30 @@
 @extends('Layout/MainLayout')
 @section('content')
 <div>
-    <p>Feel Free To Contact Us :</p>
-    <div class="glyphicon glyphicon-globe">Our Office</div>
+    <marquee direction="right"> <h3>Feel Free To Contact Us :</h3></marquee>
+    <h3><div class="glyphicon glyphicon-globe">Contact Info:</div></h3>
 
-    <div class="map">Maps</div>
-    <h3>Google Map</h3>
-    <script>
-        function initMap(){
-            var mapDiv=document.getElementById('map');
-            var map=new google.maps.Map(mapDiv,{
-                center:{lat:44.540, lng: -78.546},
-                zoom:8
-            });
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-    </script>
+    <div class="map">
+    <div class="row">
+        <div id="map-outer" class="col-md-12">
+            <div id="address" class="col-md-4">
+                <h2>Our Location</h2>
+                <address>
+                    <strong>AuxFin Pvt Ltd.</strong><br>
+                    Kamaladi<br>
+                    14404<br>
+                    Kathmandu<br>
+                    Nepal<br>
+                    <abbr>Phone:</abbr> +01-4255565
+                </address>
+            </div>
+            <div id="map-container" class="col-md-8">
+                Here Goes The Map
+            </div>
+        </div><!-- /map-outer -->
+    </div> <!-- /row -->
+    </div>
+
 
 </div>
 
