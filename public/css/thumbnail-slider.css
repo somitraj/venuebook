@@ -1,6 +1,6 @@
 
 #thumbnail-slider {    
-    height:400px; 
+    height:410px;
     display:inline-block;
     padding:0px ; /*Increse its value if want to move the arrows out of the div.inner */
     position:relative;
