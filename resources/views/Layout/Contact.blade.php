@@ -28,9 +28,20 @@
                 </address>
             </div>
             <div class="map-container" class="col-md-8">
-                Here Goes The Map
+              <div id="map"></div>
                 <script>
+                    function initMap() {
+                        var mapCanvas = document.getElementById("map");
+                        var mapOptions = {
+                            center: new google.maps.LatLng(28.0, 84.0),
+                            zoom: 10
+                        }
+                        var map = new google.maps.Map(mapCanvas, mapOptions);
+                    }
+                </script>
 
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?callback=initMap">
                 </script>
             </div>
         </div><!-- /map-outer -->
