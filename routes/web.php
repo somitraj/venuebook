@@ -29,6 +29,10 @@ Route::get('/Book',[
     'as'=>'web.Book',
     'uses'=>'BookingController@Book'
 ]);
+Route::get('/BookTotal',[
+    'as'=>'web.BookTotal',
+    'uses'=>'BookingController@BookTotal'
+]);
 
 
 ?>
