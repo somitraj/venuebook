@@ -7,6 +7,16 @@
  */
 ?>
 @extends('Layout/MainLayout')
+@section('menu')
+    <ul class="nav navbar-nav">
+        <li ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
+        <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
+        <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li class="active"><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
+        <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
+    </ul>
+    </nav>
+@endsection
 @section('content')
     <div class="row">
        <div class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">

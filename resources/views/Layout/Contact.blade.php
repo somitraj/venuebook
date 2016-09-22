@@ -8,6 +8,16 @@
  */
 ?>
 @extends('Layout/MainLayout')
+@section('menu')
+    <ul class="nav navbar-nav">
+        <li ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
+        <li class="active"><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
+        <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
+        <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
+    </ul>
+    </nav>
+@endsection
 @section('content')
 <div>
     <marquee direction="right"> <h3>Feel Free To Contact Us :</h3></marquee>
