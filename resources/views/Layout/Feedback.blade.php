@@ -8,5 +8,17 @@
         ?>
 @extends('Layout/MainLayout')
 @section('content')
-        {!! form($form) !!}
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                        Feedback
+                                </div>
+                                <div class="panel-body">
+                                        {!! form($form) !!}
+                                </div>
+                        </div>
+                </div>
+        </div>
+
 @endsection
