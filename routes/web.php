@@ -20,6 +20,10 @@ Route::get('/Feedback',[
     'as'=>'web.Feedback',
     'uses'=>'FeedbackController@Feedback'
 ]);
+Route::get('/Contact',[
+    'as'=>'web.Contact',
+    'uses'=>'UserController@Contact'
+]);
 
 
 
