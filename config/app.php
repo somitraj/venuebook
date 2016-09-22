@@ -183,7 +183,7 @@ return [
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         User11001\EloquentModelGenerator\EloquentModelGeneratorProvider::class,
 
-
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
     ],
 
