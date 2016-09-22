@@ -23,6 +23,11 @@ Route::get('/Feedback',[
 Route::get('/Contact',[
     'as'=>'web.Contact',
     'uses'=>'UserController@Contact'
+    ]);
+
+Route::get('/Book',[
+    'as'=>'web.Book',
+    'uses'=>'BookingController@Book'
 ]);
 
 
