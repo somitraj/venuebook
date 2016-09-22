@@ -42,12 +42,16 @@
         <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
     </ul>
          </nav>
-         @yield('content')
+    <div class="between">
 
+
+         @yield('content')
+    </div>
          <div class="footer">
              <p>Copyright © venuebook.com | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
 
          </div>
+
 </div>
 
 
