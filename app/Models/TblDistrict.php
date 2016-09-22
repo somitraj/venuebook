@@ -16,5 +16,13 @@ class TblDistrict extends Model {
         return $this->belongsTo(\Venue\Models\TblZone::class, 'zone_id', 'id');
     }
 
+    public function userInfos() {
+        return $this->hasMany(\Venue\Models\UserInfo::class, 'district_id', 'id');
+    }
+
+    public function venues() {
+        return $this->hasMany(\Venue\Models\Venue::class, 'district_id', 'id');
+    }
+
 
 }

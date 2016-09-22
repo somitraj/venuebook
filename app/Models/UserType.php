@@ -12,6 +12,10 @@ class UserType extends Model {
     protected $fillable = ['id', 'type_name'];
 
 
+    public function tblMessageBoxes() {
+        return $this->hasMany(\Venue\Models\TblMessageBox::class, 'user_id', 'id');
+    }
+
     public function users() {
         return $this->hasMany(\Venue\Models\User::class, 'user_type_id', 'id');
     }

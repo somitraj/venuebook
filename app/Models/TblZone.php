@@ -24,5 +24,13 @@ class TblZone extends Model {
         return $this->hasMany(\Venue\Models\TblZone::class, 'province_id', 'id');
     }
 
+    public function userInfos() {
+        return $this->hasMany(\Venue\Models\UserInfo::class, 'zone_id', 'id');
+    }
+
+    public function venues() {
+        return $this->hasMany(\Venue\Models\Venue::class, 'zone_id', 'id');
+    }
+
 
 }
