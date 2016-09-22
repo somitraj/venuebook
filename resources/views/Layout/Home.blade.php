@@ -30,41 +30,77 @@
 <h2>Trending :</h2>
 
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="/images/venue1.jpg" height="300" width="300">
-            </div>
 
-            <div class="item">
-                <img src="/images/venue2.jpg" height="300" width="300">
+    <!--start-->
+    <div style="width:1000px;margin:20px auto;">
+        <div id="ninja-slider" style="float:left;">
+            <div class="slider-inner">
+                <ul>
+                    <li><a class="ns-img" href="images/venue1.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue2.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue3.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue4.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue5.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue6.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue7.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue8.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue9.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue1.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue2.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue3.jpg"></a></li>
+                </ul>
+                <div class="fs-icon" title="Expand/Close"></div>
             </div>
-
-            <div class="item">
-                <img src="/images/venue3.jpg" height="300" width="300">
-            </div>
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-
-
+        <div id="thumbnail-slider" style="float:left;">
+            <div class="inner">
+                <ul>
+                    <li>
+                        <a class="thumb" href="images/venue1.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue2.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue3.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue4.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue5.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue6.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue7.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue8.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue9.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue1.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue2.jpg"></a>
+                    </li>
+                    <li>
+                        <a class="thumb" href="images/venue3.jpg"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    </body>
+    </html>
+
 
 
 @endsection
