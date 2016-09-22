@@ -27,8 +27,11 @@
                     <abbr>Phone:</abbr> +01-4255565
                 </address>
             </div>
-            <div id="map-container" class="col-md-8">
+            <div class="map-container" class="col-md-8">
                 Here Goes The Map
+                <script>
+
+                </script>
             </div>
         </div><!-- /map-outer -->
     </div> <!-- /row -->
