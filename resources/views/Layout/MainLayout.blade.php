@@ -31,26 +31,33 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container" style="width: 1170px">
     <div class="row">
 
         <div class="col-md-12">
-            <img class="img-responsive" src="images/banner2.jpg" >
+            <img class="img-responsive" src="images/banner new.jpg" style="width: 1170px">
         </div>
     </div>
 
 @yield('menu')
 
 
-    <div class="between" {{--style="width:1140px;height:700px--}} ">
-
+    <div class="between">
 
          @yield('content')
     </div>
-         <div class="footer">
-             <p style="color: black;">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
 
-         </div>
+         <footer>
+             <div class="row" style="background-color: white">
+                 <div class="col-md-4">
+                     <img src="images/logo.png" style="width: 80px;height: 80px">
+                     </div>
+                 <div class="col-md-8">
+                     <br><br>
+             <p style="color: black;">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
+                     </div>
+            </div>
+         </footer>
 
 </div>
 
