@@ -7,18 +7,7 @@
  */
 ?>
 @extends('Layout/AdminLayout')
-@section('content')
-    <div class="row">
-        <div class="form-group col-lg-11">
-        </div>
-
-        <div class="form-group col-lg-1">
-            <div class="input-group">
-                <button type="button" class="btn btn-primary "> Logout
-                    <span class="glyphicon glyphicon-log-out"></span>
-                </button>
-                @endsection
-@section('menu')
+            @section('menu')
         <nav class="navbar navbar-default">
         <div class="navbar-header">
 
@@ -32,7 +21,8 @@
 
                 <span class="caret"></span>
 
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu">/
+
                 <li><a href="#">Username</a></li>
                 <li><a href="#">Password</a></li>
             </ul>
@@ -41,10 +31,11 @@
 
 
     </nav>
-    </body>
-    </html>
+                <button type="button" class="btn btn-primary" style="float: right ">
+                <span class="glyphicon glyphicon-log-out"></span>Logout
+                </button>
+
+
 
 @endsection
-
-
 

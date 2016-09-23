@@ -42,11 +42,17 @@
 
          @yield('content')
     </div>
-         <div class="footer">
-             <p>Copyright © venuebook.com | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
-
-         </div>
-
+    <footer>
+        <div class="row" style="background-color: white">
+            <div class="col-md-4">
+                <img src="images/logo.png" style="width: 80px;height: 80px">
+            </div>
+            <div class="col-md-8">
+                <br><br>
+                <p style="color: black;">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
 </div>
 
 
