@@ -14,6 +14,6 @@ class VenueController extends Controller
        /* $form=$formBuilder->create(\Venue\Forms\user::class);
         return view('VenueMaster', ['form'=>$form]);*/
        /* return view('Layout.Home');*/
-         return view('Layout.Admin');
+         return view('Layout.Home');
     }
 }
