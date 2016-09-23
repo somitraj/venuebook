@@ -7,6 +7,17 @@
  */
 ?>
 @extends('Layout/AdminLayout')
+@section('content')
+    <div class="row">
+        <div class="form-group col-lg-11">
+        </div>
+
+        <div class="form-group col-lg-1">
+            <div class="input-group">
+                <button type="button" class="btn btn-primary "> Logout
+                    <span class="glyphicon glyphicon-log-out"></span>
+                </button>
+                @endsection
 @section('menu')
         <nav class="navbar navbar-default">
         <div class="navbar-header">
@@ -26,15 +37,7 @@
                 <li><a href="#">Password</a></li>
             </ul>
             </a></li>
-       <div class="row">
-            <div class="form-group col-lg-11">
-            </div>
 
-            <div class="form-group col-lg-1">
-               <div class="input-group">
-                    <button type="button" class="btn btn-primary "> Logout
-                        <span class="glyphicon glyphicon-log-out"></span>
-                    </button>
 
 
     </nav>
