@@ -42,6 +42,9 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
-
+Route::get('/Admin',[
+    'as'=>'web.login',
+    'uses'=>'UserController@login'
+]);
 ?>
 
