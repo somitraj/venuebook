@@ -11,16 +11,19 @@ class LoginForm extends Form
         $this
             ->add('email','text', [
                 'wrapper' => ['class' => 'form-group'],
-                'attr' => ['class' => 'form-control field-input']
+                'attr' => ['class' => 'form-control field-input','data-toggle'=>"tooltip",'title'=>"abcd@example.com"],
+                    'rules'=>['required','email']
 
                 ]
             )
 
             ->add('password','password', [
                 'wrapper' => ['class' => 'form-group'],
-                'attr' => ['class' => 'form-control field-input']
+                'attr' => ['class' => 'form-control field-input'],
+                    'rules'=>['required','min:5']
 
-                 ]
+
+                ]
             )
 
             ->add('remember me','checkbox')

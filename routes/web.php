@@ -4,7 +4,7 @@
 Route::get('/',[
     'uses'=>'VenueController@create'
 ]);
-Route::get('/login',[
+Route::any('/login',[
     'as'=>'web.login',
     'uses'=>'UserController@login'
 ]);
