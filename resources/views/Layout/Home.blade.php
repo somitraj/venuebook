@@ -22,7 +22,7 @@
     </nav>
 @endsection
 @section('content')
-
+<br><br>
     <div class="row">
         <div class="form-group col-lg-4">
         </div>
@@ -34,14 +34,14 @@
                 <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
 
             </div>
-            <h6><a href="#"> advanced search>></a></h6>
+            <h5><a href="#"> advanced search>></a></h5>
 
 
     </div>
 
 
 </div>
-<h2>Trending :</h2>
+<h2 >Trending :</h2>
 
 
 

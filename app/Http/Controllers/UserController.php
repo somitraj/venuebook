@@ -35,6 +35,14 @@ class UserController extends BaseController
     {
         return view('Layout.Contact', compact('form'));
     }
+    public function Terms()
+    {
+        return view('Layout.Terms', compact('form'));
+    }
+    public function Privacy()
+    {
+        return view('Layout.Privacy', compact('form'));
+    }
     public function Manager()
     {
         return view('Layout.Manager', compact('form'));

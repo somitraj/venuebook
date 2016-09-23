@@ -38,6 +38,14 @@ Route::get('/Manager',[
     'uses'=>'UserController@Manager'
 ]);
 
+Route::get('/Terms',[
+    'as'=>'web.Terms',
+    'uses'=>'UserController@Terms'
+]);
+Route::get('/Privacy',[
+    'as'=>'web.Privacy',
+    'uses'=>'UserController@Privacy'
+]);
 
 ?>
 
