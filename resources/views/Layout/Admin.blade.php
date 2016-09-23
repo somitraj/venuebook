@@ -6,7 +6,7 @@
  * Time: 12:51 PM
  */
 ?>
-@extends('Layout/AdminLayout')
+@extends('Layout/MainLayout')
             @section('menu')
         <nav class="navbar navbar-default">
         <div class="navbar-header">
