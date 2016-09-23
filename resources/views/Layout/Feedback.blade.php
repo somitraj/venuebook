@@ -28,7 +28,7 @@
                                 <div class="panel-heading">
                                         <p style="text-align:center">Feedback</p>
                                 </div>
-                                <div class="panel-body">
+                                <div class="panel-body" >
                                         {!! form($form) !!}
                                 </div>
                         </div>

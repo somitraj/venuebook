@@ -42,13 +42,13 @@
 @yield('menu')
 
 
-    <div class="between">
+    <div class="between" {{--style="width:1140px;height:700px--}} ">
 
 
          @yield('content')
     </div>
          <div class="footer">
-             <p>Copyright © venuebook.com | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+             <p style="color: black;">Copyright © venuebook.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
 
          </div>
 
