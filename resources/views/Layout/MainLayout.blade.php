@@ -35,7 +35,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            <img class="img-responsive" src="images/banner new.jpg" style="width: 1170px">
+        <a href="/"> <img class="img-responsive" src="images/banner new.jpg" style="width: 1170px"></a>
         </div>
     </div>
 

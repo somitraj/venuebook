@@ -41,7 +41,7 @@
 
 
 </div>
-<h2 >Trending :</h2>
+<h2><b>Trending :</b></h2>
 
 
 

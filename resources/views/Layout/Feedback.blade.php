@@ -22,7 +22,7 @@
         </nav>
 @endsection
 @section('content')
-        <div class="row">
+        <div class="row" style="padding-top: 50px">
                 <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-primary">
                                 <div class="panel-heading">
