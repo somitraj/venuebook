@@ -9,24 +9,24 @@
 @extends('Layout/MainLayout')
 @section('menu')
 
-   {{-- <nav class="navbar navbar-default navbar-inverse">
+    <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
-           --}}{{-- <div class="navbar-header">
+          {{--  <div class="navbar-header">
                 <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>--}}{{--
+            </div>--}}
             <ul class="nav navbar-nav">
                 <li class="active"  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
                 <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
                 <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
-                <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
+                <li><a href="/login" cnavs="glyphicon glyphicon-hand-right"> Login</a></li>
             </ul>
         </div>
-    </nav>--}}
+    </nav>
 
 
 
-   <nav class="navbar navbar-default">
+ {{--  <nav class="navbar navbar-default">
         <div class="navbar-header">
 
         </div>
@@ -37,7 +37,7 @@
         <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
         <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
     </ul>
-    </nav>
+    </nav>--}}
 
 
 @endsection
@@ -47,13 +47,23 @@
         <div class="form-group col-lg-4">
         </div>
 
-        <div class="form-group col-lg-5">
+        <div class="form-group col-lg-4">
             <div class="input-group">
                 <input type="text" class="form-control" id="usr" placeholder="Search Your Venue By Capacity / Location">
 
                 <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
 
+
             </div>
+           {{-- <div class="form-group col-lg-4">
+                <select class="form-control" id="district">
+                    <option>kathmandu</option>
+                    <option>lalitpur</option>
+                    <option>bhaktaput</option>
+                    <option>nuwakot</option>
+                </select>
+            </div>
+         </div>--}}
             <h5><a href="#"> advanced search>></a></h5>
 
 
@@ -62,7 +72,7 @@
 
 </div>
 
-<h2><b>Trending :</b></h2>
+
 
 
 
@@ -70,6 +80,7 @@
 
     <!--start-->
     <div style="width:1000px;margin:20px auto;">
+        <h2><b>Trending :</b></h2>
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>

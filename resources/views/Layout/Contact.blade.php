@@ -9,13 +9,13 @@
 ?>
 @extends('Layout/MainLayout')
 @section('menu')
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
             {{--  <div class="navbar-header">
                   <a class="navbar-brand" href="#">WebSiteName</a>
               </div>--}}
             <ul class="nav navbar-nav">
-                <li   ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
+                <li  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
                 <li class="active"><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
                 <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>

@@ -1,5 +1,5 @@
 body {
-    background-color:/*white; */       rgb(10, 10, 10);
+    background-color:white;        /*rgb(10, 10, 10);*/
     color:black;
 }
 /*.navbar-default{
@@ -18,7 +18,7 @@ label{
 .between{
     /*  background-color: white;*/
 
-    background-color:/*#eee */  rgb(248,229,152) /*#bfa577*//*rgb(119, 71, 71)*//*rgb(158, 126, 126)*/;"
+  /*  background-color:!*#eee *!  rgb(248,229,152) !*#bfa577*!!*rgb(119, 71, 71)*!!*rgb(158, 126, 126)*!;"*/
 
 }
 
@@ -55,6 +55,7 @@ footer{
 
 h2{
     font-family: 'Courgette', cursive;
+   /* margin-left: 100px;*/
 }
 
 .site-header {

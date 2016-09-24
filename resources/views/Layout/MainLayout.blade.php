@@ -34,33 +34,34 @@
 </head>
 
 <body>
-<div class="container" style="width:1170px;">
+{{--<div class="container" style="width:1170px;">--}}
 
-{{--<header class="site-header" role="banner">
+<header class="site-header" role="banner">
     <div class="wrapper">
 
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="/images/logo2.png" style="height: 130px;width: 130px">
+                       <a href="/"> <img src="/images/logoo.png" style="height: 130px;width: 130px"></a>
                     </div>
                     <div class="col-md-6">
-                        <p style="color: white;font-size: 60px;text-align: center">VENUEBOOKING</p>
+                        <p style="color: white;font-size: 60px;text-align: center;">VENUEBOOKING</p>
+                        <p style="color: white;font-size: 24px;text-align: center;margin-top: -35px;margin-left: 150px;">BOOK YOUR VENUE HERE</p>
                     </div>
                 </div>
      </div>
-</header>--}}
+</header>
+{{--
     <div class="row">
 
         <div class="col-md-12">
         <a href="/"> <img class="img-responsive" src="images/banner new.jpg" style="width:/*auto*/ 1170px"></a>
         </div>
     </div>
+--}}
 
 @yield('menu')
 
-{{--
-<div class="container" style="width:1170px/*auto*/;">
---}}
+
     <div class="between">
 
          @yield('content')
@@ -70,16 +71,16 @@
          <footer>
              <div class="row">
                  <div class="col-md-4">
-                     <img src="images/logo1.png" style="width: 80px;height: 80px">
+                     <img src="images/logofoot.png" style="width: 100px;height: 100px">
                      </div>
                  <div class="col-md-8">
                      <br><br>
-             <p style="color: black;">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
+             <p style="color: black;font-size: medium">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
                      </div>
             </div>
          </footer>
 
-</div>
+{{--</div>--}}
 
 
 
