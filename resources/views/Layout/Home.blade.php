@@ -8,7 +8,25 @@
 ?>
 @extends('Layout/MainLayout')
 @section('menu')
-    <nav class="navbar navbar-default">
+
+   {{-- <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+           --}}{{-- <div class="navbar-header">
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>--}}{{--
+            <ul class="nav navbar-nav">
+                <li class="active"  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
+                <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
+                <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+                <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
+                <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
+            </ul>
+        </div>
+    </nav>--}}
+
+
+
+   <nav class="navbar navbar-default">
         <div class="navbar-header">
 
         </div>
@@ -20,6 +38,8 @@
         <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
     </ul>
     </nav>
+
+
 @endsection
 @section('content')
 <br><br>
@@ -41,7 +61,9 @@
 
 
 </div>
+
 <h2><b>Trending :</b></h2>
+
 
 
 

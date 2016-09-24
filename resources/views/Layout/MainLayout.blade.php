@@ -16,7 +16,12 @@
     <link href="css/ninja-slider.css" rel="stylesheet" />
     <script src="js/ninja-slider.js"></script>
     <link href="css/thumbnail-slider.css" rel="stylesheet" type="text/css" />
+
     <script src="js/thumbnail-slider.js" type="text/javascript"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet"> {{--for icons style--}}
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    @yield('script')
 
     {{--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>--}}
 {{--
@@ -24,33 +29,48 @@
 --}}
 
 
-
-
     @yield('head')
 
 </head>
 
 <body>
-<div class="container" style="width: 1170px">
+<div class="container" style="width:1170px;">
+
+{{--<header class="site-header" role="banner">
+    <div class="wrapper">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/images/logo2.png" style="height: 130px;width: 130px">
+                    </div>
+                    <div class="col-md-6">
+                        <p style="color: white;font-size: 60px;text-align: center">VENUEBOOKING</p>
+                    </div>
+                </div>
+     </div>
+</header>--}}
     <div class="row">
 
         <div class="col-md-12">
-        <a href="/"> <img class="img-responsive" src="images/banner new.jpg" style="width: 1170px"></a>
+        <a href="/"> <img class="img-responsive" src="images/banner new.jpg" style="width:/*auto*/ 1170px"></a>
         </div>
     </div>
 
 @yield('menu')
 
-
+{{--
+<div class="container" style="width:1170px/*auto*/;">
+--}}
     <div class="between">
 
          @yield('content')
     </div>
 
+{{--</div>--}}
          <footer>
-             <div class="row" style="background-color: white">
+             <div class="row">
                  <div class="col-md-4">
-                     <img src="images/logo.png" style="width: 80px;height: 80px">
+                     <img src="images/logo1.png" style="width: 80px;height: 80px">
                      </div>
                  <div class="col-md-8">
                      <br><br>
@@ -67,8 +87,7 @@
 
 
 
-<script src="jquery/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-@yield('script')
+
+
 </body>
 </html>

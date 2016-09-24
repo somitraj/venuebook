@@ -1,57 +1,50 @@
 body {
-    background-color:rgb(10, 10, 10);
+    background-color:/*white; */       rgb(10, 10, 10);
     color:black;
-
-
 }
+/*.navbar-default{
+    background-color: black;
+}*/
 h2{
     padding-left: 20px;
 }
 label{
     color: black;
 }
+/*.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #c7c7c7;
+    background-color: #292225;
+}*/
 .between{
-   /* background:
-            linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-            linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-            linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-            linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-            linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-            linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    /*  background-color: white;*/
 
-    background-size: 20px 20px;
-    */
-    background-color: white;
+    background-color:/*#eee */  rgb(248,229,152) /*#bfa577*//*rgb(119, 71, 71)*//*rgb(158, 126, 126)*/;"
 
 }
-.navbar{
-    margin-bottom: 0;
+
+
+
+.active {
+    background-color: #4CAF50;
+    color: white;
 }
 
-/*.map{
-    width: 100%;
-    height: 400px;
-}*/
-
-.footer {
-   /*background-color: white;
-    height: 20px;*/
-
-    float: left;
-    width: 20.8%;
-    margin-top: 3%;
-    text-align: center;
+.nav-bar {
+    top: 110%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000;
 }
-/*.map{
-    width:100%;
-    height: 100%;
-    height:calc(100% - 0px);
 
-}
-}*/
-.map-container {
-    width: 100%;
-    height: 600px;
+
+
+footer {
+
+
+     background-color: #f2f2f2;
+    padding: 30px 0 10px;
+    color: #636363;
 }
 
 footer{
@@ -60,5 +53,17 @@ footer{
 }
 
 
+h2{
+    font-family: 'Courgette', cursive;
+}
 
+.site-header {
+    padding: 15px 0;
+    background-color: #204a80;
+    color: #f1ec5e;
+}
+
+p{
+    font-family: Stencil;
+}
 
