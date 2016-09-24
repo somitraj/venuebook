@@ -42,7 +42,7 @@
        <div class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">
            <div class="panel panel-primary">
                <div class="panel-heading">
-                   <p style="text-align:center">Register</p>
+                   <h3 style="text-align:center">Register</h3>
 
                </div>
                <div class="panel-body">

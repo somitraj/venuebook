@@ -29,7 +29,8 @@
     <marquee direction="right"> <h3>Feel Free To Contact Us :</h3></marquee>
     <h3><div class="glyphicon glyphicon-globe" style="padding-left: 40px">Contact Info:</div></h3>
 
-    <div class="map">
+
+    <div class="map" >
     <div class="row">
         <div id="map-outer" class="col-md-12">
             <div id="address" class="col-md-4" style="padding-left: 100px;padding-top: 50px">
