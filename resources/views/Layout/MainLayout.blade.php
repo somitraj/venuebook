@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-md-6">
                         <p style="color: white;font-size: 60px;text-align: center;">VENUEBOOKING</p>
-                        <p style="color: white;font-size: 24px;text-align: center;margin-top: -35px;margin-left: 150px;">BOOK YOUR VENUE HERE</p>
+                        <p style="color: white;font-size: 20px;text-align: center;margin-top: -35px;margin-left: 150px;">BOOK YOUR VENUE HERE</p>
                     </div>
                 </div>
      </div>
