@@ -19,7 +19,7 @@
                 <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
                 <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
-                <li><a href="/login" cnavs="glyphicon glyphicon-hand-right"> Login</a></li>
+                <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
             </ul>
         </div>
     </nav>
@@ -43,7 +43,8 @@
 @endsection
 @section('content')
 <br><br>
-    <div class="row">
+
+    <div class="row" style="border: 1px solid;    padding-top: 20px;  background-color: #F8F6F2;margin-left: 80px;margin-right: 80px;">
         <div class="form-group col-lg-4">
         </div>
 
