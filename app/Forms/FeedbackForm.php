@@ -35,7 +35,8 @@ class FeedbackForm extends Form
             ->add('Comment','textarea', [
             'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                'attr' => ['class' => 'col-md-8 form-control field-input']
+                'attr' => ['class' => 'col-md-8 form-control field-input',],
+
             ]
             )
 

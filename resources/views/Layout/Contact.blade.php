@@ -38,10 +38,10 @@
                 <div class="panel-body text-center">
                     <h3>Address</h3>
                     <div>
-                        2217 Washington Blvd<br>
-                        Washington DC<br>
-                        #(703) 1234 1234<br>
-                        service@company.com<br>
+                        AuxFIN pvt ltd.<br>
+                        Kamaladi , Kathmandu<br>
+                        (+977) - 014250550<br>
+                        service@auxfin.com<br>
                     </div>
                     <hr>
                     <div id="map"></div>
