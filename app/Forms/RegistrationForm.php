@@ -53,7 +53,7 @@ class RegistrationForm extends Form
                 ]
             )
 
-
+           -> compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country')],['province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district')])
 
             ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }

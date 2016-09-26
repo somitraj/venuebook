@@ -8,9 +8,38 @@ class AddressForm extends Form
 {
     public function buildForm()
     {
-      $this
+        $countries=$this->getFormOption('country');
+        $provinces=$this->getFormOption('province');
+        $zones=$this->getFormOption('zone');
+        $districts=$this->getFormOption('district');
+
+        $countryOption=[];
+        $provinceOption=[];
+        $zoneOption=[];
+        $districtOption=[];
+
+        foreach($countries->tbl_country as $country){
+            $countryOption[$country->id]=$country->name;
+        }
+
+        foreach($provinces->tbl_provinces as $province){
+            $provinceOption[$province->id]=$province->name;
+        }
+
+        foreach($zones->tbl_zones as $zone){
+            $zoneOption[$zone->id]=$zone->name;
+        }
+
+        foreach($districts->tbl_districts as $district){
+            $districtOption[$district->id]=$district->name;
+        }
+
+
+
+
+        $this
                      ->add('Country', 'select', [
-                    'choices' => ['np' => 'Nepal','en' => 'English', 'fr' => 'France'],
+                    'choices' => $countryOption,
                    /*  'selected' => 'en',*/
                      'empty_value' => '=== Select Country ===',
                     'wrapper' =>['class' => 'form-group row'],
@@ -22,7 +51,7 @@ class AddressForm extends Form
 
 
             ->add('Province','select', [
-                    'choices' => ['en' => 'English', 'fr' => 'French'],
+                    'choices' => $provinceOption,
                     /*'selected' => 'en',*/
                     'empty_value' => '=== Select Province ===',
                     'wrapper' => ['class' => 'form-group row'],
@@ -32,7 +61,7 @@ class AddressForm extends Form
                 ]
             )
             ->add('Zones','select', [
-                    'choices' => ['bg' => 'Bagmati', 'Nr' => 'Narayani'],
+                    'choices' => $zoneOption,
                  /*   'selected' => 'bg',*/
                     'empty_value' => '=== Select Zone ===',
                     'wrapper' => ['class' => 'form-group row'],
@@ -42,7 +71,7 @@ class AddressForm extends Form
                 ]
             )
             ->add('District','select', [
-                    'choices' => ['ktm' => 'Kathmandu', 'ptn' => 'Patan'],
+                    'choices' => $districtOption,
                     /*'selected' => 'Ktm',*/
                     'empty_value' => '=== Select District ===',
                     'wrapper' => ['class' => 'form-group row'],
@@ -57,10 +86,10 @@ class AddressForm extends Form
                     'attr' => ['class' => 'col-md-9 form-control field-input']
 
                 ]
-            )
+            );
 
 
 
-            ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+           /* ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);*/
     }
 }
