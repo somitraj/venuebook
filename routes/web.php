@@ -4,7 +4,7 @@
 Route::get('/',[
     'uses'=>'VenueController@create'
 ]);
-Route::get('/login',[
+Route::any('/login',[
     'as'=>'web.login',
     'uses'=>'UserController@login'
 ]);
@@ -33,6 +33,11 @@ Route::get('/BookTotal',[
     'as'=>'web.BookTotal',
     'uses'=>'BookingController@BookTotal'
 ]);
+Route::get('/Manager',[
+    'as'=>'web.Manager',
+    'uses'=>'UserController@Manager'
+]);
+
 Route::get('/Terms',[
     'as'=>'web.Terms',
     'uses'=>'UserController@Terms'
@@ -42,5 +47,9 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
+Route::any('/Admin',[
+    'as'=>'web.Admin',
+    'uses'=>'UserController@Admin'
+]);
 ?>
 
