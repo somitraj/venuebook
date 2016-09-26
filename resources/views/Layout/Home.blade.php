@@ -23,6 +23,8 @@
             </ul>
         </div>
     </nav>
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
 
 
 
@@ -54,17 +56,18 @@
 
                 <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
             </div>
-            <div class="form-group col-lg-4">
-                <select class="form-control" id="district">
-                    <option>kathmandu</option>
-                    <option>lalitpur</option>
-                    <option>bhaktaput</option>
-                    <option>nuwakot</option>
-                </select>
-            </div>
+
 
          </div>
-            <h5><a href="#"> advanced search>></a></h5>
+        <div class="form-group col-lg-2">
+            <select class="form-control" id="district">
+                <option>kathmandu</option>
+                <option>lalitpur</option>
+                <option>bhaktaput</option>
+                <option>nuwakot</option>
+            </select>
+        </div>
+          {{--  <h5><a href="#"> advanced search>></a></h5>--}}
 
 
     </div>

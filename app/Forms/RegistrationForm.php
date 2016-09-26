@@ -8,6 +8,7 @@ class RegistrationForm extends Form
 {
     public function buildForm()
     {
+       // print_r($this->getData('country'));die();
         $this
             ->add('First Name','text',[
                 'wrapper' =>['class' => 'form-group row'],
@@ -53,7 +54,7 @@ class RegistrationForm extends Form
                 ]
             )
 
-           -> compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country')],['province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district')])
+            ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district')])
 
             ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }

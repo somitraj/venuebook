@@ -8,36 +8,43 @@ class AddressForm extends Form
 {
     public function buildForm()
     {
-        $countries=$this->getFormOption('country');
+         $countries=$this->getFormOption('country');
         $provinces=$this->getFormOption('province');
+       // print_r($provinces); die();
+
         $zones=$this->getFormOption('zone');
         $districts=$this->getFormOption('district');
+       /* $localities=$this->getFormOption('locality');*/
 
         $countryOption=[];
         $provinceOption=[];
         $zoneOption=[];
         $districtOption=[];
+      /*  $localityOption=[];*/
 
-        foreach($countries->tbl_country as $country){
-            $countryOption[$country->id]=$country->name;
+        foreach($countries->tbl_countries as $country)
+        {
+           $countryOption[$country->id]=$country->name;
         }
-
-        foreach($provinces->tbl_provinces as $province){
+      //  print_r($provinces);
+       // die();
+        foreach($provinces->tbl_provinces as $province)
+        {
             $provinceOption[$province->id]=$province->name;
         }
-
-        foreach($zones->tbl_zones as $zone){
+        foreach($zones->tbl_zones as $zone)
+        {
             $zoneOption[$zone->id]=$zone->name;
         }
-
-        foreach($districts->tbl_districts as $district){
+        foreach($districts->tbl_districts as $district)
+        {
             $districtOption[$district->id]=$district->name;
         }
-
-
-
-
-        $this
+       /* foreach($localities->tbl_localities as $locality)
+        {
+            $localityOption[$locality->id]=$locality->name;
+        }*/
+      $this
                      ->add('Country', 'select', [
                     'choices' => $countryOption,
                    /*  'selected' => 'en',*/
@@ -90,6 +97,6 @@ class AddressForm extends Form
 
 
 
-           /* ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);*/
+//            ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }
 }
