@@ -51,7 +51,7 @@ class AddressForm extends Form
                      'empty_value' => '=== Select Country ===',
                     'wrapper' =>['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                     'attr' =>['class' => 'col-md-9 form-control field-input']
+                     'attr' =>['class' => 'col-md-8 form-control field-input']
             ]
             )
 
@@ -63,7 +63,7 @@ class AddressForm extends Form
                     'empty_value' => '=== Select Province ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
@@ -73,7 +73,7 @@ class AddressForm extends Form
                     'empty_value' => '=== Select Zone ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
@@ -83,14 +83,14 @@ class AddressForm extends Form
                     'empty_value' => '=== Select District ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
             ->add('Locality','text', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             );
