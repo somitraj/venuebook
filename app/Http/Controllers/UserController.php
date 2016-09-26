@@ -51,4 +51,10 @@ class UserController extends BaseController
     {
         return view('Layout.Admin', compact('form'));
     }
+
+    public function User()
+    {
+        return view('Layout.User', compact('form'));
+    }
+
 }
