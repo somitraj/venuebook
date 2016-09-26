@@ -8,13 +8,14 @@
 ?>
 @extends('Layout/MainLayout')
             @section('menu')
-        <nav class="navbar navbar-default">
-        <div class="navbar-header">
 
-        </div>
 
+
+
+        <nav class="navbar navbar-default navbar-inverse">
+            <div class="container-fluid">
     <ul class="nav navbar-nav">
-        <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Notification <span class="badge">0</span></a></li>
+        <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Notification <span class="badge">0</span></a></a></li>
         <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
         <li><a href="/Settings" class="glyphicon glyphicon-cog dropdown-toggle"> Settings
@@ -25,12 +26,14 @@
 
                 <li><a href="#">Username</a></li>
                 <li><a href="#">Password</a></li>
-                </ul>
+            </ul>
             </a></li>
 
 
-    </nav>
-                <button type="button" class="btn btn-primary" style="float:right">Logout
+            </div>
+        </nav>
+                <button type="button" class="btn btn-primary" style="float: right ">
+                <span class="glyphicon glyphicon-log-out"></span>Logout
                 </button>
 
 
