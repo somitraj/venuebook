@@ -2,6 +2,7 @@
 
 namespace Venue\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -23,7 +24,7 @@ class UserController extends BaseController
         $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')]);
         return view('Layout.Register', compact('form'));
         die();
-}
+    }
     public function Address(FormBuilder $formBuilder)
     {
 
