@@ -25,14 +25,12 @@
 
                 <li><a href="#">Username</a></li>
                 <li><a href="#">Password</a></li>
-            </ul>
+                </ul>
             </a></li>
 
 
-
     </nav>
-                <button type="button" class="btn btn-primary" style="float:right">
-                <span class="glyphicon glyphicon-log-out"></span>Logout
+                <button type="button" class="btn btn-primary" style="float:right">Logout
                 </button>
 
 

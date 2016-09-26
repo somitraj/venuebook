@@ -51,4 +51,5 @@ class UserController extends BaseController
     {
         return view('Layout.Admin', compact('form'));
     }
+
 }
