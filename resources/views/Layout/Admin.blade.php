@@ -14,7 +14,7 @@
         </div>
 
     <ul class="nav navbar-nav">
-        <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Notification <span class="badge">0</span></a></a></li>
+        <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Notification <span class="badge">0</span></a></li>
         <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
         <li><a href="/Settings" class="glyphicon glyphicon-cog dropdown-toggle"> Settings
