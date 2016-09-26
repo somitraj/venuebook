@@ -53,10 +53,8 @@
                 <input type="text" class="form-control" id="usr" placeholder="Search Your Venue By Capacity / Location">
 
                 <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
-
-
             </div>
-           {{-- <div class="form-group col-lg-4">
+            <div class="form-group col-lg-4">
                 <select class="form-control" id="district">
                     <option>kathmandu</option>
                     <option>lalitpur</option>
@@ -64,7 +62,8 @@
                     <option>nuwakot</option>
                 </select>
             </div>
-         </div>--}}
+
+         </div>
             <h5><a href="#"> advanced search>></a></h5>
 
 

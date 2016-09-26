@@ -26,40 +26,32 @@
 @endsection
 @section('content')
 <div>
-    <marquee direction="right"> <h3>Feel Free To Contact Us :</h3></marquee>
-    <h3><div class="glyphicon glyphicon-globe" style="padding-left: 40px">Contact Info:</div></h3>
+    <marquee direction="right"> <h3 >Feel Free To Contact Us :</h3></marquee>
+    <h2>
+        <div class="contact"><span class="glyphicon glyphicon-globe "  style="padding-left: 40px"; >Our Office:</span>
+        </div></h2>
 
 
-    <div class="map" >
-    <div class="row">
-        <div id="map-outer" class="col-md-12">
-            <div id="address" class="col-md-4" style="padding-left: 100px;padding-top: 50px">
-                <h2>Our Location</h2>
-                <address>
-                    <strong>AuxFin Pvt Ltd.</strong><br>
-                    Kamaladi<br>
-                    14404<br>
-                    Kathmandu<br>
-                    Nepal<br>
-                    <abbr>Phone:</abbr> +01-4255565
-                </address>
 
+            <div class="panel panel-default">
+
+                <div class="panel-body text-center">
+                    <h3>Address</h3>
+                    <div>
+                        AuxFIN pvt ltd.<br>
+                        Kamaladi , Kathmandu<br>
+                        (+977) - 014250550<br>
+                        service@auxfin.com<br>
+                    </div>
+                    <hr>
+                    <div id="map"></div>
+                    <!-- Map -->
+                    <div id="contact" class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.279219636636!2d85.31621821465625!3d27.708663982791332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19012eb40b3d%3A0xc2999e48372cb1f2!2sHERITAGE+PLAZA+II!5e0!3m2!1sen!2snp!4v1474557098840" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <br />
+
+                    </div>
             </div>
-            <div class="map-container" class="col-md-8">
-              <div id="map"></div>
-                <!-- Map -->
-                <div id="contact" class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.279219636636!2d85.31621821465625!3d27.708663982791332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19012eb40b3d%3A0xc2999e48372cb1f2!2sHERITAGE+PLAZA+II!5e0!3m2!1sen!2snp!4v1474557098840" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    <br />
 
-                </div>
-                <!-- /Map -->
-            </div>
-        </div><!-- /map-outer -->
-    </div> <!-- /row -->
-    </div>
-
-
-</div>
 
 @endsection
