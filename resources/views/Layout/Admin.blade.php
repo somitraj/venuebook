@@ -31,7 +31,7 @@
 
 
     </nav>
-                <button type="button" class="btn btn-primary" style="float: right ">
+                <button type="button" class="btn btn-primary" style="float:right">
                 <span class="glyphicon glyphicon-log-out"></span>Logout
                 </button>
 
