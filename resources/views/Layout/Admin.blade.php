@@ -8,11 +8,7 @@
 ?>
 @extends('Layout/MainLayout')
             @section('menu')
-
-
-
-
-        <nav class="navbar navbar-default navbar-inverse">
+                <nav class="navbar navbar-default navbar-inverse">
             <div class="container-fluid">
     <ul class="nav navbar-nav">
         <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Notification <span class="badge">0</span></a></a></li>
