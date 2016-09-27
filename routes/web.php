@@ -8,6 +8,7 @@ Route::any('/login',[
     'as'=>'web.login',
     'uses'=>'UserController@login'
 ]);
+
 Route::any('/Register',[
     'as'=>'web.Register',
     'uses'=>'UserController@Register'

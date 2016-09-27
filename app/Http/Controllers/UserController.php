@@ -23,6 +23,11 @@ class UserController extends BaseController
     {
         $client = new Client(['base_uri'=> 'http://localhost:8005/api/']);
 
+        $response0 = $client->request('GET','usertype');
+        $data0 = $response0->getBody()->getContents();
+        $usertype =  \GuzzleHttp\json_decode($data0);
+
+
         $response = $client->request('GET','country');
         $data = $response->getBody()->getContents();
         $country =  \GuzzleHttp\json_decode($data);
@@ -40,18 +45,16 @@ class UserController extends BaseController
         $data3 = $response3->getBody()->getContents();
         $district =  \GuzzleHttp\json_decode($data3);
 
-       /* $response4 = $client->request('GET','locality');
-        $data4 = $response->getBody()->getContents();
-        $locality =  \GuzzleHttp\json_decode($data);
-*/
 
 
-        /*$client = new \GuzzleHttp\Client();*/
+
+
         if($request->getMethod()=='POST') {
-   /* print_r($request->get('email_address')); die();*/
+    print_r($request->get('first_name','last_name','email','password')); die();
             $response = $client->request('POST', 'register', [
                 'form_params' => [
-/*                    'first_name' =>  $request->get('first_name'),*/
+                    'first_name' =>  $request->get('first_name'),
+                    'last_name' =>  $request->get('last_name'),
                     'email' => $request->get('email_address'),
                     'password' => $request->get('password'),
                     /*'user_type_id'=>$request->get('user_type_id')*/
@@ -64,7 +67,7 @@ class UserController extends BaseController
 
 
 
-       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
+       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['usertype'=>$usertype,'country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
 
 
 
