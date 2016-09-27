@@ -10,44 +10,57 @@ class RegistrationForm extends Form
     {
        // print_r($this->getData('country'));die();
         $this
-            ->add('First Name','text',[
+            ->add('first_name','text',[
                 'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'First Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                 'attr' =>['class' => 'col-md-8 form-control field-input']
             ]
             )
 
-            ->add('Last Name','text',[
+            ->add('last_name','text',[
                     'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Last Name',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input']
+                ]
+            )
+            ->add('username','text',[
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Username',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' =>['class' => 'col-md-8 form-control field-input']
                 ]
             )
 
-            ->add('Password','password', [
+            ->add('password','password', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
                     'rules'=>['required','min:5']
 
                 ]
             )
-            ->add('Confirm Password','password', [
+            ->add('confirm_password','password', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Confirm Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
-            ->add('Email Address','text', [
+            ->add('email_address','text', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Email Address',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
-            ->add('Confirm Email','text', [
+            ->add('confirm_email','text', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Confirm Email',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 

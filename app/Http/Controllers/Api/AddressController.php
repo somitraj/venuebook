@@ -18,7 +18,6 @@ class AddressController extends Controller
 
        return TblCountry::all();
 
-
     }
     public function GetProvince(Request $request){
         return TblProvince::all();
