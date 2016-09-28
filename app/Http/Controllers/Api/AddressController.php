@@ -10,7 +10,9 @@ use Venue\Models\TblCountry;
 use Venue\Models\TblProvince;
 use Venue\Models\TblZone;
 use Venue\Models\TblDistrict;
-
+/*
+ * @resourse("Users")
+ */
 
 class AddressController extends Controller
 {
