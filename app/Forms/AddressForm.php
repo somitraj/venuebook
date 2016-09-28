@@ -45,7 +45,7 @@ class AddressForm extends Form
             $localityOption[$locality->id]=$locality->name;
         }*/
       $this
-                     ->add('Country', 'select', [
+           ->add('Country', 'select', [
                     'choices' => $countryOption,
                    /*  'selected' => 'en',*/
                      'empty_value' => '=== Select Country ===',
@@ -54,10 +54,7 @@ class AddressForm extends Form
                      'attr' =>['class' => 'col-md-8 form-control field-input']
             ]
             )
-
-
-
-            ->add('Province','select', [
+           ->add('Province','select', [
                     'choices' => $provinceOption,
                     /*'selected' => 'en',*/
                     'empty_value' => '=== Select Province ===',

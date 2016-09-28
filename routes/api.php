@@ -25,6 +25,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('province', 'AddressController@GetProvince');
     $api->get('district', 'AddressController@GetDistrict');
    /* $api->get('locality', 'AddressController@GetLocality');*/
+    $api->get('item', 'ItemController@GetItem');
 
 
 
