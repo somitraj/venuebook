@@ -19,7 +19,8 @@ use Illuminate\Http\Request;
 
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
-    $api->get('register', 'UserController@Register');
+    $api->post('register', 'UserController@Register');
+    $api->get('usertype', 'AddressController@GetUserType');
     $api->get('country', 'AddressController@GetCountry');
     $api->get('zone', 'AddressController@GetZone');
     $api->get('province', 'AddressController@GetProvince');

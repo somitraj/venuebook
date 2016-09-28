@@ -2,27 +2,31 @@
 
 namespace Venue\Http\Controllers;
 
+
 use GuzzleHttp\Client;
-use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Kris\LaravelFormBuilder\FormBuilder;
 
 class UserController extends BaseController
 {
-    public function login(FormBuilder $formBuilder)
+    public function login(FormBuilder $formBuilder,Request $request)
     {
-
-
         $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
         return view('Layout.Login', compact('form'));
       /*  die();*/
     }
 
-        public function Register(FormBuilder $formBuilder)
+
+        public function Register(FormBuilder $formBuilder,Request $request)
     {
         $client = new Client(['base_uri'=> 'http://localhost:8005/api/']);
+
+        $response0 = $client->request('GET','usertype');
+        $data0 = $response0->getBody()->getContents();
+        $usertype =  \GuzzleHttp\json_decode($data0);
+
 
         $response = $client->request('GET','country');
         $data = $response->getBody()->getContents();
@@ -41,12 +45,29 @@ class UserController extends BaseController
         $data3 = $response3->getBody()->getContents();
         $district =  \GuzzleHttp\json_decode($data3);
 
-       /* $response4 = $client->request('GET','locality');
-        $data4 = $response->getBody()->getContents();
-        $locality =  \GuzzleHttp\json_decode($data);
-*/
 
-        $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
+
+
+
+        if($request->getMethod()=='POST') {
+    print_r($request->get('first_name','last_name','email','password')); die();
+            $response = $client->request('POST', 'register', [
+                'form_params' => [
+                    'first_name' =>  $request->get('first_name'),
+                    'last_name' =>  $request->get('last_name'),
+                    'email' => $request->get('email_address'),
+                    'password' => $request->get('password'),
+                    /*'user_type_id'=>$request->get('user_type_id')*/
+                ]
+            ]);
+         /*   print_r($response->getBody()->getContents());*/
+        }
+
+
+
+
+
+       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['usertype'=>$usertype,'country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
 
 
 

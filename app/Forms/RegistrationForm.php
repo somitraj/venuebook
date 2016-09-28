@@ -10,52 +10,94 @@ class RegistrationForm extends Form
     {
        // print_r($this->getData('country'));die();
         $this
-            ->add('First Name','text',[
+            ->add('first_name','text',[
                 'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'First Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                'attr' =>['class' => 'col-md-8 form-control field-input']
+                'attr' =>['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required']
             ]
             )
 
-            ->add('Last Name','text',[
+            ->add('last_name','text',[
                     'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Last Name',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input']
+                ]
+            )
+            ->add('username','text',[
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Username',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input']
+                ]
+            )
+            ->add('dob','date',[
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Date Of Birth',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' =>['class' => 'col-md-8 form-control field-input']
                 ]
             )
 
-            ->add('Password','password', [
+            ->add('password','password', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:5']
+                    'rules'=>['required|min:5|same:confirm_password']
 
                 ]
             )
-            ->add('Confirm Password','password', [
+            ->add('confirm_password','password', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Confirm Password',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required|min:5']
+
+                ]
+            )
+            ->add('email_address','email', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Email Address',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required|email|unique:registered_users']
+
+                ]
+            )
+            ->add('confirm_email','email', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Confirm Email',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
-            ->add('Email Address','text', [
+/*            ->add('user_type','text', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'User Type',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
+
+                ]
+            )*/
+
+
+            ->compose(\Venue\Forms\AddressForm::class,['usertype'=>$this->getData('usertype'),'country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
+
+            ->add('profile_image','file', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Profile Image',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
                 ]
             )
-            ->add('Confirm Email','text', [
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
-
-                ]
-            )
-
-            ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district')])
-
-            ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+            ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']])
+            ->add('reset','reset',['attr' =>['class'=> 'btn btn-primary btn-block']])
+            ;
     }
 }
