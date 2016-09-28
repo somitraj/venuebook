@@ -27,12 +27,12 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('district', 'AddressController@GetDistrict');
    /* $api->get('locality', 'AddressController@GetLocality');*/
 
-    $api->get('venue_create', 'VenueController@create');
+   /* $api->get('venue_create', 'VenueController@create');
     $api->get('venue_update', 'VenueController@update');
     $api->get('venue_delete', 'VenueController@delete');
     $api->get('venue_maintain', 'VenueController@maintain_venue_info');
     $api->get('venue_select', 'VenueController@select');
-    $api->get('venue_list', 'VenueController@list');
+    $api->get('venue_list', 'VenueController@list');*/
 
 
 });

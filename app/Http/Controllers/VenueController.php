@@ -14,8 +14,9 @@ class VenueController extends Controller
         /* $form=$formBuilder->create(\Venue\Forms\user::class);
          return view('VenueMaster', ['form'=>$form]);*/
         /* return view('Layout.Home');*/
-        /* return view('Layout.Home');*/
-        $venues = new Venue(['base_uri' => 'http://localhost:8005/api/']);
+        return view('Layout.Home');
+    }
+        /*$venues = new Venue(['base_uri' => 'http://localhost:8005/api/']);
         $venues->setAttribute("name", request->get('name'));
         $venues->setAttribute("image", request->get('image'));
         $venues->setAttribute("established_date", request->get('established_date'));
@@ -114,4 +115,4 @@ $venues->list();
         $venue_list =  \GuzzleHttp\json_decode($data5);
 
     }
-}
+}*/
