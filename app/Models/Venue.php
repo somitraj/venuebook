@@ -9,7 +9,7 @@ class Venue extends Model {
      */
 
     protected $table = 'venues';
-    protected $fillable = ['id', 'name', 'image', 'established_date', 'phone_no', 'phone_no_2', 'country_id', 'province_id', 'zone_id', 'district_id', 'locality', 'space_area', 'person_capacity', 'venue_type_id', 'Hall_charge'];
+    protected $fillable = ['id', 'name', 'image', 'established_date', 'phone_no', 'phone_no_2', 'country_id', 'province_id', 'zone_id', 'district_id', 'locality', 'space_area', 'person_capacity', 'venue_type_id'];
 
 
     public function tblCountry() {
