@@ -10,14 +10,19 @@ use Venue\Models\TblCountry;
 use Venue\Models\TblProvince;
 use Venue\Models\TblZone;
 use Venue\Models\TblDistrict;
+use Venue\Models\UserType;
 
 
 class AddressController extends Controller
 {
+    public function GetUserType(Request $request){
+
+        return UserType::all();
+
+    }
     public function GetCountry(Request $request){
 
        return TblCountry::all();
-
 
     }
     public function GetProvince(Request $request){
@@ -29,6 +34,8 @@ class AddressController extends Controller
     public function GetDistrict(Request $request){
         return TblDistrict::all();
     }
+
+
     /*public function GetLocality(Request $request){
         return TblLocality::all();
     }*/

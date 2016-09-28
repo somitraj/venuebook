@@ -71,11 +71,11 @@
          <footer>
              <div class="row">
                  <div class="col-md-4">
-                     <img src="images/logofoot.png" style="width: 100px;height: 100px">
+                    <a href="/"> <img src="images/logofoot.png" style="width: 100px;height: 100px"></a>
                      </div>
                  <div class="col-md-8">
                      <br><br>
-             <p style="color: black;font-size: medium">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
+             <p style="color: black;font-size: medium;font-family:'Times New Roman'">Copyright © venuebooking.com | <a href="/Privacy">Privacy Policy</a> | <a href="/Terms">Terms of Use</a></p>
                      </div>
             </div>
          </footer>
