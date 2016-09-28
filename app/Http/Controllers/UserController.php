@@ -50,14 +50,15 @@ class UserController extends BaseController
 
 
         if($request->getMethod()=='POST') {
-   /* print_r($request->get('first_name')); die();*/
+            print_r($request->get('email')); die();
             $response = $client->request('POST', 'register', [
                 'form_params' => [
-                    'first_name' =>  $request->get('first_name'),
-                    'last_name' =>  $request->get('last_name'),
-                    'email' => $request->get('email_address'),
+                   /* 'first_name' =>  $request->get('first_name'),
+                    'last_name' =>  $request->get('last_name'),*/
+                    'username' =>  $request->get('username'),
+                    'email' => $request->get('email'),
                     'password' => $request->get('password'),
-                    /*'user_type_id'=>$request->get('user_type_id')*/
+                    /*'user_type_id'=>$request->get('user_type')*/
                 ]
             ]);
          /*   print_r($response->getBody()->getContents());*/
