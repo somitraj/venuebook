@@ -20,11 +20,13 @@
                 <li><a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
-            </ul>
-        </div>
 
-      </nav>
     <button type="button" class="btn btn-default btn-md" style="float: right">
         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out
     </button>
+
+            </ul>
+        </div>
+
+    </nav>
 @endsection

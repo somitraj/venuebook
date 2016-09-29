@@ -31,10 +31,10 @@ class UserController extends Controller
 
 
 
-      /*  $userinfo=new UserInfo();
+        $userinfo=new UserInfo();
         $userinfo->setAttribute('first_name',$request->get('first_name'));
         $userinfo->setAttribute('user_id',$user->getAttribute('id'));
-        $userinfo->save();*/
+        $userinfo->save();
 
 
 
