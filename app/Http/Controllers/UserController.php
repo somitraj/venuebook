@@ -21,7 +21,7 @@ class UserController extends BaseController
 
         public function Register(FormBuilder $formBuilder,Request $request)
     {
-        $client = new Client(['base_uri'=> 'http://localhost:8005/api/']);
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
 
         $response0 = $client->request('GET','usertype');
         $data0 = $response0->getBody()->getContents();

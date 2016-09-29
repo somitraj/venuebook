@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'REST_API'=>'http://localhost:8005/api/',
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'My Application',
+    'name' => 'VenueBooking',
 
     /*
     |--------------------------------------------------------------------------

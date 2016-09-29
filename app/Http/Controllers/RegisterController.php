@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function Register(FormBuilder $formBuilder, Request $request)
     {
-        $client = new Client(['base_uri' => 'http://localhost:8005/api/']);
+        $client = new Client(['base_uri' => config('app.REST_API')]);
 
         $response = $client->request('GET', 'country');
         $data = $response->getBody()->getContents();
@@ -36,7 +36,7 @@ class RegisterController extends Controller
             $response = $client->request('POST', 'register', [
                 'form_params' => [
 
-                    'email' => $request->get('email_address'),
+                    'email' => $request->get('email_address'),//$request['email_address\']
                     'password' => $request->get('password'),
 
                 ]
