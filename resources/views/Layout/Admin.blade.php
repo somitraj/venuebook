@@ -25,7 +25,7 @@
                 <li><a href="#">Password</a></li>
             </ul>
             </a></li>
-        <button type="button" class="btn btn-primary" style="float: right ">
+        <button type="button" class="btn btn-primary" style="float: right margin:left ">
             <span class="glyphicon glyphicon-log-out "></span>Logout
         </button>
 
@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-sm-4">
 
-                        <div class="panel panel-info">
+                        <div class="panel panel-warning">
                             <div class="panel-heading">
                                 <h6 style="text-align:center">SETTINGS</h6></div>
 
