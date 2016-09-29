@@ -10,6 +10,7 @@ class UserVenue extends Model {
 
     protected $table = 'user_venue';
     protected $fillable = ['id', 'user_id', 'venue_id'];
+    public $timestamps = false;
 
 
     public function user() {

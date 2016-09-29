@@ -10,6 +10,7 @@ class VenueType extends Model {
 
     protected $table = 'venue_type';
     protected $fillable = ['id', 'type_name'];
+    public $timestamps = false;
 
 
     public function venues() {

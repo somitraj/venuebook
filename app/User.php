@@ -1,36 +1,29 @@
-<?php namespace App\Models;
+<?php
 
-use Illuminate\Database\Eloquent\Model;
+namespace Venue;
 
-class User extends Model {
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
 
     /**
-     * Generated
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
+    protected $fillable = [
+        'id', 'username', 'password', 'email', 'user_type_id',
+    ];
 
-    protected $table = 'users';
-    protected $fillable = ['id', 'username', 'password', 'email', 'user_type_id'];
-
-
-    public function userType() {
-        return $this->belongsTo(\App\Models\UserType::class, 'user_type_id', 'id');
-    }
-
-    public function venues() {
-        return $this->belongsToMany(\App\Models\Venue::class, 'user_venue', 'user_id', 'venue_id');
-    }
-
-    public function tblBookings() {
-        return $this->hasMany(\App\Models\TblBooking::class, 'user_id', 'id');
-    }
-
-    public function userInfos() {
-        return $this->hasMany(\App\Models\UserInfo::class, 'user_id', 'id');
-    }
-
-    public function userVenues() {
-        return $this->hasMany(\App\Models\UserVenue::class, 'user_id', 'id');
-    }
-
-
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }
