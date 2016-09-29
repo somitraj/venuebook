@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
-
+<title>venuebooking</title>
 <head>
 
     <meta charset="utf-8">
