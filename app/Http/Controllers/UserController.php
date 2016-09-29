@@ -21,7 +21,10 @@ class UserController extends BaseController
 
         public function Register(FormBuilder $formBuilder,Request $request)
     {
+       /* print_r(config('app.REST_API'));die();*/
+        /*$client = new Client(['base_uri'=>'http://localhost:8005/api']);*/
         $client = new Client(['base_uri'=> config('app.REST_API')]);
+
 
         $response0 = $client->request('GET','usertype');
         $data0 = $response0->getBody()->getContents();
@@ -50,14 +53,15 @@ class UserController extends BaseController
 
 
         if($request->getMethod()=='POST') {
-    print_r($request->get('first_name','last_name','email','password')); die();
+            print_r($request->get('email')); die();
             $response = $client->request('POST', 'register', [
                 'form_params' => [
-                    'first_name' =>  $request->get('first_name'),
-                    'last_name' =>  $request->get('last_name'),
-                    'email' => $request->get('email_address'),
+                   /* 'first_name' =>  $request->get('first_name'),
+                    'last_name' =>  $request->get('last_name'),*/
+                    'username' =>  $request->get('username'),
+                    'email' => $request->get('email'),
                     'password' => $request->get('password'),
-                    /*'user_type_id'=>$request->get('user_type_id')*/
+                    /*'user_type_id'=>$request->get('user_type')*/
                 ]
             ]);
          /*   print_r($response->getBody()->getContents());*/
@@ -100,5 +104,4 @@ class UserController extends BaseController
     {
         return view('Layout.Admin', compact('form'));
     }
-
 }

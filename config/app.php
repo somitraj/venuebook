@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'REST_API'=>'http://localhost:8005/api/',
+    'REST_API' => 'http://localhost:8005/api/',
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG',true),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
