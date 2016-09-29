@@ -15,7 +15,6 @@ class UserController extends Controller
 
        /*return $request->all();*/
        /* $user=User::create($request->all());*/
-
         $user=new User();
         $user->setAttribute('username',$request->get('username'));
         $user->setAttribute('password',$request->get('password'));
