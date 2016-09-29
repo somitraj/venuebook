@@ -60,6 +60,7 @@ class UserController extends BaseController
                          'first_name' =>  $request->get('first_name'),
                          'last_name' =>  $request->get('last_name'),
                         'username' => $request->get('username'),
+                        'dob' =>  $request->get('dob'),
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
                         'user_type_id' => $request->get('user_type')
