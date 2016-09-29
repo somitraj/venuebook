@@ -46,7 +46,7 @@ class RegistrationForm extends Form
                     'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:5','same:confirm_password']
+                    'rules'=>['required','min:7','same:confirm_password']
 
                 ]
             )
@@ -55,7 +55,7 @@ class RegistrationForm extends Form
                     'label'=>'Confirm Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:5']
+                    'rules'=>['required','min:7']
 
                 ]
             )
