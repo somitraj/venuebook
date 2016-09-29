@@ -31,14 +31,7 @@
 
             </div>
         </nav>
-                <div class="row">
-                    <div class="col-xs-6 col-md-3">
-                        <a href="#" class="thumbnail">
-                            <img src="..." alt="...">
-                        </a>
-                    </div>
-                    ...
-                </div>
+
 
                 <div class="container">
                     <div class="row">
@@ -46,9 +39,7 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                     <h6 style="text-align:center">NOTIFICATION</h6></div>
-                                     <a href="#" class="thumbnail">
-                            <img src="..." alt="...">
-                        </a>
+
                                 <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                             </div>
                         </div>
@@ -56,9 +47,7 @@
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
                                     <h6 style="text-align:center">CLIENT</h6></div>
-                                     <a href="#" class="thumbnail">
-                            <img src="..." alt="...">
-                        </a>
+
                                 <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                             </div>
                         </div>
@@ -66,20 +55,18 @@
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h6 style="text-align:center">VENUE</h6></div>
-                                     <a href="#" class="thumbnail">
-                            <img src="..." alt="...">
+
                         </a>
                                 <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
+
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h6 style="text-align:center">SETTINGS</h6></div>
-                                 <a href="#" class="thumbnail">
-                            <img src="..." alt="...">
-                        </a>
+
                             <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                         </div>
                     </div>
