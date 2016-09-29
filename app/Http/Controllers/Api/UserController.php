@@ -15,12 +15,20 @@ class UserController extends Controller
 
        /*return $request->all();*/
        /* $user=User::create($request->all());*/
-        $user=new User();
-        $user->setAttribute('username',$request->get('username'));
-        $user->setAttribute('password',$request->get('password'));
-        $user->setAttribute('email',$request->get('email'));
-        /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
-        $user->save();
+        try{
+            $user=new User();
+            $user->setAttribute('username',$request->get('username'));
+            $user->setAttribute('password',$request->get('password'));
+            $user->setAttribute('email',$request->get('email'));
+            $user->user_type_id=$request->user_type_id;
+           // return $user;
+            /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
+            $user->save();
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+
 
 
       /*  $userinfo=new UserInfo();

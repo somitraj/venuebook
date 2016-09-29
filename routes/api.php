@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 })->middleware('auth:api');*/
 
 $api = app('Dingo\Api\Routing\Router');
-$api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) { //it is used to initialize dingo
-    $api->post('register', 'UserController@Register');
+$api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
+    $api->any('register', 'UserController@Register');
     $api->get('usertype', 'AddressController@GetUserType');
     $api->get('country', 'AddressController@GetCountry');
     $api->get('zone', 'AddressController@GetZone');
@@ -27,12 +27,8 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('district', 'AddressController@GetDistrict');
    /* $api->get('locality', 'AddressController@GetLocality');*/
 
-   /* $api->get('venue_create', 'VenueController@create');
-    $api->get('venue_update', 'VenueController@update');
-    $api->get('venue_delete', 'VenueController@delete');
-    $api->get('venue_maintain', 'VenueController@maintain_venue_info');
-    $api->get('venue_select', 'VenueController@select');
-    $api->get('venue_list', 'VenueController@list');*/
+
+
 
 
 });
