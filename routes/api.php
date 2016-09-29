@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 })->middleware('auth:api');*/
 
 $api = app('Dingo\Api\Routing\Router');
-$api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
+$api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) { //it is used to initialize dingo
     $api->post('register', 'UserController@Register');
     $api->get('usertype', 'AddressController@GetUserType');
     $api->get('country', 'AddressController@GetCountry');

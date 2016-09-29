@@ -15,8 +15,5 @@ class UserController extends Controller
        /*return $request->all();*/
         User::create($request->all());
 
-
-
-
     }
 }
