@@ -46,7 +46,7 @@ class RegistrationForm extends Form
                     'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:5','same:confirm_password']
+                    'rules'=>['required','min:7','same:confirm_password']
 
                 ]
             )
@@ -55,7 +55,7 @@ class RegistrationForm extends Form
                     'label'=>'Confirm Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:5']
+                    'rules'=>['required','min:7']
 
                 ]
             )
@@ -68,9 +68,30 @@ class RegistrationForm extends Form
 
                 ]
             )
-            ->add('confirm_email','email', [
+
+
+            ->add('nationality_id','text', [
                     'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'Confirm Email',
+                    'label'=>'Nationality ID',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required']
+
+                ]
+            )
+
+            ->add('phone_no','text', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Phone No.',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
+
+                ]
+            )
+
+            ->add('mobile_no','text', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Mobile No. ',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 
@@ -91,6 +112,15 @@ class RegistrationForm extends Form
             ->add('profile_image','file', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Profile Image',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input']
+
+                ]
+            )
+
+            ->add('identity_image','file', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Identity Image',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
 

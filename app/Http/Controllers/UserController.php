@@ -37,7 +37,6 @@ class UserController extends BaseController
 
         $response1 = $client->request('GET','province');
         $data1 = $response1->getBody()->getContents();
-
         $province =  \GuzzleHttp\json_decode($data1);
 
         $response2 = $client->request('GET','zone');
