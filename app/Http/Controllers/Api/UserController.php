@@ -33,7 +33,19 @@ class UserController extends Controller
 
         $userinfo=new UserInfo();
         $userinfo->setAttribute('first_name',$request->get('first_name'));
-        $userinfo->setAttribute('user_id',$user->getAttribute('id'));
+        $userinfo->setAttribute('last_name',$request->get('last_name'));
+        $userinfo->setAttribute('username',$user->username);
+        $userinfo->setAttribute('dob',$request->get('dob'));
+        $userinfo->setAttribute('password',$user->password);
+        $userinfo->setAttribute('user_id',$user->id);
+        $userinfo->setAttribute('email',$user->email);
+        $userinfo->country_id=$request->country_id;
+        $userinfo->province_id=$request->province_id;
+        $userinfo->zone_id=$request->zone_id;
+        $userinfo->district_id=$request->district_id;
+        $userinfo->setAttribute('locality',$request->get('locality'));
+        $userinfo->setAttribute('profile_image',$request->get('profile_image'));
+        $userinfo->setAttribute('identity_image',$request->get('identity_image'));
         $userinfo->save();
 
 

@@ -57,8 +57,8 @@ class UserController extends BaseController
             try {
                 $response = $client->request('POST', 'register', [
                     'form_params' => [
-                        /* 'first_name' =>  $request->get('first_name'),
-                         'last_name' =>  $request->get('last_name'),*/
+                         'first_name' =>  $request->get('first_name'),
+                         'last_name' =>  $request->get('last_name'),
                         'username' => $request->get('username'),
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
