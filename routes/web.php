@@ -53,19 +53,18 @@ Route::any('/Admin',[
     'uses'=>'UserController@Admin'
 ]);
 
+Route::get('/Venue',[
+    'as'=>'web.Venue',
+    'uses'=>'VenueController@Manager'
+    ]);
+Route::any('/Item',[
+    'as'=>'web.Item',
+    'uses'=>'UserController@Item'
+]);
 Route::any('/User',[
     'as'=>'web.User',
     'uses'=>'UserController@User'
 ]);
-/*Route::get('/Register',function(){
-    $image=Input::file('profile_image');
-    //imagename
-    $filename=$image->getName();
-    $proimg=new \Venue\Models\UserInfo();
-    $proimg->title=\Illuminate\Support\Facades\Input::get('Title');
-    $proimg->$image->$filename;
 
-    $proimg->save();
-    });*/
 ?>
 
