@@ -48,10 +48,7 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
-Route::any('/Admin',[
-    'as'=>'web.Admin',
-    'uses'=>'UserController@Admin'
-]);
+
 
 Route::get('/Venue',[
     'as'=>'web.Venue',
@@ -66,5 +63,6 @@ Route::any('/User',[
     'uses'=>'UserController@User'
 ]);
 
+require_once ("admin.php");
 ?>
 

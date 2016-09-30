@@ -133,4 +133,23 @@ class UserController extends BaseController
     {
         return view('Layout.User', compact('form'));
     }
+    public function Usercheck()
+    {
+        if(Auth::check())
+        {
+            if(Auth::user()->user_type_id==1)
+            {
+                return redirect()->route('admin.dashboard');
+            }
+            else if(Auth::user()->user_type_id==2)
+            {
+                return redirect()->route('manager.dash');
+            }
+            else
+            {
+                return redirect()->to('/');
+            }
+        }
+    }
+
 }
