@@ -54,11 +54,16 @@ class UserController extends BaseController
         if($request->getMethod()=='POST') {
         /*    print_r($request->get('email')); die();*/
             try {
-                $pathToFile='/public/uploads/';
+                $pathToFile='uploads/';
                 /*return $pathToFile;*/
                 $uploadfile = $pathToFile . basename($_FILES['profile_image']['name']);
-                if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+                if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $uploadfile)) {
                     $profile_image='uploads/'.basename($_FILES['profile_image']['name']);
+                }
+              //  print_r($profile_image);die();
+                $uploadfile1 = $pathToFile . basename($_FILES['identity_image']['name']);
+                if (move_uploaded_file($_FILES['identity_image']['tmp_name'], $uploadfile1)) {
+                    $identity_image='uploads/'.basename($_FILES['identity_image']['name']);
                 }
                 $response = $client->request('POST', 'register', [
                     'form_params' => [
@@ -78,9 +83,9 @@ class UserController extends BaseController
                         'district_id' => $request->get('District'),
                         'locality' => $request->get('Locality'),
 
-                        'profile_image' => $request->get('$profile_image'),
+                        'profile_image' => $profile_image,
 
-                        'identity_image' => $request->get('identity_image')
+                        'identity_image' => $identity_image
                           ]
                           ]);
               /*  print_r($response->getBody()->getContents());
