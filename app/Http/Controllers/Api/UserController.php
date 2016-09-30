@@ -48,9 +48,13 @@ class UserController extends Controller
         $userinfo->nationality_id=$request->nationality_id;
 
         $userinfo->setAttribute('locality',$request->get('locality'));
-        $userinfo->setAttribute('profile_image',$request->get('profile_image'));
+
+
+        $userinfo->setAttribute('profile_image',$request->get('identity_image'));
+
+
         $userinfo->setAttribute('identity_image',$request->get('identity_image'));
-        /*$pathToFile='/public/uploads/';*/
+        /**/
 
         $userinfo->save();
         return $userinfo;

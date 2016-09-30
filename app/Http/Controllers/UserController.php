@@ -54,6 +54,12 @@ class UserController extends BaseController
         if($request->getMethod()=='POST') {
         /*    print_r($request->get('email')); die();*/
             try {
+                $pathToFile='/public/uploads/';
+                /*return $pathToFile;*/
+                $uploadfile = $pathToFile . basename($_FILES['profile_image']['name']);
+                if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+                    $profile_image='uploads/'.basename($_FILES['profile_image']['name']);
+                }
                 $response = $client->request('POST', 'register', [
                     'form_params' => [
                          'first_name' =>  $request->get('first_name'),
@@ -71,10 +77,12 @@ class UserController extends BaseController
                         'zone_id' => $request->get('Zones'),
                         'district_id' => $request->get('District'),
                         'locality' => $request->get('Locality'),
-                        'profile_image' => $request->get('profile_image'),
+
+                        'profile_image' => $request->get('$profile_image'),
+
                         'identity_image' => $request->get('identity_image')
-                    ]
-                ]);
+                          ]
+                          ]);
               /*  print_r($response->getBody()->getContents());
                 die();*/
             }
