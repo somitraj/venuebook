@@ -76,3 +76,9 @@ p{
 .contact{
     text-align: center;
 }
+.dropdown:hover .dropdown-menu{
+    block-progression: ;
+}
+.dropdown-menu {
+    background: #fff6fc;
+}

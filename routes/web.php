@@ -52,5 +52,10 @@ Route::any('/Admin',[
     'as'=>'web.Admin',
     'uses'=>'UserController@Admin'
 ]);
+
+Route::get('/Venue',[
+    'as'=>'web.Venue',
+    'uses'=>'VenueController@Manager'
+]);
 ?>
 
