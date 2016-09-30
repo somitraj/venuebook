@@ -60,9 +60,19 @@ class UserController extends BaseController
                          'last_name' =>  $request->get('last_name'),
                         'username' => $request->get('username'),
                         'dob' =>  $request->get('dob'),
+                        'nationality_id' =>  $request->get('nationality_id'),
+                        'phone_no' =>  $request->get('phone_no'),
+                        'mobile_no' =>  $request->get('mobile_no'),
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
-                        'user_type_id' => $request->get('user_type')
+                        'user_type_id' => $request->get('user_type'),
+                        'country_id' => $request->get('Country'),
+                        'province_id' => $request->get('Province'),
+                        'zone_id' => $request->get('Zones'),
+                        'district_id' => $request->get('District'),
+                        'locality' => $request->get('Locality'),
+                        'profile_image' => $request->get('profile_image'),
+                        'identity_image' => $request->get('identity_image')
                     ]
                 ]);
               /*  print_r($response->getBody()->getContents());

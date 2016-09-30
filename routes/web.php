@@ -52,5 +52,15 @@ Route::any('/Admin',[
     'as'=>'web.Admin',
     'uses'=>'UserController@Admin'
 ]);
+/*Route::get('/Register',function(){
+    $image=Input::file('profile_image');
+    //imagename
+    $filename=$image->getName();
+    $proimg=new \Venue\Models\UserInfo();
+    $proimg->title=\Illuminate\Support\Facades\Input::get('Title');
+    $proimg->$image->$filename;
+
+    $proimg->save();
+    });*/
 ?>
 

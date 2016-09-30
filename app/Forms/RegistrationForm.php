@@ -113,7 +113,7 @@ class RegistrationForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Profile Image',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png']
 
                 ]
             )
@@ -122,7 +122,7 @@ class RegistrationForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Identity Image',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png']
 
                 ]
             )
