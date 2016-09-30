@@ -19,19 +19,13 @@ class VenueForm extends Form
             ]
             )
 
-            ->add('','text',[
-                    'wrapper' =>['class' => 'form-group row'],
-                    'label'=>'Type Name',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input']
-                ]
-            )
             ->add('type_name','select', [
-                    'choices' => $type_nameOption,
-                    'empty_value' => '=== Select Type Name ===',
+                  /*  'choices' => $type_nameOption,*/
+                'selected' => 'en',
+                    'empty_value' => '=== Select Province ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
                     'rules'=>['required']
                 ]
             )
@@ -94,20 +88,13 @@ class VenueForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Person Capacity',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
                          'rules'=>['required']
                 ]
             )
 
 
-/*            ->add('user_type','text', [
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'User Type',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
-
-                ]
-            )*/
+/*
 
 
 /*            ->compose(\Venue\Forms\AddressForm::class,['usertype'=>$this->getData('usertype'),'country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])*/

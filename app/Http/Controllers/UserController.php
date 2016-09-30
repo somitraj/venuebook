@@ -54,16 +54,35 @@ class UserController extends BaseController
         if($request->getMethod()=='POST') {
         /*    print_r($request->get('email')); die();*/
             try {
+                $pathToFile='/public/uploads/';
+                /*return $pathToFile;*/
+                $uploadfile = $pathToFile . basename($_FILES['profile_image']['name']);
+                if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+                    $profile_image='uploads/'.basename($_FILES['profile_image']['name']);
+                }
                 $response = $client->request('POST', 'register', [
                     'form_params' => [
-                        /* 'first_name' =>  $request->get('first_name'),
-                         'last_name' =>  $request->get('last_name'),*/
+                         'first_name' =>  $request->get('first_name'),
+                         'last_name' =>  $request->get('last_name'),
                         'username' => $request->get('username'),
+                        'dob' =>  $request->get('dob'),
+                        'nationality_id' =>  $request->get('nationality_id'),
+                        'phone_no' =>  $request->get('phone_no'),
+                        'mobile_no' =>  $request->get('mobile_no'),
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
-                        'user_type_id' => $request->get('user_type')
-                    ]
-                ]);
+                        'user_type_id' => $request->get('user_type'),
+                        'country_id' => $request->get('Country'),
+                        'province_id' => $request->get('Province'),
+                        'zone_id' => $request->get('Zones'),
+                        'district_id' => $request->get('District'),
+                        'locality' => $request->get('Locality'),
+
+                        'profile_image' => $request->get('$profile_image'),
+
+                        'identity_image' => $request->get('identity_image')
+                          ]
+                          ]);
               /*  print_r($response->getBody()->getContents());
                 die();*/
             }

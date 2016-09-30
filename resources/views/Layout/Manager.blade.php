@@ -40,4 +40,5 @@
         </div>
 
     </nav>
+    @yield('manager-content')
 @endsection
