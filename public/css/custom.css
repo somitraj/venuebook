@@ -76,3 +76,13 @@ p{
 .contact{
     text-align: center;
 }
+
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu{
+    background: rgba(20,100,223,0.53) 75%;
+}

@@ -52,5 +52,10 @@ Route::any('/Admin',[
     'as'=>'web.Admin',
     'uses'=>'UserController@Admin'
 ]);
+Route::any('/Item',[
+    'as'=>'web.Item',
+    'uses'=>'UserController@Item'
+]);
+
 ?>
 
