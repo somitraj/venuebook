@@ -51,7 +51,8 @@ class AddressForm extends Form  //also includes user type content
             $localityOption[$locality->id]=$locality->name;
         }*/
       $this
-          ->add('User Type', 'select', [
+          ->add('user_type', 'select', [
+                  'label'=>'User Type',
                   'choices' => $usertypeOption,
                   /*  'selected' => 'en',*/
                   'empty_value' => '=== Select User Type ===',

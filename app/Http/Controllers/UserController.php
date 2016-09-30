@@ -21,7 +21,10 @@ class UserController extends BaseController
 
         public function Register(FormBuilder $formBuilder,Request $request)
     {
-        $client = new Client(['base_uri'=> 'http://localhost:8005/api/']);
+       /* print_r(config('app.REST_API'));die();*/
+        /*$client = new Client(['base_uri'=>'http://localhost:8005/api']);*/
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+
 
         $response0 = $client->request('GET','usertype');
         $data0 = $response0->getBody()->getContents();
@@ -34,7 +37,6 @@ class UserController extends BaseController
 
         $response1 = $client->request('GET','province');
         $data1 = $response1->getBody()->getContents();
-
         $province =  \GuzzleHttp\json_decode($data1);
 
         $response2 = $client->request('GET','zone');
@@ -50,17 +52,25 @@ class UserController extends BaseController
 
 
         if($request->getMethod()=='POST') {
-    print_r($request->get('first_name','last_name','email','password')); die();
-            $response = $client->request('POST', 'register', [
-                'form_params' => [
-                    'first_name' =>  $request->get('first_name'),
-                    'last_name' =>  $request->get('last_name'),
-                    'email' => $request->get('email_address'),
-                    'password' => $request->get('password'),
-                    /*'user_type_id'=>$request->get('user_type_id')*/
-                ]
-            ]);
-         /*   print_r($response->getBody()->getContents());*/
+        /*    print_r($request->get('email')); die();*/
+            try {
+                $response = $client->request('POST', 'register', [
+                    'form_params' => [
+                        /* 'first_name' =>  $request->get('first_name'),
+                         'last_name' =>  $request->get('last_name'),*/
+                        'username' => $request->get('username'),
+                        'email' => $request->get('email'),
+                        'password' => $request->get('password'),
+                        'user_type_id' => $request->get('user_type')
+                    ]
+                ]);
+              /*  print_r($response->getBody()->getContents());
+                die();*/
+            }
+            catch(\Exception $e)
+            {
+                print_r($e->getMessage());die();
+            }
         }
 
 
