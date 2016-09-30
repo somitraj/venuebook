@@ -104,38 +104,58 @@ class UserController extends BaseController
        $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['usertype'=>$usertype,'country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
 
 
-
         return view('Layout.Register', compact('form'));
 
-}
+    }
+
     public function Address(FormBuilder $formBuilder)
     {
 
-        $form = $formBuilder->Create('Venue\Forms\AddressForm',['method'=>'POST','url' => route('web.Address')]);
+        $form = $formBuilder->Create('Venue\Forms\AddressForm', ['method' => 'POST', 'url' => route('web.Address')]);
         return view('Layout.Address', compact('form'));
     }
+
     public function Contact()
     {
         return view('Layout.Contact', compact('form'));
     }
+
     public function Terms()
     {
         return view('Layout.Terms', compact('form'));
     }
+
     public function Privacy()
     {
         return view('Layout.Privacy', compact('form'));
     }
+
     public function Manager()
     {
         return view('Layout.Manager', compact('form'));
     }
+
     public function Admin()
     {
         return view('Layout.Admin', compact('form'));
     }
+
     public function User()
     {
         return view('Layout.User', compact('form'));
+    }
+
+    public function UserCheck()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->user_type_id == 1) {
+                return redirect()->route('admin.dash');
+            } else if (Auth::user()->user_type_id == 2) {
+                return redirect()->route('manager.dash');
+            } else {
+                return redirect()->to('/');
+            }
+
+        }
     }
 }

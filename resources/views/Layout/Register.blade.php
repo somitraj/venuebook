@@ -18,7 +18,13 @@
                 <li><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
                 <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-                <li class="active"><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
+                <li class="dropdown active"><a href="/Register" class="dropdown-toggle glyphicon glyphicon-pencil" data-toggle="dropdown"> Register
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Register">Client</a></li>
+                            <li><a href="/Venue">Venue</a></li>
+                            </ul>
+                          </li>
                 <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
             </ul>
         </div>
@@ -43,7 +49,6 @@
            <div class="panel panel-primary">
                <div class="panel-heading">
                    <h3 style="text-align:center">Register</h3>
-
                </div>
                <div class="panel-body">
                    {!! form($form) !!}

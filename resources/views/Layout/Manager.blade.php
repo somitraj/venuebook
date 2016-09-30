@@ -18,14 +18,9 @@
                         Notification <span class="badge">4</span>
                     </button></a></li>
                 <li class="dropdown">
-                    <a href="/Inventory" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown"> Inventory
-                        <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">List</a></li>
-                        <li><a href="/Venue">Register
-                            </a></li>
-                        </ul>
-                </li>
+                    <a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
+
+
 
 
 
