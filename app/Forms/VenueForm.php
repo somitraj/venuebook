@@ -28,7 +28,7 @@ class RegistrationForm extends Form
             )
             ->add('type_name','select', [
                     'choices' => $type_nameOption,
-                    'empty_value' => '=== Select Province ===',
+                    'empty_value' => '=== Select Type Name ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input']
