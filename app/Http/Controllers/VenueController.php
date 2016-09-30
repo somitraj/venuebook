@@ -9,12 +9,12 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
-    public function create(/*FormBuilder $formBuilder*/)
+    public function Manager(/*FormBuilder $formBuilder*/)
     {
         /* $form=$formBuilder->create(\Venue\Forms\user::class);
          return view('VenueMaster', ['form'=>$form]);*/
         /* return view('Layout.Home');*/
-        return view('Layout.Home');
+        return view('Layout.Venue');
     }
 }    /*$venues = new Venue(['base_uri' => 'http://localhost:8005/api/']);
         $venues->setAttribute("name", request->get('name'));

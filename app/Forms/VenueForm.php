@@ -27,11 +27,12 @@ class RegistrationForm extends Form
                 ]
             )
             ->add('type_name','select', [
-                    'choices' => $type_nameOption,
+                  /*  'choices' => $type_nameOption,*/
+                'selected' => 'en',
                     'empty_value' => '=== Select Province ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
                     'rules'=>['required']
                 ]
             )
@@ -94,7 +95,7 @@ class RegistrationForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Person Capacity',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
                          'rules'=>['required']
                 ]
             )
