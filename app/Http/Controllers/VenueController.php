@@ -17,6 +17,10 @@ class VenueController extends Controller
         return view('Layout.Venue',compact('form'));
 
     }
+    public function create(){
+        return view('Layout.Home');
+
+    }
 }    /*$venues = new Venue(['base_uri' => 'http://localhost:8005/api/']);
         $venues->setAttribute("name", request->get('name'));
         $venues->setAttribute("image", request->get('image'));
