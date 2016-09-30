@@ -17,8 +17,8 @@
             <ul class="nav navbar-nav">
                 <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Home </a></li>
                 <li><a href="/My Account" class="glyphicon glyphicon-user"> My Account</a></li>
-                <li><a href="/Notification" class="glyphicon glyphicon-group"> Notification<span class="badge">0</span></a></li>
-                <li><a href="/Feeback" class="glyphicon glyphicon-cog dropdown-toggle"> Feedback</a></li>
+                <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
+                <li><a href="/Feeback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
                         <span class="caret"></span>
 
