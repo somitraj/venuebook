@@ -33,7 +33,7 @@ class VenueForm extends Form
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Image',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png'],
                     'rules'=>['required']
                 ]
             )
