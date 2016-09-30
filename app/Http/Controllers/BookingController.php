@@ -15,7 +15,7 @@ class BookingController extends BaseController
         $form = $formBuilder->Create('Venue\Forms\BookingForm',['method'=>'POST','url' => route('web.Book')]);
         return view('Layout.Book', compact('form'));
        // print_r($form);
-        die();
+        /*die();*/
 
 
 }

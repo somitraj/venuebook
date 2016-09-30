@@ -4,7 +4,7 @@ namespace Venue\Forms;
 
 use Kris\LaravelFormBuilder\Form;
 
-class RegistrationForm extends Form
+class VenueForm extends Form
 {
     public function buildForm()
     {
@@ -19,13 +19,6 @@ class RegistrationForm extends Form
             ]
             )
 
-            ->add('','text',[
-                    'wrapper' =>['class' => 'form-group row'],
-                    'label'=>'Type Name',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input']
-                ]
-            )
             ->add('type_name','select', [
                   /*  'choices' => $type_nameOption,*/
                 'selected' => 'en',
@@ -101,14 +94,7 @@ class RegistrationForm extends Form
             )
 
 
-/*            ->add('user_type','text', [
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'User Type',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
-
-                ]
-            )*/
+/*
 
 
 /*            ->compose(\Venue\Forms\AddressForm::class,['usertype'=>$this->getData('usertype'),'country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])*/
