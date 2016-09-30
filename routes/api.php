@@ -32,4 +32,5 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
 
 
 
+
 });

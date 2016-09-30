@@ -52,6 +52,11 @@ Route::any('/Admin',[
     'as'=>'web.Admin',
     'uses'=>'UserController@Admin'
 ]);
+
+Route::any('/User',[
+    'as'=>'web.User',
+    'uses'=>'UserController@User'
+]);
 /*Route::get('/Register',function(){
     $image=Input::file('profile_image');
     //imagename
