@@ -17,8 +17,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
                 <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
-                <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-                <li class="active"><a href="/Register" class="glyphicon glyphicon-tags"> Feedback</a></li>
+                <li><a href="/Contact" class="glyphicon glyphicon-tags"> Feedback</a></li>
+                <li class="active"><a href="/Register" class="glyphicon glyphicon-tags"> Register</a></li>
                 <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
             </ul>
         </div>
