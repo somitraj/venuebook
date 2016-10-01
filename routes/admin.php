@@ -1,9 +1,11 @@
 <?php
-Route::group(["role"=>"1","prefix"=>"admin"],function()
+/**
+ * Created by PhpStorm.
+ * User: Admin
+ * Date: 9/30/2016
+ * Time: 2:54 PM
+ */
+Route::group(["role"=>1,"prefix"=>"admin"],function()
 {
-    Route::any("dashboard",["as"=>'admin.dashboard',
-                                "uses"=>'UserController@Admin']);
+    Route::any("dashboard",["as"=>'admin.dash', "uses"=>'UserController@Admin']);
 });
-
-
-?>
