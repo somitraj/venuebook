@@ -19,11 +19,6 @@
                     </button></a></li>
                 <li class="dropdown">
                     <a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
-
-
-
-
-
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
 
