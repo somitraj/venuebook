@@ -19,16 +19,6 @@
                 <li><a href="/My Account" class="glyphicon glyphicon-user"> My Account</a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
                 <li><a href="/Feeback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-
-                        <span class="caret"></span>
-
-                        <ul class="dropdown-menu">/
-
-                            <li><a href="#">Username</a></li>
-                            <li><a href="#">Password</a></li>
-                        </ul>
-                    </a></li>
-
             </ul>
         </div>
     </nav>
