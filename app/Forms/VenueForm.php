@@ -56,7 +56,7 @@ class VenueForm extends Form
             )
             ->add('phone_no_2','text', [
                     'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'Confirm Password',
+                    'label'=>'Phone No2',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
                          /*'rules'=>['required']*/
