@@ -34,10 +34,10 @@ Route::get('/BookTotal',[
     'as'=>'web.BookTotal',
     'uses'=>'BookingController@BookTotal'
 ]);
-Route::get('/Manager',[
+/*Route::get('/Manager',[
     'as'=>'web.Manager',
     'uses'=>'UserController@Manager'
-]);
+]);*/
 
 Route::get('/Terms',[
     'as'=>'web.Terms',
@@ -48,7 +48,10 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
-
+/*Route::any('/Admin',[
+    'as'=>'web.Admin',
+    'uses'=>'UserController@Admin'
+]);*/
 
 Route::get('/Venue',[
     'as'=>'web.Venue',
@@ -63,6 +66,8 @@ Route::any('/User',[
     'uses'=>'UserController@User'
 ]);
 
-require_once ("admin.php");
+require_once ("Manager.php");
+require_once ("Admin.php");
+
 ?>
 
