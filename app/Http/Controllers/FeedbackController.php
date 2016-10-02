@@ -7,15 +7,54 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Kris\LaravelFormBuilder\FormBuilder;
+use GuzzleHttp\Client;
+use Illuminate\Http\Request;
 
 class FeedbackController extends BaseController
 {
-    public function Feedback(FormBuilder $formBuilder)
-    {
+    public function Feedback(FormBuilder $formBuilder,Request $request)
+    { if($request->getMethod()=='POST') {
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        /*    print_r($request->get('email')); die();*/
+        try {
+
+            $response = $client->request('POST', 'feedback', [
+                'form_params' => [
+                    'first_name' =>  $request->get('first_name'),
+                    'last_name' =>  $request->get('last_name'),
+                     'email' => $request->get('email'),
+                    'comment' => $request->get('comment')
+
+                ]
+            ]);
+              print_r($response->getBody()->getContents());
+              die();
+        }
+        catch(\Exception $e)
+        {
+            print_r($e->getMessage());die();
+        }
+    }
+
+
+
+
+
         $form = $formBuilder->Create('Venue\Forms\FeedbackForm',['method'=>'POST','url' => route('web.Feedback')]);
+
+
         return view('Layout.Feedback', compact('form'));
+
+
+
+
+
+
+
+/*        $form = $formBuilder->Create('Venue\Forms\FeedbackForm',['method'=>'POST','url' => route('web.Feedback')]);*/
+       /* return view('Layout.Feedback', compact('form'));*/
        // print_r($form);
-        die();
+        /*die();*/
 
 
 }

@@ -4,6 +4,7 @@ namespace Venue\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
+use Venue\Models\Feedback;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
@@ -57,10 +58,28 @@ class UserController extends Controller
         /**/
 
         $userinfo->save();
-        return $userinfo;
+        /*return $userinfo;*/
 
 
 
+
+    }
+
+
+    public function Feedback(Request $request){
+        try{
+            $feed=new Feedback();
+            $feed->setAttribute('first_name',$request->get('first_name'));
+            $feed->setAttribute('last_name',$request->get('last_name'));
+            $feed->setAttribute('email',$request->get('email'));
+            $feed->setAttribute('comment',$request->get('comment'));
+            /*return $feed;*/
+            /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
+            $feed->save();
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
 
     }
 }
