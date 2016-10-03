@@ -69,6 +69,15 @@ class RegistrationForm extends Form
                 ]
             )
 
+            ->add('cemail','email', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Confirm Email',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required','email','unique:registered_users']
+
+                ]
+            )
 
             ->add('nationality_id','text', [
                     'wrapper' => ['class' => 'form-group row'],

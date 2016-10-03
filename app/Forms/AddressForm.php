@@ -54,11 +54,13 @@ class AddressForm extends Form  //also includes user type content
           ->add('user_type', 'select', [
                   'label'=>'User Type',
                   'choices' => $usertypeOption,
-                  /*  'selected' => 'en',*/
-                  'empty_value' => '=== Select User Type ===',
+                  /*  'selected' => 'client',*/
+                  /*'empty_value' => 'client',*/
                   'wrapper' =>['class' => 'form-group row'],
                   'label_attr'=>['class'=>'col-md-3 control-label'],
-                  'attr' =>['class' => 'col-md-8 form-control field-input']
+                  'attr' =>['class' => 'col-md-8 form-control field-input'],
+
+
               ]
           )
 
