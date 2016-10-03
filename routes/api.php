@@ -30,7 +30,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('district', 'AddressController@GetDistrict');
    /* $api->get('locality', 'AddressController@GetLocality');*/
     $api->get('item', 'ItemController@GetItem');
-    $api->get('venue', 'VenueController@GetVenue');
+    /*$api->get('venue', 'VenueController@GetVenue');*/
 
 
 

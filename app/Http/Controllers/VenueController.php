@@ -4,8 +4,11 @@ namespace Venue\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
+use Venue\User;
 
-use Venue\Http\Requests;
+/*use Venue\Http\Requests;*/
 use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
@@ -13,6 +16,7 @@ class VenueController extends Controller
     public function Manager(FormBuilder $formBuilder, Request $request)
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
+
 
 
         $response = $client->request('GET','country');
@@ -36,7 +40,7 @@ class VenueController extends Controller
 
 
         if($request->getMethod()=='POST') {
-            /*    print_r($request->get('email')); die();*/
+                /*print_r($request->get('username')); die();*/
             try {
                 $pathToFile='logo/';
                 /*return $pathToFile;*/
@@ -47,8 +51,8 @@ class VenueController extends Controller
                 }
                  $response = $client->request('POST', 'venue', [
                     'form_params' => [
-                        'first_name' =>  $request->get('first_name'),
-                        'last_name' =>  $request->get('last_name'),
+                        /*'first_name' =>  $request->get('first_name'),
+                        'last_name' =>  $request->get('last_name'),*/
                         'username' => $request->get('username'),
                         'name'=>$request->get('vname'),
                         'phone_no' =>  $request->get('phone_no'),
