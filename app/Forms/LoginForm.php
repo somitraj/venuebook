@@ -9,10 +9,11 @@ class LoginForm extends Form
     public function buildForm()
     {
         $this
-            ->add('email','text', [
+            ->add('username','text', [
                 'wrapper' => ['class' => 'form-group'],
-                'attr' => ['class' => 'form-control field-input','data-toggle'=>"tooltip",'title'=>"abcd@example.com"],
-                    'rules'=>['required','email']
+                'label'=>'Username',
+                'attr' => ['class' => 'form-control field-input'],
+                    'rules'=>['required']
 
                 ]
             )

@@ -106,7 +106,7 @@ class RegistrationForm extends Form
 
                 ]
             )
-/*            ->add('user_type','text', [
+           /* ->add('user_type','hidden', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'User Type',
                     'label_attr'=>['class'=>'col-md-3 control-label'],

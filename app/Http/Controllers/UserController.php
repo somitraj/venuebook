@@ -7,13 +7,39 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
+use Illuminate\Support\Facades\Auth;
 use Kris\LaravelFormBuilder\FormBuilder;
+use Venue\User;
 
 class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder,Request $request)
     {
         $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
+        if($request->getMethod()=='POST') {
+            $client=new Client(['base_uri'=> config('app.REST_API')]);
+
+            $response = $client->request('POST', 'login', [
+                'form_params' => [
+
+                    'username' => $request->get('username'),
+                    'password'=> $request->get('password')
+
+                ]
+
+        ]);
+            $userApi=\GuzzleHttp\json_decode($response->getBody()->getContents())->user;
+           // print_r($userApi);Die();
+           $user=new User();
+            $user->username=$userApi->username;
+            $user->password=$userApi->password;
+            $user->user_type_id=$userApi->user_type_id;
+            Auth::Login($user);
+         //   return redirect()->route('manager.dash');
+           return $this->UserCheck();
+        }
+
+        /*print_r($response);die();*/
         return view('Layout.Login', compact('form'));
       /*  die();*/
     }
@@ -56,6 +82,8 @@ class UserController extends BaseController
             try {
                 $pathToFile='uploads/';
                 /*return $pathToFile;*/
+                $profile_image='null';
+                $identity_image='null';
                 $uploadfile = $pathToFile . basename($_FILES['profile_image']['name']);
                 if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $uploadfile)) {
                     $profile_image='uploads/'.basename($_FILES['profile_image']['name']);
@@ -148,12 +176,15 @@ class UserController extends BaseController
     public function UserCheck()
     {
         if (Auth::check()) {
+          // print_r(Auth::user()->user_type_id);die();
             if (Auth::user()->user_type_id == 1) {
                 return redirect()->route('admin.dash');
             } else if (Auth::user()->user_type_id == 2) {
+               // print_r(Auth::user());die();
                 return redirect()->route('manager.dash');
             } else {
-                return redirect()->to('/');
+             //   return redirect()->route('manager.dash');
+               return redirect()->to('/');
             }
 
         }
