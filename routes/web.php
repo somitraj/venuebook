@@ -61,7 +61,11 @@ Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
 ]);
-Route::group(["role"=>3,"prefix"=>"manager",'middleware'=>'auth.user'],function() {
+/*Route::get('/User',[
+    'as'=>'web.User',
+    'uses'=>'UserController@User'
+]);*/
+Route::group(["role"=>3/*,"prefix"=>"manager"*/,'middleware'=>'auth.user'],function() {
     Route::any('/User', [
         'as' => 'web.User',
         'uses' => 'UserController@User'

@@ -91,20 +91,21 @@ class VenueForm extends Form
 
                 ]
             )
+            ->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])
 
-            ->add('type_name','select', [
+           /* ->add('type_name','select', [*/
                   /*  'choices' => $type_nameOption,*/
-                'selected' => 'en',
+                /*'selected' => 'en',
                     'empty_value' => '=== Select Province ===',
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required']
-                ]
-            )
+                    'rules'=>['required']*/
+                /*]*/
+            /*)*/
             ->add('image','file',[
                     'wrapper' =>['class' => 'form-group row'],
-                    'label'=>'Cover Image',
+                    'label'=>'Logo',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' =>['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png,.jpg'],
                     'rules'=>['required']
@@ -128,7 +129,7 @@ class VenueForm extends Form
                 ]
             )
 
-            ->add('phone_no2','text', [
+            ->add('phone_no_2','text', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Phone No.2',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -167,12 +168,10 @@ class VenueForm extends Form
                          'rules'=>['required']
                 ]
             )
+            ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
 
 
-/*
 
-
-/*            ->compose(\Venue\Forms\AddressForm::class,['usertype'=>$this->getData('usertype'),'country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])*/
 
 
 

@@ -8,7 +8,7 @@ class AddressForm extends Form  //also includes user type content
 {
     public function buildForm()
     {
-        $usertypes=$this->getFormOption('usertype');
+
          $countries=$this->getFormOption('country');
         $provinces=$this->getFormOption('province');
        // print_r($provinces); die();
@@ -46,10 +46,7 @@ class AddressForm extends Form  //also includes user type content
         {
             $districtOption[$district->id]=$district->name;
         }
-       /* foreach($localities->tbl_localities as $locality)
-        {
-            $localityOption[$locality->id]=$locality->name;
-        }*/
+
 
 
       $this

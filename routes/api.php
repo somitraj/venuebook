@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
     $api->any('register', 'UserController@Register');
+    $api->any('vregister', 'VenueController@Register');
     $api->any('login', 'AuthController@Login');
     $api->any('feedback', 'UserController@Feedback');
     $api->get('usertype', 'AddressController@GetUserType');

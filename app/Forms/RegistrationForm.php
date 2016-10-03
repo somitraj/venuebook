@@ -129,7 +129,7 @@ class RegistrationForm extends Form
             )*/
 
 
-            ->compose(\Venue\Forms\AddressForm::class,['usertype'=>$this->getData('usertype'),'country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
+            ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
 
             ->add('profile_image','file', [
                     'wrapper' => ['class' => 'form-group row'],
