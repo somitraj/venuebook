@@ -78,6 +78,19 @@ class VenueForm extends Form
 
                 ]
             )
+            ->add('user_type', 'hidden', [
+                    'label'=>'User Type',
+                    'default_value' => 2,
+                    /*'selected'=>$usertypeOption[3],*/
+                    /*  'selected' => 'client',*/
+                    /*'empty_value' => 'client',*/
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
+
+
+                ]
+            )
 
             ->add('type_name','select', [
                   /*  'choices' => $type_nameOption,*/

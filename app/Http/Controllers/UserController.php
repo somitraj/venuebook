@@ -34,7 +34,7 @@ class UserController extends BaseController
             $user->username=$userApi->username;
             $user->password=$userApi->password;
             $user->user_type_id=$userApi->user_type_id;
-            Auth::Login($user);
+            Auth::login($user);
          //   return redirect()->route('manager.dash');
            return $this->UserCheck();
         }
@@ -52,9 +52,9 @@ class UserController extends BaseController
         $client = new Client(['base_uri'=> config('app.REST_API')]);
 
 
-        $response0 = $client->request('GET','usertype');
+/*        $response0 = $client->request('GET','usertype');
         $data0 = $response0->getBody()->getContents();
-        $usertype =  \GuzzleHttp\json_decode($data0);
+        $usertype =  \GuzzleHttp\json_decode($data0);*/
 
 
         $response = $client->request('GET','country');
@@ -129,7 +129,7 @@ class UserController extends BaseController
 
 
 
-       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['usertype'=>$usertype,'country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
+       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],[/*'usertype'=>$usertype,*/'country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
 
 
         return view('Layout.Register', compact('form'));
@@ -182,11 +182,15 @@ class UserController extends BaseController
             } else if (Auth::user()->user_type_id == 2) {
                // print_r(Auth::user());die();
                 return redirect()->route('manager.dash');
-            } else {
-             //   return redirect()->route('manager.dash');
-               return redirect()->to('/');
+            } else if(Auth::user()->user_type_id == 3) {
+              return redirect()->route('web.User');
+               //return redirect()->to('/');
             }
 
         }
+    }
+    public function Logout(){
+        Session::flush();
+        return redirect()->route('home');
     }
 }

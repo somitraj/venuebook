@@ -25,10 +25,6 @@ class UserController extends Controller
            // return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
-        }
-        catch(\Exception $e){
-            throw $e;
-        }
 
 
 
@@ -59,6 +55,11 @@ class UserController extends Controller
 
         $userinfo->save();
         /*return $userinfo;*/
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+
 
 
 

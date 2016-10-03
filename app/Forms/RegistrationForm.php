@@ -46,7 +46,7 @@ class RegistrationForm extends Form
                     'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:7','same:confirm_password']
+                    'rules'=>['required','min:4','same:confirm_password']
 
                 ]
             )
@@ -55,7 +55,7 @@ class RegistrationForm extends Form
                     'label'=>'Confirm Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required','min:7']
+                    'rules'=>['required','min:4']
 
                 ]
             )
@@ -106,6 +106,19 @@ class RegistrationForm extends Form
 
                 ]
             )
+             ->add('user_type', 'hidden', [
+                        'label'=>'User Type',
+                        'default_value' => 3,
+                        /*'selected'=>$usertypeOption[3],*/
+                        /*  'selected' => 'client',*/
+                        /*'empty_value' => 'client',*/
+                        'wrapper' =>['class' => 'form-group row'],
+                        'label_attr'=>['class'=>'col-md-3 control-label'],
+                        'attr' =>['class' => 'col-md-8 form-control field-input'],
+
+
+                    ]
+                )
            /* ->add('user_type','hidden', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'User Type',

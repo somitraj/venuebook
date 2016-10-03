@@ -17,17 +17,17 @@ class AddressForm extends Form  //also includes user type content
         $districts=$this->getFormOption('district');
        /* $localities=$this->getFormOption('locality');*/
 
-        $usertypeOption=[];
+        /*$usertypeOption=[];*/
         $countryOption=[];
         $provinceOption=[];
         $zoneOption=[];
         $districtOption=[];
       /*  $localityOption=[];*/
 
-        foreach($usertypes->user_types as $usertype)
+        /*foreach($usertypes->user_types as $usertype)
         {
             $usertypeOption[$usertype->id]=$usertype->type_name;
-        }
+        }*/
         foreach($countries->tbl_countries as $country)
         {
            $countryOption[$country->id]=$country->name;
@@ -51,23 +51,8 @@ class AddressForm extends Form  //also includes user type content
             $localityOption[$locality->id]=$locality->name;
         }*/
 
-        print_r($usertypeOption);
+
       $this
-          ->add('user_type', 'select', [
-                  'label'=>'User Type',
-                  'choices' => $usertypeOption,
-                    /*'selected'=>$usertypeOption[3],*/
-                    /*  'selected' => 'client',*/
-                  /*'empty_value' => 'client',*/
-                  'wrapper' =>['class' => 'form-group row'],
-                  'label_attr'=>['class'=>'col-md-3 control-label'],
-                  'attr' =>['class' => 'col-md-8 form-control field-input'],
-
-
-              ]
-          )
-
-
 
                      ->add('Country', 'select', [
                     'choices' => $countryOption,
