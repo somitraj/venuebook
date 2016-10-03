@@ -9,16 +9,16 @@ use Venue\Models\User;
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 
-class UserController extends Controller
+class VenueController extends Controller
 {
     public function Register(Request $request){
 
        /*return $request->all();*/
        /* $user=User::create($request->all());*/
         try{
-            $user=new User();
+            $user=new Venue();
             $user->setAttribute('username',$request->get('username'));
-            $user->setAttribute('password',bcrypt($request->get('password')));
+            $user->setAttribute('password',$request->get('password'));
             $user->setAttribute('email',$request->get('email'));
             $user->user_type_id=$request->user_type_id;
            // return $user;
@@ -50,7 +50,7 @@ class UserController extends Controller
         $userinfo->setAttribute('locality',$request->get('locality'));
 
 
-        $userinfo->setAttribute('profile_image',$request->get('profile_image'));
+        $userinfo->setAttribute('profile_image',$request->get('identity_image'));
 
 
         $userinfo->setAttribute('identity_image',$request->get('identity_image'));
