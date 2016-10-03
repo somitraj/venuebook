@@ -184,6 +184,8 @@ return [
         User11001\EloquentModelGenerator\EloquentModelGeneratorProvider::class,
 
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
+
 
     ],
 
@@ -233,6 +235,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class, //added
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
 
 
     ],
