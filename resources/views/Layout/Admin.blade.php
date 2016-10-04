@@ -24,9 +24,9 @@
 </li>
 
 </ul>
-        <button type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
+        <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
             <span class="glyphicon glyphicon-log-out "></span>Logout
-        </button>
+        </a>
 
 
             </div>

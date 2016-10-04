@@ -1,34 +1,29 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hp
- * Date: 9/21/2016
- * Time: 12:51 PM
- */
 ?>
+
 @extends('Layout/MainLayout')
 @section('menu')
-
-
-
 
     <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active" ><a href="/" class="glyphicon glyphicon-bell"> Home </a></li>
+                <li class="active" ><a href="/User" class="glyphicon glyphicon-bell"> Home </a></li>
                 <li><a href="/My Account" class="glyphicon glyphicon-user"> My Account</a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
-                <li><a href="/Feeback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+                <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+
+
+
             </ul>
         </div>
     </nav>
-    <button type="button" class="btn btn-primary" style="float: right ">
-        <span class="glyphicon glyphicon-log-out"></span>Logout
-    </button>
+    <a href="/logout" type="button" class="btn btn-primary" style="float: right ;margin:left;margin-left: 665px;">
+        <span class="glyphicon glyphicon-log-out "></span>Logout
+    </a>
 
 
 
-@endsection
+  @endsection
 @section('content')
     <br><br>
 
@@ -73,7 +68,7 @@
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>
-                    <li><a class="ns-img" href="images/venue1.jpg"></a></li>
+                    <li><a  class="ns-img" href="images/venue1.jpg" ></a></li>
                     <li><a class="ns-img" href="images/venue2.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue3.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue4.jpg"></a></li>
@@ -93,7 +88,7 @@
             <div class="inner">
                 <ul>
                     <li>
-                        <a class="thumb" href="images/venue1.jpg"></a>
+                        <a class="thumb" href="images/venue1.jpg" ></a>
                     </li>
                     <li>
                         <a class="thumb" href="images/venue2.jpg"></a>

@@ -2,18 +2,97 @@
 
 namespace Venue\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
+use Venue\User;
 
-use Venue\Http\Requests;
+/*use Venue\Http\Requests;*/
 use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
-    public function Manager(FormBuilder $formBuilder)
+    public function Manager(FormBuilder $formBuilder, Request $request)
     {
-        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')]);
-       //  return view('VenueMaster', ['form'=>$form]);
-        /* return view('Layout.Home');*/
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+
+
+
+        $response = $client->request('GET','country');
+        $data = $response->getBody()->getContents();
+        $country =  \GuzzleHttp\json_decode($data);
+
+        $response1 = $client->request('GET','province');
+        $data1 = $response1->getBody()->getContents();
+        $province =  \GuzzleHttp\json_decode($data1);
+
+        $response2 = $client->request('GET','zone');
+        $data2 = $response2->getBody()->getContents();
+        $zone =  \GuzzleHttp\json_decode($data2);
+
+        $response3 = $client->request('GET','district');
+        $data3 = $response3->getBody()->getContents();
+        $district =  \GuzzleHttp\json_decode($data3);
+
+
+
+
+
+        if($request->getMethod()=='POST') {
+                /*print_r($request->get('username')); die();*/
+            try {
+                $pathToFile='logo/';
+                /*return $pathToFile;*/
+                $image='null';
+                $uploadfile = $pathToFile . basename($_FILES['image']['name']);
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+                    $image='uploads/'.basename($_FILES['image']['name']);
+                }
+                 $response = $client->request('POST', 'venue', [
+                    'form_params' => [
+                        /*'first_name' =>  $request->get('first_name'),
+                        'last_name' =>  $request->get('last_name'),*/
+                        'username' => $request->get('username'),
+                        'name'=>$request->get('vname'),
+                        'phone_no' =>  $request->get('phone_no'),
+                        'phone_no_2' =>  $request->get('phone_no_2'),
+                        'established_date' =>  $request->get('established_date'),
+                        'space_area' =>  $request->get('space_area'),
+                        'email' => $request->get('email'),
+                        'password' => $request->get('password'),
+                        'user_type_id' => $request->get('user_type'),
+                        'nationality_id' =>  $request->get('nationality_id'),
+                        'person_capacity' =>  $request->get('person_capacity'),
+                        'country_id' => $request->get('Country'),
+                        'province_id' => $request->get('Province'),
+                        'zone_id' => $request->get('Zones'),
+                        'district_id' => $request->get('District'),
+                        'locality' => $request->get('Locality'),
+
+                        'image' => $image,
+
+
+                    ]
+                ]);
+                /*  print_r($response->getBody()->getContents());
+                  die();*/
+            }
+            catch(\Exception $e)
+            {
+                print_r($e->getMessage());die();
+            }
+        }
+
+
+
+
+
+        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
+
+
+        /*$form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')]);*/
+
         return view('Layout.Venue',compact('form'));
 
     }
@@ -21,103 +100,4 @@ class VenueController extends Controller
         return view('Layout.Home');
 
     }
-}    /*$venues = new Venue(['base_uri' => 'http://localhost:8005/api/']);
-        $venues->setAttribute("name", request->get('name'));
-        $venues->setAttribute("image", request->get('image'));
-        $venues->setAttribute("established_date", request->get('established_date'));
-        $venues->setAttribute("phone_no", request->get('phone_no'));
-        $venues->setAttribute("phone_no_2", request->get('phone_no_2'));
-        $venues->setAttribute("space_area", request->get('space_area'));
-        $venues->setAttribute("person_capacity", request->get('person_capacity'));
-        $venues->create();
-        $response =$venues->request('GET', 'venue_create');
-        $data = $response->getBody()->getContents();
-        $venue_create = \GuzzleHttp\json_decode($data);
-
-
-        }
-    public function update(FormBuilder $formBuilder)
-    {
-$venues = new Venue(['base_uri'=> 'http://localhost:8005/api/']);
-$venues->setAttribute("name",request->get('name'));
-$venues->setAttribute("image",request->get('image'));
-$venues->setAttribute("established_date",request->get('established_date'));
-$venues->setAttribute("phone_no",request->get('phone_no'));
-$venues->setAttribute("phone_no_2",request->get('phone_no_2'));
-$venues->setAttribute("space_area",request->get('space_area'));
-$venues->setAttribute("person_capacity",request->get('person_capacity'));
-$venues->update();
-
-
-        $response1 = $venues->request('GET','venue_update');
-        $data1 = $response1->getBody()->getContents();
-        $venue_update =  \GuzzleHttp\json_decode($data1);
-
-        public function update(FormBuilder $formBuilder)
-    {
-        $venues = new Venue(['base_uri'=> 'http://localhost:8005/api/']);
-        $venues->setAttribute("name",request->get('name'));
-$venues->setAttribute("image",request->get('image'));
-$venues->setAttribute("established_date",request->get('established_date'));
-$venues->setAttribute("phone_no",request->get('phone_no'));
-$venues->setAttribute("phone_no_2",request->get('phone_no_2'));
-$venues->setAttribute("space_area",request->get('space_area'));
-$venues->setAttribute("person_capacity",request->get('person_capacity'));
-$venues->delete();
-
-        $response2 = $venues->request('GET','venue_delete');
-        $data2 = $response2->getBody()->getContents();
-        $venue_delete =  \GuzzleHttp\json_decode($data2);
-
-
-        public function maintain_venue_info(FormBuilder $formBuilder)
-    {
-        $venues = new Venue(['base_uri'=> 'http://localhost:8005/api/']);
-        $venues->setAttributes("name",request->get('name'));
-$venues->setAttributes("image",request->get('image'));
-$venues->setAttributes("established_date",request->get('established_date'));
-$venues->setAttributes("phone_no",request->get('phone_no'));
-$venues->setAttributes("phone_no_2",request->get('phone_no_2'));
-$venues->setAttributes("space_area",request->get('space_area'));
-$venues->setAttributes("person_capacity",request->get('person_capacity'));
-$venues->maintain_venue_info();
-
-        $response3 = $venues->request('GET','venue_maintain');
-        $data3 = $response3->getBody()->getContents();
-        $venue_maintain =  \GuzzleHttp\json_decode($data3);
-
-
-        public function select(FormBuilder $formBuilder)
-    {
-        $venues = new Venue(['base_uri'=> 'http://localhost:8005/api/']);
-        $venues->setAttributes"name",request->get('name'));
-$venues->setAttribute("image",request->get('image'));
-$venues->setAttribute("established_date",request->get('established_date'));
-$venues->setAttribute("phone_no",request->get('phone_no'));
-$venues->setAttribute("phone_no_2",request->get('phone_no_2'));
-$venues->setAttribute("space_area",request->get('space_area'));
-$venues->setAttribute("person_capacity",request->get('person_capacity'));
-$venues->select();
-
-        $response4 = $venues->request('GET','venue_select');
-        $data4 = $response4->getBody()->getContents();
-        $venue_select =  \GuzzleHttp\json_decode($data4);
-
-        public function list(FormBuilder $formBuilder)
-    {
-        $venues = new Venue(['base_uri'=> 'http://localhost:8005/api/']);
-        $venues->setAttribute("name",request->get('name'));
-$venues->setAttribute("image",request->get('image'));
-$venues->setAttribute("established_date",request->get('established_date'));
-$venues->setAttribute("phone_no",request->get('phone_no'));
-$venues->setAttribute("phone_no_2",request->get('phone_no_2'));
-$venues->setAttribute("space_area",request->get('space_area'));
-$venues->setAttribute("person_capacity",request->get('person_capacity'));
-$venues->list();
-
-        $response5 = $venues->request('GET','venue_list');
-        $data5 = $response5->getBody()->getContents();
-        $venue_list =  \GuzzleHttp\json_decode($data5);
-
-    }
-}*/
+}

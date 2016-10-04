@@ -22,9 +22,9 @@
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
 
-    <button type="button" class="btn btn-default btn-md" style="float: right;margin-left: 578px;">
-        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out
-    </button>
+                <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
+                    <span class="glyphicon glyphicon-log-out "></span>Logout
+                </a>
 
             </ul>
         </div>

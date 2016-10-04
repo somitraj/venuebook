@@ -8,7 +8,7 @@ class AddressForm extends Form  //also includes user type content
 {
     public function buildForm()
     {
-        $usertypes=$this->getFormOption('usertype');
+
          $countries=$this->getFormOption('country');
         $provinces=$this->getFormOption('province');
        // print_r($provinces); die();
@@ -17,17 +17,17 @@ class AddressForm extends Form  //also includes user type content
         $districts=$this->getFormOption('district');
        /* $localities=$this->getFormOption('locality');*/
 
-        $usertypeOption=[];
+        /*$usertypeOption=[];*/
         $countryOption=[];
         $provinceOption=[];
         $zoneOption=[];
         $districtOption=[];
       /*  $localityOption=[];*/
 
-        foreach($usertypes->user_types as $usertype)
+        /*foreach($usertypes->user_types as $usertype)
         {
             $usertypeOption[$usertype->id]=$usertype->type_name;
-        }
+        }*/
         foreach($countries->tbl_countries as $country)
         {
            $countryOption[$country->id]=$country->name;
@@ -46,25 +46,10 @@ class AddressForm extends Form  //also includes user type content
         {
             $districtOption[$district->id]=$district->name;
         }
-       /* foreach($localities->tbl_localities as $locality)
-        {
-            $localityOption[$locality->id]=$locality->name;
-        }*/
+
+
+
       $this
-          ->add('user_type', 'select', [
-                  'label'=>'User Type',
-                  'choices' => $usertypeOption,
-                  /*  'selected' => 'client',*/
-                  /*'empty_value' => 'client',*/
-                  'wrapper' =>['class' => 'form-group row'],
-                  'label_attr'=>['class'=>'col-md-3 control-label'],
-                  'attr' =>['class' => 'col-md-8 form-control field-input'],
-
-
-              ]
-          )
-
-
 
                      ->add('Country', 'select', [
                     'choices' => $countryOption,

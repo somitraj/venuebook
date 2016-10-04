@@ -1,8 +1,10 @@
 <?php
 
 namespace Venue\Http\Middleware;
-
+use Illuminate\Http\Request;
 use Closure;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class UserCheck
 {
@@ -16,20 +18,14 @@ class UserCheck
     public function handle($request, Closure $next)
     {
         $route=Route::getCurrentRoute();
+
         if(Auth::check())
         {
-            if($route->getAction()['role']==1)
+            if($route->getAction()['role']!=Auth::user()->user_type_id)
             {
-                return redirect()->route('admin.dash');
+                return redirect()->route('home');
             }
-            else if($route->getAction()['role']==2)
-            {
-                return redirect()->route('manager.dash');
-            }
-            else
-            {
-                return redirect()->to('/');
-            }
+
         }
 
         return $next($request);
