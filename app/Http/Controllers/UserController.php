@@ -77,8 +77,6 @@ class UserController extends BaseController
 
 
 
-
-
         if($request->getMethod()=='POST') {
         /*    print_r($request->get('email')); die();*/
             try {

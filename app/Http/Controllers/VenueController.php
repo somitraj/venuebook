@@ -13,7 +13,7 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
-    public function Manager(FormBuilder $formBuilder, Request $request)
+    public function Register(FormBuilder $formBuilder, Request $request)
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
 
@@ -37,6 +37,9 @@ class VenueController extends Controller
 
 
 
+        $response4 = $client->request('GET','vregister');
+        $data4 = $response4->getBody()->getContents();
+        $vregister =  \GuzzleHttp\json_decode($data4);
 
 
         if($request->getMethod()=='POST') {
@@ -88,7 +91,7 @@ class VenueController extends Controller
 
 
 
-        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
+        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district,'vregister'=>$vregister]);
 
 
         /*$form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')]);*/
