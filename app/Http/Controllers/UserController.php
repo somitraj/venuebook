@@ -58,7 +58,9 @@ class UserController extends BaseController
 
         $response = $client->request('GET','country');
         $data = $response->getBody()->getContents();
-        $country =  \GuzzleHttp\json_decode($data);
+
+       $country =  \GuzzleHttp\json_decode($data);
+
 
         $response1 = $client->request('GET','province');
         $data1 = $response1->getBody()->getContents();
@@ -66,13 +68,11 @@ class UserController extends BaseController
 
         $response2 = $client->request('GET','zone');
         $data2 = $response2->getBody()->getContents();
-        $zone =  \GuzzleHttp\json_decode($data2);
+       $zone =  \GuzzleHttp\json_decode($data2);
 
         $response3 = $client->request('GET','district');
         $data3 = $response3->getBody()->getContents();
         $district =  \GuzzleHttp\json_decode($data3);
-
-
 
 
 

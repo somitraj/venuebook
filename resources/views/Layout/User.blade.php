@@ -8,15 +8,17 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li class="active" ><a href="/User" class="glyphicon glyphicon-bell"> Home </a></li>
-                <li><a href="/My Account" class="glyphicon glyphicon-user"> My Account</a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" {{--style="left:900px;"--}}>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
                         <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>

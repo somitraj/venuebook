@@ -15,12 +15,15 @@
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
         <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
-        <li class="dropdown" style="left:900px;">
+        </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" >
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
                 <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
                 </li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>

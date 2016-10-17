@@ -9,7 +9,7 @@ class AddressForm extends Form
     public function buildForm()
     {
       $this
-                     ->add('Coun', 'select', [
+                     ->add('Country', 'select', [
                     'choices' => ['np' => 'Nepal','en' => 'English', 'fr' => 'France'],
                    /*  'selected' => 'en',*/
                      'empty_value' => '=== Select Country ===',
