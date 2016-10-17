@@ -13,6 +13,10 @@ Route::any('/Register',[
     'as'=>'web.Register',
     'uses'=>'UserController@Register'
 ]);
+Route::get('/Venue',[
+    'as'=>'web.Venue',
+    'uses'=>'VenueController@Register'
+]);
 Route::get('/Address',[
     'as'=>'web.Address',
     'uses'=>'UserController@Address'
@@ -57,10 +61,7 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Admin'
 ]);*/
 
-Route::get('/Venue',[
-    'as'=>'web.Venue',
-    'uses'=>'VenueController@Register'
-    ]);
+
 Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
