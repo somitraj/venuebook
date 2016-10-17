@@ -13,9 +13,14 @@
     <ul class="nav navbar-nav">
         <li class="active" ><a href="/" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
-        <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
-        <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
-        <li class="dropdown" {{--style="left:900px;"--}}>
+        <li class="dropdown"><a href="/Updates" data-toggle="dropdown"> Updates
+                <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="/client">Client</a></li>
+                <li><a href="/venue">Venue</a></li>
+            </ul>
+        </li>
+                <li class="dropdown" {{--style="left:900px;"--}}>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
                 <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
             </a>
