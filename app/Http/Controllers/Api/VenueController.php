@@ -9,6 +9,7 @@ use Venue\Models\User;
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\Venue;
+use Venue\Models\VenueType;
 
 class VenueController extends Controller
 {
@@ -57,11 +58,14 @@ class VenueController extends Controller
         }
 
 
-        catch(\Exception $e){
+        catch(Exception $e){
             throw $e;
         }
 
 
     }
+        public function GetVenue(Request $request){
+            return VenueType::all();
+        }
 
 }
