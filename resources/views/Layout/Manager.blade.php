@@ -16,7 +16,7 @@
                 <li><a href="/MyAccount" class="glyphicon glyphicon-user"> MyAccount</a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe" >
                         Notification <span class="badge">4</span>
-                    </button></a></li>
+                    </a></li>
                 <li class="dropdown">
                     <a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
 
@@ -25,11 +25,24 @@
 
 
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+                <li class="dropdown" {{--style="left:900px;"--}}>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
+                        <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
 
 
-                <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
-                    <span class="glyphicon glyphicon-log-out "></span>Logout
-                </a>
+
 
             </ul>
         </div>
