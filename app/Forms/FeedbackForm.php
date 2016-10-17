@@ -9,33 +9,38 @@ class FeedbackForm extends Form
     public function buildForm()
     {
         $this
-            ->add('First Name','text', [
-                'wrapper' => ['class' => 'form-group row'],
-                'label_attr'=>['class'=>'col-md-3 control-label'],
-                'attr' => ['class' =>'col-md-8 form-control field-input']
-
+            ->add('first_name','text',[
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'First Name',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required']
                 ]
             )
 
-            ->add('Last Name','text', [
-                'wrapper' => ['class' => 'form-group row'],
+            ->add('last_name','text',[
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Last Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                'attr' => ['class' => 'col-md-8 form-control field-input']
-
-                 ]
+                    'attr' =>['class' => 'col-md-8 form-control field-input']
+                ]
             )
-            ->add('E-mail','text', [
+            ->add('email','email', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Email Address',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required','email','unique:registered_users']
 
                 ]
             )
 
-            ->add('Comment','textarea', [
-            'wrapper' => ['class' => 'form-group row'],
+            ->add('comment','textarea', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Comment',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                'attr' => ['class' => 'col-md-8 form-control field-input',],
+                    'attr' => ['class' => 'col-md-8 form-control field-input',],
+                    'rules'=>['required']
 
             ]
             )

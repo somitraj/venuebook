@@ -1,7 +1,7 @@
 <?php
 
 
-Route::get('/',[
+Route::get('/',['as'=>'home',
     'uses'=>'VenueController@create'
 ]);
 Route::any('/login',[
@@ -16,6 +16,10 @@ Route::any('/Register',[
 Route::get('/Address',[
     'as'=>'web.Address',
     'uses'=>'UserController@Address'
+]);
+Route::get('/Venue_Type',[
+    'as'=>'web.VenueType',
+    'uses'=>'VenueController@Venue_Type'
 ]);
 Route::any('/Feedback',[
     'as'=>'web.Feedback',
@@ -61,13 +65,22 @@ Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
 ]);
-Route::any('/User',[
+/*Route::get('/User',[
     'as'=>'web.User',
     'uses'=>'UserController@User'
-]);
+]);*/
+Route::group(["role"=>3/*,"prefix"=>"manager"*/,'middleware'=>'auth.user'],function() {
+    Route::any('/User', [
+        'as' => 'web.User',
+        'uses' => 'UserController@User'
+    ]);
+});
 
 require_once ("Manager.php");
 require_once ("Admin.php");
+
+
+    Route::get('/logout',['as'=>'logout',function(){Session::flush();return redirect()->route('home');}]);
 
 ?>
 

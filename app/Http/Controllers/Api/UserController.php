@@ -4,6 +4,7 @@ namespace Venue\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
+use Venue\Models\Feedback;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
@@ -24,10 +25,6 @@ class UserController extends Controller
            // return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
-        }
-        catch(\Exception $e){
-            throw $e;
-        }
 
 
 
@@ -35,8 +32,6 @@ class UserController extends Controller
         $userinfo->setAttribute('first_name',$request->get('first_name'));
         $userinfo->setAttribute('last_name',$request->get('last_name'));
         $userinfo->setAttribute('username',$user->username);
-        $userinfo->setAttribute('dob',$request->get('dob'));
-        /*$userinfo->setAttribute('password',$user->password);*/
         $userinfo->setAttribute('user_id',$user->id);
         $userinfo->setAttribute('email',$user->email);
         $userinfo->country_id=$request->country_id;
@@ -50,17 +45,34 @@ class UserController extends Controller
         $userinfo->setAttribute('locality',$request->get('locality'));
 
 
-        $userinfo->setAttribute('profile_image',$request->get('profile_image'));
 
-
-        $userinfo->setAttribute('identity_image',$request->get('identity_image'));
         /**/
 
         $userinfo->save();
-        return $userinfo;
+        /*return $userinfo;*/
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
 
 
+    }
 
+
+    public function Feedback(Request $request){
+        try{
+            $feed=new Feedback();
+            $feed->setAttribute('first_name',$request->get('first_name'));
+            $feed->setAttribute('last_name',$request->get('last_name'));
+            $feed->setAttribute('email',$request->get('email'));
+            $feed->setAttribute('comment',$request->get('comment'));
+            /*return $feed;*/
+            /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
+            $feed->save();
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
 
     }
 }

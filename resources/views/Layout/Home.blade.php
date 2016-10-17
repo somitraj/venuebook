@@ -11,6 +11,7 @@
 
     <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
+
           {{--  <div class="navbar-header">
                 <a class="navbar-brand" href="#">WebSiteName</a>
             </div>--}}
@@ -96,7 +97,7 @@
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>
-                    <li><a class="ns-img" href="images/venue1.jpg" ></a></li>
+                    <li><a  class="ns-img" href="images/venue1.jpg" ></a></li>
                     <li><a class="ns-img" href="images/venue2.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue3.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue4.jpg"></a></li>
