@@ -13,7 +13,7 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
-    public function Register(FormBuilder $formBuilder, Request $request)
+    public function Manager(FormBuilder $formBuilder, Request $request)
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
 
@@ -35,15 +35,18 @@ class VenueController extends Controller
         $data3 = $response3->getBody()->getContents();
         $district =  \GuzzleHttp\json_decode($data3);
 
-
-
-
-       $response4 = $client->request('GET','venuetype');
+        $response4 = $client->request('GET','venue_type');
         $data4 = $response4->getBody()->getContents();
-        $venuetype =  \GuzzleHttp\json_decode($data4);
+        $venue_type =  \GuzzleHttp\json_decode($data4);
+
+
+
+
+
 
         if($request->getMethod()=='POST') {
-                /*print_r($request->get('username')); die();*/
+            /*print_r($request);die();*/
+
             try {
                 $pathToFile='logo/';
                 /*return $pathToFile;*/
@@ -91,13 +94,17 @@ class VenueController extends Controller
 
 
 
-        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district,'venuetype'=>$venuetype ]);
+        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district,'venue_type'=>$venue_type]);
 
-
-        /*$form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')]);*/
 
         return view('Layout.Venue',compact('form'));
 
+    }
+    public function Venue_Type(FormBuilder $formBuilder)
+    {
+
+        $form = $formBuilder->Create('Venue\Forms\VenueTypeForm', ['method' => 'POST', 'url' => route('web.VenueType')]);
+        return view('Layout.Venue_Type', compact('form'));
     }
     public function create(){
         return view('Layout.Home');

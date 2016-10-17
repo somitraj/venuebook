@@ -15,18 +15,21 @@
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
         <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
-        <li><a href="/Settings" class="glyphicon glyphicon-cog" data-toggle="dropdown"> Settings
+        <li class="dropdown"></li>
+
+
+        {{--<li><a href="/Settings" class="glyphicon glyphicon-cog" data-toggle="dropdown"> Settings
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="/Username">Username</a></li>
                     <li><a href="/Password">Password</a></li>
                 </ul>
 </li>
-
+--}}
 </ul>
-        <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
+       {{-- <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
             <span class="glyphicon glyphicon-log-out "></span>Logout
-        </a>
+        </a>--}}
 
 
             </div>
