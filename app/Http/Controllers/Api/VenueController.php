@@ -18,7 +18,7 @@ class VenueController extends Controller
                 return VenueType::all()->toArray();
             }
 
-    public function Vregister(Request $request){
+    public function Register(Request $request){
 
 
         try{
@@ -27,7 +27,7 @@ class VenueController extends Controller
             $user->setAttribute('password',bcrypt($request->get('password')));
             $user->setAttribute('email',$request->get('email'));
             $user->user_type_id=$request->user_type_id;
-            // return $user;
+            return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
 
