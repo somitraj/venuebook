@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: Admin
- * Date: 9/30/2016
+ * Date: 9/30/2016bvhv
  * Time: 2:54 PM
  */
 Route::group(["role"=>2,"prefix"=>"manager",'middleware'=>'auth.user'],function()
