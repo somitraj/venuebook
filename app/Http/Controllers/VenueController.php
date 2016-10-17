@@ -37,10 +37,10 @@ class VenueController extends Controller
 
 
 
-        $response4 = $client->request('GET','vregister');
-        $data4 = $response4->getBody()->getContents();
-        $vregister =  \GuzzleHttp\json_decode($data4);
 
+       $response4 = $client->request('GET','venuetype');
+        $data4 = $response4->getBody()->getContents();
+        $venuetype =  \GuzzleHttp\json_decode($data4);
 
         if($request->getMethod()=='POST') {
                 /*print_r($request->get('username')); die();*/
@@ -91,7 +91,7 @@ class VenueController extends Controller
 
 
 
-        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district,'vregister'=>$vregister]);
+        $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district,'venuetype'=>$venuetype ]);
 
 
         /*$form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')]);*/
