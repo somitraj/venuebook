@@ -13,7 +13,7 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
-    public function Manager(FormBuilder $formBuilder, Request $request)
+    public function Register(FormBuilder $formBuilder, Request $request)
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
 
@@ -81,8 +81,7 @@ class VenueController extends Controller
 
                     ]
                 ]);
-                /*  print_r($response->getBody()->getContents());
-                  die();*/
+
             }
             catch(\Exception $e)
             {
