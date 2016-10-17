@@ -15,7 +15,7 @@
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
         <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
-        <li class="dropdown" style="left:900px;">
+        <li class="dropdown" {{--style="left:900px;"--}}>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
                 <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
             </a>
@@ -31,7 +31,6 @@
             <!-- /.dropdown-user -->
         </li>
 
-
         </ul>
        {{-- <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
             <span class="glyphicon glyphicon-log-out "></span>Logout
@@ -40,8 +39,6 @@
 
             </div>
         </nav>
-
-
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
