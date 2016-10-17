@@ -57,6 +57,10 @@ Route::get('/Venue',[
     'as'=>'web.Venue',
     'uses'=>'VenueController@Register'
     ]);
+Route::get('/Venueregister',[
+    'as'=>'web.Venue',
+    'uses'=>'VenueController@Register'
+]);
 Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
