@@ -93,7 +93,7 @@ class VenueForm extends Form
 
                 ]
             )
-            /*->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])*/
+           ->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])
 
            /* ->add('type_name','select', [*/
                   /*  'choices' => $type_nameOption,*/

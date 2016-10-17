@@ -17,6 +17,10 @@ Route::get('/Address',[
     'as'=>'web.Address',
     'uses'=>'UserController@Address'
 ]);
+Route::get('/Venue_Type',[
+    'as'=>'web.VenueType',
+    'uses'=>'VenueController@Venue_Type'
+]);
 Route::any('/Feedback',[
     'as'=>'web.Feedback',
     'uses'=>'FeedbackController@Feedback'

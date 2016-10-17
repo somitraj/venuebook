@@ -9,11 +9,14 @@ class VenueTypeForm extends Form  //also includes user type content
     public function buildForm()
     {
         $venue_types=$this->getFormOption('venue_type');
+       // print_r($venue_types);die();
         $venueOption=[];
-        foreach($venue_types->venue_type as $venue_type)
+        /*print_r($venueOption);Die();*/
+        foreach($venue_types as $venue_type)
         {
             $venueOption[$venue_type->id]=$venue_type->type_name;
         }
+      //  print_r($venueOption);die();
         $this
 
             ->add('venue_type', 'select', [

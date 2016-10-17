@@ -44,7 +44,6 @@ class UserController extends BaseController
       /*  die();*/
     }
 
-
         public function Register(FormBuilder $formBuilder,Request $request)
     {
        /* print_r(config('app.REST_API'));die();*/
@@ -142,6 +141,7 @@ class UserController extends BaseController
         $form = $formBuilder->Create('Venue\Forms\AddressForm', ['method' => 'POST', 'url' => route('web.Address')]);
         return view('Layout.Address', compact('form'));
     }
+
 
     public function Contact()
     {
