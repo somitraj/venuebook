@@ -100,7 +100,7 @@
                     <li><a  class="ns-img" href="images/venue1.jpg" ></a></li>
                     <li><a class="ns-img" href="images/venue2.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue3.jpg"></a></li>
-                    <li><a class="ns-img" href="images/venue4.jpg"></a></li>
+                    <li><a class="ns-img" href="images/ALFA house.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue5.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue6.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue7.jpg"></a></li>
