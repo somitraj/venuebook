@@ -13,19 +13,17 @@
     <ul class="nav navbar-nav">
         <li class="active" ><a href="/" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
-        <li class="dropdown"><a href="/Updates" data-toggle="dropdown"> Updates
-                <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="/client">Client</a></li>
-                <li><a href="/venue">Venue</a></li>
-            </ul>
-        </li>
-                <li class="dropdown" {{--style="left:900px;"--}}>
+        <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
+        <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
+        </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" >
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
                 <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
                 </li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
@@ -36,6 +34,7 @@
             <!-- /.dropdown-user -->
         </li>
 
+
         </ul>
        {{-- <a href="/logout" type="button" class="btn btn-primary" style="float: right margin:left;margin-left: 665px;">
             <span class="glyphicon glyphicon-log-out "></span>Logout
@@ -44,6 +43,8 @@
 
             </div>
         </nav>
+
+
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
