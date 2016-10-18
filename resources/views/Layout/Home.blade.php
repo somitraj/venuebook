@@ -100,7 +100,7 @@
                     <li><a  class="ns-img" href="images/venue1.jpg" ></a></li>
                     <li><a class="ns-img" href="images/venue2.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue3.jpg"></a></li>
-                    <li><a class="ns-img" href="images/venue4.jpg"></a></li>
+                    <li><a class="ns-img" href="images/hyatt.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue5.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue6.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue7.jpg"></a></li>
@@ -126,7 +126,7 @@
                         <a class="thumb" href="images/venue3.jpg"></a>
                     </li>
                     <li>
-                        <a class="thumb" href="images/venue4.jpg"></a>
+                        <a class="thumb" href="images/hyatt.jpg"></a>
                     </li>
                     <li>
                         <a class="thumb" href="images/venue5.jpg"></a>
