@@ -33,6 +33,7 @@ class UserController extends Controller
         $userinfo->setAttribute('last_name',$request->get('last_name'));
         $userinfo->setAttribute('username',$user->username);
         $userinfo->setAttribute('user_id',$user->id);
+        $userinfo->setAttribute('dob',$request->get('dob'));
         $userinfo->setAttribute('email',$user->email);
         $userinfo->country_id=$request->country_id;
         $userinfo->province_id=$request->province_id;
@@ -46,7 +47,7 @@ class UserController extends Controller
 
 
 
-        /**/
+
 
         $userinfo->save();
         /*return $userinfo;*/
