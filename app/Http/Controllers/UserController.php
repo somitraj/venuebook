@@ -122,6 +122,7 @@ class UserController extends BaseController
             {
                 print_r($e->getMessage());die();
             }
+            $request->session()->flash('alert-success', 'Registration Successful!');
         }
 
 
