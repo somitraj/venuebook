@@ -35,7 +35,7 @@ class VenueForm extends Form
 
                 ]
             )
-            ->add('vname','text',[
+            ->add('name','text',[
                 'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Venue Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],

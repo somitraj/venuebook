@@ -31,18 +31,15 @@ class VenueController extends Controller
             $user->setAttribute('password',bcrypt($request->get('password')));
             $user->setAttribute('email',$request->get('email'));
             $user->user_type_id=$request->user_type_id;
-            /*return $user;*/
-            /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
 
 
 
-          /*  $userinfo=new UserInfo();
+            $userinfo=new UserInfo();
             $userinfo->setAttribute('first_name',$request->get('first_name'));
             $userinfo->setAttribute('last_name',$request->get('last_name'));
             $userinfo->setAttribute('username',$user->username);
             $userinfo->setAttribute('user_id',$user->id);
-            $userinfo->setAttribute('dob',$request->get('dob'));
             $userinfo->setAttribute('email',$user->email);
             $userinfo->country_id=$request->country_id;
             $userinfo->province_id=$request->province_id;
@@ -54,14 +51,28 @@ class VenueController extends Controller
 
             $userinfo->setAttribute('locality',$request->get('locality'));
 
+            $userinfo->save();
 
 
 
+            $venues=new Venue();
+            $venues->name=$request->name;
+            $venues->country_id=$request->country_id;
+            $venues->province_id=$request->province_id;
+            $venues->zone_id=$request->zone_id;
+            $venues->phone_no=$request->phone_no;
+            $venues->phone_no_2=$request->phone_no_2;
+            $venues->space_area=$request->space_area;
+            $venues->person_capacity=$request->person_capacity;
+            $venues->district_id=$request->district_id;
+            $venues->established_date=$request->established_date;
+            $venues->image=$request->image;
+            $venues->image=$request->image;
+            $venues->setAttribute('country_id',$userinfo->country_id);
+            $venues->setAttribute('locality',$request->get('locality'));
+            $venues->venue_type_id=$request->venue_type_id;
+            $venues->save();
 
-            $userinfo->save();*/
-
-
-            /*return $userinfo;*/
         }
         catch(\Exception $e){
             throw $e;

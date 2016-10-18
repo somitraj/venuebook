@@ -60,7 +60,7 @@ class VenueController extends Controller
                         'first_name' =>  $request->get('first_name'),
                         'last_name' =>  $request->get('last_name'),
                         'username' => $request->get('username'),
-                        'name'=>$request->get('vname'),
+                        'name'=>$request->get('name'),
                         'phone_no' =>  $request->get('phone_no'),
                         'phone_no_2' =>  $request->get('phone_no_2'),
                         'established_date' =>  $request->get('established_date'),
@@ -75,6 +75,7 @@ class VenueController extends Controller
                         'zone_id' => $request->get('Zones'),
                         'district_id' => $request->get('District'),
                         'locality' => $request->get('Locality'),
+                        'venue_type_id' => $request->get('venue_type'),
 
                         'image' => $image,
 
@@ -96,7 +97,7 @@ class VenueController extends Controller
         $form = $formBuilder->Create('Venue\Forms\VenueForm',['method'=>'POST','url' => route('web.Venue')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district,'venue_type'=>$venue_type]);
 
 
-        return view('Layout.Venue',compact('form'));
+        return view('Layout.Venue',compact('form'))/*->with('success','Registration Successful')*/;
 
     }
     public function Venue_Type(FormBuilder $formBuilder)

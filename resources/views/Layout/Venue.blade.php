@@ -41,6 +41,9 @@
                    <h3 style="text-align:center">Venue</h3>
 
                </div>
+              {{-- <div>
+                   {{Session('success')}}
+               </div>--}}
                <div class="panel-body">
                    {!! form($form) !!}
                </div>
