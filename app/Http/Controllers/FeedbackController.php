@@ -9,13 +9,17 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Kris\LaravelFormBuilder\FormBuilder;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+/*use Venue\Feedback;*/
 
 class FeedbackController extends BaseController
 {
     public function Feedback(FormBuilder $formBuilder,Request $request)
-    { if($request->getMethod()=='POST') {
+    {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
-        /*    print_r($request->get('email')); die();*/
+        if($request->getMethod()=='POST') {
+
+       /*print_r($request->get('email')); die();*/
         try {
 
             $response = $client->request('POST', 'feedback', [
@@ -27,13 +31,15 @@ class FeedbackController extends BaseController
 
                 ]
             ]);
-              print_r($response->getBody()->getContents());
-              die();
+              /*print_r($response->getBody()->getContents());
+              die();*/
         }
         catch(\Exception $e)
         {
             print_r($e->getMessage());die();
         }
+
+            $request->session()->flash('alert-success', 'Feedback Successfully Sent!');
     }
 
 

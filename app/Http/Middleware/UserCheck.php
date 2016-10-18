@@ -17,13 +17,18 @@ class UserCheck
      */
     public function handle($request, Closure $next)
     {
-        $route=Route::getCurrentRoute();
+
 
         if(Auth::check())
         {
-            if($route->getAction()['role']!=Auth::user()->user_type_id)
+            $route=Route::getCurrentRoute()->getAction();
+
+            if(array_key_exists('role',$route))
             {
-                return redirect()->route('home');
+                /*if ($route->getAction()['role'] != Auth::user()->user_type_id)*/
+                if(Auth::user()->user_type_id!=$route['role']){
+                    return redirect()->route('home');
+                }
             }
 
         }
