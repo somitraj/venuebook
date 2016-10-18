@@ -13,6 +13,11 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 class VenueController extends Controller
 {
+    /**
+     * @param FormBuilder $formBuilder
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function Register(FormBuilder $formBuilder, Request $request)
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);

@@ -13,7 +13,7 @@ Route::any('/Register',[
     'as'=>'web.Register',
     'uses'=>'UserController@Register'
 ]);
-Route::get('/Venue',[
+Route::any('/Venue',[
     'as'=>'web.Venue',
     'uses'=>'VenueController@Register'
 ]);

@@ -18,6 +18,10 @@ class VenueController extends Controller
                 return VenueType::all()->toArray();
             }
 
+    /**
+     * @param Request $request
+     * @throws \Exception
+     */
     public function Register(Request $request){
 
 
@@ -27,13 +31,13 @@ class VenueController extends Controller
             $user->setAttribute('password',bcrypt($request->get('password')));
             $user->setAttribute('email',$request->get('email'));
             $user->user_type_id=$request->user_type_id;
-            return $user;
+            /*return $user;*/
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
 
 
 
-            $userinfo=new UserInfo();
+          /*  $userinfo=new UserInfo();
             $userinfo->setAttribute('first_name',$request->get('first_name'));
             $userinfo->setAttribute('last_name',$request->get('last_name'));
             $userinfo->setAttribute('username',$user->username);
@@ -54,7 +58,9 @@ class VenueController extends Controller
 
 
 
-            $userinfo->save();
+            $userinfo->save();*/
+
+
             /*return $userinfo;*/
         }
         catch(\Exception $e){
