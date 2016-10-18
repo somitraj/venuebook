@@ -102,10 +102,10 @@
                     <li><a class="ns-img" href="images/venue3.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue4.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue5.jpg"></a></li>
-                    <li><a class="ns-img" href="images/at.jpg"></a></li>
-                    <li><a class="ns-img" href="images/Palagya Hotel.jpg"></a></li>
-                    <li><a class="ns-img" href="images/Royal Food Cafe and Banquet.jpg"></a></li>
-                    <li><a class="ns-img" href="images/s.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue6.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue7.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue8.jpg"></a></li>
+                    <li><a class="ns-img" href="images/venue9.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue1.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue2.jpg"></a></li>
                     <li><a class="ns-img" href="images/venue3.jpg"></a></li>
@@ -132,16 +132,16 @@
                         <a class="thumb" href="images/venue5.jpg"></a>
                     </li>
                     <li>
-                        <a class="thumb" href="images/at.jpg"></a>
+                        <a class="thumb" href="images/venue6.jpg"></a>
                     </li>
                     <li>
-                        <a class="thumb" href="images/Palagya Hotel.jpg"></a>
+                        <a class="thumb" href="images/venue7.jpg"></a>
                     </li>
                     <li>
-                        <a class="thumb" href="images/Royal Food Cafe and Banquet.jpg"></a>
+                        <a class="thumb" href="images/venue8.jpg"></a>
                     </li>
                     <li>
-                        <a class="thumb" href="images/s.jpg"></a>
+                        <a class="thumb" href="images/venue9.jpg"></a>
                     </li>
                     <li>
                         <a class="thumb" href="images/venue1.jpg"></a>
