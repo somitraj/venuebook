@@ -31,6 +31,7 @@ class UserController extends BaseController
             $userApi=\GuzzleHttp\json_decode($response->getBody()->getContents())->user;
            // print_r($userApi);Die();
            $user=new User();
+            $user->id=$userApi->id;
             $user->username=$userApi->username;
             $user->password=$userApi->password;
             $user->user_type_id=$userApi->user_type_id;
@@ -122,13 +123,14 @@ class UserController extends BaseController
             {
                 print_r($e->getMessage());die();
             }
+            $request->session()->flash('alert-success', 'Registration Successful!');
         }
 
 
 
 
 
-       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],[/*'usertype'=>$usertype,*/'country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
+       $form = $formBuilder->Create('Venue\Forms\RegistrationForm',['method'=>'POST','url' => route('web.Register')],['country'=>$country,'province'=>$province,'zone'=>$zone,'district'=>$district]);
 
 
         return view('Layout.Register', compact('form'));

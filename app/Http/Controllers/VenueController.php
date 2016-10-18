@@ -88,6 +88,7 @@ class VenueController extends Controller
             {
                 print_r($e->getMessage());die();
             }
+            $request->session()->flash('alert-success', 'Registration Successful!!');
         }
 
 
