@@ -53,6 +53,8 @@
                     <li><a class="ns-img" href="images/hotel shanker3.jpg"></a></li>
                     <li><a class="ns-img" href="images/hotel shanker4.jpg"></a></li>
                     <li><a class="ns-img" href="images/hotel shanker5.jpg"></a></li>
+                    <li><a class="ns-img" href="images/hotel shanker6.jpg"></a></li>
+
 
                 </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
