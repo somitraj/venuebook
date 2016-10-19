@@ -175,6 +175,43 @@ class UserController extends BaseController
     {
         return view('Layout.User', compact('form'));
     }
+    public function Lainchaur()
+    {
+        return view('Layout.Lainchaur', compact('form'));
+    }
+    public function Sasa()
+    {
+        return view('Layout.Sasa', compact('form'));
+    }
+    public function Shanker()
+    {
+        return view('Layout.Shanker', compact('form'));
+    }
+    public function Star()
+    {
+        return view('Layout.Star', compact('form'));
+    }
+    public function Athiti()
+    {
+        return view('Layout.Athiti', compact('form'));
+    }
+    public function Hyatt()
+    {
+        return view('Layout.Hyatt', compact('form'));
+    }
+    public function Thapagaun()
+    {
+        return view('Layout.Thapagaun', compact('form'));
+    }
+    public function Durbar()
+    {
+        return view('Layout.Durbar', compact('form'));
+    }
+    public function Radisson()
+    {
+        return view('Layout.Radisson', compact('form'));
+    }
+
 
     public function UserCheck()
     {
