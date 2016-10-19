@@ -43,7 +43,7 @@
                     <div class="col-md-3">
                        <a href="/"> <img src="/images/logoo.png" style="height: 130px;width: 130px"></a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 ">
                         <p style="color: white;font-size: 60px;text-align: center;">VENUEBOOKING</p>
                         <p style="color: white;font-size: 20px;text-align: center;margin-top: -35px;margin-left: 150px;">BOOK YOUR VENUE HERE</p>
                     </div>
@@ -58,8 +58,11 @@
         </div>
     </div>
 --}}
-
-@yield('menu')
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+@include('Layout.Menu')
+        </div>
+    </nav>
 
 
     <div class="between">
