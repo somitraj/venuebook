@@ -222,7 +222,7 @@ class UserController extends BaseController
        /* $all_admin=User::where('role_type','=','3')->count();
         $all_students=User::where('role_type','=','2')->count();*/
         // print_r($all_admin);die();
-        return view('Layout.Viewuser',compact('users','all_user'/*,'all_admin','all_students'*/));
+        return view('Layout.Userlist',compact('users','all_user'/*,'all_admin','all_students'*/));
 
     }
 
