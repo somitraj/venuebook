@@ -7,40 +7,12 @@
  */
 ?>
 @extends('Layout/MainLayout')
-@section('menu')
 
-    <nav class="navbar navbar-default navbar-inverse">
-        <div class="container-fluid">
-
-          {{--  <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>--}}
-            <ul class="nav navbar-nav">
-                <li class="active"  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
-                <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
-                <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-                <li class="dropdown"><a href="/Register" class="dropdown-toggle glyphicon glyphicon-pencil" data-toggle="dropdown"> Register
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/Register">Client</a></li>
-                        <li><a href="/Venue">Venue</a></li>
-                    </ul>
-                </li>
-{{--
-                <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
---}}
-                <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
-            </ul>
-        </div>
-    </nav>
-    {{--<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-    <span class="sr-only">Loading...</span>--}}
-
-
-
-
-@endsection
 @section('content')
+    <a>
+        <img style=width:150px;height:100px;" src="/images/lainchaur.jpg"/></a>
+    <h4 style="text-align:left">Lainchaur Banquet</h4>
+
     <br><br>
     <div style="width:1000px;margin:10px auto;">
         <h2><b>Photos</b></h2>
