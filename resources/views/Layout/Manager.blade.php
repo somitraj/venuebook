@@ -12,7 +12,7 @@
         <div class="container-fluid">
 
             <ul class="nav navbar-nav">
-                <li><a href="/DashBoard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
+                <li><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe" >
                         Notification <span class="badge">4</span>
                     </a></li>
@@ -51,5 +51,17 @@
         </div>
 
     </nav>
+    <div>
+        @if(Auth::check())
+            <div>
+                <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+            </div>
+            <h5>
+                <div>
+                    {{Auth::user()->username}}
+                </div>
+            </h5>
+        @endif
+    </div>
     @yield('manager-content')
 @endsection
