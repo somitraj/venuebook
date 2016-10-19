@@ -11,9 +11,9 @@
                 <nav class="navbar navbar-default navbar-inverse">
             <div class="container-fluid">
     <ul class="nav navbar-nav">
-        <li><a href="/dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
+        <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
-        <li class="active"><a href="Client" class="glyphicon glyphicon-user"> Client</a></li>
+        <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
         </ul>
 
@@ -71,6 +71,7 @@
                             <tr>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
+                            </tr>
                                 @endforeach
                     </table>
                 </div>
