@@ -48,7 +48,15 @@
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>
-                                    </ul>
+                    <li><a class="ns-img" href="image/Lainchaur banquet.jpg"></a></li>
+                    <li><a class="ns-img" href="image/Lainchaur banquet1.jpg"></a></li>
+                    <li><a class="ns-img" href="image/Lainchaur banquet2.jpg"></a></li>
+                    <li><a class="ns-img" href="image/Lainchaur banquet3.jpg"></a></li>
+                    <li><a class="ns-img" href="image/Lainchaur banquet4.jpg"></a></li>
+                    <li><a class="ns-img" href="image/Lainchaur banquet5.jpg"></a></li>
+
+
+                </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
             </div>
         </div>
