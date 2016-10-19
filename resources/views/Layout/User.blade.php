@@ -7,7 +7,7 @@
     <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active" ><a href="/User" class="glyphicon glyphicon-bell"> Home </a></li>
+                <li class="active" ><a href="User" class="glyphicon glyphicon-bell"> Home </a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
                 <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
                 </ul>

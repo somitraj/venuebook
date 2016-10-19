@@ -12,7 +12,7 @@
         <div class="container-fluid">
 
             <ul class="nav navbar-nav">
-                <li><a href="/DashBoard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
+                <li><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
                 <li><a href="/Notification" class="glyphicon glyphicon-globe" >
                         Notification <span class="badge">4</span>
                     </a></li>
