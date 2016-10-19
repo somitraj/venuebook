@@ -14,8 +14,9 @@
     <h4 style="text-align:left;margin-left:40px;">Lainchaur Banquet</h4>
 
     <br>
+        {{--<div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4">--}}
 
     <div style="width:1000px;margin:10px auto;">
         {{--<h2><b>Photos</b></h2>--}}
@@ -39,13 +40,21 @@
         <h4 style="text-align: center"><button class="btn-success">Book Now</button></h4>
     </div>
         </div>
-        <div>
-    </div>
-    </div>
-            <div class="col-lg-8">
+        <div id="map"></div>
+        <!-- Map -->
+        <div id="contact" class="map">
+            <iframe <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.9723010912167!2d85.3144195150623!3d27.718141482787384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb191cc4cdca59%3A0x224b68e3f668beca!2sLainchour+Banquet+Hall!5e0!3m2!1sen!2snp!4v1476868155534"   width="350" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <br />
+
+        </div>
+        </div>
+
+    {{--</div>--}}
+            {{--<div class="col-lg-8">
                 hello
-            </div>
-    </div>
+            </div>--}}
+    {{--</div>
+    </div>--}}
 
 
 
