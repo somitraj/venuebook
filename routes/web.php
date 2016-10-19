@@ -56,6 +56,52 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
+Route::get('/Lainchaur',[
+    'as'=>'web.Lainchaur',
+    'uses'=>'UserController@Lainchaur'
+]);
+
+Route::get('/Sasa',[
+    'as'=>'web.Sasa',
+    'uses'=>'UserController@Sasa'
+]);
+
+Route::get('/Shanker',[
+    'as'=>'web.Shanker',
+    'uses'=>'UserController@Shanker'
+]);
+
+Route::get('/Star',[
+    'as'=>'web.Star',
+    'uses'=>'UserController@Star'
+]);
+
+Route::get('/Athiti',[
+    'as'=>'web.Athiti',
+    'uses'=>'UserController@Athiti'
+]);
+
+Route::get('/Hyatt',[
+    'as'=>'web.Hyatt',
+    'uses'=>'UserController@Hyatt'
+]);
+
+Route::get('/Thapagaun',[
+    'as'=>'web.Thapagaun',
+    'uses'=>'UserController@Thapagaun'
+]);
+
+Route::get('/Durbar',[
+    'as'=>'web.Durbar',
+    'uses'=>'UserController@Durbar'
+]);
+
+Route::get('/Radisson',[
+    'as'=>'web.Radisson',
+    'uses'=>'UserController@Radisson'
+]);
+
+
 /*Route::any('/Admin',[
     'as'=>'web.Admin',
     'uses'=>'UserController@Admin'
