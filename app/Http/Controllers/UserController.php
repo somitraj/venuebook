@@ -15,39 +15,43 @@ class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder,Request $request)
     {
-        $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
-        if($request->getMethod()=='POST') {
-            $client=new Client(['base_uri'=> config('app.REST_API')]);
+        if (Auth::check()) {
+            return view('Layout.Home', compact('form'));
 
-            $response = $client->request('POST', 'login', [
-                'form_params' => [
+        } else {
+            $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
+            if ($request->getMethod() == 'POST') {
+                $client = new Client(['base_uri' => config('app.REST_API')]);
 
-                    'username' => $request->get('username'),
-                    'password'=> $request->get('password')
+                $response = $client->request('POST', 'login', [
+                    'form_params' => [
 
-                ]
+                        'username' => $request->get('username'),
+                        'password' => $request->get('password')
 
-        ]);
-            $userApi=\GuzzleHttp\json_decode($response->getBody()->getContents())->user;
-           // print_r($userApi);Die();
-           $user=new User();
-            $user->id=$userApi->id;
-            $user->username=$userApi->username;
-            $user->password=$userApi->password;
-            /*$user->profile_image=$userApi->profile_image;*/
-            $user->user_type_id=$userApi->user_type_id;
-            Auth::login($user);
+                    ]
+
+                ]);
+                $userApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user;
+                // print_r($userApi);Die();
+                $user = new User();
+                $user->id = $userApi->id;
+                $user->username = $userApi->username;
+                $user->password = $userApi->password;
+                /*$user->profile_image=$userApi->profile_image;*/
+                $user->user_type_id = $userApi->user_type_id;
+                Auth::login($user);
 
 
-         //   return redirect()->route('manager.dash');
-           return $this->UserCheck();
+                //   return redirect()->route('manager.dash');
+                return $this->UserCheck();
+            }
+
+            /*print_r($response);die();*/
+            return view('Layout.Login', compact('form'));
+            /*  die();*/
         }
-
-        /*print_r($response);die();*/
-        return view('Layout.Login', compact('form'));
-      /*  die();*/
     }
-
         public function Register(FormBuilder $formBuilder,Request $request)
     {
        /* print_r(config('app.REST_API'));die();*/

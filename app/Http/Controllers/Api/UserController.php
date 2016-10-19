@@ -87,4 +87,10 @@ class UserController extends Controller
         }
     }
 
+    /*public  function  Search(Request $request){
+        try{
+            $search=
+        }
+    }*/
+
 }
