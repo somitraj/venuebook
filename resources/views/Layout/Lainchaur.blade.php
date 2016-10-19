@@ -42,27 +42,22 @@
 @endsection
 @section('content')
     <br><br>
-
     <div style="width:1000px;margin:10px auto;">
         <h2><b>Photos</b></h2>
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>
-                    <li><a class="ns-img" href="image/Lainchaur banquet.jpg"></a></li>
-                    <li><a class="ns-img" href="image/Lainchaur banquet1.jpg"></a></li>
-                    <li><a class="ns-img" href="image/Lainchaur banquet2.jpg"></a></li>
-                    <li><a class="ns-img" href="image/Lainchaur banquet3.jpg"></a></li>
-                    <li><a class="ns-img" href="image/Lainchaur banquet4.jpg"></a></li>
-                    <li><a class="ns-img" href="image/Lainchaur banquet5.jpg"></a></li>
-
-
+                    <li><a class="ns-img" href="images/Lainchaur banquet1.jpg"></a></li>
+                    <li><a class="ns-img" href="images/Lainchaur banquet2.jpg"></a></li>
+                    <li><a class="ns-img" href="images/Lainchaur banquet3.jpg"></a></li>
+                    <li><a class="ns-img" href="images/Lainchaur banquet4.jpg"></a></li>
+                    <li><a class="ns-img" href="images/Lainchaur banquet5.jpg"></a></li>
+                    <li><a class="ns-img" href="images/Lainchaur banquet6.jpg"></a></li>
                 </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
             </div>
         </div>
 
-</body>
+        </body>
         </html>
-        @endsection
-
-
+@endsection

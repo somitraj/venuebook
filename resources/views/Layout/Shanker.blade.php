@@ -9,7 +9,7 @@
 @extends('Layout/MainLayout')
 @section('menu')
 
-    <nav class="navbar navbar-default navbar-inverse">
+    <nav class="navbar navbar-default navbar-inverse" xmlns="http://www.w3.org/1999/html">
         <div class="container-fluid">
 
           {{--  <div class="navbar-header">
@@ -42,7 +42,24 @@
 @endsection
 @section('content')
 
+    <br><br>
+    <div style="width:1000px;margin:10px auto;">
+        <h2><b>Photos</b></h2>
+        <div id="ninja-slider" style="float:left;">
+            <div class="slider-inner">
+                <ul>
+                    <li><a class="ns-img" href="images/hotel shanker.jpg"></a></li>
+                    <li><a class="ns-img" href="images/hotel shanker2.jpg"></a></li>
+                    <li><a class="ns-img" href="images/hotel shanker3.jpg"></a></li>
+                    <li><a class="ns-img" href="images/hotel shanker4.jpg"></a></li>
+                    <li><a class="ns-img" href="images/hotel shanker5.jpg"></a></li>
 
+                </ul>
+                <div class="fs-icon" title="Expand/Close"></div>
+            </div>
+        </div>
 
-
+</body>
+        </html>
+        @endsection
 
