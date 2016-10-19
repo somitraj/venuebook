@@ -58,6 +58,26 @@
             </div>
         </div>
 
+</div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    {{--<div class="panel panel-primary">
+                        <div class="panel-heading ">--}}
+
+                            <a>
+                                <img style=width:150px;height:100px;" src="/images/lainchaur.jpg"/></a>
+                              <h4 style="text-align:left">Lainchaur Banquet</h4>
+
+                            <div class="col-md-8">
+                        <h5> It is one the best places in the capital where the finest banquet facilities are offered together with unparalleled service and quality food</h5>
+                    </div>
+                            {{--</div>
+                    </div>--}}
+                </div>
+            </div>
+        </div>
+
         </body>
         </html>
 @endsection
