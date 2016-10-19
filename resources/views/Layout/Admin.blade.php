@@ -44,7 +44,18 @@
             </div>
         </nav>
 
-
+            <div>
+                @if(Auth::check())
+                    <div>
+                        <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+                    </div>
+                <h5>
+                    <div>
+                        {{Auth::user()->username}}
+                    </div>
+                </h5>
+                @endif
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
@@ -85,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                </div><br>
+                <br>
 
 
             @endsection

@@ -34,6 +34,7 @@ class UserController extends BaseController
             $user->id=$userApi->id;
             $user->username=$userApi->username;
             $user->password=$userApi->password;
+            /*$user->profile_image=$userApi->profile_image;*/
             $user->user_type_id=$userApi->user_type_id;
             Auth::login($user);
          //   return redirect()->route('manager.dash');
