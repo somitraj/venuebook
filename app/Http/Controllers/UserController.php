@@ -228,8 +228,12 @@ class UserController extends BaseController
               return redirect()->route('web.User');
                //return redirect()->to('/');
             }
+            else{
+                return redirect()->route('Home');
+            }
 
         }
+
     }
     public function Logout(){
         Session::flush();

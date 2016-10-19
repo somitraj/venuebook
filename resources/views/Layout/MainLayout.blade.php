@@ -41,7 +41,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                       <a href="/"> <img src="/images/logoo.png" style="height: 130px;width: 130px"></a>
+                       {{--<a href="/">--}} <img src="/images/logoo.png" style="height: 130px;width: 130px">{{--</a>--}}
                     </div>
                     <div class="col-md-6 ">
                         <p style="color: white;font-size: 60px;text-align: center;">VENUEBOOKING</p>
