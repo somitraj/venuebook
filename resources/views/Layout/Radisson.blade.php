@@ -33,15 +33,34 @@
             </ul>
         </div>
     </nav>
-    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+   {{-- <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
     <span class="sr-only">Loading...</span>
 
 
-
+--}}
 
 @endsection
 @section('content')
 
+    <br><br>
+    <div style="width:1000px;margin:10px auto;">
+        <h2><b>Photos</b></h2>
+        <div id="ninja-slider" style="float:left;">
+            <div class="slider-inner">
+                <ul>
+                    <li><a class="ns-img" href="images/radi.jpg"></a></li>
+                    <li><a class="ns-img" href="images/radi1.jpg"></a></li>
+                    <li><a class="ns-img" href="images/radi2.jpg"></a></li>
+                    <li><a class="ns-img" href="images/radi3.jpg"></a></li>
+                    <li><a class="ns-img" href="images/radi4.jpg"></a></li>
+                </ul>
+                <div class="fs-icon" title="Expand/Close"></div>
+            </div>
+        </div>
+
+        </body>
+        </html>
+@endsection
 
 
 
