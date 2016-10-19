@@ -211,7 +211,18 @@ class UserController extends BaseController
     {
         return view('Layout.Radisson', compact('form'));
     }
+    public function GetIndex()
+    {
+        $users=new User();
+        $users=User::all();
+        // print_r($users);die();
+        $all_user=User::count();
+       /* $all_admin=User::where('role_type','=','3')->count();
+        $all_students=User::where('role_type','=','2')->count();*/
+        // print_r($all_admin);die();
+        return view('Layout.Client',compact('users','all_user'/*,'all_admin','all_students'*/));
 
+    }
 
     public function UserCheck()
     {
@@ -233,4 +244,5 @@ class UserController extends BaseController
         Session::flush();
         return redirect()->route('home');
     }
+
 }

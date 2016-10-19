@@ -116,6 +116,7 @@ Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
 ]);
+
 /*Route::get('/User',[
     'as'=>'web.User',
     'uses'=>'UserController@User'

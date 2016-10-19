@@ -8,4 +8,6 @@
 Route::group(["role"=>1,'middleware'=>'auth.user',"prefix"=>"admin"],function()
 {
     Route::any("dashboard",["as"=>'admin.dash', "uses"=>'UserController@Admin']);
+    Route::any("client",["as"=>'admin.client', "uses"=>'UserController@GetIndex']);
+
 });
