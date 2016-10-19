@@ -77,5 +77,14 @@ class UserController extends Controller
 
 
 }
+    public function GetProfile(Request $request){
+        try{
+            $userinfo=UserInfo::all()->where('user_id','=',$request->get('user_id'))->toArray();
+            return $userinfo;
+       }
+        catch(\Exception $e){
+            throw $e;
+        }
+    }
 
 }
