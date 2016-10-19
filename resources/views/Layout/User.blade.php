@@ -20,8 +20,7 @@
 
 
 
-  @endsection
-@section('content')
+
     <br><br>
 
     <div class="row" style="border: 1px solid;    padding-top: 20px;  background-color: #F8F6F2;margin-left: 80px;margin-right: 80px;">
@@ -125,10 +124,4 @@
         </div>
         <div style="clear:both;"></div>
     </div>
-
-    </body>
-    </html>
-
-
-
 @endsection
