@@ -55,7 +55,7 @@
         </div>
         </div>
         <br>
-        <h4 style="text-align: center"><button class="btn-success">Book Now</button></h4>
+        <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
 
     {{--</div>--}}
             {{--<div class="col-lg-8">

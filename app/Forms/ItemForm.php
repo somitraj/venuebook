@@ -20,7 +20,7 @@ class ItemForm extends Form
             )
 
 
-         ->add('price','text', [
+         ->add('price','number', [
             'wrapper' => ['class' => 'form-group'],
             'label'=>'Price',
                  'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -30,7 +30,7 @@ class ItemForm extends Form
 
         ]
     )
-            ->add('price_per','text', [
+            ->add('price_per','number', [
                     'wrapper' => ['class' => 'form-group'],
                     'label'=>'Price Per',
                     'label_attr'=>['class'=>'col-md-3 control-label'],

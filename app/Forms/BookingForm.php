@@ -25,7 +25,7 @@ class BookingForm extends Form
 
                 ]
             )
-            ->add('Booking time','text', [
+            ->add('Booking time','time', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-9 form-control field-input']

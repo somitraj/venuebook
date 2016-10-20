@@ -34,11 +34,11 @@ Route::get('/Contact',[
     'uses'=>'UserController@Contact'
     ]);
 
-Route::get('/Book',[
+Route::any('/Book',[
     'as'=>'web.Book',
     'uses'=>'BookingController@Book'
 ]);
-Route::get('/BookTotal',[
+Route::any('/BookTotal',[
     'as'=>'web.BookTotal',
     'uses'=>'BookingController@BookTotal'
 ]);
