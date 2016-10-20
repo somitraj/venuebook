@@ -220,16 +220,20 @@ class UserController extends BaseController
     {
         $users=new User();
       // $users=User::all();
+        //yesle kati client xa vanera list ma dekhauxa
         $users=User::where('user_type_id','=','3')->get();
         // print_r($users);die();
        /*$all_user=User::count();*/
+        //yesle kati client xa vaney number count garxa
         $all_user=User::where('user_type_id','=','3')->count();
        // print_r($all_user);die();
        /* $all_students=User::where('role_type','=','2')->count();*/
         // print_r($all_admin);die();
+        //yesle client ko list ra number return garxa userlistma compact form ma
         return view('Layout.Userlist',compact('users','all_user'));
 
     }
+    //yesko work pani mathi ko getindex ko jastai same ho
     public function GetManagerList()
     {
         $users=new User();
