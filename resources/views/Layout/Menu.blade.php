@@ -6,8 +6,8 @@
     @if(Auth::user()->user_type_id==1)
         <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
-        <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
-        <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
+        <li><a href="client" class="glyphicon glyphicon-user"> Client</a></li>
+        <li><a href="venue" class="glyphicon glyphicon-group"> Venue</a></li>
     @elseif(Auth::user()->user_type_id==2)
             <li><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
             <li><a href="/Notification" class="glyphicon glyphicon-globe" >

@@ -22,7 +22,7 @@
                 @endif
                 </div>
             <div class="container">
-                <h2>UserList <span class="badge">{{$all_user}}</span></h2>
+                <h2>ManagerList<span class="badge">{{$all_manager}}</span></h2>
                 <table class="table table-bordered">
                     <thead>
                     <tr>

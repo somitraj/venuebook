@@ -216,15 +216,29 @@ class UserController extends BaseController
     public function GetIndex()
     {
         $users=new User();
-        $users=User::all();
+      // $users=User::all();
+        $users=User::where('user_type_id','=','3')->get();
         // print_r($users);die();
-        $all_user=User::count();
-       /* $all_admin=User::where('role_type','=','3')->count();
-        $all_students=User::where('role_type','=','2')->count();*/
+       /*$all_user=User::count();*/
+        $all_user=User::where('user_type_id','=','3')->count();
+       // print_r($all_user);die();
+       /* $all_students=User::where('role_type','=','2')->count();*/
         // print_r($all_admin);die();
-        return view('Layout.Userlist',compact('users','all_user'/*,'all_admin','all_students'*/));
+        return view('Layout.Userlist',compact('users','all_user'));
 
     }
+    public function GetManagerList()
+    {
+        $users=new User();
+        //$users=User::all();
+        $users=User::where('user_type_id','=','2')->get();
+        /*$all_user=User::count();*/
+        $all_manager=User::where('user_type_id','=','2')->count();
+         //print_r($all_manager);die();
+        return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
+
+    }
+
 
     public function UserCheck()
     {
