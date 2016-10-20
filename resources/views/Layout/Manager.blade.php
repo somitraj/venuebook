@@ -16,7 +16,7 @@
             </div>
             <h5>
                 <div>
-                    {{Auth::user()->username}}
+                    {{Auth::user()->username}} {{--manager login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
                 </div>
             </h5>
         @endif

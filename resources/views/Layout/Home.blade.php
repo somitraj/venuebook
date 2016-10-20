@@ -6,54 +6,9 @@
  * Time: 12:51 PM
  */
 ?>
-@extends('Layout/MainLayout')
-{{--@section('menu')
-
-    <nav class="navbar navbar-default navbar-inverse">
-        <div class="container-fluid">
-
-          --}}{{--  <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>--}}{{--
-            <ul class="nav navbar-nav">
-                <li class="active"  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
-                <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
-                <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-                <li class="dropdown"><a href="/Register" class="dropdown-toggle glyphicon glyphicon-pencil" data-toggle="dropdown"> Register
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/Register">Client</a></li>
-                        <li><a href="/Venue">Venue</a></li>
-                    </ul>
-                </li>
---}}{{--
-                <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
---}}{{--
-                <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
-            </ul>
-        </div>
-    </nav>
-    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-    <span class="sr-only">Loading...</span>
-
-
-
- --}}{{--  <nav class="navbar navbar-default">
-        <div class="navbar-header">
-
-        </div>
-    <ul class="nav navbar-nav">
-        <li class="active" ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
-        <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
-        <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-        <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
-        <li><a href="/login" class="glyphicon glyphicon-hand-right"> Login</a></li>
-    </ul>
-    </nav>--}}{{--
-
-
-@endsection--}}
-@section('content')
+@extends('Layout/MainLayout')  {{--mainlayout blade use gareko
+--}}
+@section('content')  {{--mainlayout blade vita content yield ma rakhna--}}
 <br><br>
 
     <div class="row" style="border: 1px solid;    padding-top: 20px;  background-color: #F8F6F2;margin-left: 80px;margin-right: 80px;">

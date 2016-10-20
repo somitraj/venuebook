@@ -5,9 +5,9 @@
  * Date: 9/30/2016bvhv
  * Time: 2:54 PM
  */
-Route::group(["role"=>2,"prefix"=>"manager",'middleware'=>'auth.user'],function()
-{//yesko vitra manager le kun kun route jana milxa define garne
-    Route::any("dashboard",["as"=>'manager.dash', "uses"=>'UserController@Manager']);
+Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
+{//yesko vitra normal user le kun kun route jana milxa define garne
+    Route::any("dashboard",["as"=>'user.dash', "uses"=>'UserController@User']);
     /*Route::get('/searchlost',['as'=>'searchlost','uses'=>'Web\LoginController@Search']);
     Route::get('/searchfound',['as'=>'searchfound','uses'=>'Web\LoginController@Lost']);
     Route::get('/lostitem',['as'=>'lostitem','uses'=>'Web\LoginController@ReportLost']);

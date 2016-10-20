@@ -44,8 +44,8 @@ class VenueController extends Controller
         $data4 = $response4->getBody()->getContents();
         $venue_type =  \GuzzleHttp\json_decode($data4);
 
-        if($request->getMethod()=='POST') {
-            /*print_r($request);die();*/
+        if($request->getMethod()=='POST') {  //activates venue register button
+
 
             try {
                 $pathToFile='logo/';
@@ -53,7 +53,7 @@ class VenueController extends Controller
                 $image='null';
                 $uploadfile = $pathToFile . basename($_FILES['image']['name']);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-                    $image='logo/'.basename($_FILES['image']['name']);
+                    $image='logo/'.basename($_FILES['image']['name']);   //eti samma upload vako photo euta folder ma save garna lai
                 }
                  $response = $client->request('POST', 'venue', [
                     'form_params' => [

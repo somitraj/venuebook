@@ -127,7 +127,7 @@ Route::group(["role"=>3/*,"prefix"=>"manager"*/,'middleware'=>'auth.user'],funct
         'uses' => 'UserController@User'
     ]);
 });
-
+require_once ("User.php");
 require_once ("Manager.php");
 require_once ("Admin.php");
 

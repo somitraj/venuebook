@@ -13,52 +13,49 @@ use Venue\User;
 
 class UserController extends BaseController
 {
-    public function login(FormBuilder $formBuilder,Request $request)
+    public function login(FormBuilder $formBuilder,Request $request) //for login
     {
-        $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
-        if($request->getMethod()=='POST') {
-            $client=new Client(['base_uri'=> config('app.REST_API')]);
+        if (Auth::check()) {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
+            return view('Layout.Home', compact('form'));
 
-            $response = $client->request('POST', 'login', [
-                'form_params' => [
+        } else { //if not logged in,login page is displayed
+            $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
+            if ($request->getMethod() == 'POST') {  //activates login button
+                $client = new Client(['base_uri' => config('app.REST_API')]);
 
-                    'username' => $request->get('username'),
-                    'password'=> $request->get('password')
+                $response = $client->request('POST', 'login', [
+                    'form_params' => [
 
-                ]
+                        'username' => $request->get('username'),
+                        'password' => $request->get('password')
 
-        ]);
-            $userApi=\GuzzleHttp\json_decode($response->getBody()->getContents())->user;
-           // print_r($userApi);Die();
-           $user=new User();
-            $user->id=$userApi->id;
-            $user->username=$userApi->username;
-            $user->password=$userApi->password;
-            /*$user->profile_image=$userApi->profile_image;*/
-            $user->user_type_id=$userApi->user_type_id;
-            Auth::login($user);
+                    ]
+
+                ]);
+                $userApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user; //api bata json format bata ako lai decode gareko
+
+                $user = new User();
+                $user->id = $userApi->id;
+                $user->username = $userApi->username;
+                $user->password = $userApi->password;
+                /*$user->profile_image=$userApi->profile_image;*/
+                $user->user_type_id = $userApi->user_type_id;
+                Auth::login($user);
 
 
-         //   return redirect()->route('manager.dash');
-           return $this->UserCheck();
+                //   return redirect()->route('manager.dash');
+                return $this->UserCheck();
+            }
+
+            /*print_r($response);die();*/
+            return view('Layout.Login', compact('form'));
+
         }
-
-        /*print_r($response);die();*/
-        return view('Layout.Login', compact('form'));
-      /*  die();*/
     }
-
         public function Register(FormBuilder $formBuilder,Request $request)
     {
-       /* print_r(config('app.REST_API'));die();*/
-        /*$client = new Client(['base_uri'=>'http://localhost:8005/api']);*/
+
         $client = new Client(['base_uri'=> config('app.REST_API')]);
-
-
-/*        $response0 = $client->request('GET','usertype');
-        $data0 = $response0->getBody()->getContents();
-        $usertype =  \GuzzleHttp\json_decode($data0);*/
-
 
         $response = $client->request('GET','country');
         $data = $response->getBody()->getContents();
@@ -80,7 +77,7 @@ class UserController extends BaseController
 
 
 
-        if($request->getMethod()=='POST') {
+        if($request->getMethod()=='POST') { //activates register button
         /*    print_r($request->get('email')); die();*/
             try {
                 $pathToFile='uploads/';
@@ -96,7 +93,7 @@ class UserController extends BaseController
                 if (move_uploaded_file($_FILES['identity_image']['tmp_name'], $uploadfile1)) {
                     $identity_image='uploads/'.basename($_FILES['identity_image']['name']);
                 }
-                $response = $client->request('POST', 'register', [
+                $response = $client->request('POST', 'register', [ //fetching form datas
                     'form_params' => [
                          'first_name' =>  $request->get('first_name'),
                          'last_name' =>  $request->get('last_name'),
@@ -253,8 +250,12 @@ class UserController extends BaseController
               return redirect()->route('web.User');
                //return redirect()->to('/');
             }
+            else{
+                return redirect()->route('Home');
+            }
 
         }
+
     }
     public function Logout(){
         Session::flush();

@@ -29,7 +29,8 @@
 --}}
 
 
-    @yield('head')
+
+    @yield('head') {{--yield le page ma certain thau ma gap create garxa ani arko page bata extend garera tyo thau ma content halna milxa--}}
 
 </head>
 
@@ -41,7 +42,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                       <a href="/"> <img src="/images/logoo.png" style="height: 130px;width: 130px"></a>
+                       {{--<a href="/">--}} <img src="/images/logoo.png" style="height: 130px;width: 130px">{{--</a>--}}
                     </div>
                     <div class="col-md-6 ">
                         <p style="color: white;font-size: 60px;text-align: center;">VENUEBOOKING</p>
@@ -60,7 +61,7 @@
 --}}
 <nav class="navbar navbar-default navbar-inverse">
     <div class="container-fluid">
-@include('Layout.Menu')
+@include('Layout.Menu')   {{--menu.blade lai include gareko--}}
         </div>
     </nav>
 
