@@ -21,9 +21,9 @@ class UserCheck
 
         if(Auth::check())
         {
-            $route=Route::getCurrentRoute()->getAction();
+            $route=Route::getCurrentRoute()->getAction();  //url bata aile vako route lina
 
-            if(array_key_exists('role',$route))
+            if(array_key_exists('role',$route))  //route define gareko ma role xa ki xaina herya
             {
                 /*if ($route->getAction()['role'] != Auth::user()->user_type_id)*/
                 if(Auth::user()->user_type_id!=$route['role']){

@@ -15,7 +15,7 @@ use Venue\Models\UserType;
 
 class AddressController extends Controller
 {
-    public function GetUserType(Request $request){
+    public function GetUserType(Request $request){  //returning list from database table
 
         return UserType::all();
 
@@ -36,7 +36,5 @@ class AddressController extends Controller
     }
 
 
-    /*public function GetLocality(Request $request){
-        return TblLocality::all();
-    }*/
+
 }

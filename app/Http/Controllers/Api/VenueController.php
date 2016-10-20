@@ -15,7 +15,7 @@ class VenueController extends Controller
 {
     public function GetVenueType(Request $request)
             {
-                return VenueType::all()->toArray();
+                return VenueType::all()->toArray(); //database bata list nikalera array ma rakhne
             }
 
     /**

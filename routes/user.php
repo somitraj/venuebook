@@ -6,7 +6,7 @@
  * Time: 2:54 PM
  */
 Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
-{
+{//yesko vitra normal user le kun kun route jana milxa define garne
     Route::any("dashboard",["as"=>'user.dash', "uses"=>'UserController@User']);
     /*Route::get('/searchlost',['as'=>'searchlost','uses'=>'Web\LoginController@Search']);
     Route::get('/searchfound',['as'=>'searchfound','uses'=>'Web\LoginController@Lost']);

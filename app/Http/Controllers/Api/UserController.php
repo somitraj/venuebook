@@ -17,8 +17,8 @@ class UserController extends Controller
        /*return $request->all();*/
        /* $user=User::create($request->all());*/
         try{
-            $user=new User();
-            $user->setAttribute('username',$request->get('username'));
+            $user=new User();  //model ko User ko object create
+            $user->setAttribute('username',$request->get('username'));   //setting data from form to table column
             $user->setAttribute('password',bcrypt($request->get('password')));
             $user->setAttribute('email',$request->get('email'));
             $user->user_type_id=$request->user_type_id;
@@ -31,7 +31,7 @@ class UserController extends Controller
         $userinfo=new UserInfo();
         $userinfo->setAttribute('first_name',$request->get('first_name'));
         $userinfo->setAttribute('last_name',$request->get('last_name'));
-        $userinfo->setAttribute('username',$user->username);
+        $userinfo->setAttribute('username',$user->username);  //$user ma vako feri $userinfo ma fetch garne
         $userinfo->setAttribute('user_id',$user->id);
         $userinfo->setAttribute('dob',$request->get('dob'));
         $userinfo->setAttribute('email',$user->email);

@@ -29,7 +29,8 @@
 --}}
 
 
-    @yield('head')
+
+    @yield('head') {{--yield le page ma certain thau ma gap create garxa ani arko page bata extend garera tyo thau ma content halna milxa--}}
 
 </head>
 
@@ -60,7 +61,7 @@
 --}}
 <nav class="navbar navbar-default navbar-inverse">
     <div class="container-fluid">
-@include('Layout.Menu')
+@include('Layout.Menu')   {{--menu.blade lai include gareko--}}
         </div>
     </nav>
 

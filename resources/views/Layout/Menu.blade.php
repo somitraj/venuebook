@@ -2,13 +2,13 @@
 //print_r(auth::user());
 ?>
 <ul class="nav navbar-nav">
-@if(Auth::check())
-    @if(Auth::user()->user_type_id==1)
+@if(Auth::check())  {{--check user login--}}
+    @if(Auth::user()->user_type_id==1) {{--login garda user type id 1 vayo vane yo menu dekhaune--}}
         <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
         <li><a href="/Client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="/Venue" class="glyphicon glyphicon-group"> Venue</a></li>
-    @elseif(Auth::user()->user_type_id==2)
+    @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
             <li><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
             <li><a href="/Notification" class="glyphicon glyphicon-globe" >
                     Notification <span class="badge">4</span>
@@ -17,14 +17,15 @@
                 <a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
             <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
-    @elseif(Auth::user()->user_type_id==3)<li class="active" ><a href="User" class="glyphicon glyphicon-bell"> Home </a></li>
+    @elseif(Auth::user()->user_type_id==3) {{--login garda user type id 3 vayo vane yo menu dekhaune--}}
+        <li class="active" ><a href="User" class="glyphicon glyphicon-bell"> Home </a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
         <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
 
 
     @endif
-    @else
+    @else  {{--login navako bela yo menu dekhaune--}}
         <li class="active"  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
         <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
         <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
@@ -35,14 +36,12 @@
                 <li><a href="/Venue">Venue</a></li>
             </ul>
         </li>
-        {{--
-                        <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
-        --}}
+
         <li><a href="/login" class="glyphicon glyphicon-user"> Login</a></li>
     @endif
 </ul>
 
-@if(Auth::check())
+@if(Auth::check())  {{--login vayo vane matra side ma logout wala dropdown dekhaune--}}
 <ul class="nav navbar-nav navbar-right">
     <li class="dropdown" >
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
