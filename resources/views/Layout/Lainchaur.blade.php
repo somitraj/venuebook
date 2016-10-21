@@ -8,20 +8,18 @@
 ?>
 @extends('Layout/MainLayout')
 
-@section('menu')
+@section('content')
 
         <img style=width:150px;height:100px;margin-left:80px;" src="/images/lainchaur.jpg"/>
     <h4 style="text-align:left;margin-left:80px;">Lainchaur Banquet</h4>
 
     <br>
-        {{--<div class="container">
-        <div class="row">
-            <div class="col-lg-4">--}}
+
 <div class="row">
     <div class="col-md-8">
 
     <div style="width:1000px;margin:10px auto;">
-        {{--<h2><b>Photos</b></h2>--}}
+
         <div id="ninja-slider">
             <div class="slider-inner">
                 <ul>
@@ -56,17 +54,5 @@
         </div>
         <br>
         <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
-
-    {{--</div>--}}
-            {{--<div class="col-lg-8">
-                hello
-            </div>--}}
-    {{--</div>
-    </div>--}}
-
-
-
-
-
 
 @endsection
