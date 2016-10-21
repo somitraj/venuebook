@@ -29,6 +29,10 @@ Route::any('/Feedback',[
     'as'=>'web.Feedback',
     'uses'=>'FeedbackController@Feedback'
 ]);
+Route::any('/Gallery',[
+    'as'=>'web.Gallery',
+    'uses'=>'GalleryController@Gallery'
+]);
 Route::get('/Contact',[
     'as'=>'web.Contact',
     'uses'=>'UserController@Contact'
@@ -117,16 +121,14 @@ Route::any('/Item',[
     'uses'=>'UserController@Item'
 ]);
 
-/*Route::get('/User',[
-    'as'=>'web.User',
-    'uses'=>'UserController@User'
-]);*/
-Route::group(["role"=>3/*,"prefix"=>"manager"*/,'middleware'=>'auth.user'],function() {
+
+
+/*Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function() {
     Route::any('/User', [
         'as' => 'web.User',
-        'uses' => 'UserController@User'
-    ]);
-});
+        'uses' => 'UserController@User'*/
+    /*]);*/
+/*});*/
 require_once ("User.php");
 require_once ("Manager.php");
 require_once ("Admin.php");

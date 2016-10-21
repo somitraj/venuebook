@@ -8,12 +8,12 @@ class BookingForm extends Form
 {
     public function buildForm()
     {
-      $this
-                     ->add('Booking Date', 'date', [
+        $this
+            ->add('Booking Date', 'date', [
                     'wrapper' =>['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                     'attr' =>['class' => 'col-md-9 form-control field-input']
-            ]
+                    'attr' =>['class' => 'col-md-9 form-control field-input']
+                ]
             )
 
 
@@ -33,6 +33,6 @@ class BookingForm extends Form
                 ]
             )
 
-            ->add('Next','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+            ->add('next','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }
 }

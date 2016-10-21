@@ -37,7 +37,7 @@
                 <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                        <h3 style="text-align:center">Login</h3>
+                                        <h4 style="text-align:center">Login</h4>
 
                                 </div>
                                 <div class="panel-body">

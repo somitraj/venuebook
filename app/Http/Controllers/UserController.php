@@ -9,13 +9,17 @@ use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\Auth;
 use Kris\LaravelFormBuilder\FormBuilder;
+use Venue\Models\UserInfo;
+use Venue\Models\UserVenue;
+use Venue\Models\Venue;
 use Venue\User;
 use Venue\Models\UserType;
-use Venue\Models\UserInfo;
+/*use Venue\Models\UserInfo;*/
 class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder,Request $request) //for login
     {
+       try{
         if (Auth::check()) {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
             return view('Layout.Home', compact('form'));
 
@@ -50,8 +54,14 @@ class UserController extends BaseController
 
             /*print_r($response);die();*/
             return view('Layout.Login', compact('form'));
+        }
+
 
         }
+       catch(\Exception $e)
+       {
+           print_r($e->getMessage());die();
+       }
     }
         public function Register(FormBuilder $formBuilder,Request $request)
     {
@@ -137,6 +147,8 @@ class UserController extends BaseController
         return view('Layout.Register', compact('form'));
 
     }
+
+
 
     public function Address(FormBuilder $formBuilder)
     {
@@ -260,6 +272,21 @@ class UserController extends BaseController
     public function Logout(){
         Session::flush();
         return redirect()->route('home');
+    }
+
+    public function  Details(){
+       /* $users=new User();*/
+        $users=User::all();
+
+        $venues=Venue::all();
+        $info=UserVenue
+            ::join('users','users.id','=','UserVenue.user_id')
+            ->join('venues','venues.id','=','UserVenue.venue_id')
+            ->select('users.email','venues.phone_no','venues.phone_no_2','venues.person_capacity','venues.space_area','venues.locality','venues.established_date')
+            ->get();
+
+        return view('Layout.Admin',compact('users','venues','UserVenue'));
+
     }
 
 }
