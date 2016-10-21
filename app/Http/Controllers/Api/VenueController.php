@@ -81,7 +81,7 @@ class VenueController extends Controller
 
 
     }
-    public function GetVenueList(Request $request)
+   /* public function GetVenueList(Request $request)
     {
 
             try{
@@ -93,7 +93,7 @@ class VenueController extends Controller
                    // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
                     ->select('venues.*', 'venue_type.type_name')
                     ->get();*/
-                return $venues;
+               // return $venues;
              //  print_r($venues);die();
                 // $users=new User();
                 //$users=User::all();
@@ -105,13 +105,13 @@ class VenueController extends Controller
                 //  return $all_manager;
                 //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
 
-            }
+          /*  }
             catch(\Exception $e){
                 throw $e;
             }
 
 
     }
-
+*/
 
 }

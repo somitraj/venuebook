@@ -21,7 +21,7 @@
                 </h5>
                 @endif
                 </div>
-            <div class="container">
+            {{--<div class="container">
                 <h2>ManagerList<span class="badge">{{count($managerlist)}}</span></h2>
                 <table class="table table-bordered">
                     <thead>
@@ -85,7 +85,7 @@
                     @endforeach
                 </table>
             </div>
-
+--}}
 
             </body>
             </html>

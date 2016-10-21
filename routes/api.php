@@ -33,7 +33,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
     $api->get('managerlist', 'UserController@GetManagerList');
-    $api->get('venuelist', 'VenueController@GetVenueList');
+  //  $api->get('venuelist', 'VenueController@GetVenueList');
 
 
 
