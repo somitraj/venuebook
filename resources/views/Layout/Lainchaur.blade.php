@@ -8,7 +8,7 @@
 ?>
 @extends('Layout/MainLayout')
 
-@section('content')
+@section('menu')
 
         <img style=width:150px;height:100px;margin-left:80px;" src="/images/lainchaur.jpg"/>
     <h4 style="text-align:left;margin-left:80px;">Lainchaur Banquet</h4>
