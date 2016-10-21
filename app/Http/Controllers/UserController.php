@@ -156,6 +156,12 @@ class UserController extends BaseController
         return view('Layout.Terms', compact('form'));
     }
 
+    public function Item(FormBuilder $formBuilder)
+    {
+        $form = $formBuilder->Create('Venue\Forms\ItemForm', ['method' => 'POST', 'url' => route('web.Item')]);
+        return view('Layout.Item', compact('form'));
+    }
+
     public function Privacy()
     {
         return view('Layout.Privacy', compact('form'));
