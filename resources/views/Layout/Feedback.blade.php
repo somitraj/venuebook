@@ -13,7 +13,7 @@
                 <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                        <h3 style="text-align:center">Feedback</h3>
+                                        <h4 style="text-align:center">Feedback</h4>
                                 </div>
                                 <div class="flash-message">
                                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)

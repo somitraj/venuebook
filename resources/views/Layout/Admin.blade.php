@@ -62,7 +62,43 @@
                     </div>
                 </div>
                 <br>
+            <br>
+            <div>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Phone 1</th>
+                        <th>Phone 2</th>
+                        <th>Person Capacity</th>
+                        <th>Space Area</th>
+                        <th>Locality</th>
+                        <th>Established Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{--@foreach($users as $user)
+                        <tr>
+                            <td>{{$user->email}}</td>
+
+                            @foreach($venues as $venue)
+                                @if(($user->id)==($venue->id))
+                                    <td>{{$venue->phone_no}}</td>
+                                    <td>{{$venue->phone_no_2}}</td>
+                                    <td>{{$venue->person_capacity}}</td>
+                                    <td>{{$venue->space_area}}</td>
+                                    <td>{{$venue->locality}}</td>
+                                    <td>{{$venue->established_date}}</td>
+                                @endif
+                            @endforeach
+
+                        </tr>
+                    @endforeach
+                    </tbody>--}}
+                </table>
+            </div>
 
 
-            @endsection
+
+           @endsection
 

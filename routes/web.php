@@ -117,16 +117,14 @@ Route::any('/Item',[
     'uses'=>'UserController@Item'
 ]);
 
-/*Route::get('/User',[
-    'as'=>'web.User',
-    'uses'=>'UserController@User'
-]);*/
-Route::group(["role"=>3/*,"prefix"=>"manager"*/,'middleware'=>'auth.user'],function() {
+
+
+/*Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function() {
     Route::any('/User', [
         'as' => 'web.User',
-        'uses' => 'UserController@User'
-    ]);
-});
+        'uses' => 'UserController@User'*/
+    /*]);*/
+/*});*/
 require_once ("User.php");
 require_once ("Manager.php");
 require_once ("Admin.php");
