@@ -129,10 +129,10 @@ class UserController extends Controller
     public function GetManagerList(Request $request)
     {
         try{
-            $users = new User();
+           /* $users = new User();
             $users=User::all();
             $users=UserInfo::all();
-            $users=UserType::all();
+            $users=UserType::all();*/
 
             $users = DB::table('users')
                 ->join('user_info', 'users.id', '=', 'user_info.user_id')
@@ -157,5 +157,22 @@ class UserController extends Controller
             }
 
     }
+    public function GetDetailView(Request $request){
+        $users = DB::table('users')
+            ->join('user_info','users.id','=','user_info.user_id')
+            ->join('user_types','users.id','=','user_info.user_id')
+            ->select('users.*','users_info.*','=','user_types.type_name')
+
+
+    }
+   /* public function GetVenueList(Requset $request){
+        $users = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+            ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
+            ->where('users.user_type_id', '=', 2)
+            ->get();
+        return $users;
+    }*/
 
 }
