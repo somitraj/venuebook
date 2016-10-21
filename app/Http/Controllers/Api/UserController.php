@@ -97,21 +97,7 @@ class UserController extends Controller
     {
         try {
 
-           /* $users = new User();
-             $users=User::all();
-            $users=UserInfo::all();
-            $users=UserType::all();*/
 
-          // $users = User::where('user_type_id', '=', '3')->get();  //yesle kati client xa vanera list ma dekhauxa
-            // print_r($users);die();
-            /*$all_user=User::count();*/
-
-            //$all_user = User::where('user_type_id', '=', '3')->count(); //yesle kati client xa vaney number count garxa
-            // print_r($all_user);die();
-            /* $all_students=User::where('role_type','=','2')->count();*/
-            // print_r($all_admin);die();
-            //yesle client ko list ra number return garxa userlistma compact form ma
-           // return view('Layout.Userlist', compact('users', 'all_user'));
             $users =DB::table('users')  //table join gareko
                 ->join('user_info', 'users.id', '=', 'user_info.user_id')
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
