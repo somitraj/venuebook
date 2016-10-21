@@ -12,7 +12,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel-primary">
                 <div class="panel-heading">
-                    <h3 style="text-align:center">Charges</h3>
+                    <h4 style="text-align:center">Charges</h4>
                 </div>
                 <div class="panel-body">
                     {!! form($form) !!}
