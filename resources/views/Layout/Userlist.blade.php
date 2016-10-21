@@ -22,18 +22,28 @@
                 @endif
                 </div>
             <div class="container">
-                <h2>UserList <span class="badge">{{$all_user}}</span></h2>
+                <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
                         <th>Username</th>
                         <th>Email</th>
+                        <th>Type name</th>
+                        <th>Option</th>
                     </tr>
                     </thead>
-                    @foreach($users as $user)
+
+
+                    @foreach($userlist as $user)
                         <tr>
+                            <td>{{$user->first_name}}</td>
+                           <td>{{$user->last_name}}</td>
                             <td>{{$user->username}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{$user->type_name}}</td>
+                            <td><button class="btn-primary">view</button></td>
                         </tr>
                     @endforeach
                 </table>

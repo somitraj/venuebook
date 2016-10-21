@@ -73,6 +73,7 @@ class VenueController extends Controller
             $venues->venue_type_id=$request->venue_type_id;
             $venues->save();
 
+
         }
         catch(\Exception $e){
             throw $e;

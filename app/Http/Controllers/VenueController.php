@@ -57,7 +57,7 @@ class VenueController extends Controller
                 }
                  $response = $client->request('POST', 'venue', [
                     'form_params' => [
-                        'first_name' =>  $request->get('first_name'),
+                       'first_name' =>  $request->get('first_name'),
                         'last_name' =>  $request->get('last_name'),
                         'username' => $request->get('username'),
                         'name'=>$request->get('name'),

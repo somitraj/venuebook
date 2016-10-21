@@ -4,11 +4,14 @@ namespace Venue\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use Venue\Models\Feedback;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
+use Venue\Models\UserType;
+use Venue\Models\Venue;
 
 class UserController extends Controller
 {
@@ -86,5 +89,90 @@ class UserController extends Controller
             throw $e;
         }
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function GetUserlist(Request $request)
+    {
+        try {
+
+           /* $users = new User();
+             $users=User::all();
+            $users=UserInfo::all();
+            $users=UserType::all();*/
+
+          // $users = User::where('user_type_id', '=', '3')->get();  //yesle kati client xa vanera list ma dekhauxa
+            // print_r($users);die();
+            /*$all_user=User::count();*/
+
+            //$all_user = User::where('user_type_id', '=', '3')->count(); //yesle kati client xa vaney number count garxa
+            // print_r($all_user);die();
+            /* $all_students=User::where('role_type','=','2')->count();*/
+            // print_r($all_admin);die();
+            //yesle client ko list ra number return garxa userlistma compact form ma
+           // return view('Layout.Userlist', compact('users', 'all_user'));
+            $users =DB::table('users')  //table join gareko
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
+                ->where('users.user_type_id', '=', 3)
+                ->get();
+            return $users;
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+
+    }
+    //yesko work pani mathi ko getindex ko jastai same ho
+    public function GetManagerList(Request $request)
+    {
+        try{
+           /* $users = new User();
+            $users=User::all();
+            $users=UserInfo::all();
+            $users=UserType::all();*/
+
+            $users = DB::table('users')
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
+                ->where('users.user_type_id', '=', 2)
+                ->get();
+            return $users;
+       // $users=new User();
+        //$users=User::all();
+      //  $users=User::where('user_type_id','=','2')->get();
+        /*$all_user=User::count();*/
+      //  $all_manager=User::where('user_type_id','=','2')->count();
+        //print_r($all_manager);die();
+        //    return $users;
+          //  return $all_manager;
+        //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
+
+    }
+        catch(\Exception $e){
+                throw $e;
+            }
+
+    }
+    public function GetDetailView(Request $request){
+        $users = DB::table('users')
+            ->join('user_info','users.id','=','user_info.user_id')
+            ->join('user_types','users.id','=','user_info.user_id')
+            ->select('users.*','users_info.*','=','user_types.type_name')
+
+
+    }
+   /* public function GetVenueList(Requset $request){
+        $users = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+            ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
+            ->where('users.user_type_id', '=', 2)
+            ->get();
+        return $users;
+    }*/
 
 }
