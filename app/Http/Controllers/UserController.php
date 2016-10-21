@@ -13,7 +13,8 @@ use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\User;
-
+use Venue\Models\UserType;
+use Venue\Models\UserInfo;
 class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder,Request $request) //for login
@@ -226,34 +227,23 @@ class UserController extends BaseController
     {
         return view('Layout.Radisson', compact('form'));
     }
-    public function GetIndex()
+    public function UserList()
     {
-        $users=new User();
-      // $users=User::all();
-        //yesle kati client xa vanera list ma dekhauxa
-        $users=User::where('user_type_id','=','3')->get();
-        // print_r($users);die();
-       /*$all_user=User::count();*/
-        //yesle kati client xa vaney number count garxa
-        $all_user=User::where('user_type_id','=','3')->count();
-       // print_r($all_user);die();
-       /* $all_students=User::where('role_type','=','2')->count();*/
-        // print_r($all_admin);die();
-        //yesle client ko list ra number return garxa userlistma compact form ma
-        return view('Layout.Userlist',compact('users','all_user'));
-
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','userlist');
+        $data = $response->getBody()->getContents();
+        $userlist =  \GuzzleHttp\json_decode($data);
+      //  $UsersList = $userlist->user_types;
+      //  print_r($userlist);die();
+        return view('Layout.Userlist',compact('userlist'));
     }
-    //yesko work pani mathi ko getindex ko jastai same ho
-    public function GetManagerList()
+    public function ManagerList()
     {
-        $users=new User();
-        //$users=User::all();
-        $users=User::where('user_type_id','=','2')->get();
-        /*$all_user=User::count();*/
-        $all_manager=User::where('user_type_id','=','2')->count();
-         //print_r($all_manager);die();
-        return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
-
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','managerlist');
+        $data = $response->getBody()->getContents();
+        $managerlist =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Managerlist',compact('managerlist'));
     }
 
 
