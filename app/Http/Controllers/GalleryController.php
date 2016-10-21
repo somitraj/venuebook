@@ -75,7 +75,7 @@ class GalleryController extends Controller
 
 
 
-        $form = $formBuilder->Create('Venue\Forms\GalleryForm',['method'=>'POST','url' => route('web.Gallery')]);
+        $form = $formBuilder->Create('Venue\Forms\GalleryForm',['method'=>'POST','url' => route('manager.gallery')]);
 
 
         return view('Layout.Gallery', compact('form'));
