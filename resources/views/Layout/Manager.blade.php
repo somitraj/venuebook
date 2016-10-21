@@ -52,7 +52,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h6 style="text-align:center">GALLERY</h6></div>
-            <div class="panel-body"><a href="venue" class="panel"><img src="/images/gallery.png" class="img-responsive" style="width:100%" alt="Image"></a></div>
+            <div class="panel-body"><a href="gallery" class="panel"><img src="/images/gallery.png" class="img-responsive" style="width:100%" alt="Image"></a></div>
         </div>
     </div>
     </div>
