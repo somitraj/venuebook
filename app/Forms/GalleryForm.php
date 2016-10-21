@@ -4,7 +4,7 @@ namespace Venue\Forms;
 
 use Kris\LaravelFormBuilder\Form;
 
-class BookingForm extends Form
+class GalleryForm extends Form
 {
     public function buildForm()
     {
@@ -33,6 +33,6 @@ class BookingForm extends Form
                 ]
             )
 
-            ->add('Next','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+            ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }
 }
