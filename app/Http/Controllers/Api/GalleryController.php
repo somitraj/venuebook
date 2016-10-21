@@ -2,11 +2,12 @@
 
 namespace Venue\Http\Controllers\api;
 
-use App\Models\Gallery;
+use Venue\Models\Gallery;
 use Illuminate\Http\Request;
 
 use Venue\Http\Requests;
 use Venue\Http\Controllers\Controller;
+/*use Venue\Models\Gallery;*/
 
 use Illuminate\Support\Facades\DB;
 

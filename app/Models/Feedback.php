@@ -10,7 +10,7 @@ class Feedback extends Model {
 
     protected $table = 'feedback';
     protected $fillable = ['idfeedback', 'first_name', 'last_name', 'email', 'comment'];
-    public $timestamps = false;
+    public $timestamps= false;
 
 
 }

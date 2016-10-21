@@ -16,9 +16,6 @@ class GalleryController extends Controller
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         if($request->getMethod()=='POST') {
 
-
-
-
             /*print_r($request->get('email')); die();*/
             try {
                 $pathToFile='gallery/';
@@ -50,11 +47,13 @@ class GalleryController extends Controller
                 }
                 $response = $client->request('POST', 'gallery', [
                     'form_params' => [
-                        'cover' =>  $request->get('cover'),
-                        'image1' =>  $request->get('image1'),
-                        'image2' => $request->get('image2'),
-                        'image3' => $request->get('image3'),
-                        'image4' => $request->get('image4'),
+                        'cover' => $cover,
+                        'image1' => $image1,
+                        'image2' => $image2,
+                        'image3' => $image3,
+                        'image4' => $image4
+
+
                         /*'venue_id' => $request->get('user_type'),*/
 
 

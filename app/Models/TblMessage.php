@@ -10,8 +10,7 @@ class TblMessage extends Model {
 
     protected $table = 'tbl_messages';
     protected $fillable = ['id', 'title', 'body'];
-    public $timestamps = false;
-
+    public $timestamps= false;
 
     public function tblMessageBoxes() {
         return $this->hasMany(\Venue\Models\TblMessageBox::class, 'message_id', 'id');

@@ -10,7 +10,7 @@ class Venue extends Model {
 
     protected $table = 'venues';
     protected $fillable = ['id', 'name', 'image', 'established_date', 'phone_no', 'phone_no_2', 'country_id', 'province_id', 'zone_id', 'district_id', 'locality', 'space_area', 'person_capacity', 'venue_type_id'];
-    public $timestamps = false;
+    public $timestamps= false;
 
     public function tblCountry() {
         return $this->belongsTo(\Venue\Models\TblCountry::class, 'country_id', 'id');
@@ -38,6 +38,10 @@ class Venue extends Model {
 
     public function tblMenuItems() {
         return $this->belongsToMany(\Venue\Models\TblMenuItem::class, 'venue_menu_items', 'venue_id', 'menu_item_id');
+    }
+
+    public function galleries() {
+        return $this->hasMany(\Venue\Models\Gallery::class, 'venue_id', 'id');
     }
 
     public function tblBookings() {
