@@ -13,7 +13,7 @@
             <li><a href="/Notification" class="glyphicon glyphicon-globe" > Notification <span class="badge">4</span></a></li>
             <li class="dropdown"><a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
             <li><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-        <li><a href="/Gallery" class="glyphicon glyphicon-picture"> Gallery</a></li>
+        <li><a href="gallery" class="glyphicon glyphicon-picture"> Gallery</a></li>
 
     @elseif(Auth::user()->user_type_id==3)<li class="active" ><a href="User" class="glyphicon glyphicon-bell"> Home </a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>

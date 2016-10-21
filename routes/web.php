@@ -29,6 +29,10 @@ Route::any('/Feedback',[
     'as'=>'web.Feedback',
     'uses'=>'FeedbackController@Feedback'
 ]);
+Route::any('/Gallery',[
+    'as'=>'web.Gallery',
+    'uses'=>'GalleryController@Gallery'
+]);
 Route::get('/Contact',[
     'as'=>'web.Contact',
     'uses'=>'UserController@Contact'
