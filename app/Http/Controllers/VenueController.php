@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Venue\User;
+use Venue\Models\Venue;
+
 
 /*use Venue\Http\Requests;*/
 use Kris\LaravelFormBuilder\FormBuilder;
@@ -110,5 +112,12 @@ class VenueController extends Controller
     public function create(){
         return view('Layout.Home');
 
+    }
+    public function VenueList(){
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','venuelist');
+        $data = $response->getBody()->getContents();
+        $venuelist =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Managerlist',compact('venuelist'));
     }
 }

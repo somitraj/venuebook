@@ -9,7 +9,7 @@ use Venue\Models\User;
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\Venue;
-use Venue\Models\VenueType;
+
 
 class VenueController extends Controller
 {
@@ -81,5 +81,37 @@ class VenueController extends Controller
 
 
     }
+    public function GetVenueList(Request $request)
+    {
+
+            try{
+                $venues = new Venue();
+                 $venues=Venue::all();
+
+                /*$venues = DB::table('venues')
+                    ->join('venue_type', 'venues.venue_type_id', '=', 'venues_type.id')
+                   // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                    ->select('venues.*', 'venue_type.type_name')
+                    ->get();*/
+                return $venues;
+             //  print_r($venues);die();
+                // $users=new User();
+                //$users=User::all();
+                //  $users=User::where('user_type_id','=','2')->get();
+                /*$all_user=User::count();*/
+                //  $all_manager=User::where('user_type_id','=','2')->count();
+                //print_r($all_manager);die();
+                //    return $users;
+                //  return $all_manager;
+                //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
+
+            }
+            catch(\Exception $e){
+                throw $e;
+            }
+
+
+    }
+
 
 }
