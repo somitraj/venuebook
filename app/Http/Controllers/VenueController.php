@@ -70,6 +70,7 @@ class VenueController extends Controller
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
                         'user_type_id' => $request->get('user_type'),
+
                         'nationality_id' =>  $request->get('nationality_id'),
                         'person_capacity' =>  $request->get('person_capacity'),
                         'country_id' => $request->get('Country'),
@@ -80,6 +81,8 @@ class VenueController extends Controller
                         'venue_type_id' => $request->get('venue_type'),
 
                         'image' => $image,
+
+                        /*'user_id' => $request->get('id'),*/
 
 
                     ]
@@ -120,4 +123,28 @@ class VenueController extends Controller
         $venuelist =  \GuzzleHttp\json_decode($data);
         return view('Layout.Managerlist',compact('venuelist'));
     }*/
+
+
+
+   /* public function VenueDetils(Request $request){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+
+        $response = $client->request('POST', 'venuedetails', [
+            'form_params' => [
+
+                'username' => $request->get('username'),
+                'password' => $request->get('password')
+
+            ]
+
+        ]);
+        $venueApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user; //api bata json format bata ako lai decode gareko
+        $venue = new Venue();
+        $venue->id = $venueApi->id;
+        $venue->username = $venueApi->username;
+        $venue->password = $venueApi->password;
+        /*$user->profile_image=$userApi->profile_image;*/
+
+    /*}*/
+
 }

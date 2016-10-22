@@ -8,6 +8,7 @@ use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
+use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 
 
@@ -73,6 +74,13 @@ class VenueController extends Controller
             $venues->venue_type_id=$request->venue_type_id;
             $venues->save();
 
+            /*$uservenue=new UserVenue();
+            $uservenue->user_id=$request->$user->id;
+            $uservenue->save();
+            return $uservenue;*/
+
+
+
 
         }
         catch(\Exception $e){
@@ -81,7 +89,16 @@ class VenueController extends Controller
 
 
     }
-   /* public function GetVenueList(Request $request)
+
+    /*public function VenueDetails(Request $request){
+        $userdata=\Venue\Models\UserInfo::where('username','=',$request->username)->first()->toArray();
+        return response()->json(compact('userdata','token'));
+
+    }*/
+
+
+
+    /* public function GetVenueList(Request $request)
     {
 
             try{

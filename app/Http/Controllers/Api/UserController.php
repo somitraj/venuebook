@@ -11,6 +11,7 @@ use Venue\Models\User;
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\UserType;
+use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 
 class UserController extends Controller
@@ -28,6 +29,8 @@ class UserController extends Controller
            // return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
+
+
 
 
 
@@ -53,7 +56,10 @@ class UserController extends Controller
 
 
         $userinfo->save();
+
+
         /*return $userinfo;*/
+
         }
         catch(\Exception $e){
             throw $e;
