@@ -84,6 +84,14 @@ class VenueController extends Controller
 
 
 
+            $uservenue=new UserVenue();
+            $uservenue->user_id=$user->id;
+            $uservenue->venue_id=$venues->id;
+            $uservenue->save();
+
+
+
+
 
         }
         catch(\Exception $e){
