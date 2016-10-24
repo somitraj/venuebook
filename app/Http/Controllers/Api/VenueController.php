@@ -8,7 +8,9 @@ use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
+use Venue\Models\UserVenue;
 use Venue\Models\Venue;
+use Venue\Models\VenueType;
 
 
 class VenueController extends Controller
@@ -72,6 +74,14 @@ class VenueController extends Controller
             $venues->setAttribute('locality',$request->get('locality'));
             $venues->venue_type_id=$request->venue_type_id;
             $venues->save();
+
+            $uservenue=new UserVenue();
+            $uservenue->user_id=$user->id;
+            $uservenue->venue_id=$venues->id;
+            $uservenue->save();
+
+
+
 
 
         }
