@@ -31,6 +31,9 @@ class AuthController extends Controller
         if($validator->fails()) {
             throw new ValidationHttpException($validator->errors()->all());
         }
+
+
+
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
                 return $this->response->errorUnauthorized();

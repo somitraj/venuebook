@@ -27,8 +27,19 @@ class UserCheck
             {
                 /*if ($route->getAction()['role'] != Auth::user()->user_type_id)*/
                 if(Auth::user()->user_type_id!=$route['role']){
-                    return redirect()->route('home');
+
+                    /*return redirect()->route('home');*/
+                    if(Auth::user()->user_type_id==1) {
+                        return redirect()->route('admin.dash');
+                    }
+                    elseif(Auth::user()->user_type_id==2) {
+                        return redirect()->route('manager.dash');
+                    }
+                    elseif(Auth::user()->user_type_id==3){
+                        return redirect()->route('user.home');
+                    }
                 }
+
             }
 
         }

@@ -2,8 +2,11 @@
 
 namespace Venue\Http\Controllers\Api;
 
+
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
@@ -74,6 +77,7 @@ class VenueController extends Controller
             $venues->setAttribute('locality',$request->get('locality'));
             $venues->venue_type_id=$request->venue_type_id;
             $venues->save();
+            //$venues->userVenues();
 
             $uservenue=new UserVenue();
             $uservenue->user_id=$user->id;
@@ -91,37 +95,32 @@ class VenueController extends Controller
 
 
     }
-   /* public function GetVenueList(Request $request)
+
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws \Exception
+     */
+    public function GetVenueData(Request $request)
     {
+        try {
+            /*return $request->get('auth');*/
 
-            try{
-                $venues = new Venue();
-                 $venues=Venue::all();
+            $venuedata =DB::table('user_venue')  //table join gareko
+            ->join('users', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                ->select( 'venues.id','venues.name')
+                ->where('user_venue.user_id','=',75)
+                    ->get();
+               return $venuedata;
 
-                /*$venues = DB::table('venues')
-                    ->join('venue_type', 'venues.venue_type_id', '=', 'venues_type.id')
-                   // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
-                    ->select('venues.*', 'venue_type.type_name')
-                    ->get();*/
-               // return $venues;
-             //  print_r($venues);die();
-                // $users=new User();
-                //$users=User::all();
-                //  $users=User::where('user_type_id','=','2')->get();
-                /*$all_user=User::count();*/
-                //  $all_manager=User::where('user_type_id','=','2')->count();
-                //print_r($all_manager);die();
-                //    return $users;
-                //  return $all_manager;
-                //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
 
-          /*  }
+            }
             catch(\Exception $e){
                 throw $e;
             }
 
 
     }
-*/
 
 }

@@ -10,7 +10,7 @@ use Venue\Http\Controllers\Controller;
 /*use Venue\Models\Gallery;*/
 
 use Illuminate\Support\Facades\DB;
-
+use Venue\Models\UserVenue;
 
 
 class GalleryController extends Controller
@@ -18,15 +18,19 @@ class GalleryController extends Controller
     public function Gallery(Request $request)
     {
         try {
+            $user_id=$request->user_id;
+
+            $userVenue=UserVenue::where('user_id','=',$user_id)->first();
+           // return response()->json($userVenue);
             $gallery = new Gallery();  //model ko User ko object create
             $gallery->setAttribute('cover', $request->get('cover'));   //setting data from form to table column
             $gallery->setAttribute('image1', $request->get('image1'));
             $gallery->setAttribute('image2', $request->get('image2'));
             $gallery->setAttribute('image3', $request->get('image3'));
             $gallery->setAttribute('image4', $request->get('image4'));
-            /*$user->user_type_id=$request->user_type_id;*/
-            // return $user;
-            /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
+            $gallery->setAttribute('venue_id', $userVenue->venue_id);
+
+
             $gallery->save();
         }catch(\Exception $e){
             throw $e;
