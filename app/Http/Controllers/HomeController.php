@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','slider');
+        $data = $response->getBody()->getContents();
+        $sliders =  \GuzzleHttp\json_decode($data);
+        print_r($sliders);die();
+        return view('home',compact('sliders'));
+
     }
 }
