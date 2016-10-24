@@ -10,6 +10,7 @@ use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
+use Venue\Models\VenueType;
 
 
 class VenueController extends Controller
@@ -73,11 +74,13 @@ class VenueController extends Controller
             $venues->setAttribute('locality',$request->get('locality'));
             $venues->venue_type_id=$request->venue_type_id;
             $venues->save();
+            //$venues->userVenues();
 
-            /*$uservenue=new UserVenue();
-            $uservenue->user_id=$request->$user->id;
+            $uservenue=new UserVenue();
+            $uservenue->user_id=$user->id;
+            $uservenue->venue_id=$venues->id;
             $uservenue->save();
-            return $uservenue;*/
+
 
 
 
@@ -90,11 +93,7 @@ class VenueController extends Controller
 
     }
 
-    /*public function VenueDetails(Request $request){
-        $userdata=\Venue\Models\UserInfo::where('username','=',$request->username)->first()->toArray();
-        return response()->json(compact('userdata','token'));
 
-    }*/
 
 
 
