@@ -75,8 +75,8 @@ class GalleryController extends Controller
 
                     ]
                 ]);
-                print_r($response->getBody()->getContents());
-                die();
+               /* print_r($response->getBody()->getContents());
+                die();*/
             }
             catch(\Exception $e)
             {
