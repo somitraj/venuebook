@@ -12,7 +12,7 @@ class SliderController extends Controller
 {
     public function GetSlider(Request $request){
 
-
+    }
 
 
     }

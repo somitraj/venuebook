@@ -52,7 +52,8 @@
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>
-                    <li><a href="/Lainchaur"><img class="ns-img" src="images/venue1.jpg"></a></li>
+
+                    <li><a href="/Lainchaur?id={{$gallery->venue_id}}"><img class="ns-img" src="images/venue1.jpg"></a></li>
                     <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
                     <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>
                     <li><a href="/Star"><img class="ns-img" src="images/venue4.jpg"></a></li>
