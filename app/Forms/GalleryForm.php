@@ -50,6 +50,13 @@ class GalleryForm extends Form
 
             ]
         )
+        ->add('venue_id', 'hidden', [
+            ]
+        )
+        ->add('auth','hidden',[
+
+            ]
+        )
 
         ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }

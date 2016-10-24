@@ -117,6 +117,8 @@ class UserController extends Controller
         }
 
     }
+
+
     //yesko work pani mathi ko getindex ko jastai same ho
     public function GetManagerList(Request $request)
     {

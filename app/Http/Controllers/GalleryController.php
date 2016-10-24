@@ -2,7 +2,9 @@
 
 namespace Venue\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Venue\Http\Requests;
 use GuzzleHttp\Client;
@@ -45,13 +47,27 @@ class GalleryController extends Controller
                 if (move_uploaded_file($_FILES['image4']['tmp_name'], $uploadfile4)) {
                     $image4='gallery/'.basename($_FILES['image4']['name']);
                 }
+
+                /*$client = new Client(['base_uri'=> config('app.REST_API')]);*/
+                /*print_r(\Illuminate\Support\Facades\Auth::user()->id);die(); */
+//                $response1 = $client->request('POST','venuedata',[
+//                    'form_params'=>[
+//                        'auth'=>\Illuminate\Support\Facades\Auth::user()->id
+//                    ]
+//                ]);
+//                $data = $response1->getBody()->getContents();
+//                $venuedata =  \GuzzleHttp\json_decode($data);
+                /*print_r($venuedata[0]->id);die();*/
+
+
                 $response = $client->request('POST', 'gallery', [
                     'form_params' => [
                         'cover' => $cover,
                         'image1' => $image1,
                         'image2' => $image2,
                         'image3' => $image3,
-                        'image4' => $image4
+                        'image4' => $image4,
+                        'user_id'=>Auth::user()->id,
 
 
                         /*'venue_id' => $request->get('user_type'),*/
@@ -59,8 +75,8 @@ class GalleryController extends Controller
 
                     ]
                 ]);
-                /*print_r($response->getBody()->getContents());
-                die();*/
+                print_r($response->getBody()->getContents());
+                die();
             }
             catch(\Exception $e)
             {

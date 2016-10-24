@@ -249,6 +249,8 @@ class UserController extends BaseController
     }
 
 
+
+
     public function UserCheck()
     {
         if (Auth::check()) {

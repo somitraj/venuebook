@@ -30,10 +30,10 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('zone', 'AddressController@GetZone');
     $api->get('province', 'AddressController@GetProvince');
     $api->get('district', 'AddressController@GetDistrict');
-   /* $api->get('locality', 'AddressController@GetLocality');*/
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
     $api->get('managerlist', 'UserController@GetManagerList');
+    $api->any('venuedata', 'VenueController@GetVenueData');
 
     /*$api->any('venuedetails', 'VenueController@VenueDetails');*/
   //  $api->get('venuelist', 'VenueController@GetVenueList');

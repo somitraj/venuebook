@@ -125,6 +125,10 @@ Route::any('/Item',[
     'uses'=>'VenueController@VenueDetails'
 ]);*/
 
+/*Route::any("venuedetails",["as"=>'web.details', "uses"=>'VenueController@VenueData']);*/
+
+
+
 
 
 /*Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function() {
