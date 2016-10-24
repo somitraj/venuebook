@@ -11,6 +11,6 @@ Route::group(["role"=>1,'middleware'=>'auth.user',"prefix"=>"admin"],function()
     Route::any("client",["as"=>'admin.client', "uses"=>'UserController@UserList']);
     Route::any("venue",["as"=>'admin.venue', "uses"=>'UserController@ManagerList']);
     /*    Route::any("venue",["as"=>'admin.venue', "uses"=>'UserController@VenueList']);*/
-    Route::any("notification",["as"=>'admin.notice', "uses"=>'NotificationController@GetNotice']);
+    Route::any("notice",["as"=>'admin.notice', "uses"=>'NotificationController@GetNotice']);
     //Route::any("venue",["as"=>'admin.venuelist', "uses"=>'VenueController@VenueList']);
 });

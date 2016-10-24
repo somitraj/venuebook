@@ -35,6 +35,9 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('managerlist', 'UserController@GetManagerList');
     $api->any('venuedata', 'VenueController@GetVenueData');
     $api->any('slider', 'SliderController@GetSlider');
+    $api->any('getimage', 'UserController@GetProfileImage');
+    $api->any('getnotice', 'NotificationController@GetNotice');
+
 
     /*$api->any('venuedetails', 'VenueController@VenueDetails');*/
   //  $api->get('venuelist', 'VenueController@GetVenueList');

@@ -109,6 +109,7 @@ class VenueController extends Controller
             $venuedata =DB::table('user_venue')  //table join gareko
             ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                ->join('venues','venues.id','=','')
                 ->select( 'venues.id','venues.name')
                 ->where('user_venue.user_id','=',75)
                     ->get();

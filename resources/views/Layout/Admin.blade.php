@@ -27,7 +27,7 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                    <h6 style="text-align:center">NOTIFICATION</h6></div>
-                                <div class="panel-body"><a href="Notification" class="panel"> <img src="/images/notification.png" class="panel" style="width:100%" alt="Image"></a></div>
+                                <div class="panel-body"><a href="notice" class="panel"> <img src="/images/notification.png" class="panel" style="width:100%" alt="Image"></a></div>
                             </div>
                         </div>
                         <div class="col-sm-4">

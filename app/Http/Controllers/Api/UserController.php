@@ -135,21 +135,17 @@ class UserController extends Controller
                 ->where('users.user_type_id', '=', 2)
                 ->get();
             return $users;
-       // $users=new User();
-        //$users=User::all();
-      //  $users=User::where('user_type_id','=','2')->get();
-        /*$all_user=User::count();*/
-      //  $all_manager=User::where('user_type_id','=','2')->count();
-        //print_r($all_manager);die();
-        //    return $users;
-          //  return $all_manager;
-        //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
+
 
     }
         catch(\Exception $e){
                 throw $e;
             }
 
+    }
+
+    public function GetDetails(){
+        return UserInfo::all()->toArray();
     }
 
 }
