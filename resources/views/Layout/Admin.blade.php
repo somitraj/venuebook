@@ -5,6 +5,8 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
+$userlist=\Venue\notification::getUser();
+$managerlist=\Venue\notification::getManager();
 ?>
 @extends('Layout/MainLayout')
            @section('content')
@@ -33,7 +35,7 @@
                         <div class="col-sm-4">
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
-                                    <h6 style="text-align:center">CLIENT</h6></div>
+                                    <h6 style="text-align:center">CLIENT           <span class="badge">{{count($userlist)}}</span></h6></div>
 
                                 <div class="panel-body"><a href="client" class="panel"><img src="/images/client.png" class="panel" style="width:100%" alt="Image"></a></div>
                             </div>
@@ -41,7 +43,7 @@
                         <div class="col-sm-4">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
-                                    <h6 style="text-align:center">VENUE</h6></div>
+                                    <h6 style="text-align:center">VENUE            <span class="badge">{{count($managerlist)}}</span> </h6></div>
                                 <div class="panel-body"><a href="venue" class="panel"><img src="/images/venue.jpg" class="img-responsive" style="width:100%" alt="Image"></a></div>
                             </div>
                         </div>
