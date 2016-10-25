@@ -78,6 +78,7 @@
                     @foreach($sliders as $slider)
                     <li><a href="/Lainchaur?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
                     </li>
+
                     {{--<li>
                         <a href="/Sasa"><img class="thumb" src="images/venue2.jpg"></a>
                     </li>
