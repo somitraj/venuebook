@@ -118,9 +118,9 @@ class VenueController extends Controller
         return view('Layout.Home',compact('sliders'));
 
     }
-<<<<<<< HEAD
-    public function VenueList(){
-=======
+
+    /*public function VenueList(){*/
+
 
    /* public function VenueData()
     {
@@ -131,8 +131,7 @@ class VenueController extends Controller
         /*print_r($venuedata);die();*/
        /* return view('home',compact('venuedata'));*/
  /*   }*/
-   /* public function VenueList(){
->>>>>>> origin/master
+    public function VenueList(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','venuelist');
         $data = $response->getBody()->getContents();
@@ -140,3 +139,4 @@ class VenueController extends Controller
         return view('Layout.Managerlist',compact('venuelist'));
     }
 }
+
