@@ -199,12 +199,20 @@ class UserController extends BaseController
     {
         return view('Layout.User', compact('form'));
     }
+    public function VenuePage(Request $request)
+    {
+        $venue_id=$request->venue_id;
+
+        return view('Layout.MasterSlider', compact('form'));
+    }
+
     public function Lainchaur(Request $request)
     {
         $venue_id=$request->venue_id;
 
         return view('Layout.Lainchaur', compact('form'));
     }
+
     public function Sasa()
     {
         return view('Layout.Sasa', compact('form'));

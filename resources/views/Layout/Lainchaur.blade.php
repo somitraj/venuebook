@@ -12,10 +12,13 @@ $vdata=\Venue\venuedata1::getVenueData();
 @section('content')
     @foreach($vdata as $vd1)
         <img style=width:120px;height:80px;margin-left:80px;" src="{{$vd1->image}}"/>
-    @endforeach
-    <h4 style="text-align:left;margin-left:80px;">Lainchaur Banquet</h4>
+        <h4 style="text-align:left;margin-left:80px;">{{$vd1->name}}</h4>
 
-    <br>
+        <br>
+    @endforeach
+
+
+
 
 <div class="row">
     <div class="col-md-8">

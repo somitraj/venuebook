@@ -54,7 +54,7 @@
                 <ul>
 
                     @foreach($sliders as $slider)
-                    <li><a href="/Lainchaur?id={{$slider->venue_id}}"><img class="ns-img" src="{{$slider->cover}}"></a></li>
+                    <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="ns-img" src="{{$slider->cover}}"></a></li>
                    {{-- <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
                     <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>
                     <li><a href="/Star"><img class="ns-img" src="images/venue4.jpg"></a></li>
@@ -76,7 +76,7 @@
             <div class="inner">
                 <ul>
                     @foreach($sliders as $slider)
-                    <li><a href="/Lainchaur?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
+                    <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
                     </li>
 
                     {{--<li>
