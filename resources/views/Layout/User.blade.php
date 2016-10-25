@@ -1,4 +1,10 @@
 <?php
+$proimage=\Venue\GetImage::getImage();
+foreach($proimage as $pro){
+    if($pro->user_id== Auth::user()->id){
+        $pro1=$pro->profile_image;
+    }
+}
 ?>
 
 @extends('Layout/MainLayout')
@@ -7,7 +13,7 @@
     <div>
         @if(Auth::check())
             <div>
-                <img src="/uploads/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+                <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
             </div>
             <h5>
                 <div>

@@ -8,14 +8,20 @@
 $userlist=\Venue\notification::getUser();
 $managerlist=\Venue\notification::getManager();
 $notices=\Venue\notification::getNotification();
+$proimage=\Venue\GetImage::getImage();
+foreach($proimage as $pro){
+    if($pro->user_id== Auth::user()->id){
+        $pro1=$pro->profile_image;
+    }
+}
 ?>
 @extends('Layout/MainLayout')
            @section('content')
 
-            <div >
+            <div {{--style="float: right"--}}>
                 @if(Auth::check())  {{--login check garne--}}
                     <div>
-                        <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+                        <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
                     </div>
                 <h5>
                     <div>

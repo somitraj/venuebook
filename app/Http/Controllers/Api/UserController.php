@@ -186,7 +186,13 @@ class UserController extends Controller
 
 
     public function GetDetails(){
-        return UserInfo::all()->toArray();
+        $userinfo = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->select('user_info.user_id', 'user_info.profile_image')
+            /*->where('users.user_type_id', '=', 2)*/
+            ->get();
+            return $userinfo;
+        /*return UserInfo::all()->toArray();*/
     }
 
 

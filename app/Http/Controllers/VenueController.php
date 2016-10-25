@@ -50,12 +50,18 @@ class VenueController extends Controller
 
 
             try {
+                $pathToFile1='uploads/';
+                $profile_image='null';
                 $pathToFile='logo/';
                 /*return $pathToFile;*/
                 $image='null';
                 $uploadfile = $pathToFile . basename($_FILES['image']['name']);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
                     $image='logo/'.basename($_FILES['image']['name']);   //eti samma upload vako photo euta folder ma save garna lai
+                }
+                $uploadfile1 = $pathToFile1 . basename($_FILES['profile_image']['name']);
+                if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $uploadfile1)) {
+                    $profile_image='uploads/'.basename($_FILES['profile_image']['name']);
                 }
                  $response = $client->request('POST', 'venue', [
                     'form_params' => [
@@ -78,7 +84,7 @@ class VenueController extends Controller
                         'district_id' => $request->get('District'),
                         'locality' => $request->get('Locality'),
                         'venue_type_id' => $request->get('venue_type'),
-
+                        'profile_image' => $profile_image,
                         'image' => $image,
 
 

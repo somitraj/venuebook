@@ -14,10 +14,7 @@ use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\Models\VenueType;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 
 class VenueController extends Controller
 {
@@ -56,6 +53,7 @@ class VenueController extends Controller
             $userinfo->mobile_no = $request->mobile_no;
             $userinfo->district_id = $request->district_id;
             $userinfo->nationality_id = $request->nationality_id;
+            $userinfo->setAttribute('profile_image', $request->get('profile_image'));
 
             $userinfo->setAttribute('locality', $request->get('locality'));
 
@@ -96,11 +94,25 @@ class VenueController extends Controller
 
 
     }
-<<<<<<< HEAD
+
 
     public function GetVenueList(Request $request)
     {
-=======
+        try {
+            $venues = new Venue();
+            $venues = Venue::all();
+
+            /*$venues = DB::table('venues')
+                ->join('venue_type', 'venues.venue_type_id', '=', 'venues_type.id')
+               // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->select('venues.*', 'venue_type.type_name')
+                ->get();*/
+            return $venues;
+            // print_r($venues);die();
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
 
     /**
      * @param Request $request
@@ -126,27 +138,14 @@ class VenueController extends Controller
             catch(\Exception $e){
                 throw $e;
             }
->>>>>>> origin/master
 
-        try {
-            $venues = new Venue();
-            $venues = Venue::all();
 
-            /*$venues = DB::table('venues')
-                ->join('venue_type', 'venues.venue_type_id', '=', 'venues_type.id')
-               // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
-                ->select('venues.*', 'venue_type.type_name')
-                ->get();*/
-            return $venues;
-           // print_r($venues);die();
-        } catch (\Exception $e) {
-            throw $e;
-        }
+
 
     }
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> origin/master
+
+
+
+
