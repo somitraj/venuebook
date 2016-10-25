@@ -33,17 +33,14 @@
                                 <td>{{$user->last_name}}</td>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->type_name}}</td></a>
-{{--
-                            <td><button class="btn-primary">view</button></td>
---}}
+                                <td>{{$user->type_name}}</td>
+
                         </tr>
                     @endforeach
 
                 </table></a>
             </div>
 
-            </body>
-            </html>
+
 
            @endsection
