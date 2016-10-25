@@ -57,11 +57,7 @@
                 </div>
                 <br>
             <br>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> origin/master
 
            @endsection
 

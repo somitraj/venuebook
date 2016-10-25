@@ -13,7 +13,7 @@ use Venue\Models\UserInfo;
 use Venue\Models\UserType;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
-use Venue\Models\UserVenue;
+
 
 class UserController extends Controller
 {
@@ -145,7 +145,7 @@ class UserController extends Controller
                 ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 2)
                 ->get();
-<<<<<<< HEAD
+
 
                    /*  $venues=DB ::table('user_venue')
                 ->join('venues','user_venue.venue_id','=','venues.venue_type_id')
@@ -171,10 +171,10 @@ class UserController extends Controller
         //    return $users;
           //  return $all_manager;
         //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
-=======
-            return $users;
 
->>>>>>> origin/master
+
+
+
 
     }
         catch(\Exception $e){
@@ -184,12 +184,10 @@ class UserController extends Controller
 
     }
 
-<<<<<<< HEAD
 
-=======
     public function GetDetails(){
         return UserInfo::all()->toArray();
     }
->>>>>>> origin/master
+
 
 }
