@@ -1,11 +1,13 @@
 <?php
 //print_r(auth::user());
+$notices=\Venue\notification::getNotification();
 ?>
 <ul class="nav navbar-nav">
 @if(Auth::check())
     @if(Auth::user()->user_type_id==1)
+
         <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
-        <li><a href="notice" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
+        <li><a href="notice" class="glyphicon glyphicon-bell"> <span class="badge">{{count($notices)}}</span> Notification</a></li>
         <li><a href="client" class="glyphicon glyphicon-user"> Client</a></li>
         <li><a href="venue" class="glyphicon glyphicon-leaf"> Venue</a></li>
     @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
