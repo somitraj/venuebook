@@ -124,12 +124,16 @@ class VenueController extends Controller
         try {
             /*return $request->get('auth');*/
 
+
             $venuedata =DB::table('user_venue')  //table join gareko
-            ->join('users', 'users.id', '=', 'user_venue.user_id')
+                  ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
-                ->join('venues','venues.id','=','')
-                ->select( 'venues.id','venues.name')
-                ->where('user_venue.user_id','=',75)
+                ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
+                ->select('gallery.*','venues.*','users.*','user_info.*')
+                ->where('gallery.venue_id','=','12')
+                /*->select( 'venues.*','users.*','user_info.*')*/
+
                     ->get();
                return $venuedata;
 

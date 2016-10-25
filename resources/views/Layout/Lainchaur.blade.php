@@ -1,16 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hp
- * Date: 9/21/2016
- * Time: 12:51 PM
- */
+
+$vdata=\Venue\venuedata1::getVenueData();
+/*foreach($vdata as $venuedata){
+    if($venuedata->venue_id==){
+
+    }*/
+
 ?>
 @extends('Layout/MainLayout')
 
 @section('content')
-
-        <img style=width:150px;height:100px;margin-left:80px;" src="/images/lainchaur.jpg"/>
+    @foreach($vdata as $vd1)
+        <img style=width:120px;height:80px;margin-left:80px;" src="{{$vd1->image}}"/>
+    @endforeach
     <h4 style="text-align:left;margin-left:80px;">Lainchaur Banquet</h4>
 
     <br>
@@ -23,12 +25,24 @@
         <div id="ninja-slider">
             <div class="slider-inner">
                 <ul>
-                    <li><a class="ns-img" href="images/Lainchaur banquet1.jpg"></a></li>
+                    @foreach($vdata as $vd)
+                        <li><img class="thumb" src="{{$vd->cover}}">
+                        </li>
+                        <li><img class="thumb" src="{{$vd->image1}}">
+                        </li>
+                        <li><img class="thumb" src="{{$vd->image2}}">
+                        </li>
+                        <li><img class="thumb" src="{{$vd->image3}}">
+                        </li>
+                        <li><img class="thumb" src="{{$vd->image4}}">
+                        </li>
+                    {{--<li><a class="ns-img" href="images/Lainchaur banquet1.jpg"></a></li>
                     <li><a class="ns-img" href="images/Lainchaur banquet2.jpg"></a></li>
                     <li><a class="ns-img" href="images/Lainchaur banquet3.jpg"></a></li>
                     <li><a class="ns-img" href="images/Lainchaur banquet4.jpg"></a></li>
                     <li><a class="ns-img" href="images/Lainchaur banquet5.jpg"></a></li>
-                    <li><a class="ns-img" href="images/Lainchaur banquet6.jpg"></a></li>
+                    <li><a class="ns-img" href="images/Lainchaur banquet6.jpg"></a></li>--}}
+                    @endforeach
                 </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
             </div>
@@ -47,7 +61,14 @@
         <div id="contact" class="map">
            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.9723010912167!2d85.3144195150623!3d27.718141482787384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb191cc4cdca59%3A0x224b68e3f668beca!2sLainchour+Banquet+Hall!5e0!3m2!1sen!2snp!4v1476868155534"   width="350" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
             <br /><br>
-            Details:
+            <u>Details:</u><br>
+           Email : {{$vd->email}} <br>
+           Phone 1 : {{$vd->phone_no}} <br>
+            Phone 2 : {{$vd->phone_no_2}} <br>
+            Space Area : {{$vd->space_area}} <br>
+            Capacity : {{$vd->person_capacity}} <br>
+            Locality : {{$vd->locality}} <br>
+            Established Date : {{$vd->established_date}} <br>
 
         </div>
         </div>
