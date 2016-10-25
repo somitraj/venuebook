@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Venue\User;
 use Venue\Models\Venue;
+use Venue\Models\VenueType;
 
 
 /*use Venue\Http\Requests;*/
