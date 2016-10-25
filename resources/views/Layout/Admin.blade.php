@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hp
- * Date: 9/21/2016
- * Time: 12:51 PM
- */
+$notices=\Venue\notification::getNotification();
 ?>
 @extends('Layout/MainLayout')
            @section('content')
