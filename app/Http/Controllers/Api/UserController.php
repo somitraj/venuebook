@@ -14,6 +14,7 @@ use Venue\Models\UserType;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 
+
 class UserController extends Controller
 {
     public function Register(Request $request){
@@ -127,14 +128,52 @@ class UserController extends Controller
             $users=User::all();
             $users=UserInfo::all();
             $users=UserType::all();*/
+/*
+            $users = DB::table('user_venue')
+                ->join('users','user_venue.user_id','=','users.user_type_id')
+             //   ->join('user_info','user_venue.user_id','=','user_info.user_id')
+               // ->join('user_types','user_venue.user_id'.'=','user_types.id')
+                ->join('venues','user_venue.venue_id','venues.venue_type_id')
+                ->select('users.*', 'venues.name')
+              //  ->where('user_venue.user_id','=',2)
+                ->get();*/
 
-            $users = DB::table('users')
+           $users = DB::table('users')
                 ->join('user_info', 'users.id', '=', 'user_info.user_id')
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+              // ->join('venues','users.username','=','venues.name')
                 ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 2)
                 ->get();
-            return $users;
+
+
+                   /*  $venues=DB ::table('user_venue')
+                ->join('venues','user_venue.venue_id','=','venues.venue_type_id')
+               ->join ('users','user_venue.user_id','users.user_type_id')
+                ->select('venues.name')
+
+              // ->union('$users')
+                ->get();
+*/
+
+
+            /*$venues=DB::table('venues')->pluck('name')
+                ->union($users);*/
+           return $users;
+          //return $venues;
+        //  print_r($users);die();
+       // $users=new User();
+        //$users=User::all();
+      //  $users=User::where('user_type_id','=','2')->get();
+        /*$all_user=User::count();*/
+      //  $all_manager=User::where('user_type_id','=','2')->count();
+        //print_r($all_manager);die();
+        //    return $users;
+          //  return $all_manager;
+        //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
+
+
+
 
 
     }
@@ -142,10 +181,13 @@ class UserController extends Controller
                 throw $e;
             }
 
+
     }
+
 
     public function GetDetails(){
         return UserInfo::all()->toArray();
     }
+
 
 }

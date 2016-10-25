@@ -9,8 +9,20 @@ $notices=\Venue\notification::getNotification();
         <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
         <li><a href="notice" class="glyphicon glyphicon-bell"> <span class="badge">{{count($notices)}}</span> Notification</a></li>
         <li><a href="client" class="glyphicon glyphicon-user"> Client</a></li>
-        <li><a href="venue" class="glyphicon glyphicon-leaf"> Venue</a></li>
-    @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
+        {{--<li class="dropdown" >
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
+                    <i class="glyphicon glyphicon-leaf"></i> Venue<i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="managerlist">Managerlist</a>
+                    </li>
+                    <li><a href="venuelist">VenueList</a>
+                    </li>
+                </ul>
+            <li>--}}
+                <!-- /.dropdown-user -->
+            <li><a href="venue" class="glyphicon glyphicon-leaf"> Venue</a></li></ul>
+                @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
             <li class="active"><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
             <li><a href="/Notification" class="glyphicon glyphicon-globe" > Notification <span class="badge">4</span></a></li>
             <li class="dropdown"><a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
@@ -43,6 +55,7 @@ $notices=\Venue\notification::getNotification();
 </ul>
 
 @if(Auth::check())
+
 <ul class="nav navbar-nav navbar-right">
     <li class="dropdown" >
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >

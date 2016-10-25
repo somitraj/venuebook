@@ -119,6 +119,9 @@ class VenueController extends Controller
 
     }
 
+    /*public function VenueList(){*/
+
+
    /* public function VenueData()
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
@@ -128,11 +131,12 @@ class VenueController extends Controller
         /*print_r($venuedata);die();*/
        /* return view('home',compact('venuedata'));*/
  /*   }*/
-   /* public function VenueList(){
+    public function VenueList(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','venuelist');
         $data = $response->getBody()->getContents();
         $venuelist =  \GuzzleHttp\json_decode($data);
         return view('Layout.Managerlist',compact('venuelist'));
-    }*/
+    }
 }
+
