@@ -14,7 +14,7 @@ use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\User;
 use Venue\Models\UserType;
-/*use Venue\Models\UserInfo;*/
+
 class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder,Request $request) //for login

@@ -7,22 +7,11 @@
  */
 ?>
 @extends('Layout/MainLayout')
+@extends('Layout/Admin')
            @section('content')
-
-            <div >
-                @if(Auth::check())
-                    <div>
-                        <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
-                    </div>
-                <h5>
-                    <div>
-                        {{Auth::user()->username}}
-                    </div>
-                </h5>
-                @endif
-                </div>
-            <div class="container">
+               <div class="table-responsive">
                 <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
+                <a href="clientregister">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -31,22 +20,27 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Type name</th>
+{{--
                         <th>Option</th>
+--}}
                     </tr>
                     </thead>
 
 
                     @foreach($userlist as $user)
                         <tr>
-                            <td>{{$user->first_name}}</td>
-                           <td>{{$user->last_name}}</td>
-                            <td>{{$user->username}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->type_name}}</td>
+                             <td>{{$user->first_name}}</td>
+                                <td>{{$user->last_name}}</td>
+                                <td>{{$user->username}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->type_name}}</td></a>
+{{--
                             <td><button class="btn-primary">view</button></td>
+--}}
                         </tr>
                     @endforeach
-                </table>
+
+                </table></a>
             </div>
 
             </body>
