@@ -95,7 +95,21 @@ class VenueController extends Controller
 
     public function GetVenueList(Request $request)
     {
+        try {
+            $venues = new Venue();
+            $venues = Venue::all();
 
+            /*$venues = DB::table('venues')
+                ->join('venue_type', 'venues.venue_type_id', '=', 'venues_type.id')
+               // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->select('venues.*', 'venue_type.type_name')
+                ->get();*/
+            return $venues;
+            // print_r($venues);die();
+        }
+        catch (\Exception $e) {
+            throw $e;
+        }
 
         /**
          * @param Request $request
@@ -119,25 +133,13 @@ class VenueController extends Controller
             return $venuedata;
 
 
-        } catch (\Exception $e) {
+        }
+        catch (\Exception $e) {
             throw $e;
         }
 
 
-        try {
-            $venues = new Venue();
-            $venues = Venue::all();
 
-            /*$venues = DB::table('venues')
-                ->join('venue_type', 'venues.venue_type_id', '=', 'venues_type.id')
-               // ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
-                ->select('venues.*', 'venue_type.type_name')
-                ->get();*/
-            return $venues;
-            // print_r($venues);die();
-        } catch (\Exception $e) {
-            throw $e;
-        }
 
     }
 

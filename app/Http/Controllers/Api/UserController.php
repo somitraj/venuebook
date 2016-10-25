@@ -128,20 +128,20 @@ class UserController extends Controller
             $users=User::all();
             $users=UserInfo::all();
             $users=UserType::all();*/
-/*
-            $users = DB::table('user_venue')
+
+            /*$users = DB::table('user_venue')
                 ->join('users','user_venue.user_id','=','users.user_type_id')
-             //   ->join('user_info','user_venue.user_id','=','user_info.user_id')
-               // ->join('user_types','user_venue.user_id'.'=','user_types.id')
+                ->join('user_info','users.id','=','user_info.user_id')
+                ->join('user_types','users.user_type_id'.'=','user_types.id')
                 ->join('venues','user_venue.venue_id','venues.venue_type_id')
-                ->select('users.*', 'venues.name')
-              //  ->where('user_venue.user_id','=',2)
+                ->select('users.*','user_info.first_name','user_info.last_name', 'user_types.type_name','venues.name')
+               ->where('user_venue.user_id','=',2)
                 ->get();*/
 
            $users = DB::table('users')
                 ->join('user_info', 'users.id', '=', 'user_info.user_id')
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
-              // ->join('venues','users.username','=','venues.name')
+               // ->join('venues','users.username','=','venues.name')
                 ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 2)
                 ->get();
