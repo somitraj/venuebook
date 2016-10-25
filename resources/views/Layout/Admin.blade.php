@@ -1,10 +1,19 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: hp
+ * Date: 9/21/2016
+ * Time: 12:51 PM
+ */
+$userlist=\Venue\notification::getUser();
+$managerlist=\Venue\notification::getManager();
 $notices=\Venue\notification::getNotification();
 ?>
 @extends('Layout/MainLayout')
            @section('content')
 
-               @if(Auth::check())  {{--login check garne--}}
+            <div >
+                @if(Auth::check())  {{--login check garne--}}
                     <div>
                         <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
                     </div>
@@ -14,7 +23,7 @@ $notices=\Venue\notification::getNotification();
                     </div>
                 </h5>
                 @endif
-
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
@@ -52,6 +61,7 @@ $notices=\Venue\notification::getNotification();
                 </div>
                 <br>
             <br>
+
 
 
            @endsection
