@@ -25,7 +25,7 @@ foreach($proimage as $pro){
                     </div>
                 <h5>
                     <div>
-                        {{Auth::user()->username}}{{--admin login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
+                     Hello   {{Auth::user()->username}}{{--admin login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
                     </div>
                 </h5>
                 @endif
