@@ -29,8 +29,9 @@
 
             </div>
 {{--</div>--}}
-            <a href="venuelist">
+
             <div class="table-responsive">
+                <a href="venuelist">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -57,8 +58,9 @@
                         </tr>
                     @endforeach
                 </table>
+                    </a>
             </div>
-</a>
+
 
            {{-- <div class="table">
                 <table class="table table-bordered">
