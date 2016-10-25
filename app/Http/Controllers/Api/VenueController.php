@@ -14,10 +14,8 @@ use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\Models\VenueType;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
 
 class VenueController extends Controller
 {
@@ -81,13 +79,10 @@ class VenueController extends Controller
             $venues->save();
             //$venues->userVenues();
 
-            $uservenue=new UserVenue();
-            $uservenue->user_id=$user->id;
-            $uservenue->venue_id=$venues->id;
+            $uservenue = new UserVenue();
+            $uservenue->user_id = $user->id;
+            $uservenue->venue_id = $venues->id;
             $uservenue->save();
-
-
-
 
 
         } catch (\Exception $e) {
@@ -96,37 +91,38 @@ class VenueController extends Controller
 
 
     }
-<<<<<<< HEAD
+
 
     public function GetVenueList(Request $request)
     {
-=======
 
-    /**
-     * @param Request $request
-     * @return mixed
-     * @throws \Exception
-     */
+
+        /**
+         * @param Request $request
+         * @return mixed
+         * @throws \Exception
+         */
+    }
+
     public function GetVenueData(Request $request)
     {
         try {
             /*return $request->get('auth');*/
 
-            $venuedata =DB::table('user_venue')  //table join gareko
+            $venuedata = DB::table('user_venue')//table join gareko
             ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
-                ->join('venues','venues.id','=','')
-                ->select( 'venues.id','venues.name')
-                ->where('user_venue.user_id','=',75)
-                    ->get();
-               return $venuedata;
+                ->join('venues', 'venues.id', '=', '')
+                ->select('venues.id', 'venues.name')
+                ->where('user_venue.user_id', '=', 75)
+                ->get();
+            return $venuedata;
 
 
-            }
-            catch(\Exception $e){
-                throw $e;
-            }
->>>>>>> origin/master
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
 
         try {
             $venues = new Venue();
@@ -138,15 +134,11 @@ class VenueController extends Controller
                 ->select('venues.*', 'venue_type.type_name')
                 ->get();*/
             return $venues;
-           // print_r($venues);die();
+            // print_r($venues);die();
         } catch (\Exception $e) {
             throw $e;
         }
 
     }
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> origin/master
