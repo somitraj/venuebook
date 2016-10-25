@@ -24,7 +24,7 @@
                <li> <a href="managerlist" role="navigation" class="nav navbar-default ">Manager<span class="badge">{{count($managerlist)}}</span></a></li>
 
 
-               <li> <a href="venueregister" role="navigation" class="nav navbar-default ">Venue<span class="badge">{{count($managerlist)}}</span></a></li>
+               <li> <a href="venuelist" role="navigation" class="nav navbar-default ">Venue<span class="badge"></span></a></li>
 
 
             </div>
@@ -38,7 +38,6 @@
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Username</th>
-                        <th>Venue name</th>
                         <th>Email</th>
                         <th>Type name</th>
                        {{-- <th>Option</th>--}}
@@ -49,7 +48,6 @@
                             <td>{{$user->first_name}}</td>
                             <td>{{$user->last_name}}</td>
                             <td>{{$user->username}}</td>
-                            <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->type_name}}</td>
 
