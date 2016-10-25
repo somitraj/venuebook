@@ -197,7 +197,12 @@ class UserController extends BaseController
 
     public function User()
     {
-        return view('Layout.User', compact('form'));
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','slider');
+        $data = $response->getBody()->getContents();
+        $sliders =  \GuzzleHttp\json_decode($data);
+
+        return view('Layout.User', compact('sliders'));
     }
 
 
