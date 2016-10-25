@@ -186,7 +186,13 @@ class UserController extends BaseController
 
     public function Admin()
     {
-        return view('Layout.Admin', compact('form'));
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','getnotice');
+        $data = $response->getBody()->getContents();
+        $notices =  \GuzzleHttp\json_decode($data);
+        /* print_r($notices);die();*/
+        /*return view('Layout.Notification',compact('notices'));*/
+        return view('Layout.Admin', compact('form','notices'));
     }
 
     public function User()
