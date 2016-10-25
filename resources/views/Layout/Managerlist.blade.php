@@ -7,8 +7,17 @@
  */
 ?>
 @extends('Layout/MainLayout')
-@extends('Layout/Admin')
            @section('content')
+               @if(Auth::check())  {{--login check garne--}}
+               <div>
+                   <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+               </div>
+               <h5>
+                   <div>
+                       {{Auth::user()->username}}{{--admin login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
+                   </div>
+               </h5>
+               @endif
 
         {{--<div id="toplink">--}}
             <div class="nav nav-tabs">
@@ -95,7 +104,7 @@
 
 --}}
 
-            </body>
+           </body>
             </html>
 
             @endsection
