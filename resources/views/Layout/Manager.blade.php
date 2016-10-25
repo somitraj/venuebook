@@ -17,6 +17,7 @@ foreach($proimage as $pro){
         @if(Auth::check())
             <div>
                 <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
+
             </div>
             <h5>
                 <div>

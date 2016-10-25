@@ -199,12 +199,7 @@ class UserController extends BaseController
     {
         return view('Layout.User', compact('form'));
     }
-    public function VenuePage(Request $request)
-    {
-        $venue_id=$request->venue_id;
 
-        return view('Layout.MasterSlider', compact('form'));
-    }
 
     public function Lainchaur(Request $request)
     {
@@ -244,6 +239,13 @@ class UserController extends BaseController
     public function Radisson()
     {
         return view('Layout.Radisson', compact('form'));
+    }
+
+    public function VenuePage(Request $request)
+    {
+        $venue_id=$request->venue_id;
+
+        return view('Layout.MasterSlider', compact('form'));
     }
     public function UserList()
     {
