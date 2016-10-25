@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
     $api->any('register', 'UserController@Register');
+    $api->any('gallery', 'GalleryController@Gallery');
     $api->any('venue', 'VenueController@Register');
     $api->any('venue_type', 'VenueController@GetVenueType');
     $api->any('login', 'AuthController@Login');
@@ -29,12 +30,22 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('zone', 'AddressController@GetZone');
     $api->get('province', 'AddressController@GetProvince');
     $api->get('district', 'AddressController@GetDistrict');
-   /* $api->get('locality', 'AddressController@GetLocality');*/
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
     $api->get('managerlist', 'UserController@GetManagerList');
+<<<<<<< HEAD
    // $api->get('venuelist', 'UserController@GetVenueList');
     $api->get('venuelist', 'VenueController@Register');
+=======
+    $api->any('venuedata', 'VenueController@GetVenueData');
+    $api->any('slider', 'SliderController@GetSlider');
+    $api->any('getimage', 'UserController@GetProfileImage');
+    $api->any('getnotice', 'NotificationController@GetNotice');
+
+
+    /*$api->any('venuedetails', 'VenueController@VenueDetails');*/
+  //  $api->get('venuelist', 'VenueController@GetVenueList');
+>>>>>>> origin/master
 
 
 

@@ -110,10 +110,29 @@ class VenueController extends Controller
         return view('Layout.Venue_Type', compact('form'));
     }
     public function create(){
-        return view('Layout.Home');
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','slider');
+        $data = $response->getBody()->getContents();
+        $sliders =  \GuzzleHttp\json_decode($data);
+
+        return view('Layout.Home',compact('sliders'));
 
     }
+<<<<<<< HEAD
     public function VenueList(){
+=======
+
+   /* public function VenueData()
+    {
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','venuedata');
+        $data = $response->getBody()->getContents();
+        $venuedata =  \GuzzleHttp\json_decode($data);*/
+        /*print_r($venuedata);die();*/
+       /* return view('home',compact('venuedata'));*/
+ /*   }*/
+   /* public function VenueList(){
+>>>>>>> origin/master
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','venuelist');
         $data = $response->getBody()->getContents();

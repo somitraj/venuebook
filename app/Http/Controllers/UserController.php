@@ -193,8 +193,10 @@ class UserController extends BaseController
     {
         return view('Layout.User', compact('form'));
     }
-    public function Lainchaur()
+    public function Lainchaur(Request $request)
     {
+        $venue_id=$request->venue_id;
+
         return view('Layout.Lainchaur', compact('form'));
     }
     public function Sasa()
@@ -247,6 +249,24 @@ class UserController extends BaseController
         $managerlist =  \GuzzleHttp\json_decode($data);
         return view('Layout.Managerlist',compact('managerlist'));
     }
+
+    /*public function GetDetails(){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','userdetail');
+        $data = $response->getBody()->getContents();
+        $sliders =  \GuzzleHttp\json_decode($data);
+
+        return view('Layout.Home',compact('sliders'));
+
+    }*/
+   /* public function GetProfileImage(){
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','getimage');
+        $data = $response->getBody()->getContents();
+        $getimage =  \GuzzleHttp\json_decode($data);
+
+
+    }*/
 
 
     public function UserCheck()

@@ -5,7 +5,7 @@
 @if(Auth::check())
     @if(Auth::user()->user_type_id==1)
         <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
-        <li><a href="notification" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
+        <li><a href="notice" class="glyphicon glyphicon-bell"> <span class="badge">0</span> Notification</a></li>
         <li><a href="client" class="glyphicon glyphicon-user"> Client</a></li>
         {{--<li class="dropdown" >
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
@@ -27,9 +27,9 @@
             <li><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
         <li><a href="gallery" class="glyphicon glyphicon-picture"> Gallery</a></li>
 
-    @elseif(Auth::user()->user_type_id==3)<li class="active" ><a href="User" class="glyphicon glyphicon-bell"> Home </a></li>
+    @elseif(Auth::user()->user_type_id==3)<li class="active" ><a href="home" class="glyphicon glyphicon-bell"> Home </a></li>
         <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
-        <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
 
 

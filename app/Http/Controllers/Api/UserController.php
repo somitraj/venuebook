@@ -11,6 +11,7 @@ use Venue\Models\User;
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\UserType;
+use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\Models\UserVenue;
 
@@ -29,6 +30,8 @@ class UserController extends Controller
            // return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
+
+
 
 
 
@@ -54,7 +57,10 @@ class UserController extends Controller
 
 
         $userinfo->save();
+
+
         /*return $userinfo;*/
+
         }
         catch(\Exception $e){
             throw $e;
@@ -98,21 +104,7 @@ class UserController extends Controller
     {
         try {
 
-           /* $users = new User();
-             $users=User::all();
-            $users=UserInfo::all();
-            $users=UserType::all();*/
 
-          // $users = User::where('user_type_id', '=', '3')->get();  //yesle kati client xa vanera list ma dekhauxa
-            // print_r($users);die();
-            /*$all_user=User::count();*/
-
-            //$all_user = User::where('user_type_id', '=', '3')->count(); //yesle kati client xa vaney number count garxa
-            // print_r($all_user);die();
-            /* $all_students=User::where('role_type','=','2')->count();*/
-            // print_r($all_admin);die();
-            //yesle client ko list ra number return garxa userlistma compact form ma
-           // return view('Layout.Userlist', compact('users', 'all_user'));
             $users =DB::table('users')  //table join gareko
                 ->join('user_info', 'users.id', '=', 'user_info.user_id')
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
@@ -126,6 +118,8 @@ class UserController extends Controller
         }
 
     }
+
+
     //yesko work pani mathi ko getindex ko jastai same ho
     public function GetManagerList(Request $request)
     {
@@ -151,6 +145,7 @@ class UserController extends Controller
                 ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 2)
                 ->get();
+<<<<<<< HEAD
 
                    /*  $venues=DB ::table('user_venue')
                 ->join('venues','user_venue.venue_id','=','venues.venue_type_id')
@@ -176,6 +171,10 @@ class UserController extends Controller
         //    return $users;
           //  return $all_manager;
         //return view('Layout.Managerlist',compact('users','all_manager'/*,'all_admin','all_students'*/));
+=======
+            return $users;
+
+>>>>>>> origin/master
 
     }
         catch(\Exception $e){
@@ -185,6 +184,12 @@ class UserController extends Controller
 
     }
 
+<<<<<<< HEAD
 
+=======
+    public function GetDetails(){
+        return UserInfo::all()->toArray();
+    }
+>>>>>>> origin/master
 
 }

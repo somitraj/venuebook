@@ -2,14 +2,22 @@
 
 namespace Venue\Http\Controllers\Api;
 
+
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
+use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\Models\VenueType;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 class VenueController extends Controller
 {
@@ -71,6 +79,15 @@ class VenueController extends Controller
             $venues->setAttribute('locality', $request->get('locality'));
             $venues->venue_type_id = $request->venue_type_id;
             $venues->save();
+            //$venues->userVenues();
+
+            $uservenue=new UserVenue();
+            $uservenue->user_id=$user->id;
+            $uservenue->venue_id=$venues->id;
+            $uservenue->save();
+
+
+
 
 
         } catch (\Exception $e) {
@@ -79,9 +96,37 @@ class VenueController extends Controller
 
 
     }
+<<<<<<< HEAD
 
     public function GetVenueList(Request $request)
     {
+=======
+
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws \Exception
+     */
+    public function GetVenueData(Request $request)
+    {
+        try {
+            /*return $request->get('auth');*/
+
+            $venuedata =DB::table('user_venue')  //table join gareko
+            ->join('users', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                ->join('venues','venues.id','=','')
+                ->select( 'venues.id','venues.name')
+                ->where('user_venue.user_id','=',75)
+                    ->get();
+               return $venuedata;
+
+
+            }
+            catch(\Exception $e){
+                throw $e;
+            }
+>>>>>>> origin/master
 
         try {
             $venues = new Venue();
@@ -99,4 +144,9 @@ class VenueController extends Controller
         }
 
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> origin/master

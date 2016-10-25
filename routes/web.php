@@ -46,6 +46,9 @@ Route::any('/BookTotal',[
     'as'=>'web.BookTotal',
     'uses'=>'BookingController@BookTotal'
 ]);
+
+Route::any("/notice",["as"=>'web.notice', "uses"=>'NotificationController@GetNotice']);
+
 /*Route::get('/Manager',[
     'as'=>'web.Manager',
     'uses'=>'UserController@Manager'
@@ -120,6 +123,14 @@ Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
 ]);
+/*Route::get('/VenueDetails',[
+    'as'=>'web.Venue',
+    'uses'=>'VenueController@VenueDetails'
+]);*/
+
+/*Route::any("venuedetails",["as"=>'web.details', "uses"=>'VenueController@VenueData']);*/
+
+
 
 
 
