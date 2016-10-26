@@ -27,7 +27,7 @@ foreach($proimage as $pro){
                <div class="table-responsive">
                 <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
                 <a href="clientregister">
-                <table class="table table-bordered">
+                <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
                         <th>Firstname</th>
