@@ -1,4 +1,10 @@
 <?php
+$proimage=\Venue\GetImage::getImage();
+foreach($proimage as $pro){
+    if($pro->user_id== Auth::user()->id){
+        $pro1=$pro->profile_image;
+    }
+}
 ?>
 
 @extends('Layout/MainLayout')
@@ -7,7 +13,7 @@
     <div>
         @if(Auth::check())
             <div>
-                <img src="/uploads/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+                <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
             </div>
             <h5>
                 <div>
@@ -64,7 +70,9 @@
         <div id="ninja-slider" style="float:left;">
             <div class="slider-inner">
                 <ul>
-                    <li><a href="/Lainchaur"><img class="ns-img" src="images/venue1.jpg"></a></li>
+                    @foreach($sliders as $slider)
+                        <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="ns-img" src="{{$slider->cover}}"></a></li>
+                   {{-- <li><a href="/Lainchaur"><img class="ns-img" src="images/venue1.jpg"></a></li>
                     <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
                     <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>
                     <li><a href="/Star"><img class="ns-img" src="images/venue4.jpg"></a></li>
@@ -75,7 +83,8 @@
                     <li><a href="/Radisson"><img class="ns-img" src="images/venue9.jpg"></a></li>
                     <li><a href="/Lainchaur"><img class="ns-img" src="images/venue1.jpg"></a></li>
                     <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
-                    <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>
+                    <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>--}}
+                    @endforeach
                 </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
             </div>
@@ -83,7 +92,10 @@
         <div id="thumbnail-slider" style="float:left;">
             <div class="inner">
                 <ul>
-                    <li>
+                    @foreach($sliders as $slider)
+                        <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
+                        </li>
+                    {{--<li>
                         <a href="/Lainchaur"><img class="thumb" src="images/venue1.jpg" ></a>
                     </li>
                     <li>
@@ -118,7 +130,8 @@
                     </li>
                     <li>
                         <a href="/Shanker"><img class="thumb" src="images/venue3.jpg"></a>
-                    </li>
+                    </li>--}}
+                        @endforeach
                 </ul>
             </div>
         </div>

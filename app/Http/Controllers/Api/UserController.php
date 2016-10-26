@@ -128,17 +128,37 @@ class UserController extends Controller
             $users=User::all();
             $users=UserInfo::all();
             $users=UserType::all();*/
-
+/*
             $users = DB::table('user_venue')
-                ->join('users','user_venue.user_id','=','users.id')
-                ->join('user_info','users.id','=','user_info.user_id')
-                ->join('user_types','users.user_type_id','=','user_types.id')
-                ->join('venues','user_venue.venue_id','=','venues.id')
-                ->select('users.*','user_info.first_name','user_info.last_name', 'user_types.type_name','user_venue.id','venues.name')
-               ->where('users.user_type_id','=',2)
+                ->join('users','user_venue.user_id','=','users.user_type_id')
+             //   ->join('user_info','user_venue.user_id','=','user_info.user_id')
+               // ->join('user_types','user_venue.user_id'.'=','user_types.id')
+                ->join('venues','user_venue.venue_id','venues.venue_type_id')
+                ->select('users.*', 'venues.name')
+              //  ->where('user_venue.user_id','=',2)
+                ->get();*/
+
+           $users = DB::table('users')
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+              // ->join('venues','users.username','=','venues.name')
+                ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
+                ->where('users.user_type_id', '=', 2)
                 ->get();
 
 
+                   /*  $venues=DB ::table('user_venue')
+                ->join('venues','user_venue.venue_id','=','venues.venue_type_id')
+               ->join ('users','user_venue.user_id','users.user_type_id')
+                ->select('venues.name')
+
+              // ->union('$users')
+                ->get();
+*/
+
+
+            /*$venues=DB::table('venues')->pluck('name')
+                ->union($users);*/
            return $users;
           //return $venues;
         //  print_r($users);die();
@@ -165,16 +185,15 @@ class UserController extends Controller
     }
 
 
-    public function GetUserDetails(){
-        try{
-            $userinfo=UserInfo::all()->where('user_id','=',$request->get('user_id'))->toArray();
+    public function GetDetails(){
+        $userinfo = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->select('user_info.user_id', 'user_info.profile_image')
+            /*->where('users.user_type_id', '=', 2)*/
+            ->get();
             return $userinfo;
-        }
-        catch(\Exception $e){
-            throw $e;
-        }
+        /*return UserInfo::all()->toArray();*/
     }
-
 
 
 }

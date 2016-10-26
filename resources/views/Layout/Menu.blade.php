@@ -1,6 +1,7 @@
 <?php
 //print_r(auth::user());
 $notices=\Venue\notification::getNotification();
+$vdata=\Venue\venuedata1::getVenueData();
 ?>
 <ul class="nav navbar-nav">
 @if(Auth::check())
@@ -62,8 +63,16 @@ $notices=\Venue\notification::getNotification();
             <i class="fa fa-user fa-fw"></i>User Account <i class="fa fa-caret-down"></i>
         </a>
         <ul class="dropdown-menu dropdown-user">
+            @if(Auth::user()->user_type_id==2)
+                 @foreach($vdata as $vd)
+                    <li><a href="/venuepage?id={{$vd->venue_id}}"><i class="fa fa-user fa-fw"></i> My Account</a>
+                     </li>
+                    @endforeach
+
+            @else
             <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
             </li>
+            @endif
             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
             </li>
             <li class="divider"></li>

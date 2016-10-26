@@ -195,14 +195,22 @@ class UserController extends BaseController
 
     public function User()
     {
-        return view('Layout.User', compact('form'));
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','slider');
+        $data = $response->getBody()->getContents();
+        $sliders =  \GuzzleHttp\json_decode($data);
+
+        return view('Layout.User', compact('sliders'));
     }
+
+
     public function Lainchaur(Request $request)
     {
         $venue_id=$request->venue_id;
 
         return view('Layout.Lainchaur', compact('form'));
     }
+
     public function Sasa()
     {
         return view('Layout.Sasa', compact('form'));
@@ -234,6 +242,13 @@ class UserController extends BaseController
     public function Radisson()
     {
         return view('Layout.Radisson', compact('form'));
+    }
+
+    public function VenuePage(Request $request)
+    {
+        $venue_id=$request->venue_id;
+
+        return view('Layout.MasterSlider', compact('form'));
     }
     public function UserList()
     {

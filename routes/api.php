@@ -39,8 +39,8 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('slider', 'SliderController@GetSlider');
     $api->any('getimage', 'UserController@GetProfileImage');
     $api->any('getnotice', 'NotificationController@GetNotice');
-   // $api->any('getuserdetails', 'UserController@GetUserDetails');
-
+    $api->get('getimage', 'UserController@GetDetails');
+    $api->get('getvenuedata', 'VenueController@GetVenueData');
 
 
     /*$api->any('venuedetails', 'VenueController@VenueDetails');*/

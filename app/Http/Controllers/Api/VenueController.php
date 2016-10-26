@@ -54,6 +54,7 @@ class VenueController extends Controller
             $userinfo->mobile_no = $request->mobile_no;
             $userinfo->district_id = $request->district_id;
             $userinfo->nationality_id = $request->nationality_id;
+            $userinfo->setAttribute('profile_image', $request->get('profile_image'));
 
             $userinfo->setAttribute('locality', $request->get('locality'));
 
@@ -79,10 +80,13 @@ class VenueController extends Controller
             $venues->save();
             //$venues->userVenues();
 
-            $uservenue = new UserVenue();
-            $uservenue->user_id = $user->id;
-            $uservenue->venue_id = $venues->id;
+            $uservenue=new UserVenue();
+            $uservenue->user_id=$user->id;
+            $uservenue->venue_id=$venues->id;
             $uservenue->save();
+
+
+
 
 
         } catch (\Exception $e) {
@@ -106,37 +110,39 @@ class VenueController extends Controller
                 ->get();*/
             return $venues;
             // print_r($venues);die();
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw $e;
         }
-
-        /**
-         * @param Request $request
-         * @return mixed
-         * @throws \Exception
-         */
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     * @throws \Exception
+     */
     public function GetVenueData(Request $request)
     {
         try {
             /*return $request->get('auth');*/
 
-            $venuedata = DB::table('user_venue')//table join gareko
-            ->join('users', 'users.id', '=', 'user_venue.user_id')
+
+            $venuedata =DB::table('user_venue')  //table join gareko
+                  ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
-                ->join('venues', 'venues.id', '=', '')
-                ->select('venues.id', 'venues.name')
-                ->where('user_venue.user_id', '=', 75)
-                ->get();
-            return $venuedata;
+                ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
+                ->select('gallery.*','venues.*','users.*','user_info.*')
+                ->where('gallery.venue_id','=','12')
+                /*->select( 'venues.*','users.*','user_info.*')*/
+
+                    ->get();
+               return $venuedata;
 
 
-        }
-        catch (\Exception $e) {
-            throw $e;
-        }
+            }
+            catch(\Exception $e){
+                throw $e;
+            }
 
 
 
@@ -144,3 +150,7 @@ class VenueController extends Controller
     }
 
 }
+
+
+
+

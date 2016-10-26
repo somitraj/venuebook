@@ -108,11 +108,11 @@ Route::get('/Radisson',[
     'uses'=>'UserController@Radisson'
 ]);
 
+Route::any('/venuepage',[
+    'as'=>'web.venuepage',
+    'uses'=>'UserController@VenuePage'
+]);
 
-/*Route::any('/Admin',[
-    'as'=>'web.Admin',
-    'uses'=>'UserController@Admin'
-]);*/
 
 Route::get('/Venue',[
     'as'=>'web.Venue',
@@ -123,12 +123,8 @@ Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
 ]);
-/*Route::get('/VenueDetails',[
-    'as'=>'web.Venue',
-    'uses'=>'VenueController@VenueDetails'
-]);*/
 
-/*Route::any("venuedetails",["as"=>'web.details', "uses"=>'VenueController@VenueData']);*/
+
 
 
 
