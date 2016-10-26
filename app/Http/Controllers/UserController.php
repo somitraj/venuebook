@@ -1,8 +1,6 @@
 <?php
 
 namespace Venue\Http\Controllers;
-
-
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
@@ -256,15 +254,16 @@ class UserController extends BaseController
         return view('Layout.Managerlist',compact('managerlist'));
     }
 
-    /*public function GetDetails(){
+    public function GetUserDetails(){
         $client = new Client(['base_uri' => config('app.REST_API')]);
         $response = $client->request('GET','userdetail');
         $data = $response->getBody()->getContents();
-        $sliders =  \GuzzleHttp\json_decode($data);
+        $userdetail =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Userlist',compact('form','userdetails'));
+       // return redirect()->route('Viewdetails.userlist');
 
-        return view('Layout.Home',compact('sliders'));
 
-    }*/
+    }
    /* public function GetProfileImage(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','getimage');
