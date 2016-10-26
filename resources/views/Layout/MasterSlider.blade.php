@@ -1,17 +1,18 @@
 <?php
 
-$vdata=\Venue\venuedata1::getVenueData();
+/*$vdata=\Venue\venuedata1::getVenueData();*/
 /*foreach($vdata as $venuedata){
     if($venuedata->venue_id==){
 
     }*/
 
 ?>
+
 @extends('Layout/MainLayout')
 
 @section('content')
     @foreach($vdata as $vd1)
-        <img style=width:120px;height:80px;margin-left:80px;" src="{{$vd1->image}}"/>
+        <img style=width:120px;height:80px;margin-left:80px;" src="/{{$vd1->image}}"/>
         <h4 style="text-align:left;margin-left:80px;">{{$vd1->name}}</h4>
 
         <br>
@@ -28,16 +29,17 @@ $vdata=\Venue\venuedata1::getVenueData();
                 <div id="ninja-slider">
                     <div class="slider-inner">
                         <ul>
+                            {{--{{dd($vdata)}}--}}
                             @foreach($vdata as $vd)
-                                <li><img class="thumb" src="{{$vd->cover}}">
+                                <li><img class="thumb" src="/{{$vd->cover}}">
                                 </li>
-                                <li><img class="thumb" src="{{$vd->image1}}">
+                                <li><img class="thumb" src="/{{$vd->image1}}">
                                 </li>
-                                <li><img class="thumb" src="{{$vd->image2}}">
+                                <li><img class="thumb" src="/{{$vd->image2}}">
                                 </li>
-                                <li><img class="thumb" src="{{$vd->image3}}">
+                                <li><img class="thumb" src="/{{$vd->image3}}">
                                 </li>
-                                <li><img class="thumb" src="{{$vd->image4}}">
+                                <li><img class="thumb" src="/{{$vd->image4}}">
                                 </li>
                                 {{--<li><a class="ns-img" href="images/Lainchaur banquet1.jpg"></a></li>
                                 <li><a class="ns-img" href="images/Lainchaur banquet2.jpg"></a></li>

@@ -33,8 +33,6 @@ class UserController extends Controller
 
 
 
-
-
         $userinfo=new UserInfo();
         $userinfo->setAttribute('first_name',$request->get('first_name'));
         $userinfo->setAttribute('last_name',$request->get('last_name'));
@@ -87,7 +85,7 @@ class UserController extends Controller
 
 
 }
-    public function GetProfile(Request $request){
+ /*   public function GetProfile(Request $request){
         try{
             $userinfo=UserInfo::all()->where('user_id','=',$request->get('user_id'))->toArray();
             return $userinfo;
@@ -95,6 +93,10 @@ class UserController extends Controller
         catch(\Exception $e){
             throw $e;
         }
+    }*/
+
+    public function GetDetails(){
+        return UserInfo::all()->toArray();
     }
 
     /**
@@ -151,9 +153,7 @@ class UserController extends Controller
     }
 
 
-    public function GetDetails(){
-        return UserInfo::all()->toArray();
-    }
+
 
 
 }
