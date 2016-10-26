@@ -9,6 +9,8 @@ Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
 {//yesko vitra normal user le kun kun route jana milxa define garne
     Route::any("home",["as"=>'web.User', "uses"=>'UserController@User']);
     Route::any("feedback",["as"=>'user.feedback', "uses"=>'FeedbackController@Feedback']);
+    Route::any('venuepage',['as'=>'user.venuepage','uses'=>'UserController@VenuePage'
+    ]);
     /*Route::get('/searchlost',['as'=>'searchlost','uses'=>'Web\LoginController@Search']);
     Route::get('/searchfound',['as'=>'searchfound','uses'=>'Web\LoginController@Lost']);
     Route::get('/lostitem',['as'=>'lostitem','uses'=>'Web\LoginController@ReportLost']);
