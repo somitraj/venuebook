@@ -2,8 +2,10 @@
 
 namespace Venue\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
+use Kris\LaravelFormBuilder\FormBuilder;
 use Venue\Http\Requests;
 
 class InventoryController extends Controller
@@ -17,10 +19,23 @@ class InventoryController extends Controller
 
                 $response = $client->request('POST', 'inventory', [
                     'form_params' => [
-                        'first_name' =>  $request->get('first_name'),
-                        'last_name' =>  $request->get('last_name'),
-                        'email' => $request->get('email'),
-                        'comment' => $request->get('comment')
+                        'item1' =>  $request->get('item1'),
+                        'price_per1' =>  $request->get('price_per1'),
+
+                        'item2' =>  $request->get('item2'),
+                        'price_per2' =>  $request->get('price_per2'),
+
+                        'item3' =>  $request->get('item3'),
+                        'price_per3' =>  $request->get('price_per3'),
+
+                        'item4' =>  $request->get('item4'),
+                        'price_per4' =>  $request->get('price_per4'),
+
+                        'item5' =>  $request->get('item5'),
+                        'price_per5' =>  $request->get('price_per5'),
+
+
+
 
                     ]
                 ]);
@@ -30,7 +45,7 @@ class InventoryController extends Controller
                 print_r($e->getMessage());die();
             }
 
-            $request->session()->flash('alert-success', 'Menu Successfully Updated!');
+            $request->session()->flash('alert-success', 'Inventory Successfully Updated!');
         }
 
         $form = $formBuilder->Create('Venue\Forms\InventoryForm',['method'=>'POST','url' => route('manager.inventory')]);
@@ -39,5 +54,5 @@ class InventoryController extends Controller
         return view('Layout.Inventory', compact('form'));
 
     }
-}
+
 }

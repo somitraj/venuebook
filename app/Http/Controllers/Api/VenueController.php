@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Venue\Models\TblMenuItem;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
+use Venue\Models\VenueMenuItem;
 use Venue\Models\VenueType;
 
 
@@ -202,6 +204,121 @@ class VenueController extends Controller
 
     }*/
 
+    public function GetInventory(Request $request)
+    {
+
+
+        try {
+            $inventory = new TblMenuItem();
+            $inventory->setAttribute('item_name', $request->get('item1'));
+            $inventory->save();
+
+            $price = new VenueMenuItem();
+            $price->setAttribute('price_per', $request->get('price_per1'));
+            $price->menu_item_id=$inventory->id;
+            $price->save();
+
+            $inventory = new TblMenuItem();
+            $inventory->setAttribute('item_name', $request->get('item2'));
+            $inventory->save();
+
+            $price = new VenueMenuItem();
+            $price->setAttribute('price_per', $request->get('price_per2'));
+            $price->menu_item_id=$inventory->id;
+            $price->save();
+
+            $price = new VenueMenuItem();
+            $price->setAttribute('price_per', $request->get('price_per3'));
+            $price->menu_item_id=$inventory->id;
+            $price->save();
+
+            $inventory = new TblMenuItem();
+            $inventory->setAttribute('item_name', $request->get('item3'));
+            $inventory->save();
+
+            $inventory = new TblMenuItem();
+            $inventory->setAttribute('item_name', $request->get('item4'));
+            $inventory->save();
+
+            $price = new VenueMenuItem();
+            $price->setAttribute('price_per', $request->get('price_per4'));
+            $price->menu_item_id=$inventory->id;
+            $price->save();
+
+            $inventory = new TblMenuItem();
+            $inventory->setAttribute('item_name', $request->get('item5'));
+            $inventory->save();
+
+            $price = new VenueMenuItem();
+            $price->setAttribute('price_per', $request->get('price_per5'));
+            $price->menu_item_id=$inventory->id;
+            $price->save();
+
+
+
+
+
+
+
+
+
+
+
+
+          /*  $userinfo = new UserInfo();
+            $userinfo->setAttribute('first_name', $request->get('first_name'));
+            $userinfo->setAttribute('last_name', $request->get('last_name'));
+            $userinfo->setAttribute('username', $user->username);
+            $userinfo->setAttribute('user_id', $user->id);
+            $userinfo->setAttribute('email', $user->email);
+            $userinfo->country_id = $request->country_id;
+            $userinfo->province_id = $request->province_id;
+            $userinfo->zone_id = $request->zone_id;
+            $userinfo->phone_no = $request->phone_no;
+            $userinfo->mobile_no = $request->mobile_no;
+            $userinfo->district_id = $request->district_id;
+            $userinfo->nationality_id = $request->nationality_id;
+            $userinfo->setAttribute('profile_image', $request->get('profile_image'));
+
+            $userinfo->setAttribute('locality', $request->get('locality'));
+
+            $userinfo->save();
+
+
+            $venues = new Venue();
+            $venues->name = $request->name;
+            $venues->country_id = $request->country_id;
+            $venues->province_id = $request->province_id;
+            $venues->zone_id = $request->zone_id;
+            $venues->phone_no = $request->phone_no;
+            $venues->phone_no_2 = $request->phone_no_2;
+            $venues->space_area = $request->space_area;
+            $venues->person_capacity = $request->person_capacity;
+            $venues->district_id = $request->district_id;
+            $venues->established_date = $request->established_date;
+            $venues->image = $request->image;
+            $venues->image = $request->image;
+            $venues->setAttribute('country_id', $userinfo->country_id);
+            $venues->setAttribute('locality', $request->get('locality'));
+            $venues->venue_type_id = $request->venue_type_id;
+            $venues->save();
+            //$venues->userVenues();
+
+            $uservenue=new UserVenue();
+            $uservenue->user_id=$user->id;
+            $uservenue->venue_id=$venues->id;
+            $uservenue->save();*/
+
+
+
+
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+
+    }
 
 
 }
