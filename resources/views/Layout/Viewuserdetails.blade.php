@@ -5,8 +5,6 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
-$udata=\Venue\userdata::getDetails();
-
 ?>
 @extends('Layout/MainLayout')
            @section('content')
@@ -38,18 +36,20 @@ $udata=\Venue\userdata::getDetails();
                        </ol>
                    </div>
 
-               <h2 class="fa-pagelines">Details</h2>
-               FirstName: {{$udata->first_name}}<br>
-               LastName : {{$udata->last_name}} <br>
-               Username : {{$udata->username}} <br>
-               DOB : {{$udata->dob}} <br>
-               Email : {{$udata->email}} <br>
-               Nationality Id : {{$udata->nationality_id}} <br>
-               Phone no : {{$udata->phone_no}} <br>
-               Mobile no : {{$udata->mobile_no}} <br>
-               Country : {{$udata->country_id}} <br>
-               Locality : {{$udata->locality}} <br>
-               Profile Image: {{$udata->profile_image}} <br>
+               <h2>Details</h2>
+                           @foreach($userdetails as $userdetail)
+                               <img src="/{{$userdetail->profile_image}}"> <br>
+                           FirstName: {{$userdetail->first_name}}<br>
+                           LastName : {{$userdetail->last_name}} <br>
+                           Username : {{$userdetail->username}} <br>
+                           DOB : {{$userdetail->dob}} <br>
+                           Email : {{$userdetail->email}} <br>
+                           Nationality Id : {{$userdetail->nationality_id}} <br>
+                           Phone no : {{$userdetail->phone_no}} <br>
+                           Mobile no : {{$userdetail->mobile_no}} <br>
+                           Country : {{$userdetail->country_id}} <br>
+                           Locality : {{$userdetail->locality}} <br>
+                           @endforeach
 
 
                </div>

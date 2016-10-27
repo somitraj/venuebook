@@ -5,8 +5,6 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
-$vdata=\Venue\venuedata1::getVenueData();
-
 ?>
 @extends('Layout/MainLayout')
 @section('content')
@@ -34,21 +32,25 @@ $vdata=\Venue\venuedata1::getVenueData();
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <span class="fa fa-user"></span> <a href="client">Venue</a> / Card
+                    <span class="fa fa-user"></span> <a href="venue">Venue</a> / Card
                 </li>
             </ol>
         </div>
 
-    <h2 class="fa-pagelines">Details</h2>
-    Name: {{$vdata->name}}<br>
-    Email : {{$vdata->email}} <br>
-    Phone 1 : {{$vdata->phone_no}} <br>
-    Phone 2 : {{$vdata->phone_no_2}} <br>
-    Space Area : {{$vdata->space_area}} <br>
-    Capacity : {{$vdata->person_capacity}} <br>
-    Locality : {{$vdata->locality}} <br>
-    Established Date : {{$vdata->established_date}}<br>
-    Image: {{$vdata->image}} <br>
+    <h2>Details</h2>
+            @foreach($venuedetails as $vdata)
+                <img src="/{{$vdata->image}}"> <br>
+
+                Name: {{$vdata->name}}<br>
+                Email : {{$vdata->email}} <br>
+                Phone 1 : {{$vdata->phone_no}} <br>
+                Phone 2 : {{$vdata->phone_no_2}} <br>
+                Space Area : {{$vdata->space_area}} <br>
+                Capacity : {{$vdata->person_capacity}} <br>
+                Locality : {{$vdata->locality}} <br>
+                 Established Date : {{$vdata->established_date}}<br>
+                @endforeach
+
 
 </div>
             </div>

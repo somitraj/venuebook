@@ -321,35 +321,36 @@ class UserController extends BaseController
 
     public function EditUserDetails(FormBuilder $formBuilder,$id){
         $client = new Client(['base_uri' => config('app.REST_API')]);
-        $response = $client->request('POST','viewuserdetails/'.$id);
+        $response = $client->request('POST','edituser/'.$id);
         $data = $response->getBody()->getContents();
-        $viewuserdetails =  \GuzzleHttp\json_decode($data);
+        $edituser =  \GuzzleHttp\json_decode($data);
+      //  print_r($edituser->id);die();
 
-        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/UserDetails'],
+        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/edituser'],
             [
-               'id'=>$viewuserdetails->user_id,
-                'first_name' => $viewuserdetails->first_name,
-                'last_name' =>  $viewuserdetails->last_name,
-                'username' => $viewuserdetails->username,
-                'dob' =>  $viewuserdetails->dob,
-                'nationality_id' =>  $viewuserdetails->nationality_id,
-                'phone_no' =>  $viewuserdetails->phone_no,
-                'mobile_no' =>  $viewuserdetails->mobile_no,
-                'email' => $viewuserdetails->email,
-                'password' => $viewuserdetails->password,
-                'user_type_id' => $viewuserdetails->user_type,
-                'country_id' => $viewuserdetails->Country,
-                'province_id' => $viewuserdetails->Province,
-                'zone_id' => $viewuserdetails->Zones,
-                'district_id' => $viewuserdetails->District,
-                'locality' => $viewuserdetails->Locality,
+               'id'=>$edituser->id,
+                'first_name' => $edituser->first_name,
+                'last_name' =>  $edituser->last_name,
+                'username' => $edituser->username,
+                'dob' =>  $edituser->dob,
+                'nationality_id' =>  $edituser->nationality_id,
+                'phone_no' =>  $edituser->phone_no,
+                'mobile_no' =>  $edituser->mobile_no,
+                'email' => $edituser->email,
+               // 'password' => $edituser->password,
+                //'user_type_id' => $edituser->user_type,
+              /*  'country_id' => $edituser->Country,
+                'province_id' => $edituser->Province,
+                'zone_id' => $edituser->Zones,
+                'district_id' => $edituser->District,*/
+              //  'locality' => $edituser->Locality,
 
-                'profile_image' => $viewuserdetails->profile_image,
+               // 'profile_image' => $edituser->profile_image,
 
 
-                'identity_image' => $viewuserdetails->identity_image
+                //'identity_image' => $edituser->identity_image
             ]);
-
+//print_r($viewuserdetails);die();
 
         return view('Layout.Edituser',compact('form'));
        // return redirect()->route('Viewdetails.userlist');
@@ -407,8 +408,8 @@ class UserController extends BaseController
         $data = $response->getBody()->getContents();
        // print_r($data);die();
         $userdetails = \GuzzleHttp\json_decode($data);
-        print_r($userdetails);die();
-       // return view
+         //print_r($userdetails);die();
+        return view('Layout.Viewuserdetails',compact('userdetails'));
     }
 
     public function UserCheck()

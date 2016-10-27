@@ -149,11 +149,20 @@ class UserController extends Controller
     }
 
 
-    public function GetDetails($id)
+    public function GetUserDetails($id)
     {
         //return $id;
         $usersinfo = new UserInfo();
         $usersinfo = UserInfo::where('user_id', '=', $id)->first();
+       // print_r($usersinfo);die();
+        return $usersinfo;
+    }
+    public function EditUser($id)
+    {
+        //return $id;
+        $usersinfo = new UserInfo();
+        $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
+        // print_r($usersinfo);die();
         return $usersinfo;
     }
 

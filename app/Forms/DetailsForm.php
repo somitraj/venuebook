@@ -18,14 +18,14 @@ class DetailsForm extends Form
         $mobile_no =$this->getData('mobile_no');
         $email =$this->getData('email');
         $password=$this->getData('password');
-        $user_type_id=$this->getData('user_type');
+       /* $user_type_id=$this->getData('user_type');
         $country_id = $this->getData('Country');
         $province_id=$this->getData('Province');
         $zone_id = $this->getData('Zones');
         $district_id = $this->getData('District');
         $locality= $this->getData('Locality');
         $profile_image =$this->getData('profile_image');
-        $identity_image = $this->getData('identity_image');
+        $identity_image = $this->getData('identity_image');*/
 
         $this
             ->add('first_name','text',[
@@ -73,7 +73,7 @@ class DetailsForm extends Form
 
                 ]
             )
-            ->add('confirm_password','password', [
+            /*->add('confirm_password','password', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Confirm Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -113,7 +113,7 @@ class DetailsForm extends Form
                     'value'=>$nationality_id
 
                 ]
-            )
+            )*/
 
             ->add('phone_no','text', [
                     'wrapper' => ['class' => 'form-group row'],
@@ -134,13 +134,13 @@ class DetailsForm extends Form
 
                 ]
             )
-             ->add('user_type', 'hidden', [
+            /* ->add('user_type', 'hidden', [
                         'label'=>'User Type',
-                        'default_value' => 3,
+                        'default_value' => 3,*/
                         /*'selected'=>$usertypeOption[3],*/
                         /*  'selected' => 'client',*/
                         /*'empty_value' => 'client',*/
-                        'wrapper' =>['class' => 'form-group row'],
+                     /*   'wrapper' =>['class' => 'form-group row'],
                         'label_attr'=>['class'=>'col-md-3 control-label'],
                         'attr' =>['class' => 'col-md-8 form-control field-input'],
                      'value'=>$user_type_id
@@ -149,9 +149,9 @@ class DetailsForm extends Form
                     ]
                 )
 
-            ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
+        /*    ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])*/
 
-            ->add('profile_image','file', [
+            /*->add('profile_image','file', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Profile Image',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -169,8 +169,8 @@ class DetailsForm extends Form
                     'value'=>$identity_image
 
                 ]
-            )
-            ->add('save','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+            )*/
+            ->add('update','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
 
 
         ;

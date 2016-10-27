@@ -5,18 +5,18 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
-$proimage=\Venue\GetImage::getImage();
+/*$proimage=\Venue\GetImage::getImage();
 foreach($proimage as $pro){
     if($pro->user_id== Auth::user()->id){
         $pro1=$pro->profile_image;
     }
-}
+}*/
 ?>
 @extends('Layout/MainLayout')
            @section('content')
                @if(Auth::check())  {{--login check garne--}}
                <div>
-                   <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
+                   {{--<img src="/{{$pro1}}"class="img-circle" width="70" height="70">--}}
                </div>
                <h5>
                    <div>
@@ -65,7 +65,7 @@ foreach($proimage as $pro){
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->type_name}}</td>
-                            <td><a href="venuedetails" class="btn btn-success btn-block btn">View</a></td>
+                            <td><a href="venuedetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
                             <td><a href="venueedit" class="btn btn-warning btn-block btn">Edit</a></td>
                             <td><a href="venuedelete" class="btn btn-primary btn-block btn">Delete</a></td>
 

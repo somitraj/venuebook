@@ -43,9 +43,9 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('getvenuebyuserid/{id}', 'VenueController@GetVenueData');
     $api->any('getvenuedata1/{id}', 'VenueController@GetVenueData1');
    /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
-   $api->any('userdetails/{id}', 'UserController@GetDetails');
+   $api->any('userdetails/{id}', 'UserController@GetUserDetails');
     $api->any('venuedetails/{id}', 'VenueController@GetVenueData');
-    $api->any('edituser/{id}', 'UserController@EditUserdetails');
+    $api->any('edituser/{id}', 'UserController@EditUser');
     $api->any('editvenue/{id}', 'UserController@EditVenuedetails');
 
 

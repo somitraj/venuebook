@@ -165,5 +165,16 @@ class VenueController extends Controller
         $venuelist =  \GuzzleHttp\json_decode($data);
         return view('Layout.Managerlist',compact('venuelist'));
     }
+    public function VenueManagerDetails($id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+
+        $response = $client->request('POST', 'venuedetails/' . $id);
+        // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        // print_r($data);die();
+        $venuedetails = \GuzzleHttp\json_decode($data);
+        //print_r($userdetails);die();
+        return view('Layout.VenueManagerDetails',compact('venuedetails'));
+    }
 }
 
