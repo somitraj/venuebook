@@ -79,6 +79,8 @@
         </div>
     </div>
     <br>
+    @if(!Auth::check())
     <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
+    @endif
 
 @endsection
