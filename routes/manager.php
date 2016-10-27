@@ -10,6 +10,8 @@ Route::group(["role"=>2,"prefix"=>"manager",'middleware'=>'auth.user'],function(
     Route::any("dashboard",["as"=>'manager.dash', "uses"=>'UserController@Manager']);
     Route::any("feedback",["as"=>'manager.feedback', "uses"=>'FeedbackController@Feedback']);
     Route::any("gallery",["as"=>'manager.gallery', "uses"=>'GalleryController@Gallery']);
+    Route::any("inventory",["as"=>'manager.inventory', "uses"=>'InventoryController@Inventory']);
+
     /*Route::get('/searchlost',['as'=>'searchlost','uses'=>'Web\LoginController@Search']);
     Route::get('/searchfound',['as'=>'searchfound','uses'=>'Web\LoginController@Lost']);
     Route::get('/lostitem',['as'=>'lostitem','uses'=>'Web\LoginController@ReportLost']);
