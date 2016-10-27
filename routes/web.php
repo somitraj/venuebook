@@ -63,10 +63,10 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
-/*Route::any('/venuepage1',[
+Route::any('/venuepage',[
     'as'=>'web.venuepage',
     'uses'=>'UserController@VenuePage'
-]);*/
+]);
 
 Route::get('/Venue',[
     'as'=>'web.Venue',

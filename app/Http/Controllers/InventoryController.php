@@ -12,6 +12,8 @@ class InventoryController extends Controller
 {
     public function Inventory(FormBuilder $formBuilder,Request $request)
     {
+        /*$venue_id=$request->user_id;
+        print_r($venue_id);die();*/
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         if($request->getMethod()=='POST') {
 
