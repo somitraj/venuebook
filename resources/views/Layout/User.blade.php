@@ -33,23 +33,16 @@ foreach($proimage as $pro){
         <div class="form-group col-lg-4">
         </div>
 
-        <div class="form-group col-lg-4">
-            <div class="input-group">
-                <input type="text" class="form-control" id="usr" placeholder="Search Your Venue By Capacity / Location">
+        {!! Form::open(['method'=>'GET','url'=>'user/venuesearch','class'=>'navbar-form navbar-left','role'=>'search'/*,'action'=>'/Search'*/])  !!}
 
-                <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
-            </div>
-
-
+        <div class="input-group custom-search-form ">
+            <input type="text" class="form-control" name="search" placeholder="Search your Venue Here">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit"> Search
+        </button>
+    </span>
         </div>
-        <div class="form-group col-lg-2">
-            <select class="form-control" id="district">
-                <option>kathmandu</option>
-                <option>lalitpur</option>
-                <option>bhaktaput</option>
-                <option>nuwakot</option>
-            </select>
-        </div>
+        {!! Form::close() !!}
         {{--  <h5><a href="#"> advanced search>></a></h5>--}}
 
 

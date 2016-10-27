@@ -15,11 +15,24 @@
         <div class="form-group col-lg-4">
         </div>
 
+        {!! Form::open(['method'=>'GET','url'=>'venuesearch','class'=>'navbar-form navbar-left','role'=>'search'/*,'action'=>'/Search'*/])  !!}
+
+        <div class="input-group custom-search-form ">
+            <input type="text" class="form-control" name="search" placeholder="Search your Venue Here">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit"> Search
+               </button>
+    </span>
+        </div>
+        {!! Form::close() !!}
+
+
+       {{-- <form action="/Search" method="get">
         <div class="form-group col-lg-4">
             <div class="input-group">
-                <input type="text" class="form-control" id="usr" placeholder="Search Your Venue By Capacity / Location">
+                <input type="text" class="form-control" id="usr" placeholder="Search Your Venue Here">
 
-                <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
+                <span class="input-group-btn" ><input type="submit" class="btn btn-primary" value="Search"></span>
             </div>
 
 
@@ -32,8 +45,8 @@
                 <option>nuwakot</option>
             </select>
         </div>
-          {{--  <h5><a href="#"> advanced search>></a></h5>--}}
 
+        </form>--}}
 
     </div>
 

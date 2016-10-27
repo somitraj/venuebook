@@ -204,7 +204,7 @@ class VenueController extends Controller
 
     }*/
 
-    public function GetInventory(Request $request)
+    public function GetInventory(Request $request,$id)
     {
 
 
@@ -256,59 +256,16 @@ class VenueController extends Controller
 
 
 
+            $venuedata =DB::table('venue_menu_items')  //table join gareko
+                  ->join('tbl_menu_items', 'tbl_menu_items.id', '=', 'venue_menu_items.menu_item_id')
+                ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+                ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                ->select('tbl_menu_items.*','venue_menu_items.*')
+                ->where('venues.venue_id','=',$id)
+                ->get();
 
 
-
-
-
-
-
-
-
-          /*  $userinfo = new UserInfo();
-            $userinfo->setAttribute('first_name', $request->get('first_name'));
-            $userinfo->setAttribute('last_name', $request->get('last_name'));
-            $userinfo->setAttribute('username', $user->username);
-            $userinfo->setAttribute('user_id', $user->id);
-            $userinfo->setAttribute('email', $user->email);
-            $userinfo->country_id = $request->country_id;
-            $userinfo->province_id = $request->province_id;
-            $userinfo->zone_id = $request->zone_id;
-            $userinfo->phone_no = $request->phone_no;
-            $userinfo->mobile_no = $request->mobile_no;
-            $userinfo->district_id = $request->district_id;
-            $userinfo->nationality_id = $request->nationality_id;
-            $userinfo->setAttribute('profile_image', $request->get('profile_image'));
-
-            $userinfo->setAttribute('locality', $request->get('locality'));
-
-            $userinfo->save();
-
-
-            $venues = new Venue();
-            $venues->name = $request->name;
-            $venues->country_id = $request->country_id;
-            $venues->province_id = $request->province_id;
-            $venues->zone_id = $request->zone_id;
-            $venues->phone_no = $request->phone_no;
-            $venues->phone_no_2 = $request->phone_no_2;
-            $venues->space_area = $request->space_area;
-            $venues->person_capacity = $request->person_capacity;
-            $venues->district_id = $request->district_id;
-            $venues->established_date = $request->established_date;
-            $venues->image = $request->image;
-            $venues->image = $request->image;
-            $venues->setAttribute('country_id', $userinfo->country_id);
-            $venues->setAttribute('locality', $request->get('locality'));
-            $venues->venue_type_id = $request->venue_type_id;
-            $venues->save();
-            //$venues->userVenues();
-
-            $uservenue=new UserVenue();
-            $uservenue->user_id=$user->id;
-            $uservenue->venue_id=$venues->id;
-            $uservenue->save();*/
-
+            return $venuedata;
 
 
 
