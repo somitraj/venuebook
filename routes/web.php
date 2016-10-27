@@ -13,10 +13,12 @@ Route::any('/Register',[
     'as'=>'web.Register',
     'uses'=>'UserController@Register'
 ]);
+
 Route::any('/Venue',[
     'as'=>'web.Venue',
     'uses'=>'VenueController@Register'
 ]);
+
 Route::get('/Address',[
     'as'=>'web.Address',
     'uses'=>'UserController@Address'

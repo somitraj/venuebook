@@ -5,9 +5,9 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
-$userlist=\Venue\notification::getUser();
-$managerlist=\Venue\notification::getManager();
-$notices=\Venue\notification::getNotification();
+//$userlist=\Venue\notification::getUser();
+//$managerlist=\Venue\notification::getManager();
+//$notices=\Venue\notification::getNotification();
 $proimage=\Venue\GetImage::getImage();
 foreach($proimage as $pro){
     if($pro->user_id== Auth::user()->id){

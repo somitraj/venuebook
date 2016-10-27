@@ -61,6 +61,8 @@ class UserController extends BaseController
            print_r($e->getMessage());die();
        }
     }
+
+
         public function Register(FormBuilder $formBuilder,Request $request)
     {
 
@@ -269,16 +271,78 @@ class UserController extends BaseController
         return view('Layout.Managerlist',compact('managerlist'));
     }
 
-    public function GetUserDetails(){
+    public function EditUserDetails(FormBuilder $formBuilder,$id){
         $client = new Client(['base_uri' => config('app.REST_API')]);
-        $response = $client->request('GET','userdetail');
+        $response = $client->request('POST','viewuserdetails/'.$id);
         $data = $response->getBody()->getContents();
-        $userdetail =  \GuzzleHttp\json_decode($data);
-        return view('Layout.Userlist',compact('form','userdetails'));
+        $viewuserdetails =  \GuzzleHttp\json_decode($data);
+
+        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/UserDetails'],
+            [
+               'id'=>$viewuserdetails->user_id,
+                'first_name' => $viewuserdetails->first_name,
+                'last_name' =>  $viewuserdetails->last_name,
+                'username' => $viewuserdetails->username,
+                'dob' =>  $viewuserdetails->dob,
+                'nationality_id' =>  $viewuserdetails->nationality_id,
+                'phone_no' =>  $viewuserdetails->phone_no,
+                'mobile_no' =>  $viewuserdetails->mobile_no,
+                'email' => $viewuserdetails->email,
+                'password' => $viewuserdetails->password,
+                'user_type_id' => $viewuserdetails->user_type,
+                'country_id' => $viewuserdetails->Country,
+                'province_id' => $viewuserdetails->Province,
+                'zone_id' => $viewuserdetails->Zones,
+                'district_id' => $viewuserdetails->District,
+                'locality' => $viewuserdetails->Locality,
+
+                'profile_image' => $viewuserdetails->profile_image,
+
+
+                'identity_image' => $viewuserdetails->identity_image
+            ]);
+
+
+        return view('Layout.Edituser',compact('form'));
        // return redirect()->route('Viewdetails.userlist');
 
 
     }
+        public function EditVenueDetails(FormBuilder $formBuilder,$id)
+        {
+            $client = new Client(['base_uri' => config('app.REST_API')]);
+            $response = $client->request('POST', 'venuedetails/' . $id);
+            $data = $response->getBody()->getContents();
+            $venuedetails = \GuzzleHttp\json_decode($data);
+
+            $form = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST', 'url' => 'admin/venuedetails'],
+                [
+                    'id' => $venuedetails->user_id,
+                    'first_name' => $venuedetails->first_name,
+                    'last_name' => $venuedetails->last_name,
+                    'username' => $venuedetails->username,
+                    'dob' => $venuedetails->dob,
+                    'nationality_id' => $venuedetails->nationality_id,
+                    'phone_no' => $venuedetails->phone_no,
+                    'phone_no_2' => $venuedetails->phone_no_2,
+                    'established_date' => $venuedetails->established_date,
+                    'space_area' => $venuedetails->space_area,
+                    'email' => $venuedetails->email,
+                    'password' => $venuedetails->password,
+                    'user_type_id' => $venuedetails->user_type,
+                    'country_id' => $venuedetails->Country,
+                    'province_id' => $venuedetails->Province,
+                    'zone_id' => $venuedetails->Zones,
+                    'district_id' => $venuedetails->District,
+                    'locality' => $venuedetails->Locality,
+                    'venue_type_id' => $venuedetails->venue_type_id,
+                    'profile_image' => $venuedetails->profile_image,
+                    'image' => $venuedetails->image
+                ]);
+
+
+            return view('Layout.Editvenue', compact('form'));
+        }
    /* public function GetProfileImage(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','getimage');
@@ -287,7 +351,17 @@ class UserController extends BaseController
 
 
     }*/
+    public function ViewUserDetails($id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
 
+        $response = $client->request('POST', 'userdetails/' . $id);
+       // print_r($response);die();
+        $data = $response->getBody()->getContents();
+       // print_r($data);die();
+        $userdetails = \GuzzleHttp\json_decode($data);
+        print_r($userdetails);die();
+       // return view
+    }
 
     public function UserCheck()
     {
