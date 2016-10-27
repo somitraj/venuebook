@@ -126,6 +126,26 @@ class VenueController extends Controller
 
     }
 
+   /* public function MasterSlider(Request $request){
+
+        $id= $request->id;
+
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','getvenuedata',[
+            'form_params' => [
+                'venue_id' => $request->id
+            ]
+        ]);
+        $data = $response->getBody()->getContents();
+        $vdata =  \GuzzleHttp\json_decode($data);
+
+
+        return view('Layout.MasterSLider',compact('vdata'));
+
+    }*/
+
+
+
     /*public function VenueList(){*/
 
 

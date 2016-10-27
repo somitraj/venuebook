@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 })->middleware('auth:api');*/
 
 $api = app('Dingo\Api\Routing\Router');
- $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
+$api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
     $api->any('register', 'UserController@Register');
     $api->any('gallery', 'GalleryController@Gallery');
     $api->any('venue', 'VenueController@Register');
@@ -40,8 +40,10 @@ $api = app('Dingo\Api\Routing\Router');
     $api->any('getimage', 'UserController@GetProfileImage');
     $api->any('getnotice', 'NotificationController@GetNotice');
     $api->get('getimage', 'UserController@GetDetails');
-    $api->get('getvenuedata', 'VenueController@GetVenueData');
-    $api->any('userdetails/{id}', 'UserController@GetDetails');
+    $api->any('getvenuebyuserid/{id}', 'VenueController@GetVenueData');
+    $api->any('getvenuedata1/{id}', 'VenueController@GetVenueData1');
+   /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
+   $api->any('userdetails/{id}', 'UserController@GetDetails');
     $api->any('venuedetails/{id}', 'VenueController@GetVenueData');
     $api->any('edituser/{id}', 'UserController@EditUserdetails');
     $api->any('editvenue/{id}', 'UserController@EditVenuedetails');
@@ -57,4 +59,10 @@ $api = app('Dingo\Api\Routing\Router');
 
 
     /*$api->get('venue', 'VenueController@GetVenue');*/
+
+
+
+
+
+
 });

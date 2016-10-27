@@ -120,22 +120,20 @@ class VenueController extends Controller
      * @return mixed
      * @throws \Exception
      */
-    public function GetVenueData(Request $request)
+    public function GetVenueData($id)
     {
         try {
-            /*return $request->get('auth');*/
-
-
+           // $idv=$request->get('id');
             $venuedata =DB::table('user_venue')  //table join gareko
-                  ->join('users', 'users.id', '=', 'user_venue.user_id')
+                ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
                 ->join('user_info', 'user_info.user_id', '=', 'users.id')
                 ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
                 ->select('gallery.*','venues.*','users.*','user_info.*')
-                ->where('gallery.venue_id','=','12')
-                /*->select( 'venues.*','users.*','user_info.*')*/
+                ->where('users.id','=',$id)
+                ->get();
 
-                    ->get();
+
                return $venuedata;
 
 
@@ -148,6 +146,63 @@ class VenueController extends Controller
 
 
     }
+
+
+    public function GetVenueData1($id)
+    {
+        try {
+            /*$idv=$request->get('venue_id');*/
+            $venuedata =DB::table('user_venue')  //table join gareko
+            ->join('users', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
+                ->select('gallery.*','venues.*','users.*','user_info.*')
+                ->where('gallery.venue_id','=',$id)
+                ->get();
+
+
+            return $venuedata;
+
+
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+
+
+
+
+    }
+
+    /*public function GetVenueData2($id)
+    {
+        try {
+
+            $venuedata =DB::table('user_venue')  //table join gareko
+            ->join('users', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
+                ->select('gallery.*','venues.*','users.*','user_info.*')
+                ->where('gallery.venue_id','=',$id)
+                ->get();
+
+
+            return $venuedata;
+
+
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+
+
+
+
+    }*/
+
+
 
 }
 

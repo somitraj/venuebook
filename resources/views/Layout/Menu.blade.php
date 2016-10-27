@@ -1,7 +1,7 @@
 <?php
 //print_r(auth::user());
 $notices=\Venue\notification::getNotification();
-$vdata=\Venue\venuedata1::getVenueData();
+/*$vdata=\Venue\venuedata1::getVenueData();*/
 ?>
 <ul class="nav navbar-nav">
 @if(Auth::check())
@@ -64,10 +64,10 @@ $vdata=\Venue\venuedata1::getVenueData();
         </a>
         <ul class="dropdown-menu dropdown-user">
             @if(Auth::user()->user_type_id==2)
-                 @foreach($vdata as $vd)
-                    <li><a href="/venuepage?id={{$vd->venue_id}}"><i class="fa fa-user fa-fw"></i> My Account</a>
+               {{-- @foreach($vdata as $vd)--}}
+                    <li><a href="account?id={{Auth::user()->id}}"><i class="fa fa-user fa-fw"></i> My Account</a>
                      </li>
-                    @endforeach
+                {{--@endforeach--}}
 
             @else
             <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
@@ -79,9 +79,11 @@ $vdata=\Venue\venuedata1::getVenueData();
             <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </li>
         </ul>
+
         <!-- /.dropdown-user -->
     </li>
 
 
 </ul>
+{{--@include('Layout.MasterSlider')--}}
     @endif

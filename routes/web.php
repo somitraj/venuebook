@@ -115,6 +115,10 @@ Route::any('/venuepage',[
     'uses'=>'UserController@VenuePage'
 ]);
 
+/*Route::any('/venuepage1',[
+    'as'=>'web.venuepage',
+    'uses'=>'UserController@VenuePage'
+]);*/
 
 Route::get('/Venue',[
     'as'=>'web.Venue',
@@ -125,6 +129,12 @@ Route::any('/Item',[
     'as'=>'web.Item',
     'uses'=>'UserController@Item'
 ]);
+Route::any('/MasterSlider',[
+    'as'=>'web.Slider',
+    'uses'=>'VenueController@MasterSlider'
+]);
+
+
 
 
 

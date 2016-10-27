@@ -4,7 +4,7 @@ namespace Venue;
 
 use GuzzleHttp\Client;
 
-class venuedata1
+/*class venuedata1
 {
     public static function getVenueData()
     {
@@ -13,9 +13,9 @@ class venuedata1
         $data = $response->getBody()->getContents();
         $vdata =  \GuzzleHttp\json_decode($data);
         return $vdata;
-        /* return view('Layout.Manager',compact('proimage'));*/
+
     }
 
 
 
-}
+}*/
