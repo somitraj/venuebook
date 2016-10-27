@@ -14,6 +14,7 @@ use Venue\Models\UserType;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 
+
 class UserController extends Controller
 {
     public function Register(Request $request){
@@ -29,8 +30,6 @@ class UserController extends Controller
            // return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
-
-
 
 
 
@@ -86,7 +85,7 @@ class UserController extends Controller
 
 
 }
-    public function GetProfile(Request $request){
+ /*   public function GetProfile(Request $request){
         try{
             $userinfo=UserInfo::all()->where('user_id','=',$request->get('user_id'))->toArray();
             return $userinfo;
@@ -94,6 +93,10 @@ class UserController extends Controller
         catch(\Exception $e){
             throw $e;
         }
+    }*/
+
+    public function GetDetails(){
+        return UserInfo::all()->toArray();
     }
 
     /**
@@ -128,24 +131,29 @@ class UserController extends Controller
             $users=UserInfo::all();
             $users=UserType::all();*/
 
-            $users = DB::table('users')
+
+
+           $users = DB::table('users')
                 ->join('user_info', 'users.id', '=', 'user_info.user_id')
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
-                ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name')
+               ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
+               ->join('venues','user_venue.venue_id','=','venues.id')
+                ->select('users.*', 'user_info.first_name','user_info.last_name', 'user_types.type_name','venues.name')
                 ->where('users.user_type_id', '=', 2)
                 ->get();
-            return $users;
 
+           return $users;
 
     }
         catch(\Exception $e){
                 throw $e;
             }
 
+
     }
 
-    public function GetDetails(){
-        return UserInfo::all()->toArray();
-    }
+
+
+
 
 }

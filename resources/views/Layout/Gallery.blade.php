@@ -5,18 +5,24 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
+$proimage=\Venue\GetImage::getImage();
+foreach($proimage as $pro){
+        if($pro->user_id== Auth::user()->id){
+                $pro1=$pro->profile_image;
+        }
+}
         ?>
 @extends('Layout/MainLayout')
 
 @section('content')
-        <div >
+        <div>
                 @if(Auth::check())
                         <div>
-                                <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
+                                <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
                         </div>
                         <h5>
                                 <div>
-                                        {{Auth::user()->username}}
+                                        {{Auth::user()->username}} {{--manager login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
                                 </div>
                         </h5>
                 @endif

@@ -33,14 +33,21 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
     $api->get('managerlist', 'UserController@GetManagerList');
-    $api->any('venuedata', 'VenueController@GetVenueData');
+   // $api->get('venuelist', 'UserController@GetVenueList');
+    $api->get('venuelist', 'VenueController@Register');
+  //  $api->any('venuedata', 'VenueController@GetVenueData');
     $api->any('slider', 'SliderController@GetSlider');
     $api->any('getimage', 'UserController@GetProfileImage');
     $api->any('getnotice', 'NotificationController@GetNotice');
+    $api->get('getimage', 'UserController@GetDetails');
+    $api->any('getvenuebyuserid/{id}', 'VenueController@GetVenueData');
+    $api->any('getvenuedata1/{id}', 'VenueController@GetVenueData1');
+   /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
 
 
     /*$api->any('venuedetails', 'VenueController@VenueDetails');*/
   //  $api->get('venuelist', 'VenueController@GetVenueList');
+
 
 
 

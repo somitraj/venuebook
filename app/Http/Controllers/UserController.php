@@ -1,8 +1,6 @@
 <?php
 
 namespace Venue\Http\Controllers;
-
-
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
@@ -14,7 +12,7 @@ use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\User;
 use Venue\Models\UserType;
-/*use Venue\Models\UserInfo;*/
+
 class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder,Request $request) //for login
@@ -197,14 +195,22 @@ class UserController extends BaseController
 
     public function User()
     {
-        return view('Layout.User', compact('form'));
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','slider');
+        $data = $response->getBody()->getContents();
+        $sliders =  \GuzzleHttp\json_decode($data);
+
+        return view('Layout.User', compact('sliders'));
     }
+
+
     public function Lainchaur(Request $request)
     {
         $venue_id=$request->venue_id;
 
         return view('Layout.Lainchaur', compact('form'));
     }
+
     public function Sasa()
     {
         return view('Layout.Sasa', compact('form'));
@@ -237,6 +243,61 @@ class UserController extends BaseController
     {
         return view('Layout.Radisson', compact('form'));
     }
+
+    public function VenuePage(Request $request)
+    {
+        $venue_id=$request->id;
+        /*print_r($venue_id);die();*/
+        try{
+
+           /* print_r($request->id);die();*/
+
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','getvenuedata1/'.$venue_id/*,[
+            'form_params' => [
+                'venue_id' => $venue_id,
+            ]
+        ]*/);
+
+        $data = $response->getBody()->getContents();
+       // print_r($data);die();
+        $vdata =  \GuzzleHttp\json_decode($data);
+        /*print_r($vdata);die();*/
+        return view('Layout.MasterSlider', compact('vdata'));
+        }
+        catch(\Exception $e)
+        {
+            print_r($e->getMessage());die();
+        }
+    }
+
+    public function ManagerVenuePage(Request $request)
+    {
+        $id1=$request->id;
+        /*print_r($id1);die();*/
+        try{
+
+            /* print_r($request->id);die();*/
+
+            $client = new Client(['base_uri' => config('app.REST_API')]);
+            $response = $client->request('GET','getvenuebyuserid/'.$request->id);
+
+            $data = $response->getBody()->getContents();
+            // print_r($data);die();
+            $vdata =  \GuzzleHttp\json_decode($data);
+            /*print_r($vdata);die();*/
+
+            return view('Layout.MasterSlider', compact('vdata'));
+        }
+        catch(\Exception $e)
+        {
+            print_r($e->getMessage());die();
+        }
+    }
+
+
+
+
     public function UserList()
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
@@ -256,15 +317,16 @@ class UserController extends BaseController
         return view('Layout.Managerlist',compact('managerlist'));
     }
 
-    /*public function GetDetails(){
+    public function GetUserDetails(){
         $client = new Client(['base_uri' => config('app.REST_API')]);
         $response = $client->request('GET','userdetail');
         $data = $response->getBody()->getContents();
-        $sliders =  \GuzzleHttp\json_decode($data);
+        $userdetail =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Userlist',compact('form','userdetails'));
+       // return redirect()->route('Viewdetails.userlist');
 
-        return view('Layout.Home',compact('sliders'));
 
-    }*/
+    }
    /* public function GetProfileImage(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','getimage');

@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Venue\User;
 use Venue\Models\Venue;
+use Venue\Models\VenueType;
 
 
 /*use Venue\Http\Requests;*/
@@ -50,12 +51,18 @@ class VenueController extends Controller
 
 
             try {
+                $pathToFile1='uploads/';
+                $profile_image='null';
                 $pathToFile='logo/';
                 /*return $pathToFile;*/
                 $image='null';
                 $uploadfile = $pathToFile . basename($_FILES['image']['name']);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
                     $image='logo/'.basename($_FILES['image']['name']);   //eti samma upload vako photo euta folder ma save garna lai
+                }
+                $uploadfile1 = $pathToFile1 . basename($_FILES['profile_image']['name']);
+                if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $uploadfile1)) {
+                    $profile_image='uploads/'.basename($_FILES['profile_image']['name']);
                 }
                  $response = $client->request('POST', 'venue', [
                     'form_params' => [
@@ -78,7 +85,7 @@ class VenueController extends Controller
                         'district_id' => $request->get('District'),
                         'locality' => $request->get('Locality'),
                         'venue_type_id' => $request->get('venue_type'),
-
+                        'profile_image' => $profile_image,
                         'image' => $image,
 
 
@@ -119,6 +126,29 @@ class VenueController extends Controller
 
     }
 
+   /* public function MasterSlider(Request $request){
+
+        $id= $request->id;
+
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','getvenuedata',[
+            'form_params' => [
+                'venue_id' => $request->id
+            ]
+        ]);
+        $data = $response->getBody()->getContents();
+        $vdata =  \GuzzleHttp\json_decode($data);
+
+
+        return view('Layout.MasterSLider',compact('vdata'));
+
+    }*/
+
+
+
+    /*public function VenueList(){*/
+
+
    /* public function VenueData()
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
@@ -128,11 +158,12 @@ class VenueController extends Controller
         /*print_r($venuedata);die();*/
        /* return view('home',compact('venuedata'));*/
  /*   }*/
-   /* public function VenueList(){
+    public function VenueList(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','venuelist');
         $data = $response->getBody()->getContents();
         $venuelist =  \GuzzleHttp\json_decode($data);
         return view('Layout.Managerlist',compact('venuelist'));
-    }*/
+    }
 }
+
