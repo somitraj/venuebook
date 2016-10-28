@@ -32,7 +32,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <span class="fa fa-user"></span> <a href="venue">Venue</a> / Card
+                    <span class="fa fa-user"></span> <a href="/admin/venue">Venue</a> / Card
                 </li>
             </ol>
         </div>

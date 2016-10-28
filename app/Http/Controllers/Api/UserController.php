@@ -147,7 +147,7 @@ class UserController extends Controller
     {
         //return $id;
         $usersinfo = new UserInfo();
-        $usersinfo = UserInfo::where('user_id', '=', $id)->first();
+        $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
         // print_r($usersinfo);die();
         return $usersinfo;
     }

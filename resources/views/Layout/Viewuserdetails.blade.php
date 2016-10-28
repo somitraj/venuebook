@@ -31,7 +31,7 @@
                        </h1>
                        <ol class="breadcrumb">
                            <li class="active">
-                               <span class="fa fa-user"></span> <a href="client">Users</a> / Card
+                               <span class="fa fa-user"></span> <a href="/admin/client">Users</a> / Card
                            </li>
                        </ol>
                    </div>

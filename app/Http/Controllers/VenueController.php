@@ -182,22 +182,23 @@ class VenueController extends Controller
         $response = $client->request('POST', 'editvenuedetails/' . $id);
         $data = $response->getBody()->getContents();
         $editvenuedetails = \GuzzleHttp\json_decode($data);
-       // print_r($editvenuedetails->$id);die();
+     // print_r($editvenuedetails);die();
 
         $form = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST', 'url' => 'admin/editvenuedetails'],
             [
                 //'id' => $editvenuedetails->id,
-                'first_name' => $editvenuedetails->first_name,
-                'last_name' => $editvenuedetails->last_name,
-                'username' => $editvenuedetails->username,
-                'dob' => $editvenuedetails->dob,
-                'nationality_id' => $editvenuedetails->nationality_id,
-                'phone_no' => $editvenuedetails->phone_no,
-                'phone_no_2' => $editvenuedetails->phone_no_2,
-                'established_date' => $editvenuedetails->established_date,
-                'space_area' => $editvenuedetails->space_area,
-                'email' => $editvenuedetails->email,
-               // 'password' => $venuedetails->password,
+                'first_name' => $editvenuedetails[0]->first_name,
+                'last_name' => $editvenuedetails[0]->last_name,
+                'username' => $editvenuedetails[0]->username,
+                'name'=> $editvenuedetails[0]->name,
+                'email' => $editvenuedetails[0]->email,
+                'established_date' => $editvenuedetails[0]->established_date,
+                 'phone_no' => $editvenuedetails[0]->phone_no,
+                'phone_no_2' => $editvenuedetails[0]->phone_no_2,
+                'space_area' => $editvenuedetails[0]->space_area,
+                'nationality_id' => $editvenuedetails[0]->nationality_id,
+                'person_capacity'=> $editvenuedetails[0]->person_capacity
+                // 'password' => $venuedetails->password,
                // 'user_type_id' => $venuedetails->user_type,
                // 'country_id' => $editvenuedetails->Country,
                 //'province_id' => $editvenuedetails->Province,

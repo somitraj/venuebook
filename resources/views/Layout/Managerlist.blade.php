@@ -26,16 +26,16 @@ foreach($proimage as $pro){
                @endif
 
         {{--<div id="toplink">--}}
-               {{--<div class="table-responsive">
-                   <h2>VenueList <span class="badge">{{count($managerlist)}}</span></h2>--}}
-            <div class="nav nav-tabs">
+            {{--   <div class="table-responsive">--}}
+                   <h2>VenueList <span class="badge">{{count($managerlist)}}</span></h2>
+           {{-- <div class="nav nav-tabs">
                <li> <a href="venuedetails" role="navigation" class="nav navbar-default ">Manager<span class="badge">{{count($managerlist)}}</span></a></li>
 
 
                <li> <a href="venueregister" role="navigation" class="nav navbar-default ">Venue<span class="badge"></span></a></li>
 
 
-            </div>
+            </div>--}}
 {{--</div>--}}
           {{--  <a href="venuelist">--}}
             <div class="table-responsive">

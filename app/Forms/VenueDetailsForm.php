@@ -9,13 +9,25 @@ class VenueDetailsForm extends Form
     public function buildForm()
     {
        // print_r($this->getData('country'));die();
+        $firstname = $this->getData('first_name');
+        $lastname = $this->getData('last_name');
+        $username = $this->getData('username');
+        $name = $this->getData('name');
+        $email =$this->getData('email');
+        $established_date =$this->getData('established_date');
+        $phone_no=$this->getData('phone_no');
+        $phone_no_2=$this->getData('phone_no_2');
+        $space_area=$this->getData('space_area');
+        $nationality_id =$this->getData('nationality_id');
+        $person_capacity =$this->getData('person_capacity');
         $this
             ->add('first_name','text',[
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'First Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required']
+                    'rules'=>['required'],
+                    'value'=>$firstname
                 ]
             )
 
@@ -23,7 +35,8 @@ class VenueDetailsForm extends Form
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Last Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input','disabled']
+                    'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
+                    'value'=>$lastname
                 ]
             )
             ->add('username','text',[
@@ -32,15 +45,16 @@ class VenueDetailsForm extends Form
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                      'rules'=>['required'],
                     'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
-
+                    'value'=>$username
                 ]
             )
             ->add('name','text',[
                 'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Venue Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required']
+                'attr' =>['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required'],
+                    'value'=>$name
             ]
             )
             /*->add('password','password', [
@@ -66,7 +80,8 @@ class VenueDetailsForm extends Form
                     'label'=>'Email Address',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required','email','unique:registered_users']
+                    'rules'=>['required','email','unique:registered_users'],
+                    'value'=>$email
 
                 ]
             )
@@ -126,7 +141,8 @@ class VenueDetailsForm extends Form
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Established date',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input']
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
+                   'value'=>$established_date
                 ]
             )
 
@@ -134,8 +150,9 @@ class VenueDetailsForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Phone No.',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required'],
+                    'value'=>$phone_no
 
                 ]
             )
@@ -144,7 +161,8 @@ class VenueDetailsForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Phone No.2',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled']
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'value'=>$phone_no_2
 
                 ]
             )
@@ -154,7 +172,8 @@ class VenueDetailsForm extends Form
                     'label'=>'Space Area',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required']
+                    'rules'=>['required'],
+                    'value'=>$space_area
 
                 ]
             )
@@ -166,7 +185,8 @@ class VenueDetailsForm extends Form
                     'label'=>'Nationality ID',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required']
+                    'rules'=>['required'],
+                    'value'=>$nationality_id
 
                 ]
             )
@@ -176,12 +196,13 @@ class VenueDetailsForm extends Form
                     'label'=>'Person Capacity',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
-                         'rules'=>['required']
+                         'rules'=>['required'],
+                    'value'=>$person_capacity
                 ]
             )
          //   ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
 
-            ->add('save','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+            ->add('update','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
 
 
             ;
