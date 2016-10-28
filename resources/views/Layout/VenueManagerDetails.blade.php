@@ -5,6 +5,12 @@
  * Date: 9/21/2016
  * Time: 12:51 PM
  */
+$proimage=\Venue\GetImage::getImage();
+foreach($proimage as $pro){
+    if($pro->user_id== Auth::user()->id){
+        $pro1=$pro->profile_image;
+    }
+}
 ?>
 @extends('Layout/MainLayout')
 @section('content')

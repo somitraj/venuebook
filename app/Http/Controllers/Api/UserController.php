@@ -95,6 +95,11 @@ class UserController extends Controller
        /**
         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
         */
+
+    public function GetDetails(){
+        return UserInfo::all()->toArray();
+    }
+
     public function GetUserlist(Request $request)
     {
         try {
