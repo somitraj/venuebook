@@ -29,11 +29,45 @@ if(Auth::check()){
                         </h5>
                 @endif
         </div>
+
+
+
+        <div class="table-responsive">
+                <h2>Inventory list</h2>
+
+                        <table class="table table-hover table-bordered">
+                                <thead>
+                                <tr>
+                                        <th>Item name</th>
+                                        <th>Price</th>
+
+
+                                </tr>
+                                </thead>
+
+
+                             {{--   @foreach($userlist as $user)
+                                        <tr>
+                                                <td>{{$user->first_name}}</td>
+                                                <td>{{$user->last_name}}</td>
+                                                <td>{{$user->username}}</td>
+                                                <td>{{$user->email}}</td>
+                                                <td>{{$user->type_name}}</td>
+
+                                        </tr>
+                                @endforeach--}}
+
+                        </table>
+        </div>
+
+
+
+
         <div class="row" style="padding-top: 50px">
                 <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                        <h4 style="text-align:center">Inventory</h4>
+                                        <h5 style="text-align:center">Update Inventory</h5>
                                 </div>
                                 {{--<div class="flash-message">
                                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)

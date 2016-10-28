@@ -37,8 +37,6 @@ class GalleryController extends Controller
             $gallery->setAttribute('image3', $request->get('image3'));
             $gallery->setAttribute('image4', $request->get('image4'));
             $gallery->setAttribute('venue_id', $userVenue->venue_id);
-                /*$userVenue = UserVenue::where('user_id', '=', $user_id)->first();*/
-                // return response()->json($userVenue);
 
 
 
