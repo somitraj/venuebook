@@ -176,5 +176,40 @@ class VenueController extends Controller
         //print_r($userdetails);die();
         return view('Layout.VenueManagerDetails',compact('venuedetails'));
     }
+    public function EditVenueDetails(FormBuilder $formBuilder,$id)
+    {
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('POST', 'venuedetails/' . $id);
+        $data = $response->getBody()->getContents();
+        $venuedetails = \GuzzleHttp\json_decode($data);
+
+        $form = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST', 'url' => 'admin/venuedetails'],
+            [
+                'id' => $venuedetails->user_id,
+                'first_name' => $venuedetails->first_name,
+                'last_name' => $venuedetails->last_name,
+                'username' => $venuedetails->username,
+                'dob' => $venuedetails->dob,
+                'nationality_id' => $venuedetails->nationality_id,
+                'phone_no' => $venuedetails->phone_no,
+                'phone_no_2' => $venuedetails->phone_no_2,
+                'established_date' => $venuedetails->established_date,
+                'space_area' => $venuedetails->space_area,
+                'email' => $venuedetails->email,
+                'password' => $venuedetails->password,
+                'user_type_id' => $venuedetails->user_type,
+                'country_id' => $venuedetails->Country,
+                'province_id' => $venuedetails->Province,
+                'zone_id' => $venuedetails->Zones,
+                'district_id' => $venuedetails->District,
+                'locality' => $venuedetails->Locality,
+                'venue_type_id' => $venuedetails->venue_type_id,
+                'profile_image' => $venuedetails->profile_image,
+                'image' => $venuedetails->image
+            ]);
+
+
+        return view('Layout.Editvenue', compact('form'));
+    }
 }
 

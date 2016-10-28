@@ -17,7 +17,7 @@ class DetailsForm extends Form
         $phone_no=$this->getData('phone_no');
         $mobile_no =$this->getData('mobile_no');
         $email =$this->getData('email');
-        $password=$this->getData('password');
+      //  $password=$this->getData('password');
        /* $user_type_id=$this->getData('user_type');
         $country_id = $this->getData('Country');
         $province_id=$this->getData('Province');
@@ -63,7 +63,7 @@ class DetailsForm extends Form
                 ]
             )
 
-            ->add('password','password', [
+            /*->add('password','password', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -73,7 +73,7 @@ class DetailsForm extends Form
 
                 ]
             )
-            /*->add('confirm_password','password', [
+            ->add('confirm_password','password', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Confirm Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -82,7 +82,7 @@ class DetailsForm extends Form
 
 
                 ]
-            )
+            )*/
             ->add('email','email', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Email Address',
@@ -94,7 +94,7 @@ class DetailsForm extends Form
                 ]
             )
 
-            ->add('cemail','email', [
+            /*->add('cemail','email', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Confirm Email',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -102,7 +102,7 @@ class DetailsForm extends Form
                     'rules'=>['required','email','unique:registered_users']
 
                 ]
-            )
+            )*/
 
             ->add('nationality_id','text', [
                     'wrapper' => ['class' => 'form-group row'],
@@ -113,7 +113,7 @@ class DetailsForm extends Form
                     'value'=>$nationality_id
 
                 ]
-            )*/
+            )
 
             ->add('phone_no','text', [
                     'wrapper' => ['class' => 'form-group row'],
@@ -148,8 +148,9 @@ class DetailsForm extends Form
 
                     ]
                 )
+                     */
 
-        /*    ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])*/
+          // ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
 
             /*->add('profile_image','file', [
                     'wrapper' => ['class' => 'form-group row'],

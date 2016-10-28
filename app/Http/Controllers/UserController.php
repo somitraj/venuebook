@@ -296,10 +296,6 @@ class UserController extends BaseController
             print_r($e->getMessage());die();
         }
     }
-
-
-
-
     public function UserList()
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
@@ -321,12 +317,13 @@ class UserController extends BaseController
 
     public function EditUserDetails(FormBuilder $formBuilder,$id){
         $client = new Client(['base_uri' => config('app.REST_API')]);
+       // print_r($client);die();
         $response = $client->request('POST','edituser/'.$id);
         $data = $response->getBody()->getContents();
         $edituser =  \GuzzleHttp\json_decode($data);
-      //  print_r($edituser->id);die();
+    // print_r($edituser);die();
 
-        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/edituser'],
+        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/useredit'],
             [
                'id'=>$edituser->id,
                 'first_name' => $edituser->first_name,
@@ -336,13 +333,13 @@ class UserController extends BaseController
                 'nationality_id' =>  $edituser->nationality_id,
                 'phone_no' =>  $edituser->phone_no,
                 'mobile_no' =>  $edituser->mobile_no,
-                'email' => $edituser->email,
+                'email' => $edituser->email
                // 'password' => $edituser->password,
                 //'user_type_id' => $edituser->user_type,
-              /*  'country_id' => $edituser->Country,
-                'province_id' => $edituser->Province,
-                'zone_id' => $edituser->Zones,
-                'district_id' => $edituser->District,*/
+              // 'country_id' => $edituser->Country,
+               // 'province_id' => $edituser->Province,
+                //'zone_id' => $edituser->Zones,
+                //'district_id' => $edituser->District,
               //  'locality' => $edituser->Locality,
 
                // 'profile_image' => $edituser->profile_image,
@@ -357,41 +354,7 @@ class UserController extends BaseController
 
 
     }
-        public function EditVenueDetails(FormBuilder $formBuilder,$id)
-        {
-            $client = new Client(['base_uri' => config('app.REST_API')]);
-            $response = $client->request('POST', 'venuedetails/' . $id);
-            $data = $response->getBody()->getContents();
-            $venuedetails = \GuzzleHttp\json_decode($data);
 
-            $form = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST', 'url' => 'admin/venuedetails'],
-                [
-                    'id' => $venuedetails->user_id,
-                    'first_name' => $venuedetails->first_name,
-                    'last_name' => $venuedetails->last_name,
-                    'username' => $venuedetails->username,
-                    'dob' => $venuedetails->dob,
-                    'nationality_id' => $venuedetails->nationality_id,
-                    'phone_no' => $venuedetails->phone_no,
-                    'phone_no_2' => $venuedetails->phone_no_2,
-                    'established_date' => $venuedetails->established_date,
-                    'space_area' => $venuedetails->space_area,
-                    'email' => $venuedetails->email,
-                    'password' => $venuedetails->password,
-                    'user_type_id' => $venuedetails->user_type,
-                    'country_id' => $venuedetails->Country,
-                    'province_id' => $venuedetails->Province,
-                    'zone_id' => $venuedetails->Zones,
-                    'district_id' => $venuedetails->District,
-                    'locality' => $venuedetails->Locality,
-                    'venue_type_id' => $venuedetails->venue_type_id,
-                    'profile_image' => $venuedetails->profile_image,
-                    'image' => $venuedetails->image
-                ]);
-
-
-            return view('Layout.Editvenue', compact('form'));
-        }
    /* public function GetProfileImage(){
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','getimage');
