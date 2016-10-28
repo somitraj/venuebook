@@ -49,6 +49,18 @@ Route::any('/BookTotal',[
     'uses'=>'BookingController@BookTotal'
 ]);
 
+Route::any('/Search',[
+    'as'=>'web.Search',
+    'uses'=>'UserController@Search'
+
+]);
+
+Route::any('/venuesearch',[
+    'as'=>'venue.Search',
+    'uses'=>'UserController@Search'
+
+]);
+
 Route::any("/notice",["as"=>'web.notice', "uses"=>'NotificationController@GetNotice']);
 
 /*Route::get('/Manager',[
@@ -65,60 +77,10 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
-Route::get('/Lainchaur',[
-    'as'=>'web.Lainchaur',
-    'uses'=>'UserController@Lainchaur'
-]);
-
-Route::get('/Sasa',[
-    'as'=>'web.Sasa',
-    'uses'=>'UserController@Sasa'
-]);
-
-Route::get('/Shanker',[
-    'as'=>'web.Shanker',
-    'uses'=>'UserController@Shanker'
-]);
-
-Route::get('/Star',[
-    'as'=>'web.Star',
-    'uses'=>'UserController@Star'
-]);
-
-Route::get('/Athiti',[
-    'as'=>'web.Athiti',
-    'uses'=>'UserController@Athiti'
-]);
-
-Route::get('/Hyatt',[
-    'as'=>'web.Hyatt',
-    'uses'=>'UserController@Hyatt'
-]);
-
-Route::get('/Thapagaun',[
-    'as'=>'web.Thapagaun',
-    'uses'=>'UserController@Thapagaun'
-]);
-
-Route::get('/Durbar',[
-    'as'=>'web.Durbar',
-    'uses'=>'UserController@Durbar'
-]);
-
-Route::get('/Radisson',[
-    'as'=>'web.Radisson',
-    'uses'=>'UserController@Radisson'
-]);
-
 Route::any('/venuepage',[
     'as'=>'web.venuepage',
     'uses'=>'UserController@VenuePage'
 ]);
-
-/*Route::any('/venuepage1',[
-    'as'=>'web.venuepage',
-    'uses'=>'UserController@VenuePage'
-]);*/
 
 Route::get('/Venue',[
     'as'=>'web.Venue',
@@ -133,14 +95,10 @@ Route::any('/MasterSlider',[
     'as'=>'web.Slider',
     'uses'=>'VenueController@MasterSlider'
 ]);
-
-
-
-
-
-
-
-
+Route::any('/venuesearch',[
+    'as'=>'web.search',
+    'uses'=>'UserController@Search'
+]);
 
 /*Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function() {
     Route::any('/User', [

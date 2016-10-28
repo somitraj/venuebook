@@ -206,7 +206,7 @@ class UserController extends BaseController
     }
 
 
-    public function Lainchaur(Request $request)
+   /* public function Lainchaur(Request $request)
     {
         $venue_id=$request->venue_id;
 
@@ -244,7 +244,7 @@ class UserController extends BaseController
     public function Radisson()
     {
         return view('Layout.Radisson', compact('form'));
-    }
+    }*/
 
     public function VenuePage(Request $request)
     {
@@ -414,6 +414,29 @@ class UserController extends BaseController
             ->get();
 
         return view('Layout.Admin',compact('users','venues','UserVenue'));
+
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function Search( )
+    {
+        $search = \Request::get('search');
+        print_r($search);die();
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','search',[
+            'form_params' => [
+                'search' => $search,
+            ]
+        ]);
+        $data = $response->getBody()->getContents();
+        $searchresult =  \GuzzleHttp\json_decode($data);
+        /*return $searchresult;*/
+        return view('Layout.Search',compact('searchresult'));
+        // print_r($form);
+        /*die();*/
+
 
     }
 

@@ -25,8 +25,8 @@ $notices=\Venue\notification::getNotification();
             <li><a href="venue" class="glyphicon glyphicon-leaf"> Venue</a></li></ul>
                 @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
             <li class="active"><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
-            <li><a href="/Notification" class="glyphicon glyphicon-globe" > Notification <span class="badge">4</span></a></li>
-            <li class="dropdown"><a href="/Inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
+            <li><a href="notification" class="glyphicon glyphicon-globe" > Notification <span class="badge">4</span></a></li>
+            <li class="dropdown"><a href="inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
             <li><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
         <li><a href="gallery" class="glyphicon glyphicon-picture"> Gallery</a></li>
 

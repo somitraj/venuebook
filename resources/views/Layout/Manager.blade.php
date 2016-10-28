@@ -40,7 +40,7 @@ foreach($proimage as $pro){
                     <div class="panel-heading">
                         <h6 style="text-align:center">INVENTORY</h6></div>
 
-                    <div class="panel-body"><a href="feedback" class="panel"><img src="/images/inventory.png" class="panel" style="width:100%" alt="Image"></a></div>
+                    <div class="panel-body"><a href="inventory" class="panel"><img src="/images/inventory.png" class="panel" style="width:100%" alt="Image"></a></div>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -63,7 +63,7 @@ foreach($proimage as $pro){
     </div>
     </div>
     <br>
-
+<br>
 
 @endsection
 

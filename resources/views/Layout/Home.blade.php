@@ -15,11 +15,24 @@
         <div class="form-group col-lg-4">
         </div>
 
+        {!! Form::open(['method'=>'GET','url'=>'venuesearch','class'=>'navbar-form navbar-left','role'=>'search'/*,'action'=>'/Search'*/])  !!}
+
+        <div class="input-group custom-search-form ">
+            <input type="text" class="form-control" name="search" placeholder="Search your Venue Here">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit"> Search
+               </button>
+    </span>
+        </div>
+        {!! Form::close() !!}
+
+
+       {{-- <form action="/Search" method="get">
         <div class="form-group col-lg-4">
             <div class="input-group">
-                <input type="text" class="form-control" id="usr" placeholder="Search Your Venue By Capacity / Location">
+                <input type="text" class="form-control" id="usr" placeholder="Search Your Venue Here">
 
-                <span class="input-group-btn" ><button type="button" class="btn btn-primary">Search</button></span>
+                <span class="input-group-btn" ><input type="submit" class="btn btn-primary" value="Search"></span>
             </div>
 
 
@@ -32,8 +45,8 @@
                 <option>nuwakot</option>
             </select>
         </div>
-          {{--  <h5><a href="#"> advanced search>></a></h5>--}}
 
+        </form>--}}
 
     </div>
 
@@ -55,19 +68,7 @@
 
                     @foreach($sliders as $slider)
                     <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="ns-img" src="{{$slider->cover}}"></a></li>
-                   {{-- <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
-                    <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>
-                    <li><a href="/Star"><img class="ns-img" src="images/venue4.jpg"></a></li>
-                    <li><a href="/Athiti"><img class="ns-img" src="images/venue5.jpg"></a></li>
-                    <li><a href="/Hyatt"><img class="ns-img" src="images/venue6.jpg"></a></li>
-                    <li><a href="/Thapagaun"><img class="ns-img" src="images/venue7.jpg"></a></li>
-                    <li><a href="/Durbar"><img class="ns-img" src="images/venue8.jpg"></a></li>
-                    <li><a href="/Radisson"><img class="ns-img" src="images/venue9.jpg"></a></li>
-                    <li><a href="/Lainchaur"><img class="ns-img" src="images/venue1.jpg"></a></li>
-                    <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
-                    <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>--}}
-
-                        @endforeach
+                    @endforeach
                 </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
             </div>
@@ -78,40 +79,6 @@
                     @foreach($sliders as $slider)
                     <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
                     </li>
-
-                    {{--<li>
-                        <a href="/Sasa"><img class="thumb" src="images/venue2.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Shanker"><img class="thumb" src="images/venue3.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Star"><img class="thumb" src="images/venue4.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Athiti"><img class="thumb" src="images/venue5.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Hyatt"><img class="thumb" src="images/venue6.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Thapagaun"><img class="thumb" src="images/venue7.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Durbar"><img class="thumb" src="images/venue8.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Radisson"><img class="thumb" src="images/venue9.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Lainchaur"><img class="thumb" src="images/venue1.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Sasa"><img class="thumb" src="images/venue2.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Shanker"><img class="thumb" src="images/venue3.jpg"></a>
-                    </li>--}}
                     @endforeach
                 </ul>
             </div>

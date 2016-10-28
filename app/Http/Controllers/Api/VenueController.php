@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Venue\Models\TblMenuItem;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
 use Venue\Http\Controllers\Controller;
 use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
+use Venue\Models\VenueMenuItem;
 use Venue\Models\VenueType;
 
 
@@ -175,21 +177,62 @@ class VenueController extends Controller
 
     }
 
-    /*public function GetVenueData2($id)
+
+    public function GetInventory(Request $request)
     {
         try {
 
-            $venuedata =DB::table('user_venue')  //table join gareko
-            ->join('users', 'users.id', '=', 'user_venue.user_id')
-                ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
-                ->join('user_info', 'user_info.user_id', '=', 'users.id')
-                ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
-                ->select('gallery.*','venues.*','users.*','user_info.*')
-                ->where('gallery.venue_id','=',$id)
+            $user_id=$request->user_id;
+            $item_name=$request->item1;
+            $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
+            if(!$userVenue) {
+                throw \Exception('no venue found');
+            }
+            $venuId=$userVenue->venue_id;
+            $inventory=VenueMenuItem::where('venue_id','=',$venuId)->first();
+            $inventory1=TblMenuItem::where('item_name','=',$item_name)->first();
+            if(!$inventory)
+            {
+                $inventory = new VenueMenuItem();
+
+            }
+            if(!$inventory1)
+            {
+
+                $inventory1=new TblMenuItem();//model ko User ko object create
+
+            }
+
+
+            $inventory1->setAttribute('item_name', $request->get('item1'));
+            $inventory1->save();
+
+
+            $inventory->setAttribute('price_per', $request->get('price_per1'));
+            $inventory->setAttribute('venue_id', $userVenue->venue_id);
+            $inventory->setAttribute('menu_item_id',$inventory1->id);
+            $inventory->save();
+
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+
+    }
+    public function GetInventorylist(Request $request)
+    {
+        try {
+            $user_id=$request->user_id;
+            $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
+            $venuId=$userVenue->venue_id;
+            $users =DB::table('venues')  //table join gareko
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+                ->join('tbl_menu_items.id', '=', 'venue_menu_items.menu_item_id')
+                ->select('venues.id', 'tbl_menu_items.item_name','venue_menu_items.price_per')
+                ->where('venues.id', '=', $venuId)
                 ->get();
-
-
-            return $venuedata;
+            return $users;
 
 
         }
@@ -197,10 +240,8 @@ class VenueController extends Controller
             throw $e;
         }
 
+    }
 
-
-
-    }*/
 
 
 
