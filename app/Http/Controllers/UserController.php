@@ -354,4 +354,27 @@ class UserController extends BaseController
 
     }
 
+    public function UserAccount(Request $request){
+        try {
+            $id=Auth::user()->id;
+            /*print_r($us);die();*/
+
+           // print_r($id);die();
+            $client = new Client(['base_uri' => config('app.REST_API')]);
+            $response = $client->request('GET', 'account/'.$id);
+            /*print_r($response->getBody()->getContents());
+            die();*/
+            $data = $response->getBody()->getContents();
+            $account = \GuzzleHttp\json_decode($data);
+
+            return view('Layout.Account', compact('account'));
+        }
+        catch(\Exception $e)
+        {
+            print_r($e->getMessage());die();
+        }
+
+
+    }
+
 }

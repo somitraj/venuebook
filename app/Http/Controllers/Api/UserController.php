@@ -174,6 +174,22 @@ class UserController extends Controller
 
 
     }
+    public function UserAccount($id){
+        try {
+            //return $id;
+           /* /*$user_id=$request->get('user_id');
+            return $user_id;*/
+            $useraccount = DB::table('user_info')
+                ->join('users', 'users.id', '=', 'user_info.user_id')
+                ->select('users.*', 'user_info.*')
+                ->where('users.id', '=', $id)
+                ->get();
+            return $useraccount;
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+    }
 
 
 

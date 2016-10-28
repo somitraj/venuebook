@@ -70,7 +70,7 @@ $notices=\Venue\notification::getNotification();
                 {{--@endforeach--}}
 
             @else
-            <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
+            <li><a href="account"><i class="fa fa-user fa-fw"></i> My Account</a>
             </li>
             @endif
             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>

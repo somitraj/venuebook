@@ -11,6 +11,7 @@ Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
     Route::any("feedback",["as"=>'user.feedback', "uses"=>'FeedbackController@Feedback']);
     Route::any('venuepage',['as'=>'user.venuepage','uses'=>'UserController@VenuePage' ]);
     Route::any('venuesearch',['as'=>'user.search','uses'=>'UserController@Search'  ]);
+    Route::any('account',['as'=>'user.account','uses'=>'UserController@UserAccount'  ]);
     /*Route::get('/searchlost',['as'=>'searchlost','uses'=>'Web\LoginController@Search']);
     Route::get('/searchfound',['as'=>'searchfound','uses'=>'Web\LoginController@Lost']);
     Route::get('/lostitem',['as'=>'lostitem','uses'=>'Web\LoginController@ReportLost']);

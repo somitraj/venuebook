@@ -45,6 +45,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('inventory', 'VenueController@GetInventory');
     $api->get('getimage', 'UserController@GetDetails');
     $api->get('search', 'UserController@Search');
+    $api->any('account/{id}', 'UserController@UserAccount');
     $api->any('inventorylist', 'VenueController@GetInventoryList');
    /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
 
