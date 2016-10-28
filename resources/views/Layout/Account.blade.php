@@ -37,6 +37,30 @@
                     <th>Email</th>
                     <td>{{$ac->email}}</td>
                 </tr>
+            <tr>
+                <th>DOB</th>
+                <td>{{$ac->dob}}</td>
+            </tr>
+            <tr>
+                <th>Phone no.</th>
+                <td>{{$ac->phone_no}}</td>
+            </tr>
+            <tr>
+                <th>Mobile no.</th>
+                <td>{{$ac->mobile_no}}</td>
+            </tr>
+            <tr>
+                <th>Locality</th>
+                <td>{{$ac->locality}}</td>
+            </tr>
+            <tr>
+                <th>Identity Image</th>
+                <td><img src="/{{$ac1->identity_image}}" width="100" height="100"></td>
+            </tr>
+            <tr>
+                <th>Nationality ID</th>
+                <td>{{$ac->nationality_id}}</td>
+            </tr>
             @endforeach
 
         </table>

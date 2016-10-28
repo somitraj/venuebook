@@ -18,6 +18,7 @@ Route::group(["role"=>1,"prefix"=>"admin"],function()
     Route::any("managerlist",["as"=>'admin.managerlist', "uses"=>'VenueController@Register']);
     //Route::any("venuelist",["as"=>'admin.venuelist', "uses"=>'VenueController@VenueList']);
     Route::any("venueregister",["as"=>'admin.venueregister', "uses"=>'VenueController@Register']);
+    Route::any('account',['as'=>'admin.account','uses'=>'UserController@UserAccount'  ]);
 
 
 
