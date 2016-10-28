@@ -61,10 +61,6 @@ Route::any('/venuesearch',[
 
 Route::any("/notice",["as"=>'web.notice', "uses"=>'NotificationController@GetNotice']);
 
-/*Route::get('/Manager',[
-    'as'=>'web.Manager',
-    'uses'=>'UserController@Manager'
-]);*/
 
 Route::get('/Terms',[
     'as'=>'web.Terms',

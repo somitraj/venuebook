@@ -204,45 +204,7 @@ class UserController extends BaseController
     }
 
 
-   /* public function Lainchaur(Request $request)
-    {
-        $venue_id=$request->venue_id;
 
-        return view('Layout.Lainchaur', compact('form'));
-    }
-
-    public function Sasa()
-    {
-        return view('Layout.Sasa', compact('form'));
-    }
-    public function Shanker()
-    {
-        return view('Layout.Shanker', compact('form'));
-    }
-    public function Star()
-    {
-        return view('Layout.Star', compact('form'));
-    }
-    public function Athiti()
-    {
-        return view('Layout.Athiti', compact('form'));
-    }
-    public function Hyatt()
-    {
-        return view('Layout.Hyatt', compact('form'));
-    }
-    public function Thapagaun()
-    {
-        return view('Layout.Thapagaun', compact('form'));
-    }
-    public function Durbar()
-    {
-        return view('Layout.Durbar', compact('form'));
-    }
-    public function Radisson()
-    {
-        return view('Layout.Radisson', compact('form'));
-    }*/
 
     public function VenuePage(Request $request)
     {
@@ -327,14 +289,6 @@ class UserController extends BaseController
 
 
     }
-   /* public function GetProfileImage(){
-        $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','getimage');
-        $data = $response->getBody()->getContents();
-        $getimage =  \GuzzleHttp\json_decode($data);
-
-
-    }*/
 
 
     public function UserCheck()
