@@ -46,13 +46,11 @@ if(Auth::check()){
                                 </thead>
 
 
-                             {{--   @foreach($userlist as $user)
+                             {{--   @foreach($inventorylist as $in)
                                         <tr>
-                                                <td>{{$user->first_name}}</td>
-                                                <td>{{$user->last_name}}</td>
-                                                <td>{{$user->username}}</td>
-                                                <td>{{$user->email}}</td>
-                                                <td>{{$user->type_name}}</td>
+                                                <td>{{$in->item_name}}</td>
+                                                <td>{{$in->price_per}}</td>
+
 
                                         </tr>
                                 @endforeach--}}

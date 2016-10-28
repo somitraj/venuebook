@@ -21,6 +21,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
     $api->any('register', 'UserController@Register');
     $api->any('gallery', 'GalleryController@Gallery');
+    $api->any('gallerydisplay/{id}', 'GalleryController@GalleryDisplay');
     $api->any('venue', 'VenueController@Register');
     $api->any('venue_type', 'VenueController@GetVenueType');
     $api->any('login', 'AuthController@Login');
@@ -46,7 +47,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('getimage', 'UserController@GetDetails');
     $api->get('search', 'UserController@Search');
     $api->any('account/{id}', 'UserController@UserAccount');
-    $api->any('inventorylist', 'VenueController@GetInventoryList');
+    $api->any('inventorylist/{id}', 'VenueController@GetInventoryList');
    /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
 
 

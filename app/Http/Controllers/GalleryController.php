@@ -69,11 +69,7 @@ class GalleryController extends Controller
                         'image4' => $image4,
                         'user_id'=>Auth::user()->id,
 
-
-                        /*'venue_id' => $request->get('user_type'),*/
-
-
-                    ]
+                                            ]
                 ]);
                /* print_r($response->getBody()->getContents());
                 die();*/
@@ -86,6 +82,14 @@ class GalleryController extends Controller
             $request->session()->flash('alert-success', 'Gallery Updated!');
         }
 
+        $id=Auth::user()->id;
+        /*print_r($id);die();*/
+        $response1 = $client->request('POST', 'gallerydisplay/'.$id);
+        $data1 = $response1->getBody()->getContents();
+        $gallerydata = \GuzzleHttp\json_decode($data1);
+        /*print_r($gallerydata);die();*/
+         /*print_r($response1->getBody()->getContents());
+                die();*/
 
 
 
@@ -93,15 +97,10 @@ class GalleryController extends Controller
         $form = $formBuilder->Create('Venue\Forms\GalleryForm',['method'=>'POST','url' => route('manager.gallery')]);
 
 
-        return view('Layout.Gallery', compact('form'));
-
-
-
-
-
-
+        return view('Layout.Gallery', compact('form','gallerydata'));
 
 
     }
+
 
 }

@@ -191,7 +191,9 @@ class VenueController extends Controller
             $venuId=$userVenue->venue_id;
             $inventory=VenueMenuItem::where('venue_id','=',$venuId)->first();
             $inventory1=TblMenuItem::where('item_name','=',$item_name)->first();
-            if(!$inventory)
+            $menu_id=$inventory1->id;
+
+            if(!$menu_id)
             {
                 $inventory = new VenueMenuItem();
 
@@ -220,19 +222,20 @@ class VenueController extends Controller
 
 
     }
-    public function GetInventorylist(Request $request)
+    public function GetInventorylist($id)
     {
         try {
-            $user_id=$request->user_id;
-            $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
+            /*$user_id=$request->user_id;*/
+            $userVenue = UserVenue::where('user_id', '=', $id)->first();
             $venuId=$userVenue->venue_id;
-            $users =DB::table('venues')  //table join gareko
+            /*return $venuId;*/
+            $inventorydata =DB::table('venue_menu_items')  //table join gareko
             ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
                 ->join('tbl_menu_items.id', '=', 'venue_menu_items.menu_item_id')
                 ->select('venues.id', 'tbl_menu_items.item_name','venue_menu_items.price_per')
                 ->where('venues.id', '=', $venuId)
                 ->get();
-            return $users;
+            return $inventorydata;
 
 
         }

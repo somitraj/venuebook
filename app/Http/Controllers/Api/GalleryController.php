@@ -67,4 +67,24 @@ class GalleryController extends Controller
         }
 
 }
+    public function GalleryDisplay($id)
+    {
+        try {
+            /*return $id;*/
+            /*$user_id=$request->user_id;*/
+            /*return $user_id;*/
+            $userVenue = UserVenue::where('user_id', '=', $id)->first();
+
+            $venuId=$userVenue->venue_id;
+            /*return $venuId;*/
+            $gallerydata=Gallery::where('venue_id','=',$venuId)->first();
+
+           return $gallerydata;
+
+
+        }catch(\Exception $e){
+            throw $e;
+        }
+
+    }
 }
