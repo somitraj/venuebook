@@ -43,6 +43,8 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('getvenuebyuserid/{id}', 'VenueController@GetVenueData');
     $api->any('getvenuedata1/{id}', 'VenueController@GetVenueData1');
     $api->any('inventory', 'VenueController@GetInventory');
+    $api->any('search', 'UserController@Search');
+
 
    /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
 

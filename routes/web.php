@@ -81,6 +81,10 @@ Route::any('/MasterSlider',[
     'as'=>'web.Slider',
     'uses'=>'VenueController@MasterSlider'
 ]);
+Route::any('/venuesearch',[
+    'as'=>'web.search',
+    'uses'=>'UserController@Search'
+]);
 
 /*Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function() {
     Route::any('/User', [

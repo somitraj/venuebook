@@ -362,19 +362,37 @@ class UserController extends BaseController
         return redirect()->route('home');
     }
 
-    public function  Details(){
-       /* $users=new User();*/
-        $users=User::all();
+    public function  Details()
+    {
+        /* $users=new User();*/
+        $users = User::all();
 
-        $venues=Venue::all();
-        $info=UserVenue
-            ::join('users','users.id','=','UserVenue.user_id')
-            ->join('venues','venues.id','=','UserVenue.venue_id')
-            ->select('users.email','venues.phone_no','venues.phone_no_2','venues.person_capacity','venues.space_area','venues.locality','venues.established_date')
+        $venues = Venue::all();
+        $info = UserVenue
+            ::join('users', 'users.id', '=', 'UserVenue.user_id')
+            ->join('venues', 'venues.id', '=', 'UserVenue.venue_id')
+            ->select('users.email', 'venues.phone_no', 'venues.phone_no_2', 'venues.person_capacity', 'venues.space_area', 'venues.locality', 'venues.established_date')
             ->get();
 
-        return view('Layout.Admin',compact('users','venues','UserVenue'));
-
+        return view('Layout.Admin', compact('users', 'venues', 'UserVenue'));
     }
+
+
+    public function Search( )
+    {
+        $search = \Request::get('search');
+        /*print_r($search);die();*/
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','search',[
+            'form_params' => [
+                'search' => $search,
+            ]
+        ]);
+        $data = $response->getBody()->getContents();
+        $searchresult =  \GuzzleHttp\json_decode($data);
+        /*return $searchresult;*/
+        return view('Layout.Search',compact('searchresult'));
+            }
+
 
 }
