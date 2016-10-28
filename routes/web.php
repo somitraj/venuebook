@@ -47,6 +47,18 @@ Route::any('/BookTotal',[
     'uses'=>'BookingController@BookTotal'
 ]);
 
+Route::any('/Search',[
+    'as'=>'web.Search',
+    'uses'=>'UserController@Search'
+
+]);
+
+Route::any('/venuesearch',[
+    'as'=>'venue.Search',
+    'uses'=>'UserController@Search'
+
+]);
+
 Route::any("/notice",["as"=>'web.notice', "uses"=>'NotificationController@GetNotice']);
 
 /*Route::get('/Manager',[
@@ -63,10 +75,10 @@ Route::get('/Privacy',[
     'uses'=>'UserController@Privacy'
 ]);
 
-/*Route::any('/venuepage1',[
+Route::any('/venuepage',[
     'as'=>'web.venuepage',
     'uses'=>'UserController@VenuePage'
-]);*/
+]);
 
 Route::get('/Venue',[
     'as'=>'web.Venue',

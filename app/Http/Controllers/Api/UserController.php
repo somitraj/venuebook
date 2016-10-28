@@ -152,26 +152,31 @@ class UserController extends Controller
 
     }
 
-    public function Search(Request $request)
-    {
+    public function Search(Request $request){
         try {
             $key = $request->get('search');
             /*if ($key != '') {*/
 
-            $result = Venue::where('name', 'like', '%' . $key . '%')
-                /*->orWhere('address', 'like', '%$key%')
-                ->orWhere('person_capacity', 'like', '%$key%')
-                ->orWhere('locality', 'like', '%$key%')*/
-                ->orderBy('name')
-                ->paginate(20);
-            return $result;
+                $result = Venue::where('name', 'like', '%' . $key . '%')
+                    /*->orWhere('address', 'like', '%$key%')
+                    ->orWhere('person_capacity', 'like', '%$key%')
+                    ->orWhere('locality', 'like', '%$key%')*/
+                    ->orderBy('name')
+                    ->paginate(20);
+                return $result;
 
-            /* };*/
+           /* };*/
 
-        } catch (\Exception $e) {
+        }
+        catch(\Exception $e){
             throw $e;
         }
 
+
     }
+
+
+
+
 
 }

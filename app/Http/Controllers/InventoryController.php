@@ -12,12 +12,14 @@ class InventoryController extends Controller
 {
     public function Inventory(FormBuilder $formBuilder,Request $request)
     {
+        $venue_id=$request->id;
+        /*print_r($venue_id);die();*/
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         if($request->getMethod()=='POST') {
 
             try {
 
-                $response = $client->request('POST', 'inventory', [
+                $response = $client->request('POST', 'inventory.'.$venue_id, [
                     'form_params' => [
                         'item1' =>  $request->get('item1'),
                         'price_per1' =>  $request->get('price_per1'),
