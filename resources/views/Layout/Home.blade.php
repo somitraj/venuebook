@@ -68,19 +68,7 @@
 
                     @foreach($sliders as $slider)
                     <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="ns-img" src="{{$slider->cover}}"></a></li>
-                   {{-- <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
-                    <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>
-                    <li><a href="/Star"><img class="ns-img" src="images/venue4.jpg"></a></li>
-                    <li><a href="/Athiti"><img class="ns-img" src="images/venue5.jpg"></a></li>
-                    <li><a href="/Hyatt"><img class="ns-img" src="images/venue6.jpg"></a></li>
-                    <li><a href="/Thapagaun"><img class="ns-img" src="images/venue7.jpg"></a></li>
-                    <li><a href="/Durbar"><img class="ns-img" src="images/venue8.jpg"></a></li>
-                    <li><a href="/Radisson"><img class="ns-img" src="images/venue9.jpg"></a></li>
-                    <li><a href="/Lainchaur"><img class="ns-img" src="images/venue1.jpg"></a></li>
-                    <li><a href="/Sasa"><img class="ns-img" src="images/venue2.jpg"></a></li>
-                    <li><a href="/Shanker"><img class="ns-img" src="images/venue3.jpg"></a></li>--}}
-
-                        @endforeach
+                    @endforeach
                 </ul>
                 <div class="fs-icon" title="Expand/Close"></div>
             </div>
@@ -91,40 +79,6 @@
                     @foreach($sliders as $slider)
                     <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
                     </li>
-
-                    {{--<li>
-                        <a href="/Sasa"><img class="thumb" src="images/venue2.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Shanker"><img class="thumb" src="images/venue3.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Star"><img class="thumb" src="images/venue4.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Athiti"><img class="thumb" src="images/venue5.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Hyatt"><img class="thumb" src="images/venue6.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Thapagaun"><img class="thumb" src="images/venue7.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Durbar"><img class="thumb" src="images/venue8.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Radisson"><img class="thumb" src="images/venue9.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Lainchaur"><img class="thumb" src="images/venue1.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Sasa"><img class="thumb" src="images/venue2.jpg"></a>
-                    </li>
-                    <li>
-                        <a href="/Shanker"><img class="thumb" src="images/venue3.jpg"></a>
-                    </li>--}}
                     @endforeach
                 </ul>
             </div>

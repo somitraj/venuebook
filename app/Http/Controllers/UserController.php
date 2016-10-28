@@ -383,7 +383,7 @@ class UserController extends BaseController
     public function Search( )
     {
         $search = \Request::get('search');
-        /*print_r($search);die();*/
+        print_r($search);die();
         $client = new Client(['base_uri'=> config('app.REST_API')]);
         $response = $client->request('GET','search',[
             'form_params' => [
