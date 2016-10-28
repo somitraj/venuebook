@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\DB;
 use Venue\Models\UserVenue;
 
 
+/**
+ * Class GalleryController
+ * @package Venue\Http\Controllers\api
+ */
 class GalleryController extends Controller
 {
     public function Gallery(Request $request)
