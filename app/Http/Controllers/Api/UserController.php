@@ -175,18 +175,19 @@ class UserController extends Controller
     {
         //return $id;
         $usersinfo = new UserInfo();
-        $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
+        $usersinfo = UserInfo::where('user_id', '=', $id)->first();
         // print_r($usersinfo);die();
         return $usersinfo;
     }
 
-    /* public function EditUser($id)
+     public function EditUserDetails($id)
      {
          //return $id;
-         /* $usersinfo = new UserInfo();
-          $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
-          // print_r($usersinfo);die();
-          return $usersinfo;*/
+         $usersinfo = new UserInfo();
+         $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
+         // print_r($usersinfo);die();
+         return $usersinfo;
+     }
     /* try {*/
 
 

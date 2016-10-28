@@ -49,7 +49,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
    /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
    $api->any('userdetails/{id}', 'UserController@GetUserDetails');
     $api->any('venuedetails/{id}', 'VenueController@GetVenueData');
-    $api->any('edituser/{id}', 'UserController@GetUserDetails');
+    $api->any('edituser/{id}', 'UserController@EditUserDetails');
     $api->any('editvenuedetails/{id}', 'VenueController@GetVenueData');
 
 
