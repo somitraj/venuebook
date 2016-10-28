@@ -319,9 +319,11 @@ class UserController extends BaseController
         $client = new Client(['base_uri' => config('app.REST_API')]);
        // print_r($client);die();
         $response = $client->request('POST','edituser/'.$id);
+       // print_r($response);die();
         $data = $response->getBody()->getContents();
+       // print_r($data);die();
         $edituser =  \GuzzleHttp\json_decode($data);
-    // print_r($edituser);die();
+  //  print_r($edituser);die();
 
         $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/useredit'],
             [

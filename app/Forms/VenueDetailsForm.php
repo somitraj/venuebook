@@ -43,7 +43,7 @@ class VenueDetailsForm extends Form
                     'rules'=>['required']
             ]
             )
-            ->add('password','password', [
+            /*->add('password','password', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Password',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -60,7 +60,7 @@ class VenueDetailsForm extends Form
                     'rules'=>['required','min:4']
 
                 ]
-            )
+            )*/
             ->add('email','email', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Email Address',
@@ -71,7 +71,7 @@ class VenueDetailsForm extends Form
                 ]
             )
 
-            ->add('cemail','email', [
+           /* ->add('cemail','email', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Confirm Email',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -79,21 +79,21 @@ class VenueDetailsForm extends Form
                     'rules'=>['required','email','unique:registered_users']
 
                 ]
-            )
-            ->add('user_type', 'hidden', [
+            )*/
+           /* ->add('user_type', 'hidden', [
                     'label'=>'User Type',
                     'default_value' => 2,
                     /*'selected'=>$usertypeOption[3],*/
                     /*  'selected' => 'client',*/
                     /*'empty_value' => 'client',*/
-                    'wrapper' =>['class' => 'form-group row'],
+                   /* 'wrapper' =>['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
 
 
                 ]
-            )
-           ->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])
+            )*/
+          // ->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])
 
            /* ->add('type_name','select', [*/
                   /*  'choices' => $type_nameOption,*/
@@ -105,7 +105,7 @@ class VenueDetailsForm extends Form
                     'rules'=>['required']*/
                 /*]*/
             /*)*/
-           ->add('profile_image','file', [
+           /*->add('profile_image','file', [
                    'wrapper' => ['class' => 'form-group row'],
                    'label'=>'Profile Image',
                    'label_attr'=>['class'=>'col-md-3 control-label'],
@@ -121,7 +121,7 @@ class VenueDetailsForm extends Form
                     'attr' =>['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png,.jpg'],
                     'rules'=>['required']
                 ]
-            )
+            )*/
             ->add('established_date','date',[
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Established date',
@@ -179,7 +179,7 @@ class VenueDetailsForm extends Form
                          'rules'=>['required']
                 ]
             )
-            ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
+         //   ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])
 
             ->add('save','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
 

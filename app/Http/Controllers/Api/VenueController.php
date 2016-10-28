@@ -132,8 +132,6 @@ class VenueController extends Controller
                 ->select('gallery.*','venues.*','users.*','user_info.*')
                 ->where('users.id','=',$id)
                 ->get();
-
-
                return $venuedata;
 
 

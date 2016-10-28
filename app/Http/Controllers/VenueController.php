@@ -179,33 +179,34 @@ class VenueController extends Controller
     public function EditVenueDetails(FormBuilder $formBuilder,$id)
     {
         $client = new Client(['base_uri' => config('app.REST_API')]);
-        $response = $client->request('POST', 'venuedetails/' . $id);
+        $response = $client->request('POST', 'editvenuedetails/' . $id);
         $data = $response->getBody()->getContents();
-        $venuedetails = \GuzzleHttp\json_decode($data);
+        $editvenuedetails = \GuzzleHttp\json_decode($data);
+       // print_r($editvenuedetails->$id);die();
 
-        $form = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST', 'url' => 'admin/venuedetails'],
+        $form = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST', 'url' => 'admin/editvenuedetails'],
             [
-                'id' => $venuedetails->user_id,
-                'first_name' => $venuedetails->first_name,
-                'last_name' => $venuedetails->last_name,
-                'username' => $venuedetails->username,
-                'dob' => $venuedetails->dob,
-                'nationality_id' => $venuedetails->nationality_id,
-                'phone_no' => $venuedetails->phone_no,
-                'phone_no_2' => $venuedetails->phone_no_2,
-                'established_date' => $venuedetails->established_date,
-                'space_area' => $venuedetails->space_area,
-                'email' => $venuedetails->email,
-                'password' => $venuedetails->password,
-                'user_type_id' => $venuedetails->user_type,
-                'country_id' => $venuedetails->Country,
-                'province_id' => $venuedetails->Province,
-                'zone_id' => $venuedetails->Zones,
-                'district_id' => $venuedetails->District,
-                'locality' => $venuedetails->Locality,
-                'venue_type_id' => $venuedetails->venue_type_id,
-                'profile_image' => $venuedetails->profile_image,
-                'image' => $venuedetails->image
+                //'id' => $editvenuedetails->id,
+                'first_name' => $editvenuedetails->first_name,
+                'last_name' => $editvenuedetails->last_name,
+                'username' => $editvenuedetails->username,
+                'dob' => $editvenuedetails->dob,
+                'nationality_id' => $editvenuedetails->nationality_id,
+                'phone_no' => $editvenuedetails->phone_no,
+                'phone_no_2' => $editvenuedetails->phone_no_2,
+                'established_date' => $editvenuedetails->established_date,
+                'space_area' => $editvenuedetails->space_area,
+                'email' => $editvenuedetails->email,
+               // 'password' => $venuedetails->password,
+               // 'user_type_id' => $venuedetails->user_type,
+               // 'country_id' => $editvenuedetails->Country,
+                //'province_id' => $editvenuedetails->Province,
+                //'zone_id' => $editvenuedetails->Zones,
+                //'district_id' => $editvenuedetails->District,
+                //'locality' => $venuedetails->Locality,
+               // 'venue_type_id' => $venuedetails->venue_type_id,
+               // 'profile_image' => $venuedetails->profile_image,
+                //'image' => $venuedetails->image
             ]);
 
 

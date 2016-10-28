@@ -184,13 +184,7 @@ WHERE (user_info.user_id=51)"));
      throw $e;
  }
 }*/
-    public function EditUser($id)
-    {
-      // return $id;
-        $usersinfo=new UserInfo();
-        $usersinfo=UserInfo::where('user_id','=','$id')->first();
-       // print_r($usersinfo);die();
-        return $usersinfo;
-    }
+
 }
+
 
