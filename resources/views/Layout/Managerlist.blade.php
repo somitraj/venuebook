@@ -26,19 +26,21 @@ foreach($proimage as $pro){
                @endif
 
         {{--<div id="toplink">--}}
-            <div class="nav nav-tabs">
-               <li> <a href="managerlist" role="navigation" class="nav navbar-default ">Manager<span class="badge">{{count($managerlist)}}</span></a></li>
+            {{--   <div class="table-responsive">--}}
+                   <h2>VenueList <span class="badge">{{count($managerlist)}}</span></h2>
+           {{-- <div class="nav nav-tabs">
+               <li> <a href="venuedetails" role="navigation" class="nav navbar-default ">Manager<span class="badge">{{count($managerlist)}}</span></a></li>
 
 
                <li> <a href="venueregister" role="navigation" class="nav navbar-default ">Venue<span class="badge"></span></a></li>
 
 
-            </div>
+            </div>--}}
 {{--</div>--}}
-            <a href="venuelist">
+          {{--  <a href="venuelist">--}}
             <div class="table-responsive">
-                <a href="venueregister">
-                <table class="table table-hover table-bordered">
+                {{--<a href="venueregister">--}}
+                <table class="table table-bordered">
 
                     <thead>
                     <tr>
@@ -49,7 +51,10 @@ foreach($proimage as $pro){
 
                         <th>Email</th>
                         <th>Type name</th>
-                       {{-- <th>Option</th>--}}
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
                     </tr>
                     </thead>
                     @foreach($managerlist as $user)
@@ -60,16 +65,15 @@ foreach($proimage as $pro){
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->type_name}}</td>
-
-{{--
-                            <td><button class="btn-primary">view</button></td>
---}}
+                            <td><a href="venuedetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
+                            <td><a href="editvenuedetails\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>
+                            <td><a href="venuedelete" class="btn btn-primary btn-block btn">Delete</a></td>
 
                         </tr>
                     @endforeach
 
                 </table>
-                </a>
+                {{--</a>--}}
             </div>
 
 

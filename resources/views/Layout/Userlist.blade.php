@@ -28,8 +28,9 @@ foreach($proimage as $pro){
                </div>
                <div class="table-responsive">
                 <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
-                <a href="clientregister">
-                <table class="table table-hover table-bordered">
+                  {{-- <a href="userdetails">--}}
+                {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
+                <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Firstname</th>
@@ -37,9 +38,10 @@ foreach($proimage as $pro){
                         <th>Username</th>
                         <th>Email</th>
                         <th>Type name</th>
-{{--
-                        <th>Option</th>
---}}
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
                     </tr>
                     </thead>
 
@@ -51,11 +53,14 @@ foreach($proimage as $pro){
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->type_name}}</td>
+                            <td><a href="userdetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
+                            <td><a href="useredit\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>
+                            <td><a href="userdelete\{{$user->id}}" class="btn btn-primary btn-block btn">Delete</a></td>
 
                         </tr>
                     @endforeach
 
-                </table></a>
+                </table>
             </div>
 
                <nav aria-label="Page navigation">

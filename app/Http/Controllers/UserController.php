@@ -61,6 +61,8 @@ class UserController extends BaseController
            print_r($e->getMessage());die();
        }
     }
+
+
         public function Register(FormBuilder $formBuilder,Request $request)
     {
 
@@ -256,10 +258,6 @@ class UserController extends BaseController
             print_r($e->getMessage());die();
         }
     }
-
-
-
-
     public function UserList()
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);
@@ -290,6 +288,67 @@ class UserController extends BaseController
 
     }
 
+    public function EditUserDetails(FormBuilder $formBuilder,$id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        // print_r($client);die();
+        $response = $client->request('POST','edituser/'.$id);
+        // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        // print_r($data);die();
+        $edituser =  \GuzzleHttp\json_decode($data);
+        //  print_r($edituser);die();
+
+        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/useredit'],
+            [
+                'id'=>$edituser->id,
+                'first_name' => $edituser->first_name,
+                'last_name' =>  $edituser->last_name,
+                'username' => $edituser->username,
+                'dob' =>  $edituser->dob,
+                'nationality_id' =>  $edituser->nationality_id,
+                'phone_no' =>  $edituser->phone_no,
+                'mobile_no' =>  $edituser->mobile_no,
+                'email' => $edituser->email
+                // 'password' => $edituser->password,
+                //'user_type_id' => $edituser->user_type,
+                // 'country_id' => $edituser->Country,
+                // 'province_id' => $edituser->Province,
+                //'zone_id' => $edituser->Zones,
+                //'district_id' => $edituser->District,
+                //  'locality' => $edituser->Locality,
+
+                // 'profile_image' => $edituser->profile_image,
+
+
+                //'identity_image' => $edituser->identity_image
+            ]);
+//print_r($viewuserdetails);die();
+
+        return view('Layout.Edituser',compact('form'));
+        // return redirect()->route('Viewdetails.userlist');
+
+
+    }
+
+   /* public function GetProfileImage(){
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','getimage');
+        $data = $response->getBody()->getContents();
+        $getimage =  \GuzzleHttp\json_decode($data);
+
+
+    }*/
+    public function ViewUserDetails($id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+
+        $response = $client->request('POST', 'userdetails/' . $id);
+        // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        // print_r($data);die();
+        $userdetails = \GuzzleHttp\json_decode($data);
+        //print_r($userdetails);die();
+        return view('Layout.Viewuserdetails',compact('userdetails'));
+    }
 
     public function UserCheck()
     {

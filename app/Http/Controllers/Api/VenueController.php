@@ -125,31 +125,31 @@ class VenueController extends Controller
     public function GetVenueData($id)
     {
         try {
-           // $idv=$request->get('id');
-            $venuedata =DB::table('user_venue')  //table join gareko
-                ->join('users', 'users.id', '=', 'user_venue.user_id')
+            // $idv=$request->get('id');
+            $venuedata = DB::table('user_venue')//table join gareko
+            ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
                 ->join('user_info', 'user_info.user_id', '=', 'users.id')
                 ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
-                ->select('gallery.*','venues.*','users.*','user_info.*')
-                ->where('users.id','=',$id)
-                ->get();
+                ->select('gallery.*', 'venues.*', 'users.*', 'user_info.*')
+                ->where('users.id', '=', $id)
+                ->get()->toArray();
+            return $venuedata;
 
 
-               return $venuedata;
-
-
-            }
-            catch(\Exception $e){
-                throw $e;
-            }
-
-
-
+        } catch (\Exception $e) {
+            throw $e;
+        }
 
     }
+   /* public function GetVenueDetails($id)
+    {
+       // return $id;
+        $venues=new Venue();
+        $venues=DB::table('venues')->where('venues.user_id','=',$id)->get();
+        return $venues;
 
-
+    }*/
     public function GetVenueData1($id)
     {
         try {
