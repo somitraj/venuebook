@@ -262,6 +262,45 @@ WHERE (user_info.user_id=51)"));
  }
 }*/
 
+
+    public function ChangePassword(Request $request){
+        try {
+            $authpw = $request->get('pw');
+            $id= $request->get('id');
+            /*return $id;*/
+            /*return $authpw;*/
+
+
+            $op = $request->get('old_password');
+            $np = $request->get('new_password');
+            $cp = $request->get('cpassword');
+
+            $user=User::where('id','=',$id)->first();
+            /*return $user;*/
+
+            /*if (bcrypt($op) != $authpw) {
+                return redirect()->back();
+            }*/
+
+
+            /*else {*/
+                if($np==$cp){
+                    $user->setAttribute('password', bcrypt($np));
+                    $user->save();
+
+
+                }
+
+
+            /*}*/
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+
+
+    }
+
 }
 
 

@@ -10,6 +10,7 @@ class User extends Model {
 
     protected $table = 'users';
     protected $fillable = ['id', 'username', 'password', 'email', 'user_type_id'];
+    public $timestamps=false;
 
 
     public function userType() {

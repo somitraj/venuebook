@@ -10,6 +10,7 @@ class TblZone extends Model {
 
     protected $table = 'tbl_zones';
     protected $fillable = ['id', 'name', 'code', 'province_id'];
+    public $timestamps=false;
 
 
     public function tblZone() {

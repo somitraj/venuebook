@@ -479,7 +479,41 @@ class UserController extends BaseController
         return view('Layout.Settings',compact('userlist'));
 
     }
+    public function ChangePassword(FormBuilder $formBuilder,Request $request)
+    {
+
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        if($request->getMethod()=='POST') {
+            try {
+                $pw = Auth::user()->password;
+                $id = Auth::user()->id;
+                /*print_r($id);die();*/
+                /*print_r(bcrypt($pw));die();*/
+                $response = $client->request('POST', 'password', [
+                    'form_params' => [
+                        'old_password' =>  $request->get('old_password'),
+                        'new_password' =>  $request->get('new_password'),
+                        'cpassword' => $request->get('confirm_new_password'),
+                        'pw'=>$pw,
+                        'id'=>$id
+
+
+                    ]
+                ]);
+                /*$data = $response->getBody()->getContents();
+                print_r($data);die();*/
 
 
 
+
+            } catch (\Exception $e) {
+                print_r($e->getMessage());
+                die();
+            }
+        }
+        $form = $formBuilder->Create('Venue\Forms\PasswordResetForm', ['method' => 'POST', 'url' => route('manager.password')]);
+
+        return view('Layout.ChangePassword', compact('form'));
+
+    }
 }

@@ -10,6 +10,7 @@ class UserType extends Model {
 
     protected $table = 'user_types';
     protected $fillable = ['id', 'type_name'];
+    public $timestamps=false;
 
 
     public function tblMessageBoxes() {

@@ -12,14 +12,16 @@
         ?>
 @extends('Layout/MainLayout')
 @section('content')
+    <br><br><br><br>
     <div class="container text-center">
         @foreach($userlist as $user)
      <a href="useredit\{{$user->id}}"><button class="btn-success">Edit Personal Information</button></a>
-
+            <br>
         <br>
         <br>
-        <a href="/#"><button class="btn-success">Change Password</button></a>
+        <a href="password"><button class="btn-success">Change Password</button></a>
             @endforeach
+            <br><br><br><br><br>
     </div>
     @endsection
 

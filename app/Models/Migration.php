@@ -10,6 +10,8 @@ class Migration extends Model {
 
     protected $table = 'migrations';
     protected $fillable = ['migration', 'batch'];
+    public $timestamps=false;
+
 
 
 

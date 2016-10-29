@@ -10,6 +10,7 @@ class TblBooking extends Model {
 
     protected $table = 'tbl_booking';
     protected $fillable = ['id', 'date', 'user_id', 'venue_id', 'no_of_person', 'total_amount'];
+    public $timestamps=false;
 
 
     public function user() {

@@ -109,5 +109,6 @@ require_once ("Admin.php");
 
     Route::get('/logout',['as'=>'logout',function(){Session::flush();return redirect()->route('home');}]);
 
+
 ?>
 

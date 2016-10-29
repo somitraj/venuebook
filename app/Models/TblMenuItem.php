@@ -10,6 +10,7 @@ class TblMenuItem extends Model {
 
     protected $table = 'tbl_menu_items';
     protected $fillable = ['id', 'item_name'];
+    public $timestamps=false;
 
 
     public function venues() {
