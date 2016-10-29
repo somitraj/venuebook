@@ -31,15 +31,15 @@
                         <ul>
                             {{--{{dd($vdata)}}--}}
                             @foreach($vdata as $vd)
-                                <li><img class="thumb" src="/{{$vd->cover}}">
+                                <li><img class="ns-img" src="/{{$vd->cover}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image1}}">
+                                <li><img class="ns-img" src="/{{$vd->image1}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image2}}">
+                                <li><img class="ns-img" src="/{{$vd->image2}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image3}}">
+                                <li><img class="ns-img" src="/{{$vd->image3}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image4}}">
+                                <li><img class="ns-img" src="/{{$vd->image4}}">
                                 </li>
                                 {{--<li><a class="ns-img" href="images/Lainchaur banquet1.jpg"></a></li>
                                 <li><a class="ns-img" href="images/Lainchaur banquet2.jpg"></a></li>

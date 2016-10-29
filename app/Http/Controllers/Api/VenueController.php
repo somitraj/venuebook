@@ -183,8 +183,11 @@ class VenueController extends Controller
         try {
 
             $user_id=$request->user_id;
+            /*return $user_id;*/
             $item_name=$request->item1;
+            /*return $item_name;*/
             $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
+            /*return $userVenue;*/
             if(!$userVenue) {
                 throw \Exception('no venue found');
             }
@@ -192,8 +195,10 @@ class VenueController extends Controller
             $inventory=VenueMenuItem::where('venue_id','=',$venuId)->first();
             $inventory1=TblMenuItem::where('item_name','=',$item_name)->first();
             $menu_id=$inventory1->id;
+            /*return $menu_id;*/
 
-            if(!$menu_id)
+
+            if(!$inventory)
             {
                 $inventory = new VenueMenuItem();
 
@@ -225,13 +230,13 @@ class VenueController extends Controller
     public function GetInventorylist($id)
     {
         try {
-            /*$user_id=$request->user_id;*/
             $userVenue = UserVenue::where('user_id', '=', $id)->first();
+            /*return $userVenue;*/
             $venuId=$userVenue->venue_id;
             /*return $venuId;*/
-            $inventorydata =DB::table('venue_menu_items')  //table join gareko
-            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
-                ->join('tbl_menu_items.id', '=', 'venue_menu_items.menu_item_id')
+            $inventorydata =DB::table('tbl_menu_items')  //table join gareko
+                ->join('venue_menu_items','venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+                ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
                 ->select('venues.id', 'tbl_menu_items.item_name','venue_menu_items.price_per')
                 ->where('venues.id', '=', $venuId)
                 ->get();

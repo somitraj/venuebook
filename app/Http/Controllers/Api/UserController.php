@@ -152,12 +152,13 @@ class UserController extends Controller
 
     }
 
-    public function Search(Request $request){
+    public function Search($id){
         try {
-            $key = $request->get('search');
-            /*if ($key != '') {*/
+            /*return $id;*/
+            /*$key = $request->get('search');*/
+           /* if ($id != '') {*/
 
-                $result = Venue::where('name', 'like', '%' . $key . '%')
+                $result = Venue::where('name', 'like', '%' . $id . '%')
                     /*->orWhere('address', 'like', '%$key%')
                     ->orWhere('person_capacity', 'like', '%$key%')
                     ->orWhere('locality', 'like', '%$key%')*/
@@ -165,7 +166,8 @@ class UserController extends Controller
                     ->paginate(20);
                 return $result;
 
-           /* };*/
+        /*    };*/
+
 
         }
         catch(\Exception $e){

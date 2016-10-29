@@ -7,7 +7,34 @@
  */
 ?>
 @extends('Layout/MainLayout')
-{{--
-@foreach($searchresult as $result)
-    {{$result->name}}
-    @endforeach--}}
+@section('content')
+
+<div class="table-responsive">
+    <h2>Searh Result :</h2>
+
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Venue name</th>
+
+                {{--
+                                        <th>Option</th>
+                --}}
+            </tr>
+            </thead>
+            <tbody>
+           {{-- @foreach($searchresult as $se)
+                <tr>
+                    <td><img src="/{{$se->image}}"class="img-circle" width="70" height="70"></td>
+                    <td>{{$se->name}}</td>
+                </tr>
+
+                @endforeach--}}
+
+
+            </tbody>
+
+        </table>
+</div>
+    @endsection

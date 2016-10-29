@@ -10,7 +10,7 @@ class TblMessageBox extends Model {
 
     protected $table = 'tbl_message_box';
     protected $fillable = ['id', 'user_id', 'box_type_id', 'message_id', 'is_read'];
-    public $timestamps= false;
+
 
     public function messageBoxType() {
         return $this->belongsTo(\Venue\Models\MessageBoxType::class, 'box_type_id', 'id');

@@ -334,22 +334,20 @@ class UserController extends BaseController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function Search( )
+    public function Search(Request $request )
     {
-        $search = \Request::get('search');
-        print_r($search);die();
+        $id = \Request::get('search');
+        /*print_r($id);die();*/
         $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','search',[
-            'form_params' => [
-                'search' => $search,
-            ]
-        ]);
+        $response = $client->request('GET','search/'.$id);
+        /*print_r($response->getBody()->getContents());
+            die();*/
         $data = $response->getBody()->getContents();
+        /*print_r($data);die();*/
         $searchresult =  \GuzzleHttp\json_decode($data);
-        /*return $searchresult;*/
+        /*print_r($searchresult);die();*/
+
         return view('Layout.Search',compact('searchresult'));
-        // print_r($form);
-        /*die();*/
 
 
     }

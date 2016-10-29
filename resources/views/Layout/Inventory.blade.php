@@ -31,32 +31,36 @@ if(Auth::check()){
         </div>
 
 
-
+        <div class="container">
         <div class="table-responsive">
                 <h2>Inventory list</h2>
 
                         <table class="table table-hover table-bordered">
-                                <thead>
+                                <thead >
                                 <tr>
                                         <th>Item name</th>
-                                        <th>Price</th>
+                                        <th>Price per</th>
 
 
                                 </tr>
                                 </thead>
+                                <tbody>
 
 
-                             {{--   @foreach($inventorylist as $in)
+                                @foreach($inventorylist as $in)
                                         <tr>
                                                 <td>{{$in->item_name}}</td>
                                                 <td>{{$in->price_per}}</td>
 
 
                                         </tr>
-                                @endforeach--}}
+                                @endforeach
+
+                                </tbody>
 
                         </table>
         </div>
+                </div>
 
 
 
