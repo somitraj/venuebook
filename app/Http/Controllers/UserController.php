@@ -510,6 +510,7 @@ class UserController extends BaseController
                 print_r($e->getMessage());
                 die();
             }
+            $request->session()->flash('alert-success', 'Password Successfully Changed!');
         }
         $form = $formBuilder->Create('Venue\Forms\PasswordResetForm', ['method' => 'POST', 'url' => route('manager.password')]);
 
