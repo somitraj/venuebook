@@ -29,6 +29,7 @@ class notification
         $userlist =  \GuzzleHttp\json_decode($data);
         return $userlist;
     }
+
     public static function getManager()
     {
         $client = new Client(['base_uri'=> config('app.REST_API')]);

@@ -4,6 +4,7 @@ namespace Venue\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Venue\Models\Feedback;
 use Venue\Models\User;
@@ -117,6 +118,20 @@ class UserController extends Controller
         }
 
     }
+    public function GetSpecificUserlist($id)
+    {
+        try {
+            $users = DB::table('users')//table join gareko
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->select('users.*', 'user_info.*')
+                ->where('users.id', '=', $id)
+                ->get();
+            return $users;
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+    }
 
 
     //yesko work pani mathi ko getindex ko jastai same ho
@@ -200,12 +215,27 @@ class UserController extends Controller
 
      public function EditUserDetails($id)
      {
-         //return $id;
+         /*return $id;*/
+         /*$userinfo = DB::table('user_info')
+             ->join('users', 'users.id', '=', 'user_info.user_id')
+             ->select('users.*', 'user_info.*')
+             ->where('users.id', '=', $id)
+             ->get();
+         return $userinfo;*/
+
          $usersinfo = new UserInfo();
          $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
-         // print_r($usersinfo);die();
+
          return $usersinfo;
      }
+    public function EditUserData($id)
+    {
+        //return $id;
+        $usersinfo = new UserInfo();
+        $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
+        // print_r($usersinfo);die();
+        return $usersinfo;
+    }
     /* try {*/
 
 

@@ -294,9 +294,9 @@ class UserController extends BaseController
         $response = $client->request('POST','edituser/'.$id);
         // print_r($response);die();
         $data = $response->getBody()->getContents();
-        // print_r($data);die();
+        /* print_r($data);die();*/
         $edituser =  \GuzzleHttp\json_decode($data);
-        //  print_r($edituser);die();
+         /*print_r($edituser);die();*/
 
         $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/useredit'],
             [
@@ -323,21 +323,55 @@ class UserController extends BaseController
                 //'identity_image' => $edituser->identity_image
             ]);
 //print_r($viewuserdetails);die();
-
         return view('Layout.Edituser',compact('form'));
+
+
+
+    }
+
+    public function EditUserData(FormBuilder $formBuilder,$id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        // print_r($client);die();
+        $response = $client->request('POST','edituserdata/'.$id);
+        // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        // print_r($data);die();
+        $edituser =  \GuzzleHttp\json_decode($data);
+        //  print_r($edituser);die();
+
+        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'manager/useredit'],
+            [
+                'id'=>$edituser->id,
+                'first_name' => $edituser->first_name,
+                'last_name' =>  $edituser->last_name,
+                'username' => $edituser->username,
+                'dob' =>  $edituser->dob,
+                'nationality_id' =>  $edituser->nationality_id,
+                'phone_no' =>  $edituser->phone_no,
+                'mobile_no' =>  $edituser->mobile_no,
+                'email' => $edituser->email
+                // 'password' => $edituser->password,
+                //'user_type_id' => $edituser->user_type,
+                // 'country_id' => $edituser->Country,
+                // 'province_id' => $edituser->Province,
+                //'zone_id' => $edituser->Zones,
+                //'district_id' => $edituser->District,
+                //  'locality' => $edituser->Locality,
+
+                // 'profile_image' => $edituser->profile_image,
+
+
+                //'identity_image' => $edituser->identity_image
+            ]);
+//print_r($viewuserdetails);die();
+        return view('Layout.Settings',compact('form'));
+        /* return view('Layout.User',compact('form'));*/
         // return redirect()->route('Viewdetails.userlist');
 
 
     }
 
-   /* public function GetProfileImage(){
-        $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','getimage');
-        $data = $response->getBody()->getContents();
-        $getimage =  \GuzzleHttp\json_decode($data);
 
-
-    }*/
     public function ViewUserDetails($id){
         $client = new Client(['base_uri' => config('app.REST_API')]);
 
@@ -411,27 +445,41 @@ class UserController extends BaseController
 
     }
 
-    public function UserAccount(Request $request){
+    public function UserAccount(Request $request)
+    {
         try {
-            $id=Auth::user()->id;
+            $id = Auth::user()->id;
             /*print_r($us);die();*/
 
-           // print_r($id);die();
+            // print_r($id);die();
             $client = new Client(['base_uri' => config('app.REST_API')]);
-            $response = $client->request('GET', 'account/'.$id);
+            $response = $client->request('GET', 'account/' . $id);
             /*print_r($response->getBody()->getContents());
             die();*/
             $data = $response->getBody()->getContents();
             $account = \GuzzleHttp\json_decode($data);
 
             return view('Layout.Account', compact('account'));
+        } catch (\Exception $e) {
+            print_r($e->getMessage());
+            die();
         }
-        catch(\Exception $e)
-        {
-            print_r($e->getMessage());die();
-        }
+    }
 
+
+    public  function  Settings(){
+
+        $id=Auth::user()->id;
+        /*print_r($id);die();*/
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET', 'specificuser/'.$id);
+        $data = $response->getBody()->getContents();
+        /*print_r($data);die();*/
+        $userlist = \GuzzleHttp\json_decode($data);
+        return view('Layout.Settings',compact('userlist'));
 
     }
+
+
 
 }

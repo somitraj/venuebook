@@ -33,6 +33,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('district', 'AddressController@GetDistrict');
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
+    $api->any('specificuser/{id}', 'UserController@GetSpecificUserList');
     $api->get('managerlist', 'UserController@GetManagerList');
    // $api->get('venuelist', 'UserController@GetVenueList');
     $api->get('venuelist', 'VenueController@Register');
@@ -52,6 +53,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
    $api->any('userdetails/{id}', 'UserController@GetUserDetails');
     $api->any('venuedetails/{id}', 'VenueController@GetVenueData');
     $api->any('edituser/{id}', 'UserController@EditUserDetails');
+    $api->any('edituserdata/{id}', 'UserController@EditUserData');
     $api->any('editvenuedetails/{id}', 'VenueController@GetVenueData');
 
 
