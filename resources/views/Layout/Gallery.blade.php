@@ -41,11 +41,11 @@ foreach($proimage as $pro){
                 <div id="gallery">
 
                 @foreach($gallerydata as $g1)
-                        <img class="popup" src="/{{$g1->cover}}" width="200" height="200">
-                        <img class="popup" src="/{{$g1->image1}}" width="200" height="200">
-                        <img class="popup" src="/{{$g1->image2}}" width="200" height="200">
-                        <img class="popup" src="/{{$g1->image3}}" width="200" height="200">
-                        <img class="popup" src="/{{$g1->image4}}" width="200" height="200">
+                        <img {{--class="popup" --}}src="/{{$g1->cover}}" width="200" height="200">
+                        <img {{--class="popup"--}} src="/{{$g1->image1}}" width="200" height="200">
+                        <img {{--class="popup" --}}src="/{{$g1->image2}}" width="200" height="200">
+                        <img {{--class="popup"--}} src="/{{$g1->image3}}" width="200" height="200">
+                        <img {{--class="popup"--}} src="/{{$g1->image4}}" width="200" height="200">
                 @endforeach
 
                 </div>
