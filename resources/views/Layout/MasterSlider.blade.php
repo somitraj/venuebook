@@ -79,8 +79,13 @@
         </div>
     </div>
     <br>
-    @if(!Auth::check())
-    <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
+    @if(!Auth::check() || Auth::user()->user_type_id==3)
+        @if(!Auth::check())
+            <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
+            @elseif(Auth::user()->user_type_id==3)
+              <h4 style="text-align: center"><a href="Book"><button class="btn-success">Book Now</button></a></h4>
+            @endif
+
     @endif
 
 @endsection

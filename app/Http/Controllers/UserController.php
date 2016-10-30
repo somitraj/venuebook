@@ -438,7 +438,7 @@ class UserController extends BaseController
         $data = $response->getBody()->getContents();
         /*print_r($data);die();*/
         $searchresult =  \GuzzleHttp\json_decode($data);
-        /*print_r($searchresult);die();*/
+        print_r($searchresult);die();
 
         return view('Layout.Search',compact('searchresult'));
 

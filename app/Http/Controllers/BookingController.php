@@ -29,9 +29,12 @@ class BookingController extends BaseController
     {
         $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
         return view('Layout.BookTotal', compact('form'));
-        // print_r($form);
-        die();
+        // print_r($form); die();
 
 
+
+    }
+    public  function  MenuSelect(){
+        return view('Layout.MenuSelection');
     }
 }

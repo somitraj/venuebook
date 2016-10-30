@@ -14,8 +14,7 @@ Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
     Route::any('account',['as'=>'user.account','uses'=>'UserController@UserAccount'  ]);
     Route::any("password",["as"=>'user.password', "uses"=>'UserController@ChangePassword']);
     Route::any("settings",["as"=>'user.settings', "uses"=>'UserController@Settings']);
-    /*Route::get('/searchlost',['as'=>'searchlost','uses'=>'Web\LoginController@Search']);
-    Route::get('/searchfound',['as'=>'searchfound','uses'=>'Web\LoginController@Lost']);
-    Route::get('/lostitem',['as'=>'lostitem','uses'=>'Web\LoginController@ReportLost']);
-    Route::get('/founditem',['as'=>'founditem','uses'=>'Web\LoginController@ReportFound']);*/
+    Route::any('Book',['as'=>'user.Book','uses'=>'BookingController@Book']);
+    Route::any('BookTotal',['as'=>'user.BookTotal','uses'=>'BookingController@BookTotal']);
+    Route::any('MenuSelect',['as'=>'user.MenuSelect','uses'=>'BookingController@MenuSelect']);
 });

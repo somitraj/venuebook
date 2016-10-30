@@ -49,6 +49,11 @@ Route::any('/BookTotal',[
     'uses'=>'BookingController@BookTotal'
 ]);
 
+Route::any('/MenuSelect',[
+    'as'=>'web.MenuSelect',
+    'uses'=>'BookingController@MenuSelect'
+]);
+
 Route::any('/Search',[
     'as'=>'web.Search',
     'uses'=>'UserController@Search'
