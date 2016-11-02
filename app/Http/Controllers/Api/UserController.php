@@ -14,6 +14,7 @@ use Venue\Models\UserInfo;
 use Venue\Models\UserType;
 use Venue\Models\UserVenue;
 use Venue\Models\Venue;
+use Venue\Models\VenueMenuItem;
 
 
 class UserController extends Controller
@@ -299,6 +300,9 @@ WHERE (user_info.user_id=51)"));
         }
 
 
+    }
+    public function MenuSelect(Request $request){
+        return VenueMenuItem::all();
     }
 
 }
