@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Venue\Models\Feedback;
 use Venue\Models\User;
 /*use Venue\Http\Requests;*/
@@ -262,9 +263,32 @@ WHERE (user_info.user_id=51)"));
      throw $e;
  }
 }*/
-
-
     public function ChangePassword(Request $request){
+        //return $request->all();
+        $np=$request->get('newpassword');
+        $cp=$request->get('comfirmpassword');
+        $user=User::where('id','=',$request->get('id'))->select('password','id')->first();
+        //return $user;
+        if(!Hash::check($request->get('password'),$user->password))
+        {
+            return 0;
+        }
+        else
+        {
+            if($np==$cp) {
+                $user = DB::table('users')
+                    ->where('id', $request->get('id'))
+                    ->update(['password' => bcrypt($request->get('newpassword'))
+                    ]);
+                return $user;
+            }
+            else{
+                return 1;
+            }
+        }
+    }
+
+   /* public function ChangePassword(Request $request){
         try {
             $authpw = $request->get('pw');
             $id= $request->get('id');
@@ -272,11 +296,11 @@ WHERE (user_info.user_id=51)"));
             /*return $authpw;*/
 
 
-            $op = $request->get('old_password');
+           /* $op = $request->get('old_password');
             $np = $request->get('new_password');
             $cp = $request->get('cpassword');
 
-            $user=User::where('id','=',$id)->first();
+            $user=User::where('id','=',$id)->first();*/
             /*return $user;*/
 
             /*if (bcrypt($op) != $authpw) {
@@ -285,7 +309,7 @@ WHERE (user_info.user_id=51)"));
 
 
             /*else {*/
-                if($np==$cp){
+                /*if($np==$cp){
                     $user->setAttribute('password', bcrypt($np));
                     $user->save();
 
@@ -294,13 +318,13 @@ WHERE (user_info.user_id=51)"));
 
 
             /*}*/
-        }
+     /*   }
         catch(\Exception $e){
             throw $e;
         }
 
 
-    }
+    }*/
     public function MenuSelect(Request $request){
         return VenueMenuItem::all();
     }

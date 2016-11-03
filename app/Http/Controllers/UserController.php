@@ -1,11 +1,14 @@
 <?php
 
 namespace Venue\Http\Controllers;
+use ExceptionCode;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
@@ -15,51 +18,71 @@ use Venue\Models\UserType;
 
 class UserController extends BaseController
 {
-    public function login(FormBuilder $formBuilder,Request $request) //for login
+    public function login(FormBuilder $formBuilder, Request $request) //for login
     {
-       try{
-        if (Auth::check()) {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
-            return view('Layout.Home', compact('form'));
+        try
+        {
+            if (Auth::check())
+            {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
+                return view('Layout.Home', compact('form'));
 
-        } else { //if not logged in,login page is displayed
-            $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
-            if ($request->getMethod() == 'POST') {  //activates login button
-                $client = new Client(['base_uri' => config('app.REST_API')]);
-
-                $response = $client->request('POST', 'login', [
-                    'form_params' => [
-
-                        'username' => $request->get('username'),
-                        'password' => $request->get('password')
-
-                    ]
-
-                ]);
-                $userApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user; //api bata json format bata ako lai decode gareko
-
-                $user = new User();
-                $user->id = $userApi->id;
-                $user->username = $userApi->username;
-                $user->password = $userApi->password;
-                /*$user->profile_image=$userApi->profile_image;*/
-                $user->user_type_id = $userApi->user_type_id;
-                Auth::login($user);
-
-
-                //   return redirect()->route('manager.dash');
-                return $this->UserCheck();
             }
+            else { //if not logged in,login page is displayed
+                $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
+                if ($request->getMethod() == 'POST') {//activates login button
+                    try {
+                        $client = new Client(['base_uri' => config('app.REST_API')]);
 
-            /*print_r($response);die();*/
-            return view('Layout.Login', compact('form'));
+                        $response = $client->request('POST', 'login', [
+                            'form_params' => [
+
+                                'username' => $request->get('username'),
+                                'password' => $request->get('password')
+
+                            ]
+
+                        ]);
+                        $userApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user; //api bata json format bata ako lai decode gareko
+
+                        $user = new User();
+                        $user->id = $userApi->id;
+                        $user->username = $userApi->username;
+                        $user->password = $userApi->password;
+                        /*$user->profile_image=$userApi->profile_image;*/
+                        $user->user_type_id = $userApi->user_type_id;
+                        Auth::login($user);
+
+
+                        //   return redirect()->route('manager.dash');
+                        return $this->UserCheck();
+                    }
+                    catch (\Exception $e) {
+                        throw  $e;
+                    }
+                }
+                return view('Layout.Login', compact('form'));
+            }
+            }
+        catch (\Exception $e) {
+            $validator = Validator::make(Input::all(),[]);
+            if ($e->getCode() == 500) {
+                $error = json_decode($e->getResponse()->getBody()->getContents());
+                if (array_key_exists('code', $error)) {
+                    if ($error->code == \Venue\ExceptionCode::INVALID_USER) {
+                        $validator->errors()->add('username', $error->message);
+                    } elseif ($error->code == \Venue\ExceptionCode::INVALID_PASSWORD) {
+                        $validator->errors()->add('password', $error->message);
+                    } else {
+                        $validator->errors()->add('global', $error->message);
+                    }
+
+                } else {
+                    $validator->errors()->add('global', $error->message);
+                }
+                $errors = $validator;
+                return redirect()->back()->withErrors($validator);
+            }
         }
-
-
-        }
-       catch(\Exception $e)
-       {
-           print_r($e->getMessage());die();
-       }
     }
 
 
@@ -480,7 +503,7 @@ class UserController extends BaseController
         return view('Layout.Settings',compact('userlist'));
 
     }
-    public function ChangePassword(FormBuilder $formBuilder,Request $request)
+   /* public function ChangePassword(FormBuilder $formBuilder,Request $request)
     {
 
         $client = new Client(['base_uri'=> config('app.REST_API')]);
@@ -490,7 +513,7 @@ class UserController extends BaseController
                 $id = Auth::user()->id;
                 /*print_r($id);die();*/
                 /*print_r(bcrypt($pw));die();*/
-                $response = $client->request('POST', 'password', [
+                /*$response = $client->request('POST', 'password', [
                     'form_params' => [
                         'old_password' =>  $request->get('old_password'),
                         'new_password' =>  $request->get('new_password'),
@@ -500,14 +523,14 @@ class UserController extends BaseController
 
 
                     ]
-                ]);
+                ]);*/
                 /*$data = $response->getBody()->getContents();
                 print_r($data);die();*/
 
 
 
 
-            } catch (\Exception $e) {
+        /*    } catch (\Exception $e) {
                 print_r($e->getMessage());
                 die();
             }
@@ -517,5 +540,28 @@ class UserController extends BaseController
 
         return view('Layout.ChangePassword', compact('form'));
 
+    }*/
+    public function ChangePassword(FormBuilder $formBuilder,Request $request){
+        $client=new Client(['base_uri'=>config('app.REST_API')]);
+        $form=$formBuilder->create(\Venue\Forms\PasswordResetForm::class,[
+            'method'=>'POST',
+            'url'=>'manager/password'
+        ]);
+        if($request->getMethod()=='POST'){
+            //print_r("hi");die();
+            $response=$client->request('POST','password',[
+                'form_params'=>[
+                    'password'=>$request->get('old_password'),
+                    'newpassword'=>$request->get('new_password'),
+                    'comfirmpassword'=>$request->get('confirm_new_password'),
+                    'id'=>Auth::user()->id
+                ]
+            ]);
+            $user = \GuzzleHttp\json_decode($response->getBody()->getContents());
+            //print_r($user);die();
+            $success_message = "Password Changed Successfully";
+            return redirect('user/password')->with('status1', $success_message);
+        }
+        return view('Layout.ChangePassword',compact('form'));
     }
 }

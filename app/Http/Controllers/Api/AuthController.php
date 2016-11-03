@@ -5,11 +5,13 @@ namespace Venue\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Dingo\Api\Routing\Helpers;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Dingo\Api\Exception\ValidationHttpException;
+use Venue\ExceptionCode;
 use Venue\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Venue\User;
 
@@ -32,8 +34,16 @@ class AuthController extends Controller
             throw new ValidationHttpException($validator->errors()->all());
         }
 
+        $user=\Venue\Models\User::where('username','=',$request->username)->first();
+        if(!$user)
+        {
+            throw new \Exception('Invalid username',ExceptionCode::INVALID_USER);
+        }
 
-
+        elseif(!Hash::check($request->password,$user->password))
+        {
+            throw new \Exception('Invalid Password',ExceptionCode::INVALID_PASSWORD);
+        }
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
                 return $this->response->errorUnauthorized();

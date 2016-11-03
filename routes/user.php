@@ -12,8 +12,8 @@ Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
     Route::any('venuepage',['as'=>'user.venuepage','uses'=>'UserController@VenuePage' ]);
     Route::any('venuesearch',['as'=>'user.search','uses'=>'UserController@Search'  ]);
     Route::any('account',['as'=>'user.account','uses'=>'UserController@UserAccount'  ]);
-    Route::any("password",["as"=>'user.password', "uses"=>'UserController@ChangePassword']);
-    Route::any("settings",["as"=>'user.settings', "uses"=>'UserController@Settings']);
+    Route::any('password',['as'=>'user.password', 'uses'=>'UserController@ChangePassword']);
+    Route::any("settings",['as'=>'user.settings', "uses"=>'UserController@Settings']);
     Route::any('Book',['as'=>'user.Book','uses'=>'BookingController@Book']);
     Route::any('BookTotal',['as'=>'user.BookTotal','uses'=>'BookingController@BookTotal']);
     Route::any('MenuSelect',['as'=>'user.MenuSelect','uses'=>'BookingController@MenuSelect']);
