@@ -59,14 +59,22 @@ $route=Route::getCurrentRoute();
                {{-- @foreach($vdata as $vd)--}}
                     <li><a href="account?id={{Auth::user()->id}}"><i class="fa fa-user fa-fw"></i> My Account</a>
                      </li>
+                <li><a href="settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
                 {{--@endforeach--}}
-
+            @elseif(Auth::user()->user_type_id==1)
+                <li><a href="/admin/account"><i class="fa fa-user fa-fw"></i> My Account</a>
+                </li>
+                <li><a href="/admin/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
             @else
             <li><a href="account"><i class="fa fa-user fa-fw"></i> My Account</a>
             </li>
+                <li><a href="settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
             @endif
-            <li><a href="settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
-            </li>
+            {{--<li><a href="settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>--}}
             <li class="divider"></li>
             <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </li>
