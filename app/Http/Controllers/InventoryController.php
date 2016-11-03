@@ -31,8 +31,8 @@ class InventoryController extends Controller
 
                        ]
                    ]);
-                   print_r($response->getBody()->getContents());
-                   die();
+                   /*print_r($response->getBody()->getContents());
+                   die();*/
                    /*print_r($inventorylist);die();*/
                } catch (\Exception $e) {
                    print_r($e->getMessage());

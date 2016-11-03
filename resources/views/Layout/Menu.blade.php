@@ -2,37 +2,29 @@
 //print_r(auth::user());
 $notices=\Venue\notification::getNotification();
 /*$vdata=\Venue\venuedata1::getVenueData();*/
+$route=Route::getCurrentRoute();
 ?>
 <ul class="nav navbar-nav">
 @if(Auth::check())
     @if(Auth::user()->user_type_id==1)
 
-        <li class="active" ><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
-        <li><a href="notice" class="glyphicon glyphicon-bell"> <span class="badge">{{count($notices)}}</span> Notification</a></li>
-        <li><a href="client" class="glyphicon glyphicon-user"> Client</a></li>
-        {{--<li class="dropdown" >
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" >
-                    <i class="glyphicon glyphicon-leaf"></i> Venue<i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="managerlist">Managerlist</a>
-                    </li>
-                    <li><a href="venuelist">VenueList</a>
-                    </li>
-                </ul>
-            <li>--}}
-                <!-- /.dropdown-user -->
-            <li><a href="venue" class="glyphicon glyphicon-leaf"> Venue</a></li></ul>
-                @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
-            <li class="active"><a href="dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
-            <li><a href="notification" class="glyphicon glyphicon-globe" > Notification <span class="badge">4</span></a></li>
-            <li class="dropdown"><a href="inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
-            <li><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-        <li><a href="gallery" class="glyphicon glyphicon-picture"> Gallery</a></li>
 
-    @elseif(Auth::user()->user_type_id==3)<li class="active" ><a href="home" class="glyphicon glyphicon-bell"> Home </a></li>
-        <li><a href="/Notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
-        <li><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li class="<?php if($route->getUri()=='admin/dashboard'){echo 'active';} ?>" ><a href="/admin/dashboard" class="glyphicon glyphicon-dashboard"> Dashboard</a></li>
+        <li class="<?php if($route->getUri()=='admin/notice'){echo 'active';} ?>"><a href="/admin/notice" class="glyphicon glyphicon-bell"> <span class="badge">{{count($notices)}}</span> Notification</a></li>
+        <li class="<?php if($route->getUri()=='admin/client'){echo 'active';} ?>"><a href="/admin/client" class="glyphicon glyphicon-user"> Client</a></li>
+            <li class="<?php if($route->getUri()=='admin/venue'){echo 'active';} ?>"><a href="/admin/venue" class="glyphicon glyphicon-leaf"> Venue</a></li></ul>
+
+                @elseif(Auth::user()->user_type_id==2) {{--login garda user type id 2 vayo vane yo menu dekhaune--}}
+            <li class="<?php if($route->getUri()=='manager/dashboard'){echo 'active';} ?>"><a href="/manager/dashboard" class="glyphicon glyphicon-dashboard"> Dashboard </a></li>
+            <li class="<?php if($route->getUri()=='manager/notification'){echo 'active';} ?>"><a href="notification" class="glyphicon glyphicon-globe" > Notification <span class="badge">4</span></a></li>
+            <li class="<?php if($route->getUri()=='manager/inventory'){echo 'active';} ?>"><a href="inventory" class="glyphicon glyphicon-list-alt"> Inventory</a></li>
+            <li class="<?php if($route->getUri()=='manager/feedback'){echo 'active';} ?>"><a href="feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li class="<?php if($route->getUri()=='manager/gallery'){echo 'active';} ?>"><a href="gallery" class="glyphicon glyphicon-picture"> Gallery</a></li>
+
+    @elseif(Auth::user()->user_type_id==3)
+                    <li class="<?php if($route->getUri()=='user/home'){echo 'active';} ?>" ><a href="/user/home" class="glyphicon glyphicon-bell"> Home </a></li>
+        <li class="<?php if($route->getUri()=='user/notification'){echo 'active';} ?>"><a href="/user/notification" class="glyphicon glyphicon-globe"> Notification<span class="badge">0</span></a></li>
+        <li class="<?php if($route->getUri()=='user/feedback'){echo 'active';} ?>"><a href="/user/feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
 
 
 

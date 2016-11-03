@@ -205,9 +205,11 @@ class VenueController extends Controller
 
             $menu_id=$inventory1->id;
             /*return $menu_id;*/
-            $inventory=VenueMenuItem::where('menu_item_id','=',$menu_id)->get();
+            $inventory=VenueMenuItem::where('menu_item_id','=',$menu_id)
+                ->where('venue_id', '=', $venuId)
+                ->first();
             /*$inventory=VenueMenuItem::all('venue_id','menu_item_id');*/
-            return $inventory;
+            /*return $inventory;*/
 
 
             if(!$inventory)
@@ -215,13 +217,13 @@ class VenueController extends Controller
                 $inventory = new VenueMenuItem();
 
             }
-            /*$inventory1->setAttribute('item_name', $request->get('item1'));
-            $inventory1->save();*/
+            $inventory1->setAttribute('item_name', $request->get('item1'));
+            $inventory1->save();
 
 
-            /*$inventory->setAttribute('price_per', $request->get('price_per1'));
-            $inventory->setAttribute('venue_id', $userVenue->venue_id);
-            $inventory->setAttribute('menu_item_id',$inventory1->id);*/
+//            $inventory->setAttribute('price_per', $request->get('price_per1'));
+//            $inventory->setAttribute('venue_id', $userVenue->venue_id);
+//            $inventory->setAttribute('menu_item_id',$inventory1->id);
             $inventory->price_per = $request->get('price_per1');
             $inventory->venue_id = $userVenue->venue_id;
             $inventory->menu_item_id = $inventory1->id;

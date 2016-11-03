@@ -171,8 +171,8 @@ class UserController extends Controller
 
                 $result = Venue::where('name', 'like', '%' . $id . '%')
                     /*->orWhere('address', 'like', '%$key%')
-                    ->orWhere('person_capacity', 'like', '%$key%')
-                    ->orWhere('locality', 'like', '%$key%')*/
+                    ->orWhere('person_capacity', 'like', '%$key%')*/
+                    ->orWhere('locality', 'like', '%'.$id.'%')
                     ->orderBy('name')
                     ->paginate(20);
                 return $result;

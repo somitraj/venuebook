@@ -8,6 +8,7 @@
 ?>
 @extends('Layout/MainLayout')
 @section('content')
+    {{--{{dd($searchresult->data)}}--}}
 
 <div class="table-responsive">
     <h2>Searh Result :</h2>
@@ -24,13 +25,13 @@
             </tr>
             </thead>
             <tbody>
-           {{-- @foreach($searchresult as $se)
+            @foreach($searchresult->data as $se)
                 <tr>
                     <td><img src="/{{$se->image}}"class="img-circle" width="70" height="70"></td>
                     <td>{{$se->name}}</td>
                 </tr>
 
-                @endforeach--}}
+                @endforeach
 
 
             </tbody>
