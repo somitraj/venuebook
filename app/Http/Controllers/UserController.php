@@ -289,15 +289,115 @@ class UserController extends BaseController
 
     }
 
-    public function EditUserDetails(FormBuilder $formBuilder,$id){
+    public function EditUserDetails(FormBuilder $formBuilder,$id,Request $request)
+    {
         $client = new Client(['base_uri' => config('app.REST_API')]);
         // print_r($client);die();
-        $response = $client->request('POST','edituser/'.$id);
+        $response = $client->request('POST', 'edituser/' . $id);
         // print_r($response);die();
         $data = $response->getBody()->getContents();
         /* print_r($data);die();*/
+        $edituser = \GuzzleHttp\json_decode($data);
+        /*print_r($edituser);die();*/
+        if ($request->getMethod() == 'POST') {
+
+                $response1 = $client->request('POST', 'editinfo', [
+                    'form_params' => [
+                        'user_id' => $id,
+                        'first_name' => $request->get('first_name'),
+                        'last_name' => $request->get('last_name'),
+                        'username' => $request->get('username'),
+                        'dob' => $request->get('dob'),
+                        'nationality_id' => $request->get('nationality_id'),
+                        'phone_no' => $request->get('phone_no'),
+                        'mobile_no' => $request->get('mobile_no'),
+                        'email' => $request->get('email'),
+
+
+                    ]
+                ]);
+                /*$data1 = $response1->getBody()->getContents();*/
+            /*print_r($data1);die();*/
+
+                /*$editdata = \GuzzleHttp\json_decode($data1);*/
+
+          /*  } catch (\Exception $e) {
+                print_r($e->getMessage());
+                die();
+            }*/
+        }
+
+        if(Auth::user()->user_type_id==2){
+            $form1 = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST'],
+                [
+                    'id' => $edituser->id,
+                    'first_name' => $edituser->first_name,
+                    'last_name' => $edituser->last_name,
+                    'username' => $edituser->username,
+                    'dob' => $edituser->dob,
+                    'nationality_id' => $edituser->nationality_id,
+                    'phone_no' => $edituser->phone_no,
+                    'mobile_no' => $edituser->mobile_no,
+                    'email' => $edituser->email,
+                    /*'profile_image' => $edituser->profile_image*/
+                    // 'password' => $edituser->password,
+                    // 'country_id' => $edituser->Country,
+                    // 'province_id' => $edituser->Province,
+                    //'zone_id' => $edituser->Zones,
+                    //'district_id' => $edituser->District,
+                    //  'locality' => $edituser->Locality,
+
+                    // 'profile_image' => $edituser->profile_image,
+
+
+                    //'identity_image' => $edituser->identity_image
+
+                ]);
+            return view('Layout.EditVenue', compact('form1'));
+
+        }
+
+                $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST'],
+                    [
+                        'id' => $edituser->id,
+                        'first_name' => $edituser->first_name,
+                        'last_name' => $edituser->last_name,
+                        'username' => $edituser->username,
+                        'dob' => $edituser->dob,
+                        'nationality_id' => $edituser->nationality_id,
+                        'phone_no' => $edituser->phone_no,
+                        'mobile_no' => $edituser->mobile_no,
+                        'email' => $edituser->email,
+                        /*'profile_image' => $edituser->profile_image*/
+                        // 'password' => $edituser->password,
+                        // 'country_id' => $edituser->Country,
+                        // 'province_id' => $edituser->Province,
+                        //'zone_id' => $edituser->Zones,
+                        //'district_id' => $edituser->District,
+                        //  'locality' => $edituser->Locality,
+
+                        // 'profile_image' => $edituser->profile_image,
+
+
+                        //'identity_image' => $edituser->identity_image
+                    ]);
+//print_r($viewuserdetails);die();
+                return view('Layout.Edituser', compact('form'));
+
+
+            }
+
+
+
+ /*   public function EditUserData(FormBuilder $formBuilder,$id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+
+        $response = $client->request('POST','edituserdata/'.$id);
+
+        $data = $response->getBody()->getContents();
+
         $edituser =  \GuzzleHttp\json_decode($data);
-         /*print_r($edituser);die();*/
+
 
         $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/useredit'],
             [
@@ -310,67 +410,10 @@ class UserController extends BaseController
                 'phone_no' =>  $edituser->phone_no,
                 'mobile_no' =>  $edituser->mobile_no,
                 'email' => $edituser->email
-                // 'password' => $edituser->password,
-                //'user_type_id' => $edituser->user_type,
-                // 'country_id' => $edituser->Country,
-                // 'province_id' => $edituser->Province,
-                //'zone_id' => $edituser->Zones,
-                //'district_id' => $edituser->District,
-                //  'locality' => $edituser->Locality,
 
-                // 'profile_image' => $edituser->profile_image,
-
-
-                //'identity_image' => $edituser->identity_image
             ]);
-//print_r($viewuserdetails);die();
-        return view('Layout.Edituser',compact('form'));
-
-
-
-    }
-
-    public function EditUserData(FormBuilder $formBuilder,$id){
-        $client = new Client(['base_uri' => config('app.REST_API')]);
-        // print_r($client);die();
-        $response = $client->request('POST','edituserdata/'.$id);
-        // print_r($response);die();
-        $data = $response->getBody()->getContents();
-        // print_r($data);die();
-        $edituser =  \GuzzleHttp\json_decode($data);
-        //  print_r($edituser);die();
-
-        $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'manager/useredit'],
-            [
-                'id'=>$edituser->id,
-                'first_name' => $edituser->first_name,
-                'last_name' =>  $edituser->last_name,
-                'username' => $edituser->username,
-                'dob' =>  $edituser->dob,
-                'nationality_id' =>  $edituser->nationality_id,
-                'phone_no' =>  $edituser->phone_no,
-                'mobile_no' =>  $edituser->mobile_no,
-                'email' => $edituser->email
-                // 'password' => $edituser->password,
-                //'user_type_id' => $edituser->user_type,
-                // 'country_id' => $edituser->Country,
-                // 'province_id' => $edituser->Province,
-                //'zone_id' => $edituser->Zones,
-                //'district_id' => $edituser->District,
-                //  'locality' => $edituser->Locality,
-
-                // 'profile_image' => $edituser->profile_image,
-
-
-                //'identity_image' => $edituser->identity_image
-            ]);
-//print_r($viewuserdetails);die();
         return view('Layout.Settings',compact('form'));
-        /* return view('Layout.User',compact('form'));*/
-        // return redirect()->route('Viewdetails.userlist');
-
-
-    }
+    }*/
 
 
     public function ViewUserDetails($id){

@@ -12,7 +12,7 @@ foreach($proimage as $pro){
     }
 }
 ?>
-@extends('Layout/MainLayout')
+@extends('Layout/Mainlayout')
 @section('content')
     @if(Auth::check())  {{--login check garne--}}
     <div>
@@ -29,13 +29,12 @@ foreach($proimage as $pro){
         <div class="col-md-8 col-md-offset-2">
             <div class="panel-primary">
                 <div class="panel-heading">
-                    <p style="text-align:center"> Venue gestion</p>
+                    <h4 style="text-align:center"> Venue gestion</h4>
                 </div>
                 <div class="panel-body">
-                    {!! form($form) !!}
+                    {!! form($form1) !!}
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

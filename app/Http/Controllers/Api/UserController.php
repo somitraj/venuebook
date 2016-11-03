@@ -124,7 +124,7 @@ class UserController extends Controller
         try {
             $users = DB::table('users')//table join gareko
             ->join('user_info', 'users.id', '=', 'user_info.user_id')
-                ->select('users.*', 'user_info.*')
+                ->select('user_info.*','users.*')
                 ->where('users.id', '=', $id)
                 ->get();
             return $users;
@@ -225,6 +225,15 @@ class UserController extends Controller
              ->get();
          return $userinfo;*/
 
+         /*$usersinfo = DB::table('user_venue')//table join gareko
+         ->join('users', 'users.id', '=', 'user_venue.user_id')
+             ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+             ->join('user_info', 'user_info.user_id', '=', 'users.id')
+             ->select( 'venues.*', 'users.*', 'user_info.*')
+             ->where('users.id', '=', $id)
+             ->get();*/
+
+
          $usersinfo = new UserInfo();
          $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
 
@@ -305,6 +314,37 @@ WHERE (user_info.user_id=51)"));
     public function MenuSelect(Request $request){
         return VenueMenuItem::all();
     }
+
+
+    public function EditInfo(Request $request){
+        try{
+            $uid=$request->get('user_id');
+            $f=$request->get('first_name');
+            $l=$request->get('last_name');
+            $d=$request->get('dob');
+            $u=$request->get('username');
+            $n=$request->get('nationality_id');
+            $ph=$request->get('phone_no');
+            $mn=$request->get('mobile_no');
+            $e=$request->get('email');
+            /*return $e;*/
+
+            $userinfo=UserInfo::where('user_id', '=', $uid)->first();
+            $userinfo->setAttribute('first_name', $f);
+            $userinfo->setAttribute('last_name', $l);
+            $userinfo->setAttribute('username', $u);
+            $userinfo->setAttribute('dob', $d);
+            $userinfo->setAttribute('nationality_id', $n);
+            $userinfo->setAttribute('phone_no', $ph);
+            $userinfo->setAttribute('mobile_no', $mn);
+            $userinfo->setAttribute('email', $e);
+            $userinfo->save();
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+    }
+
 
 }
 
