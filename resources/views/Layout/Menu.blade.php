@@ -30,10 +30,10 @@ $route=Route::getCurrentRoute();
 
     @endif
     @else
-        <li class="active"  ><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
-        <li><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
-        <li><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
-        <li class="dropdown"><a href="/Register" class="dropdown-toggle glyphicon glyphicon-pencil" data-toggle="dropdown"> Register
+        <li class="<?php if($route->getUri()=='/'){echo 'active';} ?>"><a href="/" class="glyphicon glyphicon-home"> Home</a></li>
+        <li class="<?php if($route->getUri()=='Contact'){echo 'active';} ?>"><a href="/Contact" class="glyphicon glyphicon-phone-alt"> Contact Us</a></li>
+        <li class="<?php if($route->getUri()=='Feedback'){echo 'active';} ?>"><a href="/Feedback" class="glyphicon glyphicon-tags"> Feedback</a></li>
+        <li class="dropdown <?php if($route->getUri()=='Register'){echo 'active';} ?> <?php if($route->getUri()=='Venue'){echo 'active';} ?>"><a href="/Register" class="dropdown-toggle glyphicon glyphicon-pencil" data-toggle="dropdown"> Register
                 <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="/Register">Client</a></li>
@@ -43,7 +43,7 @@ $route=Route::getCurrentRoute();
         {{--
                         <li><a href="/Register" class="glyphicon glyphicon-pencil"> Register</a></li>
         --}}
-        <li><a href="/login" class="glyphicon glyphicon-user"> Login</a></li>
+        <li class="<?php if($route->getUri()=='login'){echo 'active';} ?>"><a href="/login" class="glyphicon glyphicon-user"> Login</a></li>
     @endif
 </ul>
 
