@@ -67,7 +67,7 @@ foreach($proimage as $pro){
                             <td>{{$user->type_name}}</td>
                             <td><a href="venuedetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
                             <td><a href="editvenuedetails\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>
-                            <td><a href="venuedelete" class="btn btn-primary btn-block btn">Delete</a></td>
+                            <td><a href="venuedelete\{{$user->id}}" class="btn btn-primary btn-block btn">Delete</a></td>
 
                         </tr>
                     @endforeach

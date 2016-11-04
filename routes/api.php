@@ -51,6 +51,8 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('venuedetails/{id}', 'VenueController@GetVenueData');
     $api->any('edituser/{id}', 'UserController@EditUserDetails');
     $api->any('editvenuedetails/{id}', 'VenueController@GetVenueData');
+    $api->any('deleteuser/{id}', 'UserController@DeleteUserDetails');
+
 
 
 

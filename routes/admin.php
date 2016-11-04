@@ -12,6 +12,8 @@ Route::group(["role"=>1,"prefix"=>"admin"],function()
     Route::any("userdetails/{id}",["as"=>'admin.userdetails', "uses"=>'UserController@ViewUserDetails']);
 
     Route::any("useredit/{id}",["as"=>'admin.useredit', "uses"=>'UserController@EditUserDetails']);
+    Route::any("userdelete/{id}",["as"=>'admin.userdelete', "uses"=>'UserController@DeleteUserDetails']);
+
 
     //Route::any("userdetails",["as"=>'admin.userdetails', "uses"=>'UserController@ViewUserDetails']);
 

@@ -377,6 +377,18 @@ class UserController extends BaseController
         return view('Layout.Viewuserdetails',compact('userdetails'));
     }
 
+    public function DeleteUserDetails($id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+
+        $response = $client->request('POST', 'deleteuser/' . $id);
+        // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        // print_r($data);die();
+        $userdetails = \GuzzleHttp\json_decode($data);
+        //print_r($userdetails);die();
+        return view('Layout.Deleteuserdetails',compact('deleteuser'));
+    }
+
     public function UserCheck()
     {
         if (Auth::check()) {
