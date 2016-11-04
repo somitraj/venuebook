@@ -12,7 +12,7 @@
     <br>
     <br>
     @foreach($account as $ac)
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered table-responsive">
             <thead>
             <tr>
                 <th>Firstname</th>
@@ -25,10 +25,6 @@
             </tr>
 
 
-            </thead>
-
-
-      {{--      @foreach($account as $ac)--}}
                 <tr>
                     <th>Username</th>
                     <td>{{$ac->username}}</td>
@@ -62,7 +58,7 @@
                 <td>{{$ac->nationality_id}}</td>
             </tr>
             @endforeach
-
+            </thead>
         </table>
 </div>
     </div>
