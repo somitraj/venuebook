@@ -54,7 +54,7 @@ foreach($proimage as $pro){
                         @foreach($venuedetails as $vdata)
                             <img src="/{{$vdata->image}}" width="80" height="80">
                             <div class="table-responsive">
-                                <table class="table-bordered">
+                                <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
 
                                     <tr>
                                         <th class="col-md-2">Venue Name</th> <td class="col-md-2"> {{$vdata->first_name}}</td>

@@ -58,6 +58,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('password', 'UserController@ChangePassword');
     $api->any('menuselect', 'UserController@MenuSelect');
     $api->any('editinfo', 'UserController@EditInfo');
+    $api->any('editvenueinfo', 'UserController@EditVenueInfo');
 
 
 

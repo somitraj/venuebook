@@ -315,9 +315,7 @@ class UserController extends BaseController
     public function EditUserDetails(FormBuilder $formBuilder,$id,Request $request)
     {
         $client = new Client(['base_uri' => config('app.REST_API')]);
-        // print_r($client);die();
         $response = $client->request('POST', 'edituser/' . $id);
-        // print_r($response);die();
         $data = $response->getBody()->getContents();
         /* print_r($data);die();*/
         $edituser = \GuzzleHttp\json_decode($data);
@@ -327,24 +325,27 @@ class UserController extends BaseController
 
             if (Auth::user()->user_type_id == 2) {
 
-                $response1 = $client->request('POST', 'editinfo', [
-                    'form_params' => [
-                        'user_id' => $id,
-                        'first_name' => $request->get('first_name'),
-                        'last_name' => $request->get('last_name'),
-                        'username' => $request->get('username'),
-                        'name' => $request->get('name'),
-                        'space_area' => $request->get('space_area'),
-                        'person_capacity' => $request->get('person_capacity'),
-                        'established_date' => $request->get('established_date'),
-                        'nationality_id' => $request->get('nationality_id'),
-                        'phone_no' => $request->get('phone_no'),
-                        'phone_no_2' => $request->get('phone_no_2'),
-                        'email' => $request->get('email'),
+
+                    $response1 = $client->request('POST', 'editvenueinfo', [
+                        'form_params' => [
+                            'user_id' => $id,
+                            'first_name' => $request->get('first_name'),
+                            'last_name' => $request->get('last_name'),
+                            'username' => $request->get('username'),
+                            'name' => $request->get('name'),
+                            'space_area' => $request->get('space_area'),
+                            'person_capacity' => $request->get('person_capacity'),
+                            'established_date' => $request->get('established_date'),
+                            'nationality_id' => $request->get('nationality_id'),
+                            'phone_no' => $request->get('phone_no'),
+                            'phone_no_2' => $request->get('phone_no_2'),
+                            'email' => $request->get('email'),
 
 
-                    ]
-                ]);
+                        ]
+                    ]);
+                /*$data = $response1->getBody()->getContents();
+                 print_r($data);die();*/
 
             } else {
 
@@ -368,26 +369,29 @@ class UserController extends BaseController
         }
 
         if (Auth::user()->user_type_id == 2) {
+            /*print_r(Auth::user()->user_type_id);die();*/
+            foreach ($edituser as $edituser1) {
             $form1 = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST'],
                 [
-                    'id' => $edituser->id,
-                    'first_name' => $edituser->first_name,
-                    'last_name' => $edituser->last_name,
-                    /* 'name'=>$edituser->name,*/
-                    'username' => $edituser->username,
-                    'dob' => $edituser->dob,
-                    'nationality_id' => $edituser->nationality_id,
-                    'phone_no' => $edituser->phone_no,
-                    /*'phone_no_2' => $edituser->phone_no_2,*/
-                    'email' => $edituser->email,
-                    /*   'space_area'=>$edituser->space_area,
-                       'person_capacity'=>$edituser*/
+                    'id' => $edituser1->id,
+                    'first_name' => $edituser1->first_name,
+                    'last_name' => $edituser1->last_name,
+                     'name'=>$edituser1->name,
+                    'username' => $edituser1->username,
+                    'established_date' => $edituser1->established_date,
+                    'nationality_id' => $edituser1->nationality_id,
+                    'phone_no' => $edituser1->phone_no,
+                    'phone_no_2' => $edituser1->phone_no_2,
+                    'email' => $edituser1->email,
+                       'space_area'=>$edituser1->space_area,
+                       'person_capacity'=>$edituser1->person_capacity,
 
                 ]);
             return view('Layout.EditVenue', compact('form1'));
 
-        } else {
-
+        }
+        }else {
+            /*print_r(Auth::user()->user_type_id);die();*/
             $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST'],
                 [
                     'id' => $edituser->id,

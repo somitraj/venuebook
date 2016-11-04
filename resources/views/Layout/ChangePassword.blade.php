@@ -24,9 +24,9 @@
         @endif
     @endforeach
 </div> <!-- end .flash-message -->
-
+<div class="panel-footer">
       {!! form($form) !!}
-{{--    </div>--}}
+    </div>
 
 
     @endsection

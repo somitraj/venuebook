@@ -40,7 +40,7 @@ foreach($proimage as $pro){
           {{--  <a href="venuelist">--}}
             <div class="table-responsive">
                 {{--<a href="venueregister">--}}
-                <table class="table table-bordered">
+                <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
 
                     <thead>
                     <tr>

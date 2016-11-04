@@ -218,20 +218,27 @@ class UserController extends Controller
 
      public function EditUserDetails($id)
      {
-         /*$usersinfo = DB::table('user_venue')//table join gareko
-         ->join('users', 'users.id', '=', 'user_venue.user_id')
-             ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
-             ->join('user_info', 'user_info.user_id', '=', 'users.id')
-             ->select( 'venues.*','users.*','user_info.*')
-             ->where('users.id', '=', $id)
-             ->get();*/
+         /*return $id;*/
+         $usertypeid=User::where('id','=',$id)->first();
+         $utype=$usertypeid->user_type_id;
+         if($utype==2) {
+             $usersinfo = DB::table('user_venue')//table join gareko
+             ->join('users', 'users.id', '=', 'user_venue.user_id')
+                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                 ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                 ->select( 'venues.*','users.*','user_info.*')
+                 ->where('users.id', '=', $id)
+                 ->get();
+             return $usersinfo;
+         }
+         else {
 
 
+             // $usersinfo = new UserInfo();
+             $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
 
-         $usersinfo = new UserInfo();
-         $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
-
-         return $usersinfo;
+             return $usersinfo;
+         }
      }
     public function EditUserData($id)
     {
@@ -241,31 +248,7 @@ class UserController extends Controller
         // print_r($usersinfo);die();
         return $usersinfo;
     }
-    /* try {*/
 
-
-    /* $usersinfo = DB::table('user_info')//table join gareko
-     ->join('tbl_countries', 'user_info.country_id', '=', 'tbl_countries.id')
-         ->join('tbl_zones', 'user_info.zone_id', '=', 'tbl_zones.id')
-         ->join('tbl_district', 'user_info.district_id', '=', 'tbl_district.id')
-        // ->join('tbl_district', 'tbl_zones.id', '=', 'tbl_district.zone_id')
-         ->select('user_info.first_name','user_info.last_name','user_info.username','user_info.phone_no','user_info.mobile_no','user_info.nationality_id','tbl_countries.name','tbl_zones.name','tbl_district.name')
-        ->where('user_info.user_id', '=', $id)
-     ->get();*/
-    /* $usersinfo = DB::select(DB::raw("SELECT user_info.id , user_info.user_id , user_info.first_name , user_info.last_name , user_info.username , user_info.dob , user_info.email , user_info.nationality_id , user_info.phone_no , user_info.mobile_no , tbl_countries.name , tbl_zones.name , tbl_district.name
-FROM venue.user_info
-INNER JOIN venue.tbl_countries
-ON (user_info.country_id = tbl_countries.id)
-INNER JOIN venue.tbl_zones ON (user_info.zone_id = tbl_zones.id)
-INNER JOIN venue.tbl_district ON (tbl_district.zone_id = tbl_zones.id)
-AND (user_info.district_id = tbl_district.id)
-WHERE (user_info.user_id=51)"));
-     //print_r($usersinfo);die();
-     return $usersinfo;
- } catch (\Exception $e) {
-     throw $e;
- }
-}*/
     public function ChangePassword(Request $request){
         //return $request->all();
         $np=$request->get('newpassword');
@@ -291,45 +274,16 @@ WHERE (user_info.user_id=51)"));
         }
     }
 
-   /* public function ChangePassword(Request $request){
-        try {
-            $authpw = $request->get('pw');
-            $id= $request->get('id');
-            /*return $id;*/
-            /*return $authpw;*/
-
-
-           /* $op = $request->get('old_password');
-            $np = $request->get('new_password');
-            $cp = $request->get('cpassword');
-
-            $user=User::where('id','=',$id)->first();*/
-            /*return $user;*/
-
-            /*if (bcrypt($op) != $authpw) {
-                return redirect()->back();
-            }*/
-
-
-            /*else {*/
-                /*if($np==$cp){
-                    $user->setAttribute('password', bcrypt($np));
-                    $user->save();
-
-
-                }
-
-
-            /*}*/
-     /*   }
-        catch(\Exception $e){
-            throw $e;
-        }
-
-
-    }*/
     public function MenuSelect(Request $request){
-        return VenueMenuItem::all();
+
+        $menu = DB::table('tbl_menu_items')//table join gareko
+             ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+             ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*')
+/*             ->where('users.id', '=', $id)*/
+             ->get();
+        return $menu;
+            /*return VenueMenuItem::all();*/
     }
 
 
@@ -356,6 +310,53 @@ WHERE (user_info.user_id=51)"));
             $userinfo->setAttribute('mobile_no', $mn);
             $userinfo->setAttribute('email', $e);
             $userinfo->save();
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+    }
+    public function EditVenueInfo(Request $request){
+        try{
+            $uid=$request->get('user_id');
+            $f=$request->get('first_name');
+            $l=$request->get('last_name');
+            $vn=$request->get('name');
+            $edb=$request->get('established_date');
+            $u=$request->get('username');
+            $n=$request->get('nationality_id');
+            $ph=$request->get('phone_no');
+            $ph2=$request->get('phone_no_2');
+            $sa=$request->get('space_area');
+            $pc=$request->get('person_capacity');
+            $e=$request->get('email');
+            /*return $vn;*/
+
+            $ven=UserVenue::where('user_id', '=', $uid)->first();
+            $vid=$ven->venue_id;
+           /* return $vid;*/
+            $userinfo=UserInfo::where('user_id', '=', $uid)->first();
+            $userinfo->setAttribute('first_name', $f);
+            $userinfo->setAttribute('last_name', $l);
+            $userinfo->setAttribute('username', $u);
+            $userinfo->setAttribute('nationality_id', $n);
+            $userinfo->setAttribute('phone_no', $ph);
+            $userinfo->setAttribute('email', $e);
+            $userinfo->save();
+
+            $venue=Venue::where('id', '=', $vid)->first();
+            $venue->setAttribute('name', $vn);
+            $venue->setAttribute('established_date', $edb);
+            $venue->setAttribute('phone_no', $ph);
+            $venue->setAttribute('phone_no_2', $ph2);
+            $venue->setAttribute('space_area', $sa);
+            $venue->setAttribute('person_capacity', $pc);
+            $venue->save();
+
+
+
+
+
+
         }
         catch(\Exception $e){
             throw $e;
