@@ -9,7 +9,7 @@ class UserVenue extends Model {
      */
 
     protected $table = 'user_venue';
-    protected $fillable = ['id', 'user_id', 'venue_id'];
+    protected $fillable = ['id', 'user_id', 'venue_id', 'status_id'];
     public $timestamps=false;
 
 

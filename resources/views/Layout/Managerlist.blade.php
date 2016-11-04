@@ -27,20 +27,29 @@ foreach($proimage as $pro){
 
         {{--<div id="toplink">--}}
             {{--   <div class="table-responsive">--}}
+{{--
                    <h2>VenueList <span class="badge">{{count($managerlist)}}</span></h2>
-           {{-- <div class="nav nav-tabs">
-               <li> <a href="venuedetails" role="navigation" class="nav navbar-default ">Manager<span class="badge">{{count($managerlist)}}</span></a></li>
+--}}
+            <div class="nav nav-tabs">
+               <li> <a href="venuedetails" role="navigation" class="nav navbar-default ">Venuelist<span class="badge">{{count($managerlist)}}</span></a></li>
 
 
-               <li> <a href="venueregister" role="navigation" class="nav navbar-default ">Venue<span class="badge"></span></a></li>
+               <li> <a href="venueregister" role="navigation" class="nav navbar-default ">Deleted venue<span class="badge"></span></a></li>
 
 
-            </div>--}}
+            </div>
 {{--</div>--}}
           {{--  <a href="venuelist">--}}
             <div class="table-responsive">
                 {{--<a href="venueregister">--}}
                 <table class="table table-bordered">
+                        @if (session('status1'))
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    {{session('status1')}}
+                                </div>
+                            </div>
+                        @endif
 
                     <thead>
                     <tr>
@@ -69,7 +78,7 @@ foreach($proimage as $pro){
 {{--
                             <td><a href="editvenuedetails\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>
 --}}
-                            <td><a href="venuedelete" class="btn btn-primary btn-block btn">Delete</a></td>
+                            <td><a href="venuedelete\{{$user->id}}" class="btn btn-primary btn-block btn">Delete</a></td>
 
                         </tr>
                     @endforeach

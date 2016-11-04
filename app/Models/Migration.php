@@ -14,5 +14,4 @@ class Migration extends Model {
 
 
 
-
 }

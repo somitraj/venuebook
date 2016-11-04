@@ -13,5 +13,4 @@ class Feedback extends Model {
     public $timestamps=false;
 
 
-
 }

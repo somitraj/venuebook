@@ -26,11 +26,29 @@ foreach($proimage as $pro){
                    </h5>
                    @endif
                </div>
-               <div class="table-responsive">
-                <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
+                {{--<h2>UserList <span class="badge">{{count($userlist)}}</span></h2>--}}
                   {{-- <a href="userdetails">--}}
                 {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
-                <table class="table table-bordered">
+               <div class="nav nav-tabs">
+                   <li class="active"> <a href="userdetails" role="navigation" class="nav navbar-default ">Userlist<span class="badge">{{count($userlist)}}</span></a></li>
+
+
+                   <li> <a href="deleteuser" role="navigation" class="nav navbar-default ">Deleted user<span class="badge"></span></a></li>
+
+
+               </div>
+
+                           <div class="table-responsive">
+                               {{--<div class="col-md-7 col-md-offset-3">
+                                   @if (session('status1'))
+                                       <div class="panel panel-success">
+                                           <div class="panel-heading">
+                                               {{session('status1')}}
+                                           </div>
+                                       </div>
+                                       </div>
+                                   @endif--}}
+                           <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Firstname</th>

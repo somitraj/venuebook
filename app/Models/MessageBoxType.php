@@ -15,7 +15,6 @@ class MessageBoxType extends Model {
 
     public function tblMessageBoxes() {
         return $this->hasMany(\Venue\Models\TblMessageBox::class, 'box_type_id', 'id');
-
     }
 
 
