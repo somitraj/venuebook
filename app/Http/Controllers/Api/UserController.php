@@ -217,21 +217,14 @@ class UserController extends Controller
 
      public function EditUserDetails($id)
      {
-         /*return $id;*/
-         /*$userinfo = DB::table('user_info')
-             ->join('users', 'users.id', '=', 'user_info.user_id')
-             ->select('users.*', 'user_info.*')
-             ->where('users.id', '=', $id)
-             ->get();
-         return $userinfo;*/
-
          /*$usersinfo = DB::table('user_venue')//table join gareko
          ->join('users', 'users.id', '=', 'user_venue.user_id')
              ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
              ->join('user_info', 'user_info.user_id', '=', 'users.id')
-             ->select( 'venues.*', 'users.*', 'user_info.*')
+             ->select( 'venues.*','users.*','user_info.*')
              ->where('users.id', '=', $id)
              ->get();*/
+
 
 
          $usersinfo = new UserInfo();

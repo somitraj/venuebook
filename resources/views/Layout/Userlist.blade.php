@@ -37,7 +37,7 @@ foreach($proimage as $pro){
                         <th>Lastname</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Type name</th>
+                        <th>User Type</th>
                         {{--<th></th>--}}
                         <th></th>
                         <th></th>
