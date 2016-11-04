@@ -15,7 +15,7 @@
         <div class="form-group col-lg-4">
         </div>
 
-        {!! Form::open(['method'=>'GET','url'=>'venuesearch','class'=>'navbar-form navbar-left','role'=>'search'/*,'action'=>'/Search'*/])  !!}
+        {!! Form::open(['method'=>'GET','url'=>'venuesearch','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
 
         <div class="input-group custom-search-form ">
             <input type="text" class="form-control" name="search" placeholder="Search your Venue Here">

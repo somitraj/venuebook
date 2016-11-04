@@ -14,9 +14,32 @@ class BookingController extends BaseController
 {
     public function Book(FormBuilder $formBuilder,Request $request)
     {
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $id = $_GET['id'];
+        /*print_r($id);die(); */
         if($request->getMethod()=='POST') { //activates register button
-            /*    print_r($request->get('email')); die();*/
-            return view('Layout.MenuSelection');
+
+            try {
+                /*$b=$request->get('booking_date');
+                print_r($b);die();*/
+                $response = $client->request('POST', 'book1', [
+                    'form_params' => [
+                        'booking_date' =>  $request->get('booking_date'),
+                        'event' =>  $request->get('event'),
+                        'booking_time' => $request->get('booking_time'),
+                        'venue_id' => $id
+
+                    ]
+                ]);
+                /*print_r($response->getBody()->getContents());
+                die();*/
+                return view('Layout.MenuSelection');
+            }
+            catch(\Exception $e)
+            {
+                print_r($e->getMessage());die();
+            }
+
 
         }
         $form = $formBuilder->Create('Venue\Forms\BookingForm',['method'=>'POST','url' => route('web.MenuSelect')]);
@@ -36,6 +59,8 @@ class BookingController extends BaseController
 
     }
     public  function  MenuSelect(Request $request){
+        /*$id = $_GET['id'];
+        print_r($id);die(); */
         $client = new Client(['base_uri' => config('app.REST_API')]);
         /*if($request->getMethod()=='POST') {
             try{
