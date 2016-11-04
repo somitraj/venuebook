@@ -16,16 +16,18 @@ foreach($proimage as $pro){
            @section('content')
 
                    <br>
-               @if(Auth::check())  {{--login check garne--}}
-               <div>
-                   <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
-               </div>
-               <h5>
-                   <div>
-                       {{Auth::user()->username}}{{--admin login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
-                   </div>
-               </h5>
-               @endif
+                {{--   <div>
+                       @if(Auth::check())
+                           <div>
+                               <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
+                           </div>
+                           <h5>
+                               <div>
+                                   {{Auth::user()->username}}
+                               </div>
+                           </h5>
+                       @endif
+                   </div>--}}
                    <div id="page-wrapper">
 
                        <div class="container-fluid">
@@ -43,19 +45,48 @@ foreach($proimage as $pro){
                    </div>
 
                <h2>Details</h2>
+                           <div class="container">
+                               <div class="panel-body">
+
                            @foreach($userdetails as $userdetail)
-                               <img src="/{{$userdetail->profile_image}}"> <br>
-                           FirstName: {{$userdetail->first_name}}<br>
-                           LastName : {{$userdetail->last_name}} <br>
-                           Username : {{$userdetail->username}} <br>
-                           DOB : {{$userdetail->dob}} <br>
-                           Email : {{$userdetail->email}} <br>
-                           Nationality Id : {{$userdetail->nationality_id}} <br>
-                           Phone no : {{$userdetail->phone_no}} <br>
-                           Mobile no : {{$userdetail->mobile_no}} <br>
-                           Country : {{$userdetail->country_id}} <br>
-                           Locality : {{$userdetail->locality}} <br>
+                                       <img src="/{{$userdetail->profile_image}}" width="80" height="80">
+                                   <div class="table-responsive">
+                               <table class="table-bordered table table-hover ">
+
+                                   <tr>
+                                   <th class="col-md-2">First Name</th> <td class="col-md-2"> {{$userdetail->first_name}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Last Name</th> <td class="col-md-2"> {{$userdetail->last_name}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">DOB</th> <td class="col-md-2"> {{$userdetail->dob}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Email</th> <td class="col-md-2"> {{$userdetail->email}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Nationality ID</th> <td class="col-md-2"> {{$userdetail->nationality_id}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Phone no</th> <td class="col-md-2"> {{$userdetail->phone_no}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Mobile no</th> <td class="col-md-2"> {{$userdetail->mobile_no}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Country</th> <td class="col-md-2"> {{$userdetail->country_id}}</td>
+                                   </tr>
+                                   <tr>
+                                       <th class="col-md-2">Locality</th> <td class="col-md-2"> {{$userdetail->locality}}</td>
+                                   </tr>
+
+
                            @endforeach
+                               </table>
+                                       </div>
+                               </div>
+                               </div>
 
 
                </div>

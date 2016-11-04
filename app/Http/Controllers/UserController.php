@@ -1,11 +1,14 @@
 <?php
 
 namespace Venue\Http\Controllers;
+use ExceptionCode;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Venue\Models\UserInfo;
 use Venue\Models\UserVenue;
@@ -15,51 +18,71 @@ use Venue\Models\UserType;
 
 class UserController extends BaseController
 {
-    public function login(FormBuilder $formBuilder,Request $request) //for login
+    public function login(FormBuilder $formBuilder, Request $request) //for login
     {
-       try{
-        if (Auth::check()) {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
-            return view('Layout.Home', compact('form'));
+        try
+        {
+            if (Auth::check())
+            {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
+                return view('Layout.Home', compact('form'));
 
-        } else { //if not logged in,login page is displayed
-            $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
-            if ($request->getMethod() == 'POST') {  //activates login button
-                $client = new Client(['base_uri' => config('app.REST_API')]);
-
-                $response = $client->request('POST', 'login', [
-                    'form_params' => [
-
-                        'username' => $request->get('username'),
-                        'password' => $request->get('password')
-
-                    ]
-
-                ]);
-                $userApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user; //api bata json format bata ako lai decode gareko
-
-                $user = new User();
-                $user->id = $userApi->id;
-                $user->username = $userApi->username;
-                $user->password = $userApi->password;
-                /*$user->profile_image=$userApi->profile_image;*/
-                $user->user_type_id = $userApi->user_type_id;
-                Auth::login($user);
-
-
-                //   return redirect()->route('manager.dash');
-                return $this->UserCheck();
             }
+            else { //if not logged in,login page is displayed
+                $form = $formBuilder->Create('Venue\Forms\LoginForm', ['method' => 'POST', 'url' => route('web.login')]);
+                if ($request->getMethod() == 'POST') {//activates login button
+                    try {
+                        $client = new Client(['base_uri' => config('app.REST_API')]);
 
-            /*print_r($response);die();*/
-            return view('Layout.Login', compact('form'));
+                        $response = $client->request('POST', 'login', [
+                            'form_params' => [
+
+                                'username' => $request->get('username'),
+                                'password' => $request->get('password')
+
+                            ]
+
+                        ]);
+                        $userApi = \GuzzleHttp\json_decode($response->getBody()->getContents())->user; //api bata json format bata ako lai decode gareko
+
+                        $user = new User();
+                        $user->id = $userApi->id;
+                        $user->username = $userApi->username;
+                        $user->password = $userApi->password;
+                        /*$user->profile_image=$userApi->profile_image;*/
+                        $user->user_type_id = $userApi->user_type_id;
+                        Auth::login($user);
+
+
+                        //   return redirect()->route('manager.dash');
+                        return $this->UserCheck();
+                    }
+                    catch (\Exception $e) {
+                        throw  $e;
+                    }
+                }
+                return view('Layout.Login', compact('form'));
+            }
+            }
+        catch (\Exception $e) {
+            $validator = Validator::make(Input::all(),[]);
+            if ($e->getCode() == 500) {
+                $error = json_decode($e->getResponse()->getBody()->getContents());
+                if (array_key_exists('code', $error)) {
+                    if ($error->code == \Venue\ExceptionCode::INVALID_USER) {
+                        $validator->errors()->add('username', $error->message);
+                    } elseif ($error->code == \Venue\ExceptionCode::INVALID_PASSWORD) {
+                        $validator->errors()->add('password', $error->message);
+                    } else {
+                        $validator->errors()->add('global', $error->message);
+                    }
+
+                } else {
+                    $validator->errors()->add('global', $error->message);
+                }
+                $errors = $validator;
+                return redirect()->back()->withErrors($validator);
+            }
         }
-
-
-        }
-       catch(\Exception $e)
-       {
-           print_r($e->getMessage());die();
-       }
     }
 
 
@@ -206,45 +229,8 @@ class UserController extends BaseController
     }
 
 
-   /* public function Lainchaur(Request $request)
-    {
-        $venue_id=$request->venue_id;
 
-        return view('Layout.Lainchaur', compact('form'));
-    }
 
-    public function Sasa()
-    {
-        return view('Layout.Sasa', compact('form'));
-    }
-    public function Shanker()
-    {
-        return view('Layout.Shanker', compact('form'));
-    }
-    public function Star()
-    {
-        return view('Layout.Star', compact('form'));
-    }
-    public function Athiti()
-    {
-        return view('Layout.Athiti', compact('form'));
-    }
-    public function Hyatt()
-    {
-        return view('Layout.Hyatt', compact('form'));
-    }
-    public function Thapagaun()
-    {
-        return view('Layout.Thapagaun', compact('form'));
-    }
-    public function Durbar()
-    {
-        return view('Layout.Durbar', compact('form'));
-    }
-    public function Radisson()
-    {
-        return view('Layout.Radisson', compact('form'));
-    }*/
 
     public function VenuePage(Request $request)
     {
@@ -315,19 +301,133 @@ class UserController extends BaseController
         return view('Layout.Managerlist',compact('managerlist'));
     }
 
-    public function EditUserDetails(FormBuilder $formBuilder,$id){
+    public function GetUserDetails(){
         $client = new Client(['base_uri' => config('app.REST_API')]);
-       // print_r($client);die();
-        $response = $client->request('POST','edituser/'.$id);
-       // print_r($response);die();
+        $response = $client->request('GET','userdetail');
         $data = $response->getBody()->getContents();
-       // print_r($data);die();
+        $userdetail =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Userlist',compact('form','userdetails'));
+       // return redirect()->route('Viewdetails.userlist');
+
+
+    }
+
+    public function EditUserDetails(FormBuilder $formBuilder,$id,Request $request)
+    {
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        // print_r($client);die();
+        $response = $client->request('POST', 'edituser/' . $id);
+        // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        /* print_r($data);die();*/
+        $edituser = \GuzzleHttp\json_decode($data);
+        /*print_r($edituser);die();*/
+
+        if ($request->getMethod() == 'POST') {
+
+            if (Auth::user()->user_type_id == 2) {
+
+                $response1 = $client->request('POST', 'editinfo', [
+                    'form_params' => [
+                        'user_id' => $id,
+                        'first_name' => $request->get('first_name'),
+                        'last_name' => $request->get('last_name'),
+                        'username' => $request->get('username'),
+                        'name' => $request->get('name'),
+                        'space_area' => $request->get('space_area'),
+                        'person_capacity' => $request->get('person_capacity'),
+                        'established_date' => $request->get('established_date'),
+                        'nationality_id' => $request->get('nationality_id'),
+                        'phone_no' => $request->get('phone_no'),
+                        'phone_no_2' => $request->get('phone_no_2'),
+                        'email' => $request->get('email'),
+
+
+                    ]
+                ]);
+
+            } else {
+
+                $response1 = $client->request('POST', 'editinfo', [
+                    'form_params' => [
+                        'user_id' => $id,
+                        'first_name' => $request->get('first_name'),
+                        'last_name' => $request->get('last_name'),
+                        'username' => $request->get('username'),
+                        'dob' => $request->get('dob'),
+                        'nationality_id' => $request->get('nationality_id'),
+                        'phone_no' => $request->get('phone_no'),
+                        'mobile_no' => $request->get('mobile_no'),
+                        'email' => $request->get('email'),
+
+
+                    ]
+                ]);
+
+            }
+        }
+
+        if (Auth::user()->user_type_id == 2) {
+            $form1 = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST'],
+                [
+                    'id' => $edituser->id,
+                    'first_name' => $edituser->first_name,
+                    'last_name' => $edituser->last_name,
+                    /* 'name'=>$edituser->name,*/
+                    'username' => $edituser->username,
+                    'dob' => $edituser->dob,
+                    'nationality_id' => $edituser->nationality_id,
+                    'phone_no' => $edituser->phone_no,
+                    /*'phone_no_2' => $edituser->phone_no_2,*/
+                    'email' => $edituser->email,
+                    /*   'space_area'=>$edituser->space_area,
+                       'person_capacity'=>$edituser*/
+
+                ]);
+            return view('Layout.EditVenue', compact('form1'));
+
+        } else {
+
+            $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST'],
+                [
+                    'id' => $edituser->id,
+                    'first_name' => $edituser->first_name,
+                    'last_name' => $edituser->last_name,
+                    'username' => $edituser->username,
+                    'dob' => $edituser->dob,
+                    'nationality_id' => $edituser->nationality_id,
+                    'phone_no' => $edituser->phone_no,
+                    'mobile_no' => $edituser->mobile_no,
+                    'email' => $edituser->email,
+
+                ]);
+
+            return view('Layout.Edituser', compact('form'));
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+ /*   public function EditUserData(FormBuilder $formBuilder,$id){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+
+        $response = $client->request('POST','edituserdata/'.$id);
+
+        $data = $response->getBody()->getContents();
+
         $edituser =  \GuzzleHttp\json_decode($data);
-  //  print_r($edituser);die();
+
 
         $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST', 'url' =>'admin/useredit'],
             [
-               'id'=>$edituser->id,
+                'id'=>$edituser->id,
                 'first_name' => $edituser->first_name,
                 'last_name' =>  $edituser->last_name,
                 'username' => $edituser->username,
@@ -336,44 +436,21 @@ class UserController extends BaseController
                 'phone_no' =>  $edituser->phone_no,
                 'mobile_no' =>  $edituser->mobile_no,
                 'email' => $edituser->email
-               // 'password' => $edituser->password,
-                //'user_type_id' => $edituser->user_type,
-              // 'country_id' => $edituser->Country,
-               // 'province_id' => $edituser->Province,
-                //'zone_id' => $edituser->Zones,
-                //'district_id' => $edituser->District,
-              //  'locality' => $edituser->Locality,
 
-               // 'profile_image' => $edituser->profile_image,
-
-
-                //'identity_image' => $edituser->identity_image
             ]);
-//print_r($viewuserdetails);die();
-
-        return view('Layout.Edituser',compact('form'));
-       // return redirect()->route('Viewdetails.userlist');
-
-
-    }
-
-   /* public function GetProfileImage(){
-        $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','getimage');
-        $data = $response->getBody()->getContents();
-        $getimage =  \GuzzleHttp\json_decode($data);
-
-
+        return view('Layout.Settings',compact('form'));
     }*/
+
+
     public function ViewUserDetails($id){
         $client = new Client(['base_uri' => config('app.REST_API')]);
 
         $response = $client->request('POST', 'userdetails/' . $id);
-       // print_r($response);die();
+        // print_r($response);die();
         $data = $response->getBody()->getContents();
-       // print_r($data);die();
+        // print_r($data);die();
         $userdetails = \GuzzleHttp\json_decode($data);
-         //print_r($userdetails);die();
+        //print_r($userdetails);die();
         return view('Layout.Viewuserdetails',compact('userdetails'));
     }
 
@@ -425,24 +502,117 @@ class UserController extends BaseController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function Search( )
+    public function Search(Request $request )
     {
-        $search = \Request::get('search');
-        print_r($search);die();
+        $id = \Request::get('search');
+        /*print_r($id);die();*/
         $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','search',[
-            'form_params' => [
-                'search' => $search,
-            ]
-        ]);
+        $response = $client->request('GET','search/'.$id);
+        /*print_r($response->getBody()->getContents());
+            die();*/
         $data = $response->getBody()->getContents();
+        /*print_r($data);die();*/
         $searchresult =  \GuzzleHttp\json_decode($data);
-        /*return $searchresult;*/
+        /*print_r($searchresult);die();*/
+
         return view('Layout.Search',compact('searchresult'));
-        // print_r($form);
-        /*die();*/
 
 
     }
 
+    public function UserAccount(Request $request)
+    {
+        try {
+            $id = Auth::user()->id;
+            /*print_r($us);die();*/
+
+            // print_r($id);die();
+            $client = new Client(['base_uri' => config('app.REST_API')]);
+            $response = $client->request('GET', 'account/' . $id);
+            /*print_r($response->getBody()->getContents());
+            die();*/
+            $data = $response->getBody()->getContents();
+            $account = \GuzzleHttp\json_decode($data);
+
+            return view('Layout.Account', compact('account'));
+        } catch (\Exception $e) {
+            print_r($e->getMessage());
+            die();
+        }
+    }
+
+
+    public  function  Settings(){
+
+        $id=Auth::user()->id;
+        /*print_r($id);die();*/
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET', 'specificuser/'.$id);
+        $data = $response->getBody()->getContents();
+        /*print_r($data);die();*/
+        $userlist = \GuzzleHttp\json_decode($data);
+        return view('Layout.Settings',compact('userlist'));
+
+    }
+   /* public function ChangePassword(FormBuilder $formBuilder,Request $request)
+    {
+
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        if($request->getMethod()=='POST') {
+            try {
+                $pw = Auth::user()->password;
+                $id = Auth::user()->id;
+                /*print_r($id);die();*/
+                /*print_r(bcrypt($pw));die();*/
+                /*$response = $client->request('POST', 'password', [
+                    'form_params' => [
+                        'old_password' =>  $request->get('old_password'),
+                        'new_password' =>  $request->get('new_password'),
+                        'cpassword' => $request->get('confirm_new_password'),
+                        'pw'=>$pw,
+                        'id'=>$id
+
+
+                    ]
+                ]);*/
+                /*$data = $response->getBody()->getContents();
+                print_r($data);die();*/
+
+
+
+
+        /*    } catch (\Exception $e) {
+                print_r($e->getMessage());
+                die();
+            }
+            $request->session()->flash('alert-success', 'Password Successfully Changed!');
+        }
+        $form = $formBuilder->Create('Venue\Forms\PasswordResetForm', ['method' => 'POST', 'url' => route('manager.password')]);
+
+        return view('Layout.ChangePassword', compact('form'));
+
+    }*/
+    public function ChangePassword(FormBuilder $formBuilder,Request $request){
+        $client=new Client(['base_uri'=>config('app.REST_API')]);
+        $form=$formBuilder->create(\Venue\Forms\PasswordResetForm::class,[
+            'method'=>'POST',
+            'url'=>'manager/password'
+        ]);
+        if($request->getMethod()=='POST'){
+            //print_r("hi");die();
+            $response=$client->request('POST','password',[
+                'form_params'=>[
+                    'password'=>$request->get('old_password'),
+                    'newpassword'=>$request->get('new_password'),
+                    'comfirmpassword'=>$request->get('confirm_new_password'),
+                    'id'=>Auth::user()->id
+                ]
+            ]);
+            $user = \GuzzleHttp\json_decode($response->getBody()->getContents());
+            //print_r($user);die();
+            $success_message = "Password Changed Successfully";
+            return redirect('user/password')->with('status1', $success_message);
+        }
+        return view('Layout.ChangePassword',compact('form'));
+    }
 }

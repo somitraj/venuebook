@@ -21,6 +21,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) {
     $api->any('register', 'UserController@Register');
     $api->any('gallery', 'GalleryController@Gallery');
+    $api->any('gallerydisplay/{id}', 'GalleryController@GalleryDisplay');
     $api->any('venue', 'VenueController@Register');
     $api->any('venue_type', 'VenueController@GetVenueType');
     $api->any('login', 'AuthController@Login');
@@ -32,6 +33,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('district', 'AddressController@GetDistrict');
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
+    $api->any('specificuser/{id}', 'UserController@GetSpecificUserList');
     $api->get('managerlist', 'UserController@GetManagerList');
    // $api->get('venuelist', 'UserController@GetVenueList');
     $api->get('venuelist', 'VenueController@Register');
@@ -44,14 +46,18 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('getvenuedata1/{id}', 'VenueController@GetVenueData1');
     $api->any('inventory', 'VenueController@GetInventory');
     $api->get('getimage', 'UserController@GetDetails');
-    $api->get('search', 'UserController@Search');
-    $api->any('inventorylist', 'VenueController@GetInventoryList');
+    $api->get('search/{id}', 'UserController@Search');
+    $api->any('account/{id}', 'UserController@UserAccount');
+    $api->any('inventorylist/{id}', 'VenueController@GetInventoryList');
    /* $api->any('getvenuedata2/{id}', 'VenueController@GetVenueData2');*/
    $api->any('userdetails/{id}', 'UserController@GetUserDetails');
     $api->any('venuedetails/{id}', 'VenueController@GetVenueData');
     $api->any('edituser/{id}', 'UserController@EditUserDetails');
+    /*$api->any('edituserdata/{id}', 'UserController@EditUserData');*/
     $api->any('editvenuedetails/{id}', 'VenueController@GetVenueData');
-    $api->any('deleteuser/{id}', 'UserController@DeleteUserDetails');
+    $api->any('password', 'UserController@ChangePassword');
+    $api->any('menuselect', 'UserController@MenuSelect');
+    $api->any('editinfo', 'UserController@EditInfo');
 
 
 

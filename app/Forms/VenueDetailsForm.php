@@ -25,7 +25,7 @@ class VenueDetailsForm extends Form
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'First Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
                     'rules'=>['required'],
                     'value'=>$firstname
                 ]
@@ -35,7 +35,7 @@ class VenueDetailsForm extends Form
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Last Name',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
                     'value'=>$lastname
                 ]
             )
@@ -44,7 +44,7 @@ class VenueDetailsForm extends Form
                     'label'=>'Username',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                      'rules'=>['required'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
                     'value'=>$username
                 ]
             )
@@ -57,29 +57,12 @@ class VenueDetailsForm extends Form
                     'value'=>$name
             ]
             )
-            /*->add('password','password', [
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'Password',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required','min:4','same:confirm_password']
 
-                ]
-            )
-            ->add('confirm_password','password', [
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'Confirm Password',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required','min:4']
-
-                ]
-            )*/
             ->add('email','email', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Email Address',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
                     'rules'=>['required','email','unique:registered_users'],
                     'value'=>$email
 
@@ -95,31 +78,10 @@ class VenueDetailsForm extends Form
 
                 ]
             )*/
-           /* ->add('user_type', 'hidden', [
-                    'label'=>'User Type',
-                    'default_value' => 2,
-                    /*'selected'=>$usertypeOption[3],*/
-                    /*  'selected' => 'client',*/
-                    /*'empty_value' => 'client',*/
-                   /* 'wrapper' =>['class' => 'form-group row'],
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input','disabled'],
 
-
-                ]
-            )*/
           // ->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])
 
-           /* ->add('type_name','select', [*/
-                  /*  'choices' => $type_nameOption,*/
-                /*'selected' => 'en',
-                    'empty_value' => '=== Select Province ===',
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input'],
-                    'rules'=>['required']*/
-                /*]*/
-            /*)*/
+
            /*->add('profile_image','file', [
                    'wrapper' => ['class' => 'form-group row'],
                    'label'=>'Profile Image',
@@ -184,7 +146,7 @@ class VenueDetailsForm extends Form
                     'wrapper' => ['class' => 'form-group row'],
                     'label'=>'Nationality ID',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
                     'rules'=>['required'],
                     'value'=>$nationality_id
 

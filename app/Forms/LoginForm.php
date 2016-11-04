@@ -13,7 +13,8 @@ class LoginForm extends Form
                 'wrapper' => ['class' => 'form-group'],
                 'label'=>'Username',
                 'attr' => ['class' => 'form-control field-input'],
-                    'rules'=>['required']
+                    'rules'=>['required'],
+                    'errors' => ['class' => 'text-danger col-md-offset-4']
 
                 ]
             )
@@ -21,8 +22,8 @@ class LoginForm extends Form
             ->add('password','password', [
                 'wrapper' => ['class' => 'form-group'],
                 'attr' => ['class' => 'form-control field-input'],
-                    'rules'=>['required','min:4']
-
+                    'rules'=>['required','min:4'],
+                    'errors' => ['class' => 'text-danger col-md-offset-4']
 
                 ]
             )

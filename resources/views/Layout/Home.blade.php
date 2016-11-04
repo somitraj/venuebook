@@ -77,7 +77,7 @@
             <div class="inner">
                 <ul>
                     @foreach($sliders as $slider)
-                    <li><a href="/venuepage?id={{$slider->venue_id}}"><img class="thumb" src="{{$slider->cover}}"></a>
+                    <li>{{--<a href="/venuepage?id={{$slider->venue_id}}">--}}<img class="thumb" src="{{$slider->cover}}">{{--</a>--}}
                     </li>
                     @endforeach
                 </ul>

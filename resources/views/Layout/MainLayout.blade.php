@@ -66,7 +66,7 @@
     </nav>
 
 
-    <div class="between">
+    <div class="between" {{--style="min-height: 500px;"--}}>
 
          @yield('content')
     </div>

@@ -29,7 +29,7 @@ foreach($proimage as $pro){
     <div class="col-md-8 col-md-offset-2">
         <div class="panel-primary">
             <div class="panel-heading">
-                <p style="text-align:center"> User gestion</p>
+                <h4 style="text-align:center"> User gestion</h4>
             </div>
             <div class="panel-body">
                 {!! form($form) !!}

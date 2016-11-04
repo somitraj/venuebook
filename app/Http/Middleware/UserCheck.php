@@ -17,8 +17,6 @@ class UserCheck
      */
     public function handle($request, Closure $next)
     {
-
-
         if(Auth::check())
         {
             $route=Route::getCurrentRoute()->getAction();  //url bata aile vako route lina

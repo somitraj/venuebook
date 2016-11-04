@@ -86,3 +86,8 @@ p{
 .dropdown-menu{
     background: rgba(20,100,223,0.53) 75%;
 }
+
+.popup:hover{
+    width: 440px;
+    height:550px;
+}

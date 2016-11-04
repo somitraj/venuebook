@@ -3,6 +3,7 @@
 namespace Venue\Http\Controllers;
 
 use Dingo\Api\Http\Request;
+use GuzzleHttp\Client;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -29,9 +30,17 @@ class BookingController extends BaseController
     {
         $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
         return view('Layout.BookTotal', compact('form'));
-        // print_r($form);
-        die();
+        // print_r($form); die();
 
 
+
+    }
+    public  function  MenuSelect(Request $request){
+        $client = new Client(['base_uri' => config('app.REST_API')]);
+        $response = $client->request('GET','menuselect');
+        $data = $response->getBody()->getContents();
+        $menudata =  \GuzzleHttp\json_decode($data);
+        print_r($menudata);die();
+        return view('Layout.MenuSelection',compact('menudata'));
     }
 }

@@ -17,16 +17,18 @@ foreach($proimage as $pro){
 
 
 
-    @if(Auth::check())  {{--login check garne--}}
-    <div>
-        <img src="/{{Auth::user()->profile_image}}"class="img-circle" width="70" height="70">
-    </div>
-    <h5>
-        <div>
-            {{Auth::user()->username}}{{--admin login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
-        </div>
-    </h5>
-    @endif
+    {{--   <div>
+                      @if(Auth::check())
+                          <div>
+                              <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
+                          </div>
+                          <h5>
+                              <div>
+                                  {{Auth::user()->username}}
+                              </div>
+                          </h5>
+                      @endif
+                  </div>--}}
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -44,18 +46,49 @@ foreach($proimage as $pro){
         </div>
 
     <h2>Details</h2>
-            @foreach($venuedetails as $vdata)
-                <img src="/{{$vdata->image}}"> <br>
 
-                Name: {{$vdata->name}}<br>
-                Email : {{$vdata->email}} <br>
-                Phone 1 : {{$vdata->phone_no}} <br>
-                Phone 2 : {{$vdata->phone_no_2}} <br>
-                Space Area : {{$vdata->space_area}} <br>
-                Capacity : {{$vdata->person_capacity}} <br>
-                Locality : {{$vdata->locality}} <br>
-                 Established Date : {{$vdata->established_date}}<br>
-                @endforeach
+
+                <div class="container">
+                    <div class="panel-body">
+
+                        @foreach($venuedetails as $vdata)
+                            <img src="/{{$vdata->image}}" width="80" height="80">
+                            <div class="table-responsive">
+                                <table class="table-bordered">
+
+                                    <tr>
+                                        <th class="col-md-2">Venue Name</th> <td class="col-md-2"> {{$vdata->first_name}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="col-md-2">Email</th> <td class="col-md-2"> {{$vdata->email}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="col-md-2">Phone no</th> <td class="col-md-2"> {{$vdata->phone_no}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-md-2">Phone no 2</th> <td class="col-md-2"> {{$vdata->phone_no_2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-md-2">Space Area</th> <td class="col-md-2"> {{$vdata->space_area}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-md-2">Capacity</th> <td class="col-md-2"> {{$vdata->person_capacity}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-md-2">Locality</th> <td class="col-md-2"> {{$vdata->locality}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-md-2">Established Date</th> <td class="col-md-2"> {{$vdata->established_date}}</td>
+                                    </tr>
+
+
+                                    @endforeach
+                                </table>
+                            </div>
+                    </div>
+
 
 
 </div>

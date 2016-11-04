@@ -31,15 +31,15 @@
                         <ul>
                             {{--{{dd($vdata)}}--}}
                             @foreach($vdata as $vd)
-                                <li><img class="thumb" src="/{{$vd->cover}}">
+                                <li><img class="ns-img" src="/{{$vd->cover}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image1}}">
+                                <li><img class="ns-img" src="/{{$vd->image1}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image2}}">
+                                <li><img class="ns-img" src="/{{$vd->image2}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image3}}">
+                                <li><img class="ns-img" src="/{{$vd->image3}}">
                                 </li>
-                                <li><img class="thumb" src="/{{$vd->image4}}">
+                                <li><img class="ns-img" src="/{{$vd->image4}}">
                                 </li>
                                 {{--<li><a class="ns-img" href="images/Lainchaur banquet1.jpg"></a></li>
                                 <li><a class="ns-img" href="images/Lainchaur banquet2.jpg"></a></li>
@@ -79,8 +79,13 @@
         </div>
     </div>
     <br>
-    @if(!Auth::check())
-    <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
+    @if(!Auth::check() || Auth::user()->user_type_id==3)
+        @if(!Auth::check())
+            <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
+            @elseif(Auth::user()->user_type_id==3)
+              <h4 style="text-align: center"><a href="Book"><button class="btn-success">Book Now</button></a></h4>
+            @endif
+
     @endif
 
 @endsection

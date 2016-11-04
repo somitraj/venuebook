@@ -10,7 +10,8 @@ class TblDistrict extends Model {
 
     protected $table = 'tbl_district';
     protected $fillable = ['id', 'name', 'code', 'zone_id'];
-    public $timestamps= false;
+    public $timestamps=false;
+
 
     public function tblZone() {
         return $this->belongsTo(\Venue\Models\TblZone::class, 'zone_id', 'id');
