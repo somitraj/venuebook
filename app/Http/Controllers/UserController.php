@@ -458,7 +458,7 @@ class UserController extends BaseController
     public function UserDelete($id){
         $client = new Client(['base_uri'=>config('app.REST_API')]);
 
-        $response = $client->request('GET','deleteuser/'.$id);
+        $response = $client->request('GET','deleteuserdetails/'.$id);
         $data = $response->getBody()->getContents();
         $user = \GuzzleHttp\json_decode($data);
         // print_r($user);die();

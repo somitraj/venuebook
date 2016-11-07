@@ -211,24 +211,27 @@ class UserController extends Controller
     {
         //return $id;
         $usersinfo = new UserInfo();
-        $usersinfo = UserInfo::where('user_id', '=', $id)->first();
+        $usersinfo = UserInfo::where('user_id', '=', $id)
+           -> where('status_id','=',1)
+            ->get();
         // print_r($usersinfo);die();
         return $usersinfo;
     }
     public function DeleteUser($id)
     {
+       // return $id;
         $user=UserInfo::where('id','=',$id)->select('status_id')->first();
 
         if($user->status_id==1) {
             $user = DB::table('user_info')
-                ->where('id', $id)
+                ->where('user_id', $id)
                 ->update(['status_id' => 2
                 ]);
             return $user;
         }
         else{
             $user = DB::table('user_info')
-                ->where('id', $id)
+                ->where('user_id', $id)
                 ->update(['status_id' => 1
                 ]);
             return $user;
@@ -237,7 +240,9 @@ class UserController extends Controller
     public function UserDeactive($id)
     {
         $usersinfo = new UserInfo();
-        $usersinfo = UserInfo::where('user_id', '=', $id)->first();
+        $usersinfo = UserInfo::where('user_id', '=', $id)
+            ->where('status_id','=',2)
+            ->first();
 
         // print_r($usersinfo);die();
         return $usersinfo;
