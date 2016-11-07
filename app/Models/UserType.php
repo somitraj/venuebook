@@ -10,7 +10,7 @@ class UserType extends Model {
 
     protected $table = 'user_types';
     protected $fillable = ['id', 'type_name'];
-
+    public $timestamps=false;
 
     public function tblMessageBoxes() {
         return $this->hasMany(\Venue\Models\TblMessageBox::class, 'user_id', 'id');
