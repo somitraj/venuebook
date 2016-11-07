@@ -461,9 +461,9 @@ class UserController extends BaseController
         $response = $client->request('GET','deleteuser/'.$id);
         $data = $response->getBody()->getContents();
         $user = \GuzzleHttp\json_decode($data);
-         print_r($user);die();
+        // print_r($user);die();
         $success_message = "User status changed Successfully";
-        return redirect('Layout.Managerlist')->with('status1', $success_message);
+        return redirect('Layout.Userlist')->with('status1', $success_message);
     }
 
     public function Deactiveuser($id)
@@ -473,7 +473,7 @@ class UserController extends BaseController
         $response = $client->request('GET','deactiveuser/'.$id);
         $data = $response->getBody()->getContents();
         $user = \GuzzleHttp\json_decode($data);
-        return view('Layout.DeleteUser',compact('user'));
+        return view('Layout.DeactiveUser',compact('user'));
 
 
     }

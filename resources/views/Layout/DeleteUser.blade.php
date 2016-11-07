@@ -30,17 +30,15 @@ foreach($proimage as $pro){
                   {{-- <a href="userdetails">--}}
                 {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
                <div class="nav nav-tabs">
-                   <li class="active"> <a href="userdetails" role="navigation" class="nav navbar-default ">Userlist<span class="badge">{{count($userlist)}}</span></a></li>
+                   <li> <a href="userdetails" role="navigation" class="nav navbar-default ">Userlist<span class="badge">{{count($userlist)}}</span></a></li>
 
 
-                   <li> <a href="deleteuser" role="navigation" class="nav navbar-default ">Deleted user<span class="badge"></span></a></li>
+                   <li class="active"> <a href="deleteuser" role="navigation" class="nav navbar-default ">Deleted user<span class="badge">{{count($user)}}</span></a></li>
 
 
                </div>
 
                            <div class="table-responsive">
-
-                           <table class="table table-bordered">
                                <div class="col-md-7 col-md-offset-3">
                                    @if (session('status1'))
                                        <div class="panel panel-success">
@@ -48,8 +46,9 @@ foreach($proimage as $pro){
                                                {{session('status1')}}
                                            </div>
                                        </div>
-                               </div>
-                               @endif
+                                       </div>
+                                   @endif
+                           <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Firstname</th>
@@ -74,7 +73,7 @@ foreach($proimage as $pro){
                                 <td>{{$user->type_name}}</td>
                             <td><a href="userdetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
                             {{--<td><a href="useredit\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>--}}
-                            <td><a href="deleteuserdetails\{{$user->id}}" class="btn btn-primary btn-block btn">Delete</a></td>
+                            <td><a href="userdelete\{{$user->id}}" class="btn btn-primary btn-block btn">Reactivate</a></td>
 
                         </tr>
                     @endforeach
