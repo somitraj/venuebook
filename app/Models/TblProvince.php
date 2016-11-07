@@ -10,7 +10,6 @@ class TblProvince extends Model {
 
     protected $table = 'tbl_provinces';
     protected $fillable = ['id', 'name', 'code', 'country_id'];
-    public $timestamps=false;
 
 
     public function tblCountry() {

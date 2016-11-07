@@ -10,7 +10,6 @@ class MessageBoxType extends Model {
 
     protected $table = 'message_box_type';
     protected $fillable = ['id', 'type_name'];
-    public $timestamps=false;
 
 
     public function tblMessageBoxes() {

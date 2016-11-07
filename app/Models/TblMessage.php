@@ -10,7 +10,6 @@ class TblMessage extends Model {
 
     protected $table = 'tbl_messages';
     protected $fillable = ['id', 'title', 'body'];
-    public $timestamps=false;
 
 
     public function tblMessageBoxes() {

@@ -10,7 +10,6 @@ class VenueMenuItem extends Model {
 
     protected $table = 'venue_menu_items';
     protected $fillable = ['id', 'venue_id', 'menu_item_id', 'price', 'price_per'];
-    public $timestamps=false;
 
 
     public function tblMenuItem() {

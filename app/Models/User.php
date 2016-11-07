@@ -10,15 +10,10 @@ class User extends Model {
 
     protected $table = 'users';
     protected $fillable = ['id', 'username', 'password', 'email', 'user_type_id'];
-    public $timestamps=false;
 
 
     public function userType() {
         return $this->belongsTo(\Venue\Models\UserType::class, 'user_type_id', 'id');
-    }
-
-    public function venues() {
-        return $this->belongsToMany(\Venue\Models\Venue::class, 'user_venue', 'user_id', 'venue_id');
     }
 
     public function tblBookings() {

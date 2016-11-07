@@ -10,7 +10,6 @@ class TblDistrict extends Model {
 
     protected $table = 'tbl_district';
     protected $fillable = ['id', 'name', 'code', 'zone_id'];
-    public $timestamps=false;
 
 
     public function tblZone() {
