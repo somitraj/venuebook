@@ -60,12 +60,17 @@ $total=$q*$p;
                 </tr>
 
                 @endforeach
-
-                     <tr class="row">
+                    <tr class="row">
                         <td colspan="10" align="right">
-                            Grand Total:Rs.<span id="grandTotal">0.00</span>
+                            Grand Total: <input type="text" id="grandTotal" name="grand_total" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
+
+                     {{--<tr class="row">
+                        <td colspan="10" align="right">
+                            Grand Total:Rs.<span id="grandTotal" name="grand_total">0.00</span>
+                        </td>
+                    </tr>--}}
                     <tr> <td colspan="1" > <input type="submit" class="btn btn-primary btn-block" value="Next"> </td></tr>
                     </tbody>
                 </table>
@@ -92,7 +97,7 @@ $total=$q*$p;
                     mult += $total;
 
                 });
-                $("#grandTotal").text(mult);
+                $("#grandTotal").val(mult);
             }
         });
     </script>

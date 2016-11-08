@@ -64,10 +64,18 @@ class BookingController extends BaseController
 }
     public function BookTotal(FormBuilder $formBuilder,Request $request)
     {
+
         $book=session('book');
         $menu=session('menu');
-        /*print_r($book['date']);
-        print_r($menu);die();*/
+        /*foreach($menu as $m){
+            $total=$m['grand_total'];
+            print_r($total);die();
+        }*/
+
+
+        /*print_r($book);*/
+
+       // print_r($menu);die();
         $date=$book['date'];
         $time=$book['time'];
         $event=$book['event'];
@@ -91,7 +99,18 @@ class BookingController extends BaseController
         }
 
 
-        $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
+     // $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
+        foreach($menu as $m){
+            $total=$m['grand_total'];
+            /*print_r($total);die();*/
+
+        $form = $formBuilder->Create(\Venue\Forms\TotalBookingForm::class, ['method' => 'POST','url' => route('web.BookTotal')],
+            [
+                'grand_total' => $total,
+
+
+            ]);
+        }
         return view('Layout.BookTotal', compact('form'));
         // print_r($form); die();
 
@@ -115,6 +134,7 @@ class BookingController extends BaseController
                     $menu['quantity']=$request->get('quantity')[$key];
                     $menu['price_per']=$request->get('price_per')[$key];
                     $menu['total']=$request->get('total')[$key];
+                    $menu['grand_total']=$request->get('grand_total');
                     $menus[]=$menu;
                 }
 

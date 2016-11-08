@@ -8,6 +8,10 @@ class TotalBookingForm extends Form
 {
     public function buildForm()
     {
+
+        $menutotal = $this->getData('grand_total');
+
+
       $this
                      ->add('Hall Charge', 'text', [
                     'wrapper' =>['class' => 'form-group row'],
@@ -21,7 +25,8 @@ class TotalBookingForm extends Form
             ->add('Menu Charge','text', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input']
+                    'attr' => ['class' => 'col-md-9 form-control field-input'],
+                    'value'=>'Rs '.$menutotal
 
                 ]
             )
