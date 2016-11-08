@@ -15,21 +15,22 @@ if(Auth::check()){
         }}
 ?>
 @extends('Layout/MainLayout')
+@section('info')
 
-@section('content')
-        <div>
-                @if(Auth::check())
-                        <div>
-                                <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
-                        </div>
-                        <h5>
-                                <div>
-                                        {{Auth::user()->username}} {{--manager login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
-                                </div>
-                        </h5>
+        <div style="float: right">
+
+                @if(Auth::check())  {{--login check garne--}}
+                <div>
+                        <p  style="font-family:'Times New Roman';color:gray;border-top-width: 50px;margin-top: 5px;">
+                                <img src="/{{$pro1}}"class="img-circle" width="40" height="40">  Hello   {{Auth::user()->username}} ,</p>
+
+                </div>
+
                 @endif
         </div>
+@endsection
 
+@section('content')
 
         <div class="container" style="max-width: 500px;">
         <div class="table-responsive">
@@ -45,7 +46,7 @@ if(Auth::check()){
                                 </tr>
                                 </thead>
                                 <tbody align="center">
-                                @foreach($inventoryllist as $in)
+                                @foreach($inventorylist as $in)
                                         <tr>
                                                 <td >{{$in->item_name}}</td>
                                                 <td>{{$in->price_per}}</td>

@@ -88,6 +88,6 @@ p{
 }
 
 .popup:hover{
-    width: 440px;
-    height:550px;
+    width: 100px;
+    height:100px;
 }

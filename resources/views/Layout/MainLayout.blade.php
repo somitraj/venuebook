@@ -48,20 +48,16 @@
                         <p style="color: white;font-size: 60px;text-align: center;">VENUEBOOKING</p>
                         <p style="color: white;font-size: 20px;text-align: center;margin-top: -35px;margin-left: 150px;">BOOK YOUR VENUE HERE</p>
                     </div>
+
                 </div>
      </div>
 </header>
-{{--
-    <div class="row">
 
-        <div class="col-md-12">
-        <a href="/"> <img class="img-responsive" src="images/banner new.jpg" style="width:/*auto*/ 1170px"></a>
-        </div>
-    </div>
---}}
 <nav class="navbar navbar-default navbar-inverse">
     <div class="container-fluid">
-@include('Layout.Menu')   {{--menu.blade lai include gareko--}}
+@include('Layout.Menu'){{--menu.blade lai include gareko--}}
+        @yield('info')
+
         </div>
     </nav>
 
