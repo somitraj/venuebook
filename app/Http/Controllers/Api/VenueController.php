@@ -60,6 +60,7 @@ class VenueController extends Controller
             $userinfo->setAttribute('profile_image', $request->get('profile_image'));
 
             $userinfo->setAttribute('locality', $request->get('locality'));
+            $userinfo->status_id=1;
 
             $userinfo->save();
 
@@ -80,12 +81,14 @@ class VenueController extends Controller
             $venues->setAttribute('country_id', $userinfo->country_id);
             $venues->setAttribute('locality', $request->get('locality'));
             $venues->venue_type_id = $request->venue_type_id;
+            $venues->status_id=1;
             $venues->save();
             //$venues->userVenues();
 
             $uservenue = new UserVenue();
             $uservenue->user_id = $user->id;
             $uservenue->venue_id = $venues->id;
+            $uservenue->status_id=1;
             $uservenue->save();
 
 
@@ -280,20 +283,21 @@ class VenueController extends Controller
     }
         public function DeleteVenue($id)
     {
-        $venue = Venue::where('id', '=', $id)->select('status_id')->first();
-
-        if ($venue->status_id == 1) {
-            $venue = DB::table('venues')
-                ->where('venue_type_id', $id)
+       // return $id;
+        $venues = Venue::where('id', '=', $id)->select('status_id')->first();
+return $venues;
+        if ($venues->status_id == 1) {
+            $venues = DB::table('venues')
+                ->where('id', $id)
                 ->update(['status_id' => 2
                 ]);
-            return $venue;
+            return $venues;
         } else {
-            $venue = DB::table('venues')
-                ->where('venue_type_id', $id)
+            $venues = DB::table('venues')
+                ->where('id', $id)
                 ->update(['status_id' => 1
                 ]);
-            return $venue;
+            return $venues;
         }
 
     }

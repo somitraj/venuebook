@@ -59,6 +59,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
 
     $api->any('deleteuserdetails/{id}', 'UserController@DeleteUser');
     $api->any('deactiveuser', 'UserController@UserDeactive');
+    $api->any('activeuser/{id}', 'UserController@UserActive');
 
 
     $api->any('deletevenuedetails/{id}', 'VenueController@DeleteVenue');

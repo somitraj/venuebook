@@ -447,14 +447,19 @@ class UserController extends BaseController
     }
 
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function UserDelete($id){
         $client = new Client(['base_uri'=>config('app.REST_API')]);
        // print_r($client);die();
         $response = $client->request('GET','deleteuserdetails/'.$id);
-       // print_r($response);die();
+      //  print_r($response);die();
         $data = $response->getBody()->getContents();
+        //print_r($data);die();
         $user = \GuzzleHttp\json_decode($data);
-        //print_r($user);die();
+       // print_r($user);die();
         $success_message = "User status changed Successfully";
         return redirect('admin/client')->with('status1', $success_message);
     }
@@ -462,7 +467,8 @@ class UserController extends BaseController
     public function Deactiveuser()
     {
 
-        //print_r(hello);
+
+        /*print_r('hello');die();*/
         $client = new Client(['base_uri'=>config('app.REST_API')]);
        //print_r($client);
         $response = $client->request('GET','deactiveuser');
@@ -470,8 +476,21 @@ class UserController extends BaseController
         $users = \GuzzleHttp\json_decode($data);
         //print_r($users);die();
         //return redirect('Layout.DeactiveUser',compact('users'));
-        return redirect()->route('admin.deactiveuser');
+        return view('Layout.DeactiveUser',compact('users'));
+       /* return redirect()->route('admin.deactiveuser');*/
 
+    }
+
+    public function Activeuser($id){
+        /*print_r($id);die();*/
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+        //print_r($client);
+        $response = $client->request('GET','activeuser/'.$id);
+        $data = $response->getBody()->getContents();
+        $users = \GuzzleHttp\json_decode($data);
+       // print_r($users);die();
+        //return redirect('Layout.DeactiveUser',compact('users'));
+        return view('Layout.DeactiveUser',compact('users'));
     }
 
     public function UserCheck()

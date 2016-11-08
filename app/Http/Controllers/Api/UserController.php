@@ -31,6 +31,7 @@ class UserController extends Controller
             $user->setAttribute('password', bcrypt($request->get('password')));
             $user->setAttribute('email', $request->get('email'));
             $user->user_type_id = $request->user_type_id;
+
             // return $user;
             /*$user->setAttribute('user_id',$user->getAttribute('id'));*/
             $user->save();
@@ -52,8 +53,7 @@ class UserController extends Controller
             $userinfo->nationality_id = $request->nationality_id;
 
             $userinfo->setAttribute('locality', $request->get('locality'));
-
-
+            $userinfo->status_id=1;
             $userinfo->save();
 
 
@@ -111,9 +111,10 @@ class UserController extends Controller
             $users = DB::table('users')//table join gareko
             ->join('user_info', 'users.id', '=', 'user_info.user_id')
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->join('status','user_info.status_id','=','status.id')
                 ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 3)
-                //->where('status_id','=',1)
+                ->where('status.id','=',1)
                 ->get();
             return $users;
         } catch (\Exception $e) {
@@ -121,7 +122,7 @@ class UserController extends Controller
         }
     }
 
-          public function GetSpecificUserlist($id)
+    public function GetSpecificUserlist($id)
     {
         try {
             $users = DB::table('users')//table join gareko
@@ -197,11 +198,11 @@ class UserController extends Controller
     public function DeleteUser($id)
     {
        //return $id;
-        $user=UserInfo::where('id','=',$id)->select('status_id')->first();
-
+        $user=UserInfo::where('user_id','=',$id)->select('status_id')->first();
+//return $user;
         if($user->status_id==1) {
             $user = DB::table('user_info')
-                ->where('user_id', $id)
+              ->where('user_id', $id)
                 ->update(['status_id' => 2
                 ]);
             return $user;
@@ -236,6 +237,29 @@ class UserController extends Controller
         } catch (\Exception $e) {
             throw $e;
         }
+
+    }
+
+    public function UserActive($id)
+    {
+
+        $user=UserInfo::where('user_id','=',$id)->first();
+        if($user->status_id==2) {
+
+        $user = DB::table('user_info')
+            ->where('user_id', $id)
+            ->update(['status_id' => 1
+            ]);
+
+    }$users = DB::table('users')//table join gareko
+    ->join('user_info', 'users.id', '=', 'user_info.user_id')
+        ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+        ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name')
+        ->where('users.user_type_id', '=', 3)
+        ->where('status_id','=',2)
+        ->get();
+        return $users;
+
 
     }
 

@@ -227,10 +227,11 @@ class VenueController extends Controller
         $client = new Client(['base_uri'=>config('app.REST_API')]);
        // print_r($client);die();
         $response = $client->request('GET','deletevenuedetails/'.$id);
-      //  print_r($response);die();
+      // print_r($response);die();
         $data = $response->getBody()->getContents();
+        print_r($data);die();
         $venues = \GuzzleHttp\json_decode($data);
-       // print_r($venues);die();
+     // print_r($venues);die();
         $success_message = "Venue status changed Successfully";
         return redirect('admin/venue')->with('status1', $success_message);
     }

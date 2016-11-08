@@ -13,6 +13,7 @@ Route::group(["role"=>1,"prefix"=>"admin"],function()
     Route::any("useredit/{id}",["as"=>'admin.useredit', "uses"=>'UserController@EditUserDetails']);
     Route::any("deleteuserdetails/{id}",["as"=>'admin.deleteuserdetails', "uses"=>'UserController@UserDelete']);
     Route::any("userdeactive",["as"=>'admin.deactiveuser', "uses"=>'UserController@Deactiveuser']);
+    Route::any("useractive/{id}",["as"=>'admin.activeuser', "uses"=>'UserController@Activeuser']);
 
     Route::any("venue",["as"=>'admin.venue', "uses"=>'VenueController@ManagerList']);
     Route::any("venuedetails/{id}",["as"=>'admin.venuedetails', "uses"=>'VenueController@VenueManagerDetails']);

@@ -66,19 +66,19 @@ foreach($proimage as $pro){
 
                     </tr>
                     </thead>
-                    @foreach($managerlist as $user)
+                    @foreach($venues as $venue)
                         <tr>
-                            <td>{{$user->first_name}}</td>
-                            <td>{{$user->last_name}}</td>
-                            <td>{{$user->username}}</td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->type_name}}</td>
-                            <td><a href="venuedetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
+                            <td>{{$venue->first_name}}</td>
+                            <td>{{$venue->last_name}}</td>
+                            <td>{{$venue->username}}</td>
+                            <td>{{$venue->name}}</td>
+                            <td>{{$venue->email}}</td>
+                            <td>{{$venue->type_name}}</td>
+                            <td><a href="venuedetails\{{$venue->id}}" class="btn btn-success btn-block btn">View</a></td>
 {{--
                             <td><a href="editvenuedetails\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>
 --}}
-                            <td><a href="deletevenuedetails\{{$user->id}}" class="btn btn-primary btn-block btn">Delete</a></td>
+                            <td><a href="deletevenuedetails\{{$venue->id}}" class="btn btn-primary btn-block btn">Delete</a></td>
 
                         </tr>
                     @endforeach
