@@ -35,12 +35,9 @@ foreach($proimage as $pro){
 
         <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
-                Venue gestion
-            </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <span class="fa fa-user"></span> <a href="/admin/venue">Venue</a> / Card
+                    <span class="glyphicon glyphicon-backward"></span> <a href="javascript:history.back()">Go Back</a>
                 </li>
             </ol>
         </div>
