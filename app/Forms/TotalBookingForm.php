@@ -51,7 +51,12 @@ class TotalBookingForm extends Form
 
               ]
           )
-          ->add('I have read and accepted the Terms of use and Privacy Policy','checkbox')
+          ->add('I have read and accepted the Terms of use and Privacy Policy','checkbox',[
+              'rules'=>['required']
+          ])
+
+          ->add('preview','button',['label'=>'Preview Your Booking','attr' =>['class'=> 'btn btn-primary btn-block'],])
+
             ->add('Book','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }
 }
