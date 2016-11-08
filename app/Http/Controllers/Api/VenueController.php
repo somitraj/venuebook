@@ -74,6 +74,7 @@ class VenueController extends Controller
             $venues->phone_no_2 = $request->phone_no_2;
             $venues->space_area = $request->space_area;
             $venues->person_capacity = $request->person_capacity;
+            $venues->hall_charge = $request->hall_charge;
             $venues->district_id = $request->district_id;
             $venues->established_date = $request->established_date;
             $venues->image = $request->image;
