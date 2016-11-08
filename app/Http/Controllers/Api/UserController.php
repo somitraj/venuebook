@@ -274,13 +274,15 @@ class UserController extends Controller
         }
     }
 
-    public function MenuSelect(Request $request){
-
+    public function MenuSelect(Request $request,$id){
+        /*$venue_id=$request->get('venue_id');*/
+        /*return $venue_id;*/
+        /*return $id;*/
         $menu = DB::table('tbl_menu_items')//table join gareko
              ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
             ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
              ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*')
-/*             ->where('users.id', '=', $id)*/
+            ->where('venues.id', '=', $id)
              ->get();
         return $menu;
             /*return VenueMenuItem::all();*/

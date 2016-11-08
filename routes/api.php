@@ -56,7 +56,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     /*$api->any('edituserdata/{id}', 'UserController@EditUserData');*/
     $api->any('editvenuedetails/{id}', 'VenueController@GetVenueData');
     $api->any('password', 'UserController@ChangePassword');
-    $api->any('menuselect', 'UserController@MenuSelect');
+    $api->any('menuselect/{id}', 'UserController@MenuSelect');
     $api->any('editinfo', 'UserController@EditInfo');
     $api->any('editvenueinfo', 'UserController@EditVenueInfo');
     $api->any('book1', 'BookingController@Book1');

@@ -8,6 +8,8 @@ class BookingForm extends Form
 {
     public function buildForm()
     {
+        $venue_id=$this->getData('venue_id');
+
         $this
             ->add('booking_date', 'date', [
                      'label'=>'Booking Date',
@@ -16,7 +18,7 @@ class BookingForm extends Form
                     'attr' =>['class' => 'col-md-9 form-control field-input']
                 ]
             )
-            ->add('venue_id', 'hidden')
+            ->add('venue_id', 'hidden',['value'=>$venue_id])
 
 
 
