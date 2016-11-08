@@ -31,10 +31,10 @@ foreach($proimage as $pro){
                    <h2>VenueList <span class="badge">{{count($managerlist)}}</span></h2>
 --}}
             <div class="nav nav-tabs">
-               <li> <a href="venuedetails" role="navigation" class="nav navbar-default ">Venuelist<span class="badge">{{count($managerlist)}}</span></a></li>
+               <li> <a href="venuedetails" role="navigation" class="nav navbar-default ">Venuelist<span class="badge"></span></a></li>
 
 
-               <li> <a href="deactivevenue" role="navigation" class="nav navbar-default ">Deleted venue<span class="badge"></span></a></li>
+               <li class="active"> <a href="venuedeactive" role="navigation" class="nav navbar-default ">Deleted venue<span class="badge">{{count($venues)}}</span></a></li>
 
 
             </div>
@@ -43,13 +43,13 @@ foreach($proimage as $pro){
             <div class="table-responsive">
                 {{--<a href="venueregister">--}}
                 <table class="table table-bordered">
-                        @if (session('status1'))
+                        {{--@if (session('status1'))
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     {{session('status1')}}
                                 </div>
                             </div>
-                        @endif
+                        @endif--}}
 
                     <thead>
                     <tr>

@@ -463,18 +463,21 @@ class UserController extends BaseController
         $user = \GuzzleHttp\json_decode($data);
         // print_r($user);die();
         $success_message = "User status changed Successfully";
-        return redirect('Layout.Userlist')->with('status1', $success_message);
+        return redirect('admin/client')->with('status1', $success_message);
     }
 
-    public function Deactiveuser($id)
+    public function Deactiveuser()
     {
+
+        //print_r(hello);
         $client = new Client(['base_uri'=>config('app.REST_API')]);
-
-        $response = $client->request('GET','deactiveuser/'.$id);
+       //print_r($client);
+        $response = $client->request('GET','deactiveuser');
         $data = $response->getBody()->getContents();
-        $user = \GuzzleHttp\json_decode($data);
-        return view('Layout.DeactiveUser',compact('user'));
-
+        $users = \GuzzleHttp\json_decode($data);
+        //print_r($users);die();
+        //return redirect('Layout.DeactiveUser',compact('users'));
+        return redirect()->route('admin.deactiveuser');
 
     }
 

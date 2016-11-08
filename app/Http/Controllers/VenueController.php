@@ -213,5 +213,25 @@ class VenueController extends Controller
 
         return view('Layout.Editvenue', compact('form'));
     }
+    public function VenueDelete($id)
+    {
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+
+        $response = $client->request('GET','deletevenuedetails/'.$id);
+        $data = $response->getBody()->getContents();
+        $venues = \GuzzleHttp\json_decode($data);
+        // print_r($user);die();
+        $success_message = "Venue status changed Successfully";
+        return redirect('admin/venue')->with('status1', $success_message);
+    }
+    public function Deactivevenue()
+    {
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+        // print_r($client);
+        $response = $client->request('GET','deactivevenue');
+        $data = $response->getBody()->getContents();
+        $venues = \GuzzleHttp\json_decode($data);
+        return view('Layout.DeactiveVenue',compact('venues'));
+    }
 }
 

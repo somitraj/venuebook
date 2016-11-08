@@ -113,6 +113,7 @@ class UserController extends Controller
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
                 ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 3)
+                ->where('status_id','=',1)
                 ->get();
             return $users;
         } catch (\Exception $e) {
@@ -151,8 +152,10 @@ class UserController extends Controller
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
                 ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'user_venue.venue_id', '=', 'venues.id')
+                ->join('status','user_venue.status_id','=','status.id')
                 ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
                 ->where('users.user_type_id', '=', 2)
+                ->where('status_id','=',1)
                 ->get();
 
             return $users;
@@ -212,8 +215,8 @@ class UserController extends Controller
         //return $id;
         $usersinfo = new UserInfo();
         $usersinfo = UserInfo::where('user_id', '=', $id)
-           -> where('status_id','=',1)
-            ->get();
+           //-> where('status_id','=',1)
+            ->first();
         // print_r($usersinfo);die();
         return $usersinfo;
     }
@@ -237,15 +240,29 @@ class UserController extends Controller
             return $user;
         }
     }
-    public function UserDeactive($id)
-    {
-        $usersinfo = new UserInfo();
-        $usersinfo = UserInfo::where('user_id', '=', $id)
-            ->where('status_id','=',2)
-            ->first();
 
-        // print_r($usersinfo);die();
-        return $usersinfo;
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exception
+     */
+    public function UserDeactive()
+    {
+        try {
+
+            //return $id;
+            $users = DB::table('users')//table join gareko
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name')
+                ->where('users.user_type_id', '=', 3)
+                ->where('status_id','=',2)
+                ->get();
+            return $users;
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
     }
 
 

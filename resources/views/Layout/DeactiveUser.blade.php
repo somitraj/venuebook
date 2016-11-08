@@ -30,10 +30,10 @@ foreach($proimage as $pro){
                   {{-- <a href="userdetails">--}}
                 {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
                <div class="nav nav-tabs">
-                   <li> <a href="userdetails" role="navigation" class="nav navbar-default ">Userlist<span class="badge">{{count($userlist)}}</span></a></li>
+                   <li> <a href="userdetails" role="navigation" class="nav navbar-default ">Userlist<span class="badge"></span></a></li>
 
 
-                   <li class="active"> <a href="deleteuser" role="navigation" class="nav navbar-default ">Deleted user<span class="badge">{{count($user)}}</span></a></li>
+                   <li class="active"> <a href="" role="navigation" class="nav navbar-default ">Deleted user<span class="badge">{{count($users)}}</span></a></li>
 
 
                </div>
@@ -64,7 +64,7 @@ foreach($proimage as $pro){
                     </thead>
 
 
-                    @foreach($userlist as $user)
+                    @foreach($users as $user)
                         <tr>
                              <td>{{$user->first_name}}</td>
                                 <td>{{$user->last_name}}</td>
