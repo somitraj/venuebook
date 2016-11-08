@@ -77,22 +77,10 @@ class BookingController extends BaseController
 
         if($request->getMethod()=='POST') {
             try {
-                /*print_r($book['date']);
-                print_r($menu);die();*/
-
-                foreach ($menu as $m) {
-
-                    /*print_r(count($me));die();*/
-
-                        $item = $m['item_name'];
-                        $quantity = $m['quantity'];
-                        $total = $m['total'];
-                        print_r($m);
-                        die();
+                print_r($book['date']);
+                print_r($menu);die();
 
 
-
-                }
             }
                 /*return session()->all();*/
                /* return redirect()->route('web.BookTotal');*/
