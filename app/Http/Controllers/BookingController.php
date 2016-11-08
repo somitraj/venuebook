@@ -16,10 +16,10 @@ class BookingController extends BaseController
     {
         if($request->getMethod()=='POST') { //activates register button
             /*    print_r($request->get('email')); die();*/
-            return view('Layout.BookTotal', compact('form'));
+            return view('Layout.MenuSelection');
 
         }
-        $form = $formBuilder->Create('Venue\Forms\BookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
+        $form = $formBuilder->Create('Venue\Forms\BookingForm',['method'=>'POST','url' => route('web.MenuSelect')]);
         return view('Layout.Book', compact('form'));
        // print_r($form);
         /*die();*/
@@ -37,10 +37,26 @@ class BookingController extends BaseController
     }
     public  function  MenuSelect(Request $request){
         $client = new Client(['base_uri' => config('app.REST_API')]);
+        /*if($request->getMethod()=='POST') {
+            try{
+                $response = $client->request('POST', 'menuselect', [
+                    'form_params' => [
+                        'item_name' =>  $request->get('item_name')
+
+
+                    ]
+                ]);
+
+            }
+            catch(\Exception $e)
+            {
+                print_r($e->getMessage());die();
+            }
+        }*/
         $response = $client->request('GET','menuselect');
         $data = $response->getBody()->getContents();
         $menudata =  \GuzzleHttp\json_decode($data);
-        print_r($menudata);die();
+        /*print_r($menudata);die();*/
         return view('Layout.MenuSelection',compact('menudata'));
     }
 }

@@ -265,20 +265,28 @@ class UserController extends Controller
 
      public function EditUserDetails($id)
      {
-         /*$usersinfo = DB::table('user_venue')//table join gareko
-         ->join('users', 'users.id', '=', 'user_venue.user_id')
-             ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
-             ->join('user_info', 'user_info.user_id', '=', 'users.id')
-             ->select( 'venues.*','users.*','user_info.*')
-             ->where('users.id', '=', $id)
-             ->get();*/
+         /*return $id;*/
+         $usertypeid=User::where('id','=',$id)->first();
+         $utype=$usertypeid->user_type_id;
+         if($utype==2) {
+             $usersinfo = DB::table('user_venue')//table join gareko
+             ->join('users', 'users.id', '=', 'user_venue.user_id')
+                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
+                 ->join('user_info', 'user_info.user_id', '=', 'users.id')
+                 ->select( 'venues.*','users.*','user_info.*')
+                 ->where('users.id', '=', $id)
+                 ->get();
+             return $usersinfo;
+         }
+         else {
 
 
 
          $usersinfo = new UserInfo();
          $usersinfo = UserInfo::where('user_id', '=', $id)->first()->toArray();
 
-         return $usersinfo;
+             return $usersinfo;
+         }
      }
     public function EditUserData($id)
     {
@@ -314,8 +322,16 @@ class UserController extends Controller
         }
     }
 
-       public function MenuSelect(Request $request){
-        return VenueMenuItem::all();
+    public function MenuSelect(Request $request){
+
+        $menu = DB::table('tbl_menu_items')//table join gareko
+             ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+             ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*')
+/*             ->where('users.id', '=', $id)*/
+             ->get();
+        return $menu;
+            /*return VenueMenuItem::all();*/
     }
 
 
@@ -347,14 +363,54 @@ class UserController extends Controller
             throw $e;
         }
     }
+    public function EditVenueInfo(Request $request){
+        try{
+            $uid=$request->get('user_id');
+            $f=$request->get('first_name');
+            $l=$request->get('last_name');
+            $vn=$request->get('name');
+            $edb=$request->get('established_date');
+            $u=$request->get('username');
+            $n=$request->get('nationality_id');
+            $ph=$request->get('phone_no');
+            $ph2=$request->get('phone_no_2');
+            $sa=$request->get('space_area');
+            $pc=$request->get('person_capacity');
+            $e=$request->get('email');
+            /*return $vn;*/
 
-/*
-    public function DeleteUserDetails($id){
-        $usersinfo = new UserInfo();
-        $usersinfo = UserInfo::where('user_id', '=', $id)->first();
-        // print_r($usersinfo);die();
-        return $usersinfo;
-    }*/
+            $ven=UserVenue::where('user_id', '=', $uid)->first();
+            $vid=$ven->venue_id;
+           /* return $vid;*/
+            $userinfo=UserInfo::where('user_id', '=', $uid)->first();
+            $userinfo->setAttribute('first_name', $f);
+            $userinfo->setAttribute('last_name', $l);
+            $userinfo->setAttribute('username', $u);
+            $userinfo->setAttribute('nationality_id', $n);
+            $userinfo->setAttribute('phone_no', $ph);
+            $userinfo->setAttribute('email', $e);
+            $userinfo->save();
+
+            $venue=Venue::where('id', '=', $vid)->first();
+            $venue->setAttribute('name', $vn);
+            $venue->setAttribute('established_date', $edb);
+            $venue->setAttribute('phone_no', $ph);
+            $venue->setAttribute('phone_no_2', $ph2);
+            $venue->setAttribute('space_area', $sa);
+            $venue->setAttribute('person_capacity', $pc);
+            $venue->save();
+
+
+
+
+
+
+        }
+        catch(\Exception $e){
+            throw $e;
+        }
+    }
+
 
 }
 

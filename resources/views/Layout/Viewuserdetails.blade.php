@@ -48,7 +48,7 @@ foreach($proimage as $pro){
                            @foreach($userdetails as $userdetail)
                                        <img src="/{{$userdetail->profile_image}}" width="80" height="80">
                                    <div class="table-responsive">
-                               <table class="table-bordered table table-hover ">
+                                       <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
 
                                    <tr>
                                    <th class="col-md-2">First Name</th> <td class="col-md-2"> {{$userdetail->first_name}}</td>

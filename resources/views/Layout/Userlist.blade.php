@@ -26,7 +26,8 @@ foreach($proimage as $pro){
                    </h5>
                    @endif
                </div>
-                {{--<h2>UserList <span class="badge">{{count($userlist)}}</span></h2>--}}
+               <div class="table-responsive">
+                <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
                   {{-- <a href="userdetails">--}}
                 {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
                <div class="nav nav-tabs">
@@ -50,6 +51,7 @@ foreach($proimage as $pro){
                                        </div>
                                </div>
                                @endif
+                   <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>Firstname</th>
