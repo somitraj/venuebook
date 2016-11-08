@@ -11,6 +11,7 @@ foreach($proimage as $pro){
         $pro1=$pro->profile_image;
     }
 }
+
 ?>
 @extends('Layout/MainLayout')
            @section('content')

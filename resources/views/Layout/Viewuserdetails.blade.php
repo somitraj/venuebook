@@ -14,34 +14,31 @@ foreach($proimage as $pro){
 ?>
 @extends('Layout/MainLayout')
            @section('content')
-
-                   <br>
-                {{--   <div>
-                       @if(Auth::check())
-                           <div>
-                               <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
-                           </div>
-                           <h5>
-                               <div>
-                                   {{Auth::user()->username}}
-                               </div>
-                           </h5>
-                       @endif
-                   </div>--}}
+               <div {{--style="float: right"--}}>
+                   @if(Auth::check())  {{--login check garne--}}
+                   <div>
+                       <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
+                   </div>
+                   <h5>
+                       <div>
+                           Hello   {{Auth::user()->username}}{{--admin login vaye paxi user_id lisakya hunxa so aba user table bata tesko username page ma dekhauna ko lagi--}}
+                       </div>
+                   </h5>
+                   @endif
+               </div>
                    <div id="page-wrapper">
 
                        <div class="container-fluid">
 
                        <div class="row">
                    <div class="col-lg-12">
-                       <h1 class="page-header">
-                           Users gestion
-                       </h1>
                        <ol class="breadcrumb">
                            <li class="active">
                                <span class="glyphicon glyphicon-backward"></span> <a href="javascript:history.back()">Go Back</a>
                            </li>
                        </ol>
+
+
                    </div>
 
                <h2>Details</h2>
