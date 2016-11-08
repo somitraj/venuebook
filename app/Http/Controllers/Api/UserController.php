@@ -113,15 +113,15 @@ class UserController extends Controller
                 ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
                 ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name')
                 ->where('users.user_type_id', '=', 3)
-                ->where('status_id','=',1)
+                //->where('status_id','=',1)
                 ->get();
             return $users;
         } catch (\Exception $e) {
             throw $e;
         }
-
     }
-    public function GetSpecificUserlist($id)
+
+          public function GetSpecificUserlist($id)
     {
         try {
             $users = DB::table('users')//table join gareko
@@ -138,34 +138,8 @@ class UserController extends Controller
 
 
     //yesko work pani mathi ko getindex ko jastai same ho
-    public function GetManagerList(Request $request)
-    {
-        try {
-            /* $users = new User();
-             $users=User::all();
-             $users=UserInfo::all();
-             $users=UserType::all();*/
 
 
-            $users = DB::table('users')
-                ->join('user_info', 'users.id', '=', 'user_info.user_id')
-                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
-                ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
-                ->join('venues', 'user_venue.venue_id', '=', 'venues.id')
-                ->join('status','user_venue.status_id','=','status.id')
-                ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
-                ->where('users.user_type_id', '=', 2)
-                ->where('status_id','=',1)
-                ->get();
-
-            return $users;
-
-        } catch (\Exception $e) {
-            throw $e;
-        }
-
-
-    }
 
     public function Search($id){
         try {
@@ -222,7 +196,7 @@ class UserController extends Controller
     }
     public function DeleteUser($id)
     {
-       // return $id;
+       //return $id;
         $user=UserInfo::where('id','=',$id)->select('status_id')->first();
 
         if($user->status_id==1) {
@@ -264,7 +238,6 @@ class UserController extends Controller
         }
 
     }
-
 
      public function EditUserDetails($id)
      {

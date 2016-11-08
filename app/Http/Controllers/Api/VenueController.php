@@ -16,6 +16,7 @@ use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\Models\VenueMenuItem;
 use Venue\Models\VenueType;
+use Venue\Models\Status;
 
 
 
@@ -250,20 +251,46 @@ class VenueController extends Controller
         }
 
     }
+    public function GetManagerList(Request $request)
+    {
+        try {
+            /* $users = new User();
+             $users=User::all();
+             $users=UserInfo::all();
+             $users=UserType::all();*/
 
-    public function DeleteVenue($id)
+
+            $users = DB::table('users')
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'user_venue.venue_id', '=', 'venues.id')
+                ->join('status', 'user_venue.status_id', '=', 'status.id')
+                ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
+                ->where('users.user_type_id', '=', 2)
+                ->where('status.id', '=', 1)
+                ->get();
+
+            return $users;
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+    }
+        public function DeleteVenue($id)
     {
         $venue = Venue::where('id', '=', $id)->select('status_id')->first();
 
         if ($venue->status_id == 1) {
             $venue = DB::table('venues')
-                ->where('venue_id', $id)
+                ->where('venue_type_id', $id)
                 ->update(['status_id' => 2
                 ]);
             return $venue;
         } else {
             $venue = DB::table('venues')
-                ->where('venue_id', $id)
+                ->where('venue_type_id', $id)
                 ->update(['status_id' => 1
                 ]);
             return $venue;
@@ -297,6 +324,10 @@ class VenueController extends Controller
             throw $e;
         }
     }
+
+
+
+
 }
 
 

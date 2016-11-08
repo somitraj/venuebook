@@ -14,11 +14,11 @@ Route::group(["role"=>1,"prefix"=>"admin"],function()
     Route::any("deleteuserdetails/{id}",["as"=>'admin.deleteuserdetails', "uses"=>'UserController@UserDelete']);
     Route::any("userdeactive",["as"=>'admin.deactiveuser', "uses"=>'UserController@Deactiveuser']);
 
-    Route::any("venue",["as"=>'admin.venue', "uses"=>'UserController@ManagerList']);
+    Route::any("venue",["as"=>'admin.venue', "uses"=>'VenueController@ManagerList']);
     Route::any("venuedetails/{id}",["as"=>'admin.venuedetails', "uses"=>'VenueController@VenueManagerDetails']);
     Route::any("editvenuedetails/{id}",["as"=>'admin.managerdetails', "uses"=>'VenueController@EditVenueDetails']);
     Route::any("deletevenuedetails/{id}",["as"=>'admin.deletevenuedetails', "uses"=>'VenueController@VenueDelete']);
-    Route::any("venuedeactive/{id}",["as"=>'admin.deactivevenue', "uses"=>'VenueController@Deactivevenue']);
+    Route::any("venuedeactive",["as"=>'admin.deactivevenue', "uses"=>'VenueController@Deactivevenue']);
 
     Route::any("notice",["as"=>'admin.notice', "uses"=>'NotificationController@GetNotice']);
 

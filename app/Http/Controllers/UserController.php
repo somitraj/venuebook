@@ -292,14 +292,6 @@ class UserController extends BaseController
       //  print_r($userlist);die();
         return view('Layout.Userlist',compact('userlist'));
     }
-    public function ManagerList()
-    {
-        $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','managerlist');
-        $data = $response->getBody()->getContents();
-        $managerlist =  \GuzzleHttp\json_decode($data);
-        return view('Layout.Managerlist',compact('managerlist'));
-    }
 
     public function GetUserDetails(){
         $client = new Client(['base_uri' => config('app.REST_API')]);
@@ -457,11 +449,12 @@ class UserController extends BaseController
 
     public function UserDelete($id){
         $client = new Client(['base_uri'=>config('app.REST_API')]);
-
+       // print_r($client);die();
         $response = $client->request('GET','deleteuserdetails/'.$id);
+       // print_r($response);die();
         $data = $response->getBody()->getContents();
         $user = \GuzzleHttp\json_decode($data);
-        // print_r($user);die();
+        //print_r($user);die();
         $success_message = "User status changed Successfully";
         return redirect('admin/client')->with('status1', $success_message);
     }

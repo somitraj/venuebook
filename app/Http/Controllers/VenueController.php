@@ -176,6 +176,15 @@ class VenueController extends Controller
         //print_r($userdetails);die();
         return view('Layout.VenueManagerDetails',compact('venuedetails'));
     }
+    public function ManagerList()
+    {
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','managerlist');
+        $data = $response->getBody()->getContents();
+        $managerlist =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Managerlist',compact('managerlist'));
+    }
+
     public function EditVenueDetails(FormBuilder $formBuilder,$id)
     {
         $client = new Client(['base_uri' => config('app.REST_API')]);
@@ -216,11 +225,12 @@ class VenueController extends Controller
     public function VenueDelete($id)
     {
         $client = new Client(['base_uri'=>config('app.REST_API')]);
-
+       // print_r($client);die();
         $response = $client->request('GET','deletevenuedetails/'.$id);
+      //  print_r($response);die();
         $data = $response->getBody()->getContents();
         $venues = \GuzzleHttp\json_decode($data);
-        // print_r($user);die();
+       // print_r($venues);die();
         $success_message = "Venue status changed Successfully";
         return redirect('admin/venue')->with('status1', $success_message);
     }
