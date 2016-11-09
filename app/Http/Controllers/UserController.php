@@ -332,6 +332,7 @@ class UserController extends BaseController
                             'phone_no' => $request->get('phone_no'),
                             'phone_no_2' => $request->get('phone_no_2'),
                             'email' => $request->get('email'),
+                            'hall_charge' => $request->get('hall_charge'),
 
 
                         ]
@@ -377,6 +378,8 @@ class UserController extends BaseController
                     'email' => $edituser1->email,
                        'space_area'=>$edituser1->space_area,
                        'person_capacity'=>$edituser1->person_capacity,
+                    'hall_charge'=>$edituser1->hall_charge,
+
 
                 ]);
             return view('Layout.EditVenue', compact('form1'));

@@ -24,7 +24,7 @@ $total=$q*$p;
 
             {!! Form::open(['method'=>'POST'])  !!}
 
-            <div class="container">
+            <div class="container" style="margin-left: 370px">
                 <table class="table-responsive ">
                     <thead>
                     <tr>
@@ -58,15 +58,21 @@ $total=$q*$p;
                     <td><input  id="<?php echo ('total_'.$key)?>" class="form-control total" type="number"  name="total[{{$md->menu_item_id}}]"></td>
 
                 </tr>
+                        <br>
 
                 @endforeach
-
-                     <tr class="row">
+                    <tr class="row">
                         <td colspan="10" align="right">
-                            Grand Total:Rs.<span id="grandTotal">0.00</span>
+                            Grand Total: <input type="text" id="grandTotal" name="grand_total" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
-                    <tr> <td colspan="1" > <input type="submit" class="btn btn-primary btn-block" value="Next"> </td></tr>
+
+                     {{--<tr class="row">
+                        <td colspan="10" align="right">
+                            Grand Total:Rs.<span id="grandTotal" name="grand_total">0.00</span>
+                        </td>
+                    </tr>--}}
+                    <tr> <td> <input type="submit" class="btn btn-primary btn-block" value="Next"> </td></tr>
                     </tbody>
                 </table>
 
@@ -74,6 +80,7 @@ $total=$q*$p;
 
             {!! Form::close() !!}
     </div>
+            <br><br>
     @endsection
 @section('script')
     <script>
@@ -92,7 +99,7 @@ $total=$q*$p;
                     mult += $total;
 
                 });
-                $("#grandTotal").text(mult);
+                $("#grandTotal").val(mult);
             }
         });
     </script>

@@ -379,6 +379,7 @@ class UserController extends Controller
             $sa=$request->get('space_area');
             $pc=$request->get('person_capacity');
             $e=$request->get('email');
+            $hc=$request->get('hall_charge');
             /*return $vn;*/
 
             $ven=UserVenue::where('user_id', '=', $uid)->first();
@@ -400,6 +401,7 @@ class UserController extends Controller
             $venue->setAttribute('phone_no_2', $ph2);
             $venue->setAttribute('space_area', $sa);
             $venue->setAttribute('person_capacity', $pc);
+            $venue->setAttribute('hall_charge', $hc);
             $venue->save();
 
 

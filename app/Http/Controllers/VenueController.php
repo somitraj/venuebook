@@ -75,6 +75,7 @@ class VenueController extends Controller
                         'phone_no_2' =>  $request->get('phone_no_2'),
                         'established_date' =>  $request->get('established_date'),
                         'space_area' =>  $request->get('space_area'),
+                        'hall_charge' =>  $request->get('hall_charge'),
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
                         'user_type_id' => $request->get('user_type'),

@@ -20,6 +20,7 @@ class VenueDetailsForm extends Form
         $space_area=$this->getData('space_area');
         $nationality_id =$this->getData('nationality_id');
         $person_capacity =$this->getData('person_capacity');
+        $hall_charge =$this->getData('hall_charge');
         $this
             ->add('first_name','text',[
                     'wrapper' =>['class' => 'form-group row'],
@@ -69,36 +70,6 @@ class VenueDetailsForm extends Form
                 ]
             )
 
-           /* ->add('cemail','email', [
-                    'wrapper' => ['class' => 'form-group row'],
-                    'label'=>'Confirm Email',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-8 form-control field-input','disabled'],
-                    'rules'=>['required','email','unique:registered_users']
-
-                ]
-            )*/
-
-          // ->compose(\Venue\Forms\VenueTypeForm::class,['venue_type'=>$this->getData('venue_type')])
-
-
-           /*->add('profile_image','file', [
-                   'wrapper' => ['class' => 'form-group row'],
-                   'label'=>'Profile Image',
-                   'label_attr'=>['class'=>'col-md-3 control-label'],
-                   'attr' => ['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png,.jpg']
-
-               ]
-           )
-
-            ->add('image','file',[
-                    'wrapper' =>['class' => 'form-group row'],
-                    'label'=>'Logo',
-                    'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' =>['class' => 'col-md-8 form-control field-input','accept'=>'.jpeg,.png,.jpg'],
-                    'rules'=>['required']
-                ]
-            )*/
             ->add('established_date','date',[
                     'wrapper' =>['class' => 'form-group row'],
                     'label'=>'Established date',
@@ -160,6 +131,15 @@ class VenueDetailsForm extends Form
                     'attr' => ['class' => 'col-md-8 form-control field-input'],
                          'rules'=>['required'],
                     'value'=>$person_capacity
+                ]
+            )
+            ->add('hall_charge','text', [
+                    'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Hall Charge',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' => ['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required'],
+                    'value'=>$hall_charge
                 ]
             )
          //   ->compose(\Venue\Forms\AddressForm::class,['country'=>$this->getData('country'),'province'=>$this->getData('province'),'zone'=>$this->getData('zone'),'district'=>$this->getData('district'),])

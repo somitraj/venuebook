@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Kris\LaravelFormBuilder\FormBuilder;
+use Venue\Models\Venue;
 
 class BookingController extends BaseController
 {
@@ -22,30 +23,18 @@ class BookingController extends BaseController
 
 
         /*print_r($id);die(); */
-        if($request->getMethod()=='POST') { //activates register button
+        if($request->getMethod()=='POST') {
 
             try {
                 //print_r($request->booking_date);die();
                 $book['date']=$request->get('booking_date');
                 $book['time']=$request->get('booking_time');
                 $book['event']=$request->get('event');
+                $book['nop']=$request->get('nop');
                 $book['venue_id']=$request->get('venue_id');
                 session()->put('book',$book);
 
 
-                /*$b=$request->get('booking_date');
-                print_r($b);die();*/
-//                $response = $client->request('POST', 'book1', [
-//                    'form_params' => [
-//                        'booking_date' =>  $request->get('booking_date'),
-//                        'event' =>  $request->get('event'),
-//                        'booking_time' => $request->get('booking_time'),
-//                        'venue_id' => $id
-//
-//                    ]
-//                ]);
-                /*print_r($response->getBody()->getContents());
-                die();*/
                 return redirect()->route('web.MenuSelect');
             }
             catch(\Exception $e)
@@ -64,35 +53,28 @@ class BookingController extends BaseController
 }
     public function BookTotal(FormBuilder $formBuilder,Request $request)
     {
+
+
         $book=session('book');
         $menu=session('menu');
-        /*print_r($book['date']);
-        print_r($menu);die();*/
-        $date=$book['date'];
+        $vid=$book['venue_id'];
+       /* print_r($vid);die();*/
+
+     /*   $date=$book['date'];
         $time=$book['time'];
-        $event=$book['event'];
+        $event=$book['event'];*/
 
 
-
+        $venue=Venue::where('id','=',$vid)->first();
+        $hall_charge=$venue->hall_charge;
+        /*print_r($hall_charge);die();*/
 
         if($request->getMethod()=='POST') {
             try {
-                /*print_r($book['date']);
-                print_r($menu);die();*/
-
-                foreach ($menu as $m) {
-
-                    /*print_r(count($me));die();*/
-
-                        $item = $m['item_name'];
-                        $quantity = $m['quantity'];
-                        $total = $m['total'];
-                        print_r($m);
-                        die();
+                print_r($book);
+                print_r($menu);die();
 
 
-
-                }
             }
                 /*return session()->all();*/
                /* return redirect()->route('web.BookTotal');*/
@@ -103,7 +85,19 @@ class BookingController extends BaseController
         }
 
 
-        $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
+     // $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
+        foreach($menu as $m){
+            $total=$m['grand_total'];
+            /*print_r($total);die();*/
+
+        $form = $formBuilder->Create(\Venue\Forms\TotalBookingForm::class, ['method' => 'POST','url' => route('web.BookTotal')],
+            [
+                'grand_total' => $total,
+                'hall_charge'=>$hall_charge
+
+
+            ]);
+        }
         return view('Layout.BookTotal', compact('form'));
         // print_r($form); die();
 
@@ -127,6 +121,7 @@ class BookingController extends BaseController
                     $menu['quantity']=$request->get('quantity')[$key];
                     $menu['price_per']=$request->get('price_per')[$key];
                     $menu['total']=$request->get('total')[$key];
+                    $menu['grand_total']=$request->get('grand_total');
                     $menus[]=$menu;
                 }
 
@@ -152,5 +147,9 @@ class BookingController extends BaseController
       /*  $book['item_name']=$request->get('item_name');
         session()->put('book',$book);*/
         return view('Layout.MenuSelection',compact('menudata'));
+    }
+
+    public function BookPreview(){
+        return view('Layout.BookPreview');
     }
 }

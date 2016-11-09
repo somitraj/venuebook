@@ -158,6 +158,14 @@ class VenueForm extends Form
 
                 ]
             )
+            ->add('hall_charge','text',[
+                    'wrapper' =>['class' => 'form-group row'],
+                    'label'=>'Hall Charge',
+                    'label_attr'=>['class'=>'col-md-3 control-label'],
+                    'attr' =>['class' => 'col-md-8 form-control field-input'],
+                    'rules'=>['required']
+                ]
+            )
 
 
 
