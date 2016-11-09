@@ -45,7 +45,7 @@ $total=$q*$p;
                     <tbody>
 
                     @foreach($dinner as  $key =>$md)
-                        <tr class="txtMult">
+                        <tr class="txtMult1">
                             <td>  <input class="menu" type="checkbox"   name="menuselect[{{$md->menu_item_id}}]" value="{{$md->menu_item_id}}"></td>
                             <td><input class="item" type="hidden"   name="item_name[{{$md->menu_item_id}}]" value="{{$md->item_name}}">{{$md->item_name}} </td>
                             <td><input id="<?php echo ('quantity_'.$key)?>" class="form-control quantity1"  type="text"  name="quantity[{{$md->menu_item_id}}]" ></td>
@@ -68,21 +68,14 @@ $total=$q*$p;
 
                     <tr class="row">
                         <td colspan="10" align="right">
-                            Total: <input type="text" id="grandTotal1" name="grand_total" style="border-style: none;width: 80px;">
+                            Total:Rs <input type="text" id="grandTotal1" name="grand_total1" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
 
-                     {{--<tr class="row">
-                        <td colspan="10" align="right">
-                            Grand Total:Rs.<span id="grandTotal" name="grand_total">0.00</span>
-                        </td>
-                    </tr>--}}
                     </tbody>
                 </table>
 
             </div>
-
-
 
             <div class="container" style="margin-left: 370px">
                 <table class="table-responsive ">
@@ -105,7 +98,7 @@ $total=$q*$p;
                     <tbody>
 
                     @foreach($snacks as  $key =>$md)
-                        <tr class="txtMult">
+                        <tr class="txtMult2">
                             <td>  <input class="menu" type="checkbox"   name="menuselect[{{$md->menu_item_id}}]" value="{{$md->menu_item_id}}"></td>
                             <td><input class="item" type="hidden"   name="item_name[{{$md->menu_item_id}}]" value="{{$md->item_name}}">{{$md->item_name}} </td>
                             <td><input id="<?php echo ('quantity_'.$key)?>" class="form-control quantity2"  type="text"  name="quantity[{{$md->menu_item_id}}]" ></td>
@@ -129,7 +122,7 @@ $total=$q*$p;
 
                     <tr class="row">
                         <td colspan="10" align="right">
-                            Total: <input type="text" id="grandTotal2" name="grand_total" style="border-style: none;width: 80px;">
+                            Total: <input type="text" id="grandTotal2" name="grand_total2" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
 
@@ -142,7 +135,6 @@ $total=$q*$p;
                 </table>
 
             </div>
-
 
             <div class="container" style="margin-left: 370px">
                 <table class="table-responsive ">
@@ -165,7 +157,7 @@ $total=$q*$p;
                     <tbody>
 
                     @foreach($drinks as  $key =>$md)
-                        <tr class="txtMult">
+                        <tr class="txtMult3">
                             <td>  <input class="menu" type="checkbox"   name="menuselect[{{$md->menu_item_id}}]" value="{{$md->menu_item_id}}"></td>
                             <td><input class="item" type="hidden"   name="item_name[{{$md->menu_item_id}}]" value="{{$md->item_name}}">{{$md->item_name}} </td>
                             <td><input id="<?php echo ('quantity_'.$key)?>" class="form-control quantity3"  type="text"  name="quantity[{{$md->menu_item_id}}]" ></td>
@@ -188,7 +180,7 @@ $total=$q*$p;
 
                     <tr class="row">
                         <td colspan="10" align="right">
-                           Total: <input type="text" id="grandTotal3" name="grand_total" style="border-style: none;width: 80px;">
+                            Total: <input type="text" id="grandTotal3" name="grand_total3" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
 
@@ -223,7 +215,7 @@ $total=$q*$p;
                     <tbody>
 
                     @foreach($dessert as  $key =>$md)
-                        <tr class="txtMult">
+                        <tr class="txtMult4">
                             <td>  <input class="menu" type="checkbox"   name="menuselect[{{$md->menu_item_id}}]" value="{{$md->menu_item_id}}"></td>
                             <td><input class="item" type="hidden"   name="item_name[{{$md->menu_item_id}}]" value="{{$md->item_name}}">{{$md->item_name}} </td>
                             <td><input id="<?php echo ('quantity_'.$key)?>" class="form-control quantity4"  type="text"  name="quantity[{{$md->menu_item_id}}]" ></td>
@@ -246,7 +238,7 @@ $total=$q*$p;
 
                     <tr class="row">
                         <td colspan="10" align="right">
-                            Total: <input type="text" id="grandTotal4" name="grand_total" style="border-style: none;width: 80px;">
+                            Total: <input type="text" id="grandTotal4" name="grand_total4" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
 
@@ -255,11 +247,10 @@ $total=$q*$p;
                            Grand Total:Rs.<span id="grandTotal" name="grand_total">0.00</span>
                        </td>
                    </tr>--}}
-                     </tbody>
+                    </tbody>
                 </table>
 
             </div>
-
             <div class="container" style="margin-left: 370px">
                 <table class="table-responsive ">
                     <h4>Extra</h4>
@@ -281,7 +272,7 @@ $total=$q*$p;
                     <tbody>
 
                     @foreach($extra as  $key =>$md)
-                        <tr class="txtMult">
+                        <tr class="txtMult5">
                             <td>  <input class="menu" type="checkbox"   name="menuselect[{{$md->menu_item_id}}]" value="{{$md->menu_item_id}}"></td>
                             <td><input class="item" type="hidden"   name="item_name[{{$md->menu_item_id}}]" value="{{$md->item_name}}">{{$md->item_name}} </td>
                             <td><input id="<?php echo ('quantity_'.$key)?>" class="form-control quantity5"  type="text"  name="quantity[{{$md->menu_item_id}}]" ></td>
@@ -304,7 +295,7 @@ $total=$q*$p;
 
                     <tr class="row">
                         <td colspan="10" align="right">
-                            Total: <input type="text" id="grandTotal5" name="grand_total" style="border-style: none;width: 80px;">
+                            Total: <input type="text" id="grandTotal5" name="grand_total5" style="border-style: none;width: 80px;">
                         </td>
                     </tr>
 
@@ -318,7 +309,6 @@ $total=$q*$p;
                 </table>
 
             </div>
-
 
             {!! Form::close() !!}
     </div>
@@ -382,19 +372,91 @@ $total=$q*$p;
 
     <script>
         $(document).ready(function () {
-            $(".txtMult input").keyup(multInputs);
+            $(".txtMult1 input").keyup(multInputs);
+
             function multInputs() {
-                var mult = 0;
+                var mult1 = 0;
                 // for each row:
-                $("tr.txtMult").each(function () {
+                $("tr.txtMult1").each(function () {
                     // get the values from this row:
                     var $val1 = $('.quantity1', this).val();
                     var $val2 = $('.price1', this).val();
-                    var $total = ($val1 * 1) * ($val2 * 1)
-                    $('.total1',this).val($total);
-                    mult += $total;
+                    var $total1 = ($val1 * 1) * ($val2 * 1)
+                    $('.total1',this).val($total1);
+                    mult1 += $total1;
                 });
-                $("#grandTotal1").val(mult);
+                $("#grandTotal1").val(mult1);
+            }
+        });
+
+        $(document).ready(function () {
+            $(".txtMult2 input").keyup(multInputs);
+
+            function multInputs() {
+                var mult2 = 0;
+                // for each row:
+                $("tr.txtMult2").each(function () {
+                    // get the values from this row:
+                    var $val1 = $('.quantity2', this).val();
+                    var $val2 = $('.price2', this).val();
+                    var $total2 = ($val1 * 1) * ($val2 * 1)
+                    $('.total2',this).val($total2);
+                    mult2 += $total2;
+                });
+                $("#grandTotal2").val(mult2);
+            }
+        });
+        $(document).ready(function () {
+            $(".txtMult3 input").keyup(multInputs);
+
+            function multInputs() {
+                var mult3 = 0;
+                // for each row:
+                $("tr.txtMult3").each(function () {
+                    // get the values from this row:
+                    var $val1 = $('.quantity3', this).val();
+                    var $val2 = $('.price3', this).val();
+                    var $total3 = ($val1 * 1) * ($val2 * 1)
+                    $('.total3',this).val($total3);
+                    mult3 += $total3;
+                });
+                $("#grandTotal3").val(mult3);
+            }
+        });
+
+        $(document).ready(function () {
+            $(".txtMult4 input").keyup(multInputs);
+
+            function multInputs() {
+                var mult4 = 0;
+                // for each row:
+                $("tr.txtMult4").each(function () {
+                    // get the values from this row:
+                    var $val1 = $('.quantity4', this).val();
+                    var $val2 = $('.price4', this).val();
+                    var $total4 = ($val1 * 1) * ($val2 * 1)
+                    $('.total4',this).val($total4);
+                    mult4 += $total4;
+                });
+                $("#grandTotal4").val(mult4);
+            }
+        });
+
+        $(document).ready(function () {
+            $(".txtMult5 input").keyup(multInputs);
+
+            function multInputs() {
+                var mult5 = 0;
+                // for each row:
+                $("tr.txtMult5").each(function () {
+                    // get the values from this row:
+                    var $val1 = $('.quantity5', this).val();
+                    var $val2 = $('.price5', this).val();
+                    var $total5 = ($val1 * 1) * ($val2 * 1)
+                    $('.total5',this).val($total5);
+                    mult5 += $total5;
+                });
+                $("#grandTotal5").val(mult5);
             }
         });
     </script>

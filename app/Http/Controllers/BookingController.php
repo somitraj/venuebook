@@ -57,6 +57,7 @@ class BookingController extends BaseController
 
         $book=session('book');
         $menu=session('menu');
+        $menutotal=session('menutotal');
         $vid=$book['venue_id'];
        /* print_r($vid);die();*/
 
@@ -72,7 +73,8 @@ class BookingController extends BaseController
         if($request->getMethod()=='POST') {
             try {
                 print_r($book);
-                print_r($menu);die();
+                print_r($menu);
+                print_r($menutotal);die();
 
 
             }
@@ -86,18 +88,25 @@ class BookingController extends BaseController
 
 
      // $form = $formBuilder->Create('Venue\Forms\TotalBookingForm',['method'=>'POST','url' => route('web.BookTotal')]);
-        foreach($menu as $m){
-            $total=$m['grand_total'];
-            /*print_r($total);die();*/
-
-        $form = $formBuilder->Create(\Venue\Forms\TotalBookingForm::class, ['method' => 'POST','url' => route('web.BookTotal')],
-            [
-                'grand_total' => $total,
-                'hall_charge'=>$hall_charge
 
 
-            ]);
-        }
+        $t1=$menutotal['grand_total1'];
+        $t2=$menutotal['grand_total2'];
+        $t3=$menutotal['grand_total3'];
+        $t4=$menutotal['grand_total4'];
+        $t5=$menutotal['grand_total5'];
+            $total=$t1+$t2+$t3+$t4;
+
+            $form = $formBuilder->Create(\Venue\Forms\TotalBookingForm::class, ['method' => 'POST', 'url' => route('web.BookTotal')],
+                [
+                     'grand_total' => $total,
+                    'hall_charge' => $hall_charge,
+                    'extra_charge'=>$t5
+
+
+                ]);
+
+
         return view('Layout.BookTotal', compact('form'));
         // print_r($form); die();
 
@@ -121,12 +130,19 @@ class BookingController extends BaseController
                     $menu['quantity']=$request->get('quantity')[$key];
                     $menu['price_per']=$request->get('price_per')[$key];
                     $menu['total']=$request->get('total')[$key];
-                    $menu['grand_total']=$request->get('grand_total');
+
                     $menus[]=$menu;
                 }
 
+                    $menutotal['grand_total1'] = $request->get('grand_total1');
+                    $menutotal['grand_total2'] = $request->get('grand_total2');
+                    $menutotal['grand_total3'] = $request->get('grand_total3');
+                    $menutotal['grand_total4'] = $request->get('grand_total4');
+                    $menutotal['grand_total5'] = $request->get('grand_total5');
+
 
                 session()->put('menu',$menus);
+                session()->put('menutotal',$menutotal);
                 /*return session()->all();*/
                 return redirect()->route('web.BookTotal');
             }
