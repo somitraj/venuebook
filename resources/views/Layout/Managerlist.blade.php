@@ -39,7 +39,7 @@ foreach($proimage as $pro){
                <li class="active"> <a href="" role="navigation" class="nav navbar-default ">Venuelist<span class="badge">{{count($managerlist)}}</span></a></li>
 
 
-               <li> <a href="deactivevenue" role="navigation" class="nav navbar-default ">Deleted venue<span class="badge"></span></a></li>
+               <li> <a href="venuedeactive" role="navigation" class="nav navbar-default ">Deleted venue<span class="badge"></span></a></li>
 
 
             </div>
@@ -55,6 +55,7 @@ foreach($proimage as $pro){
                                 </div>
                             </div>
                         @endif
+                    <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
 
                     <thead>
                     <tr>

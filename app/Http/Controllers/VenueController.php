@@ -230,9 +230,9 @@ class VenueController extends Controller
         $response = $client->request('GET','deletevenuedetails/'.$id);
       // print_r($response);die();
         $data = $response->getBody()->getContents();
-        print_r($data);die();
+      //print_r($data);die();
         $venues = \GuzzleHttp\json_decode($data);
-     // print_r($venues);die();
+     //print_r($venues);die();
         $success_message = "Venue status changed Successfully";
         return redirect('admin/venue')->with('status1', $success_message);
     }

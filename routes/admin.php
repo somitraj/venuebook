@@ -8,6 +8,7 @@
 Route::group(["role"=>1,"prefix"=>"admin"],function()
 {
     Route::any("dashboard",["as"=>'admin.dash', "uses"=>'UserController@Admin']);
+
     Route::any("client",["as"=>'admin.client', "uses"=>'UserController@UserList']);
     Route::any("userdetails/{id}",["as"=>'admin.userdetails', "uses"=>'UserController@ViewUserDetails']);
     Route::any("useredit/{id}",["as"=>'admin.useredit', "uses"=>'UserController@EditUserDetails']);
@@ -20,7 +21,7 @@ Route::group(["role"=>1,"prefix"=>"admin"],function()
     Route::any("editvenuedetails/{id}",["as"=>'admin.managerdetails', "uses"=>'VenueController@EditVenueDetails']);
     Route::any("deletevenuedetails/{id}",["as"=>'admin.deletevenuedetails', "uses"=>'VenueController@VenueDelete']);
     Route::any("venuedeactive",["as"=>'admin.deactivevenue', "uses"=>'VenueController@Deactivevenue']);
-    Route::any("venueactive",["as"=>'admin.activevenue', "uses"=>'VenueController@Activevenue']);
+    Route::any("venueactive/{id}",["as"=>'admin.activevenue', "uses"=>'VenueController@Activevenue']);
 
 
     Route::any("notice",["as"=>'admin.notice', "uses"=>'NotificationController@GetNotice']);
