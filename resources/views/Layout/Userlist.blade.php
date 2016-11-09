@@ -43,17 +43,19 @@ foreach($proimage as $pro){
 
 
                </div>
+                <table class="table table-bordered">
 
-                           <div class="table-responsive">
-
-                           <table class="table table-bordered">
-                               <div class="col-md-7 col-md-offset-3">
+                        <div class="row">
+                              {{-- <div class="col-md-7 col-md-offset-3">
                                    @if (session('status1'))
                                        <div class="panel panel-success">
                                            <div class="panel-heading">
                                                {{session('status1')}}
                                            </div>
                                        </div>
+
+                               @endif
+                            </div>--}}
                                </div>
                                @endif</div>
                    <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
@@ -71,6 +73,7 @@ foreach($proimage as $pro){
                     </tr>
                     </thead>
 
+
                     <tbody>
                     @foreach($userlist as $user)
                         <tr>
@@ -85,15 +88,12 @@ foreach($proimage as $pro){
 
                         </tr>
                     @endforeach
-                    </tbody>
-
+                </tbody>
                 </table>
             </div>
+                </table>
 
-
-
-
-             @endsection
+           @endsection
 @section('script')
 
     <script>
@@ -106,3 +106,5 @@ foreach($proimage as $pro){
     </script>
 
 @endsection
+
+
