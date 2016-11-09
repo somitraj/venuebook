@@ -8,6 +8,7 @@
 Route::group(["role"=>1,"prefix"=>"admin"],function()
 {
     Route::any("dashboard",["as"=>'admin.dash', "uses"=>'UserController@Admin']);
+
     Route::any("client",["as"=>'admin.client', "uses"=>'UserController@UserList']);
     Route::any("userdetails/{id}",["as"=>'admin.userdetails', "uses"=>'UserController@ViewUserDetails']);
 
@@ -39,16 +40,19 @@ Route::group(["role"=>1,"prefix"=>"admin"],function()
     Route::any("venueactive/{id}",["as"=>'admin.activevenue', "uses"=>'VenueController@Activevenue']);
 
 
+    Route::any("notice",["as"=>'admin.notice', "uses"=>'NotificationController@GetNotice']);
 
 
 
+    /*    Route::any("venue",["as"=>'admin.venue', "uses"=>'UserController@VenueList']);*/
+    //Route::any("venue",["as"=>'admin.venuelist', "uses"=>'VenueController@VenueList']);
 
 
 
-
-
-
-
-
+    //Route::any("venuelist",["as"=>'admin.venuelist', "uses"=>'VenueController@VenueList']);
+    Route::any("venueregister",["as"=>'admin.venueregister', "uses"=>'VenueController@Register']);
+    Route::any('account',['as'=>'admin.account','uses'=>'UserController@UserAccount'  ]);
+    Route::any("password",["as"=>'admin.password', "uses"=>'UserController@ChangePassword']);
+    Route::any("settings",["as"=>'admin.settings', "uses"=>'UserController@Settings']);
 
 });

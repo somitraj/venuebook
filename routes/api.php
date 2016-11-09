@@ -63,7 +63,9 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
 
 
     $api->any('deletevenuedetails/{id}', 'VenueController@DeleteVenue');
-    $api->any('deactivevenue/{id}', 'VenueController@VenueDeactive');
+    $api->any('deactivevenue', 'VenueController@VenueDeactive');
+    $api->any('activevenue/{id}', 'VenueController@VenueActive');
+
 
 
     $api->any('password', 'UserController@ChangePassword');

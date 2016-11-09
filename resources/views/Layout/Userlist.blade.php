@@ -29,7 +29,9 @@ foreach($proimage as $pro){
 @endsection
            @section('content')
 
+{{--
                <div class="table-responsive">
+--}}
                 <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
                   {{-- <a href="userdetails">--}}
                 {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
