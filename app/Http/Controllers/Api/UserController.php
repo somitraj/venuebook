@@ -295,8 +295,14 @@ WHERE (user_info.user_id=51)"));
     }
 
 
-    public function MenuSelect(Request $request){
-        return VenueMenuItem::all();
+    public function MenuSelect(Request $request,$id){
+        $menu = DB::table('tbl_menu_items')//table join gareko
+        ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+            ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*')
+            ->where('venues.id', '=', $id)
+            ->get();
+        return $menu;
     }
 
 

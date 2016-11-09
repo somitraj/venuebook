@@ -140,7 +140,7 @@ class BookingController extends BaseController
 
         $response = $client->request('GET','menuselect/'.$vid);
         $data = $response->getBody()->getContents();
-       /* print_r($data);die();*/
+        /*print_r($data);die();*/
         $menudata =  \GuzzleHttp\json_decode($data);
 
 
