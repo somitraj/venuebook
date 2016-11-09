@@ -100,6 +100,7 @@ foreach($proimage as $pro){
             } );
         } );
     </script>
-@endsection
+
+           @endsection
 
 

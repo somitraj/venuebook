@@ -22,11 +22,11 @@
     <script src="/js/thumbnail-slider.js" type="text/javascript"></script>
     <link href="/css/font-awesome.min.css" rel="stylesheet"> {{--for icons style--}}
     <script src="/jquery/jquery.min.js"></script>
-    <script src="/jquery/jquery.dataTables.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
 
 
     <script src="/js/bootstrap.min.js"></script>
-    @yield('script')
+
 
     {{--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>--}}
 {{--
@@ -87,7 +87,7 @@
 
 {{--</div>--}}
 
-
+@yield('script')
 
 
 
