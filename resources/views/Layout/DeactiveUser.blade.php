@@ -38,9 +38,12 @@ foreach($proimage as $pro){
 
 
                </div>
+               <table class="table table-bordered">
 
-                           <div class="table-responsive">
-                               {{--<div class="col-md-7 col-md-offset-3">
+               <div class="row">
+                   <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
+
+                   {{--<div class="col-md-7 col-md-offset-3">
                                    @if (session('status1'))
                                        <div class="panel panel-success">
                                            <div class="panel-heading">
@@ -49,7 +52,6 @@ foreach($proimage as $pro){
                                        </div>
                                        </div>
                                    @endif--}}
-                           <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th>Firstname</th>
@@ -64,7 +66,7 @@ foreach($proimage as $pro){
                     </tr>
                     </thead>
 
-
+                <tbody>
                     @foreach($users as $user)
                         <tr>
                              <td>{{$user->first_name}}</td>
@@ -78,36 +80,22 @@ foreach($proimage as $pro){
 
                         </tr>
                     @endforeach
-
+                </tbody>
                 </table>
             </div>
+               </table>
 
-               <nav aria-label="Page navigation">
-                   <ul class="pagination">
-                       <li>
-                           <a href="#" aria-label="Previous">
-                               <span aria-hidden="true">&laquo;</span>
-                           </a>
-                       </li>
-                       <li><a href="#">1</a></li>
-                       <li><a href="#">2</a></li>
-                       <li><a href="#">3</a></li>
-                       <li><a href="#">4</a></li>
-                       <li><a href="#">5</a></li>
-                       <li><a href="#">6</a></li>
-                       <li><a href="#">7</a></li>
-                       <li><a href="#">8</a></li>
-                       <li><a href="#">9</a></li>
-                       <li>
-                           <a href="#" aria-label="Next">
-                               <span aria-hidden="true">&raquo;</span>
-                           </a>
-                       </li>
-                   </ul>
-               </nav>
-
-
-            </body>
-            </html>
 
            @endsection
+@section('script')
+
+    <script>
+        $(document).ready(function() {
+            //alert(example);
+            $('#example').DataTable( {
+                "pagingType": "simple_numbers"
+            } );
+        } );
+    </script>
+
+@endsection

@@ -466,7 +466,7 @@ class UserController extends BaseController
         $data = $response->getBody()->getContents();
         //print_r($data);die();
         $user = \GuzzleHttp\json_decode($data);
-        print_r($user);die();
+       // print_r($user);die();
         $success_message = "User status changed Successfully";
         return redirect('admin/client')->with('status1', $success_message);
     }
