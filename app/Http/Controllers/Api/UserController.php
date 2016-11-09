@@ -322,18 +322,94 @@ class UserController extends Controller
         }
     }
 
-    public function MenuSelect(Request $request,$id){
+    public function GetSnacks(Request $request,$id){
         /*$venue_id=$request->get('venue_id');*/
         /*return $venue_id;*/
         /*return $id;*/
         $menu = DB::table('tbl_menu_items')//table join gareko
              ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
             ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
-             ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*')
+            ->join('tbl_item_type', 'tbl_item_type.id', '=', 'tbl_menu_items.item_type_id')
+             ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*','tbl_item_type.*')
             ->where('venues.id', '=', $id)
+            ->where('tbl_item_type.id', '=', 1)
              ->get();
+
+        /*$menu = DB::table('tbl_item_type')//table join gareko
+        ->join('tbl_menu_items', 'tbl_menu_items.item_type_id', '=', 'tbl_item_type.id')
+            ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id)')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+            ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*','tbl_item_type.*')
+            ->where('venues.id', '=', $id)
+            ->get();*/
         return $menu;
             /*return VenueMenuItem::all();*/
+    }
+    public function GetDinner(Request $request,$id){
+        /*$venue_id=$request->get('venue_id');*/
+        /*return $venue_id;*/
+        /*return $id;*/
+        $menu = DB::table('tbl_menu_items')//table join gareko
+        ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+            ->join('tbl_item_type', 'tbl_item_type.id', '=', 'tbl_menu_items.item_type_id')
+            ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*','tbl_item_type.*')
+            ->where('venues.id', '=', $id)
+            ->where('tbl_item_type.id', '=', 2)
+            ->get();
+
+        return $menu;
+        /*return VenueMenuItem::all();*/
+    }
+
+    public function GetDrinks(Request $request,$id){
+        /*$venue_id=$request->get('venue_id');*/
+        /*return $venue_id;*/
+        /*return $id;*/
+        $menu = DB::table('tbl_menu_items')//table join gareko
+        ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+            ->join('tbl_item_type', 'tbl_item_type.id', '=', 'tbl_menu_items.item_type_id')
+            ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*','tbl_item_type.*')
+            ->where('venues.id', '=', $id)
+            ->where('tbl_item_type.id', '=', 3)
+            ->get();
+
+        return $menu;
+        /*return VenueMenuItem::all();*/
+    }
+    public function GetExtra(Request $request,$id){
+        /*$venue_id=$request->get('venue_id');*/
+        /*return $venue_id;*/
+        /*return $id;*/
+        $menu = DB::table('tbl_menu_items')//table join gareko
+        ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+            ->join('tbl_item_type', 'tbl_item_type.id', '=', 'tbl_menu_items.item_type_id')
+            ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*','tbl_item_type.*')
+            ->where('venues.id', '=', $id)
+            ->where('tbl_item_type.id', '=', 4)
+            ->get();
+
+        return $menu;
+        /*return VenueMenuItem::all();*/
+    }
+
+    public function GetDessert(Request $request,$id){
+        /*$venue_id=$request->get('venue_id');*/
+        /*return $venue_id;*/
+        /*return $id;*/
+        $menu = DB::table('tbl_menu_items')//table join gareko
+        ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
+            ->join('tbl_item_type', 'tbl_item_type.id', '=', 'tbl_menu_items.item_type_id')
+            ->select('tbl_menu_items.*', 'venue_menu_items.*','venues.*','tbl_item_type.*')
+            ->where('venues.id', '=', $id)
+            ->where('tbl_item_type.id', '=', 5)
+            ->get();
+
+        return $menu;
+        /*return VenueMenuItem::all();*/
     }
 
 

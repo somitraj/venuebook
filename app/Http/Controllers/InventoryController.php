@@ -25,6 +25,7 @@ class InventoryController extends Controller
                        'form_params' => [
                            'item1' => $request->get('item1'),
                            'price_per1' => $request->get('price_per1'),
+                           'item_type_id' => $request->get('item_type'),
 
                            'user_id' =>$id,
 
@@ -49,9 +50,16 @@ class InventoryController extends Controller
            /*print_r($inventorylist);die();*/
            /*print_r($response1->getBody()->getContents());
                   die();*/
+           $client = new Client(['base_uri'=> config('app.REST_API')]);
 
+           $response = $client->request('GET','item_type');
+           $data = $response->getBody()->getContents();
 
-           $form = $formBuilder->Create('Venue\Forms\InventoryForm', ['method' => 'POST', 'url' => route('manager.inventory')]);
+           $item_type =  \GuzzleHttp\json_decode($data);
+           /*print_r($item_type);die();*/
+
+           $form = $formBuilder->Create('Venue\Forms\InventoryForm', ['method' => 'POST', 'url' => route('manager.inventory')],
+               ['item_type'=>$item_type]);
 
 
            return view('Layout.Inventory', compact('form', 'inventorylist'));

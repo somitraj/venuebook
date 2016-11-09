@@ -16,6 +16,10 @@
                 </div>
                 <div class="panel-body">
                     {!! form($form) !!}
+                    {!! form_end($form) !!}
+                    <br>
+                  <a href="/BookPreview">  <button type="button" class="btn btn-primary btn-block">Preview Your Booking</button></a>
+
                 </div>
             </div>
         </div>

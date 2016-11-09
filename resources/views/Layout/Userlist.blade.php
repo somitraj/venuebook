@@ -56,6 +56,8 @@ foreach($proimage as $pro){
 
                                @endif
                             </div>--}}
+                               </div>
+                               @endif</div>
                    <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -71,7 +73,8 @@ foreach($proimage as $pro){
                     </tr>
                     </thead>
 
-                <tbody>
+
+                    <tbody>
                     @foreach($userlist as $user)
                         <tr>
                              <td>{{$user->first_name}}</td>
@@ -88,7 +91,7 @@ foreach($proimage as $pro){
                 </tbody>
                 </table>
             </div>
-                    </table>
+                </table>
 
            @endsection
 @section('script')
@@ -102,6 +105,6 @@ foreach($proimage as $pro){
         } );
     </script>
 
-           @endsection
+@endsection
 
 
