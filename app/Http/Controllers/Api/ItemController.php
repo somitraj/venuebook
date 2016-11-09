@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Venue\Http\Requests;
 use Venue\Http\Controllers\Controller;
+use Venue\Models\TblItemType;
 
 class ItemController extends Controller
 {
@@ -14,5 +15,8 @@ class ItemController extends Controller
         return TblCountry::all();
 
 
+    }
+    public function GetItemType(){
+        return TblItemType::all();
     }
 }

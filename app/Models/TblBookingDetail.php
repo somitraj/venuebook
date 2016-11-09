@@ -12,6 +12,7 @@ class TblBookingDetail extends Model {
     protected $fillable = ['item_id', 'rate', 'quantity', 'amount', 'booking_id'];
     public $timestamps=false;
 
+
     public function tblBooking() {
         return $this->belongsTo(\Venue\Models\TblBooking::class, 'booking_id', 'id');
     }

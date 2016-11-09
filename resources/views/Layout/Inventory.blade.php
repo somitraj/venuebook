@@ -41,6 +41,7 @@ if(Auth::check()){
                                 <tr class="success" >
                                         <td><b>Item name</b></td>
                                         <td><b>Price per</b></td>
+                                        <td><b>Item Type</b></td>
 
 
                                 </tr>
@@ -50,6 +51,8 @@ if(Auth::check()){
                                         <tr>
                                                 <td >{{$in->item_name}}</td>
                                                 <td>{{$in->price_per}}</td>
+                                                <td>{{$in->item_type}}</td>
+
 
 
                                         </tr>
@@ -80,7 +83,7 @@ if(Auth::check()){
                                 <div class="panel-body" >
                                         {!! form($form) !!}
                                 </div>
-                        </div>
+
                 </div>
         </div>
 

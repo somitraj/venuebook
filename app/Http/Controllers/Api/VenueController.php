@@ -184,6 +184,8 @@ class VenueController extends Controller
 
             $user_id = $request->user_id;
             /*return $user_id;*/
+
+            /*$item_type=$request->item_type;*/
             $item_name = $request->item1;
             /*return $item_name;*/
             $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
@@ -215,6 +217,7 @@ class VenueController extends Controller
 
             }
             $inventory1->setAttribute('item_name', $request->get('item1'));
+            $inventory1->item_type_id = $request->item_type_id;
             $inventory1->save();
 
 
@@ -244,7 +247,8 @@ class VenueController extends Controller
             $inventorydata = DB::table('tbl_menu_items')//table join gareko
             ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
                 ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
-                ->select('venues.id', 'tbl_menu_items.item_name', 'venue_menu_items.price_per')
+                ->join('tbl_item_type','tbl_item_type.id','=','tbl_menu_items.item_type_id')
+                ->select('venues.id', 'tbl_menu_items.item_name', 'venue_menu_items.price_per','tbl_item_type.*')
                 ->where('venues.id', '=', $venuId)
                 ->get();
             return $inventorydata;
