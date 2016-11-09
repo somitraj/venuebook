@@ -13,6 +13,8 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+
     <link href="/css/ninja-slider.css" rel="stylesheet" />
     <script src="/js/ninja-slider.js"></script>
     <link href="/css/thumbnail-slider.css" rel="stylesheet" type="text/css" />
@@ -20,6 +22,9 @@
     <script src="/js/thumbnail-slider.js" type="text/javascript"></script>
     <link href="/css/font-awesome.min.css" rel="stylesheet"> {{--for icons style--}}
     <script src="/jquery/jquery.min.js"></script>
+    <script src="/jquery/jquery.dataTables.min.js"></script>
+
+
     <script src="/js/bootstrap.min.js"></script>
     @yield('script')
 
