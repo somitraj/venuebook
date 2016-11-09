@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Venue\User;
 use Venue\Models\Venue;
 use Venue\Models\VenueType;
+use Venue\Models\Status;
 
 
 /*use Venue\Http\Requests;*/
@@ -226,13 +227,13 @@ class VenueController extends Controller
     public function VenueDelete($id)
     {
         $client = new Client(['base_uri'=>config('app.REST_API')]);
-       // print_r($client);die();
+      // print_r($client);die();
         $response = $client->request('GET','deletevenuedetails/'.$id);
       // print_r($response);die();
         $data = $response->getBody()->getContents();
-        print_r($data);die();
+      //print_r($data);die();
         $venues = \GuzzleHttp\json_decode($data);
-     // print_r($venues);die();
+     //print_r($venues);die();
         $success_message = "Venue status changed Successfully";
         return redirect('admin/venue')->with('status1', $success_message);
     }
@@ -243,7 +244,18 @@ class VenueController extends Controller
         $response = $client->request('GET','deactivevenue');
         $data = $response->getBody()->getContents();
         $venues = \GuzzleHttp\json_decode($data);
-        return view('Layout.DeactiveVenue',compact('venues'));
+        return view('Layout.Deactivevenue',compact('venues'));
+    }
+    public function Activevenue($id)
+    {
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+        //print_r($client);
+        $response = $client->request('GET','activevenue/'.$id);
+        $data = $response->getBody()->getContents();
+        $venues = \GuzzleHttp\json_decode($data);
+        // print_r($users);die();
+        //return redirect('Layout.DeactiveUser',compact('users'));
+        return view('Layout.Deactivevenue',compact('venues'));
     }
 }
 

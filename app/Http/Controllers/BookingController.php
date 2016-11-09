@@ -138,18 +138,42 @@ class BookingController extends BaseController
 
         }
 
-        $response = $client->request('GET','menuselect/'.$vid);
+        $response = $client->request('GET','snacks/'.$vid);
         $data = $response->getBody()->getContents();
-        /*print_r($data);die();*/
-        $menudata =  \GuzzleHttp\json_decode($data);
+       /* print_r($data);die();*/
+        $snacks =  \GuzzleHttp\json_decode($data);
+
+        $response1 = $client->request('GET','dinner/'.$vid);
+        $data1 = $response1->getBody()->getContents();
+        /* print_r($data);die();*/
+        $dinner =  \GuzzleHttp\json_decode($data1);
+
+        $response2 = $client->request('GET','drinks/'.$vid);
+        $data2 = $response2->getBody()->getContents();
+        /* print_r($data);die();*/
+        $drinks =  \GuzzleHttp\json_decode($data2);
+
+        $response3 = $client->request('GET','extra/'.$vid);
+        $data3 = $response3->getBody()->getContents();
+        /* print_r($data);die();*/
+        $extra =  \GuzzleHttp\json_decode($data3);
+
+        $response4 = $client->request('GET','dessert/'.$vid);
+        $data4 = $response4->getBody()->getContents();
+        /* print_r($data);die();*/
+        $dessert =  \GuzzleHttp\json_decode($data4);
 
 
       /*  $book['item_name']=$request->get('item_name');
         session()->put('book',$book);*/
-        return view('Layout.MenuSelection',compact('menudata'));
+        return view('Layout.MenuSelection',compact('snacks','dinner','drinks','extra','dessert'));
     }
 
     public function BookPreview(){
-        return view('Layout.BookPreview');
+        $book=session('book');
+        $menu=session('menu');
+        /*print_r($book);
+        print_r($menu);die();*/
+        return view('Layout.BookPreview',compact('book','menu'));
     }
 }

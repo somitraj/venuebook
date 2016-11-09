@@ -19,7 +19,7 @@ class TotalBookingForm extends Form
                      ->add('Hall Charge', 'text', [
                     'wrapper' =>['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                     'attr' =>['class' => 'col-md-9 form-control field-input'],
+                     'attr' =>['class' => 'col-md-9 form-control field-input','disabled'],
                              'value'=>'Rs '.$hall_charge
             ]
             )
@@ -29,7 +29,7 @@ class TotalBookingForm extends Form
             ->add('Menu Charge','text', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input'],
+                    'attr' => ['class' => 'col-md-9 form-control field-input','disabled'],
                     'value'=>'Rs '.$menutotal
 
                 ]
@@ -37,16 +37,16 @@ class TotalBookingForm extends Form
             ->add('Extra','text', [
                     'wrapper' => ['class' => 'form-group row'],
                     'label_attr'=>['class'=>'col-md-3 control-label'],
-                    'attr' => ['class' => 'col-md-9 form-control field-input'],
+                    'attr' => ['class' => 'col-md-9 form-control field-input','disabled'],
                     'value'=>'Rs '.$default
 
                 ]
             )
           ->add('total','text', [
                   'wrapper' => ['class' => 'form-group row'],
-                  'label'=>'Total',
+                  'label'=>'Grand Total',
                   'label_attr'=>['class'=>'col-md-3 control-label'],
-                  'attr' => ['class' => 'col-md-9 form-control field-input'],
+                  'attr' => ['class' => 'col-md-9 form-control field-input','disabled'],
                   'value'=>'Rs '.$total
 
               ]
@@ -55,7 +55,7 @@ class TotalBookingForm extends Form
               'rules'=>['required']
           ])
 
-          ->add('preview','button',['label'=>'Preview Your Booking','attr' =>['class'=> 'btn btn-primary btn-block'],])
+      /*    ->add('preview','button',['label'=>'Preview Your Booking','attr' =>['class'=> 'btn btn-primary btn-block'],])*/
 
             ->add('Book','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }

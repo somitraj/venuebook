@@ -21,6 +21,11 @@
     <link href="/css/font-awesome.min.css" rel="stylesheet"> {{--for icons style--}}
     <script src="/jquery/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
+    <script src="/js/jquery.dataTables.min.js"></script>
     @yield('script')
 
     {{--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>--}}

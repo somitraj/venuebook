@@ -184,6 +184,8 @@ class VenueController extends Controller
 
             $user_id = $request->user_id;
             /*return $user_id;*/
+
+            /*$item_type=$request->item_type;*/
             $item_name = $request->item1;
             /*return $item_name;*/
             $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
@@ -215,6 +217,7 @@ class VenueController extends Controller
 
             }
             $inventory1->setAttribute('item_name', $request->get('item1'));
+            $inventory1->item_type_id = $request->item_type_id;
             $inventory1->save();
 
 
@@ -244,7 +247,8 @@ class VenueController extends Controller
             $inventorydata = DB::table('tbl_menu_items')//table join gareko
             ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
                 ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
-                ->select('venues.id', 'tbl_menu_items.item_name', 'venue_menu_items.price_per')
+                ->join('tbl_item_type','tbl_item_type.id','=','tbl_menu_items.item_type_id')
+                ->select('venues.id', 'tbl_menu_items.item_name', 'venue_menu_items.price_per','tbl_item_type.*')
                 ->where('venues.id', '=', $venuId)
                 ->get();
             return $inventorydata;
@@ -284,18 +288,27 @@ class VenueController extends Controller
     }
         public function DeleteVenue($id)
     {
-       // return $id;
-        $venues = Venue::where('id', '=', $id)->select('status_id')->first();
-return $venues;
+       //return $id;
+       // $venues=UserInfo::where('user_id','=',$id)->select('status_id')->first();
+        /*$venues=DB::table('user_venue')
+            ->join('venues','user_venue.status_id','=','venues.status_id')
+            ->select('user_venue.status_id')
+            ->where('venues.id','=','$id')
+            ->first();*/
+
+       $venues=UserVenue::where('user_id', '=', $id)->select('status_id')->first();
+//return $venues;
         if ($venues->status_id == 1) {
-            $venues = DB::table('venues')
-                ->where('id', $id)
+            $venues = DB::table('user_venue')
+                ->where('user_id', $id)
+                //->where('venue_id','=','user_id')
                 ->update(['status_id' => 2
                 ]);
             return $venues;
         } else {
-            $venues = DB::table('venues')
-                ->where('id', $id)
+            $venues = DB::table('user_venue')
+                ->where('user_id', $id)
+                //->where('venue_id','=','user_id')
                 ->update(['status_id' => 1
                 ]);
             return $venues;
@@ -320,7 +333,7 @@ return $venues;
                 ->join('status', 'user_venue.status_id', '=', 'status.id')
                 ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
                 ->where('users.user_type_id', '=', 2)
-                ->where('status_id', '=', 2)
+                ->where('status.id', '=', 2)
                 ->get();
 
             return $users;
@@ -329,7 +342,31 @@ return $venues;
             throw $e;
         }
     }
+    public function VenueActive($id){
 
+
+        $venues=UserVenue::where('user_id','=',$id)->first();
+        if($venues->status_id==2) {
+
+            $venues = DB::table('user_venue')
+                ->where('user_id', $id)
+                ->update(['status_id' => 1
+                ]);
+        }
+            $users = DB::table('users')
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'user_venue.venue_id', '=', 'venues.id')
+                ->join('status', 'user_venue.status_id', '=', 'status.id')
+                ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
+                ->where('users.user_type_id', '=', 2)
+                ->where('status.id', '=', 2)
+                ->get();
+
+            return $users;
+
+        }
 
 
 

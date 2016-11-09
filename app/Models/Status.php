@@ -12,6 +12,7 @@ class Status extends Model {
     protected $fillable = ['id', 'status_name'];
     public $timestamps=false;
 
+
     public function userInfos() {
         return $this->hasMany(\Venue\Models\UserInfo::class, 'status_id', 'id');
     }

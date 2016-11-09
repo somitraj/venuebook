@@ -29,7 +29,9 @@ foreach($proimage as $pro){
 @endsection
            @section('content')
 
+{{--
                <div class="table-responsive">
+--}}
                 <h2>UserList <span class="badge">{{count($userlist)}}</span></h2>
                   {{-- <a href="userdetails">--}}
                 {{--<a href={{route('userdetails',['id'=>$userlist->id])}}">--}}
@@ -53,7 +55,7 @@ foreach($proimage as $pro){
                                            </div>
                                        </div>
                                </div>
-                               @endif
+                               @endif</div>
                    <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -69,7 +71,7 @@ foreach($proimage as $pro){
                     </tr>
                     </thead>
 
-
+                    <tbody>
                     @foreach($userlist as $user)
                         <tr>
                              <td>{{$user->first_name}}</td>
@@ -83,36 +85,24 @@ foreach($proimage as $pro){
 
                         </tr>
                     @endforeach
+                    </tbody>
 
                 </table>
             </div>
 
-               <nav aria-label="Page navigation">
-                   <ul class="pagination">
-                       <li>
-                           <a href="#" aria-label="Previous">
-                               <span aria-hidden="true">&laquo;</span>
-                           </a>
-                       </li>
-                       <li><a href="#">1</a></li>
-                       <li><a href="#">2</a></li>
-                       <li><a href="#">3</a></li>
-                       <li><a href="#">4</a></li>
-                       <li><a href="#">5</a></li>
-                       <li><a href="#">6</a></li>
-                       <li><a href="#">7</a></li>
-                       <li><a href="#">8</a></li>
-                       <li><a href="#">9</a></li>
-                       <li>
-                           <a href="#" aria-label="Next">
-                               <span aria-hidden="true">&raquo;</span>
-                           </a>
-                       </li>
-                   </ul>
-               </nav>
 
 
-            </body>
-            </html>
 
-           @endsection
+             @endsection
+@section('script')
+
+    <script>
+        $(document).ready(function() {
+            //alert(example);
+            $('#example').DataTable( {
+                "pagingType": "simple_numbers"
+            } );
+        } );
+    </script>
+
+@endsection

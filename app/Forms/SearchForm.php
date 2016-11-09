@@ -11,6 +11,6 @@ class SearchForm extends Form
 
 
 
-            ->add('submit','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
+
     }
 }
