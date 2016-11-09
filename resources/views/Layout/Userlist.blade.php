@@ -57,7 +57,7 @@ foreach($proimage as $pro){
                                @endif
                             </div>--}}
                                </div>
-                               @endif</div>
+
                    <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
                     <thead>
                     <tr>
