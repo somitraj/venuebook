@@ -12,6 +12,7 @@ class VenueType extends Model {
     protected $fillable = ['id', 'type_name'];
     public $timestamps=false;
 
+
     public function venues() {
         return $this->hasMany(\Venue\Models\Venue::class, 'venue_type_id', 'id');
     }
