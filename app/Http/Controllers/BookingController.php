@@ -148,4 +148,8 @@ class BookingController extends BaseController
         session()->put('book',$book);*/
         return view('Layout.MenuSelection',compact('menudata'));
     }
+
+    public function BookPreview(){
+        return view('Layout.BookPreview');
+    }
 }
