@@ -101,6 +101,11 @@ Route::any('/venuesearch',[
     'uses'=>'UserController@Search'
 ]);
 
+Route::get('/BookPreview',[
+    'as'=>'web.BookPreview',
+    'uses'=>'BookingController@BookPreview'
+]);
+
 /*Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function() {
     Route::any('/User', [
         'as' => 'web.User',
