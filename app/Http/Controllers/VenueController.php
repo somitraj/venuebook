@@ -74,6 +74,7 @@ class VenueController extends Controller
                         'phone_no_2' =>  $request->get('phone_no_2'),
                         'established_date' =>  $request->get('established_date'),
                         'space_area' =>  $request->get('space_area'),
+                        'hall_charge' =>  $request->get('hall_charge'),
                         'email' => $request->get('email'),
                         'password' => $request->get('password'),
                         'user_type_id' => $request->get('user_type'),
@@ -176,6 +177,15 @@ class VenueController extends Controller
         //print_r($userdetails);die();
         return view('Layout.VenueManagerDetails',compact('venuedetails'));
     }
+    public function ManagerList()
+    {
+        $client = new Client(['base_uri'=> config('app.REST_API')]);
+        $response = $client->request('GET','managerlist');
+        $data = $response->getBody()->getContents();
+        $managerlist =  \GuzzleHttp\json_decode($data);
+        return view('Layout.Managerlist',compact('managerlist'));
+    }
+
     public function EditVenueDetails(FormBuilder $formBuilder,$id)
     {
         $client = new Client(['base_uri' => config('app.REST_API')]);
@@ -212,6 +222,28 @@ class VenueController extends Controller
 
 
         return view('Layout.Editvenue', compact('form'));
+    }
+    public function VenueDelete($id)
+    {
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+       // print_r($client);die();
+        $response = $client->request('GET','deletevenuedetails/'.$id);
+      // print_r($response);die();
+        $data = $response->getBody()->getContents();
+        print_r($data);die();
+        $venues = \GuzzleHttp\json_decode($data);
+     // print_r($venues);die();
+        $success_message = "Venue status changed Successfully";
+        return redirect('admin/venue')->with('status1', $success_message);
+    }
+    public function Deactivevenue()
+    {
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+        // print_r($client);
+        $response = $client->request('GET','deactivevenue');
+        $data = $response->getBody()->getContents();
+        $venues = \GuzzleHttp\json_decode($data);
+        return view('Layout.DeactiveVenue',compact('venues'));
     }
 }
 

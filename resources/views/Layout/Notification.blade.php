@@ -13,20 +13,21 @@ foreach($proimage as $pro){
 }
         ?>
 @extends('Layout/MainLayout')
+@section('info')
+        <div style="float: right">
+
+                @if(Auth::check())  {{--login check garne--}}
+                <div>
+                        <p  style="font-family:'Times New Roman';color:gray;border-top-width: 50px;margin-top: 5px;">
+                                <img src="/{{$pro1}}"class="img-circle" width="40" height="40">  Hello   {{Auth::user()->username}} ,</p>
+
+                </div>
+
+                @endif
+                @endsection
 
 @section('content')
-        <div >
-                @if(Auth::check())
-                        <div>
-                                <img src="/{{$pro1}}"class="img-circle" width="70" height="70">
-                        </div>
-                        <h5>
-                                <div>
-                                        {{Auth::user()->username}}
-                                </div>
-                        </h5>
-                @endif
-        </div>
+
         <div class="row" style="padding-top: 50px">
                 <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-primary">

@@ -13,7 +13,7 @@
        <div class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">
            <div class="panel panel-primary">
                <div class="panel-heading">
-                   <h4 style="text-align:center">Venue</h4>
+                   <h4 style="text-align:center">Venue Register</h4>
 
                </div>
 

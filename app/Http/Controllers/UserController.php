@@ -292,14 +292,6 @@ class UserController extends BaseController
       //  print_r($userlist);die();
         return view('Layout.Userlist',compact('userlist'));
     }
-    public function ManagerList()
-    {
-        $client = new Client(['base_uri'=> config('app.REST_API')]);
-        $response = $client->request('GET','managerlist');
-        $data = $response->getBody()->getContents();
-        $managerlist =  \GuzzleHttp\json_decode($data);
-        return view('Layout.Managerlist',compact('managerlist'));
-    }
 
     public function GetUserDetails(){
         $client = new Client(['base_uri' => config('app.REST_API')]);
@@ -315,9 +307,7 @@ class UserController extends BaseController
     public function EditUserDetails(FormBuilder $formBuilder,$id,Request $request)
     {
         $client = new Client(['base_uri' => config('app.REST_API')]);
-        // print_r($client);die();
         $response = $client->request('POST', 'edituser/' . $id);
-        // print_r($response);die();
         $data = $response->getBody()->getContents();
         /* print_r($data);die();*/
         $edituser = \GuzzleHttp\json_decode($data);
@@ -327,24 +317,28 @@ class UserController extends BaseController
 
             if (Auth::user()->user_type_id == 2) {
 
-                $response1 = $client->request('POST', 'editinfo', [
-                    'form_params' => [
-                        'user_id' => $id,
-                        'first_name' => $request->get('first_name'),
-                        'last_name' => $request->get('last_name'),
-                        'username' => $request->get('username'),
-                        'name' => $request->get('name'),
-                        'space_area' => $request->get('space_area'),
-                        'person_capacity' => $request->get('person_capacity'),
-                        'established_date' => $request->get('established_date'),
-                        'nationality_id' => $request->get('nationality_id'),
-                        'phone_no' => $request->get('phone_no'),
-                        'phone_no_2' => $request->get('phone_no_2'),
-                        'email' => $request->get('email'),
+
+                    $response1 = $client->request('POST', 'editvenueinfo', [
+                        'form_params' => [
+                            'user_id' => $id,
+                            'first_name' => $request->get('first_name'),
+                            'last_name' => $request->get('last_name'),
+                            'username' => $request->get('username'),
+                            'name' => $request->get('name'),
+                            'space_area' => $request->get('space_area'),
+                            'person_capacity' => $request->get('person_capacity'),
+                            'established_date' => $request->get('established_date'),
+                            'nationality_id' => $request->get('nationality_id'),
+                            'phone_no' => $request->get('phone_no'),
+                            'phone_no_2' => $request->get('phone_no_2'),
+                            'email' => $request->get('email'),
+                            'hall_charge' => $request->get('hall_charge'),
 
 
-                    ]
-                ]);
+                        ]
+                    ]);
+                /*$data = $response1->getBody()->getContents();
+                 print_r($data);die();*/
 
             } else {
 
@@ -368,26 +362,31 @@ class UserController extends BaseController
         }
 
         if (Auth::user()->user_type_id == 2) {
+            /*print_r(Auth::user()->user_type_id);die();*/
+            foreach ($edituser as $edituser1) {
             $form1 = $formBuilder->Create(\Venue\Forms\VenueDetailsForm::class, ['method' => 'POST'],
                 [
-                    'id' => $edituser->id,
-                    'first_name' => $edituser->first_name,
-                    'last_name' => $edituser->last_name,
-                    /* 'name'=>$edituser->name,*/
-                    'username' => $edituser->username,
-                    'dob' => $edituser->dob,
-                    'nationality_id' => $edituser->nationality_id,
-                    'phone_no' => $edituser->phone_no,
-                    /*'phone_no_2' => $edituser->phone_no_2,*/
-                    'email' => $edituser->email,
-                    /*   'space_area'=>$edituser->space_area,
-                       'person_capacity'=>$edituser*/
+                    'id' => $edituser1->id,
+                    'first_name' => $edituser1->first_name,
+                    'last_name' => $edituser1->last_name,
+                     'name'=>$edituser1->name,
+                    'username' => $edituser1->username,
+                    'established_date' => $edituser1->established_date,
+                    'nationality_id' => $edituser1->nationality_id,
+                    'phone_no' => $edituser1->phone_no,
+                    'phone_no_2' => $edituser1->phone_no_2,
+                    'email' => $edituser1->email,
+                       'space_area'=>$edituser1->space_area,
+                       'person_capacity'=>$edituser1->person_capacity,
+                    'hall_charge'=>$edituser1->hall_charge,
+
 
                 ]);
             return view('Layout.EditVenue', compact('form1'));
 
-        } else {
-
+        }
+        }else {
+            /*print_r(Auth::user()->user_type_id);die();*/
             $form = $formBuilder->Create(\Venue\Forms\DetailsForm::class, ['method' => 'POST'],
                 [
                     'id' => $edituser->id,
@@ -452,6 +451,53 @@ class UserController extends BaseController
         $userdetails = \GuzzleHttp\json_decode($data);
         //print_r($userdetails);die();
         return view('Layout.Viewuserdetails',compact('userdetails'));
+    }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function UserDelete($id){
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+       // print_r($client);die();
+        $response = $client->request('GET','deleteuserdetails/'.$id);
+      //  print_r($response);die();
+        $data = $response->getBody()->getContents();
+        //print_r($data);die();
+        $user = \GuzzleHttp\json_decode($data);
+       // print_r($user);die();
+        $success_message = "User status changed Successfully";
+        return redirect('admin/client')->with('status1', $success_message);
+    }
+
+    public function Deactiveuser()
+    {
+
+
+        /*print_r('hello');die();*/
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+       //print_r($client);
+        $response = $client->request('GET','deactiveuser');
+        $data = $response->getBody()->getContents();
+        $users = \GuzzleHttp\json_decode($data);
+        //print_r($users);die();
+        //return redirect('Layout.DeactiveUser',compact('users'));
+        return view('Layout.DeactiveUser',compact('users'));
+       /* return redirect()->route('admin.deactiveuser');*/
+
+    }
+
+    public function Activeuser($id){
+        /*print_r($id);die();*/
+        $client = new Client(['base_uri'=>config('app.REST_API')]);
+        //print_r($client);
+        $response = $client->request('GET','activeuser/'.$id);
+        $data = $response->getBody()->getContents();
+        $users = \GuzzleHttp\json_decode($data);
+       // print_r($users);die();
+        //return redirect('Layout.DeactiveUser',compact('users'));
+        return view('Layout.DeactiveUser',compact('users'));
     }
 
     public function UserCheck()
@@ -549,44 +595,7 @@ class UserController extends BaseController
         return view('Layout.Settings',compact('userlist'));
 
     }
-   /* public function ChangePassword(FormBuilder $formBuilder,Request $request)
-    {
 
-        $client = new Client(['base_uri'=> config('app.REST_API')]);
-        if($request->getMethod()=='POST') {
-            try {
-                $pw = Auth::user()->password;
-                $id = Auth::user()->id;
-                /*print_r($id);die();*/
-                /*print_r(bcrypt($pw));die();*/
-                /*$response = $client->request('POST', 'password', [
-                    'form_params' => [
-                        'old_password' =>  $request->get('old_password'),
-                        'new_password' =>  $request->get('new_password'),
-                        'cpassword' => $request->get('confirm_new_password'),
-                        'pw'=>$pw,
-                        'id'=>$id
-
-
-                    ]
-                ]);*/
-                /*$data = $response->getBody()->getContents();
-                print_r($data);die();*/
-
-
-
-
-        /*    } catch (\Exception $e) {
-                print_r($e->getMessage());
-                die();
-            }
-            $request->session()->flash('alert-success', 'Password Successfully Changed!');
-        }
-        $form = $formBuilder->Create('Venue\Forms\PasswordResetForm', ['method' => 'POST', 'url' => route('manager.password')]);
-
-        return view('Layout.ChangePassword', compact('form'));
-
-    }*/
     public function ChangePassword(FormBuilder $formBuilder,Request $request){
         $client=new Client(['base_uri'=>config('app.REST_API')]);
         $form=$formBuilder->create(\Venue\Forms\PasswordResetForm::class,[

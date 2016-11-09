@@ -35,12 +35,9 @@ foreach($proimage as $pro){
 
         <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
-                Venue gestion
-            </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <span class="fa fa-user"></span> <a href="/admin/venue">Venue</a> / Card
+                    <span class="glyphicon glyphicon-backward"></span> <a href="javascript:history.back()">Go Back</a>
                 </li>
             </ol>
         </div>
@@ -54,7 +51,7 @@ foreach($proimage as $pro){
                         @foreach($venuedetails as $vdata)
                             <img src="/{{$vdata->image}}" width="80" height="80">
                             <div class="table-responsive">
-                                <table class="table-bordered">
+                                <table id="example" class="display table table-responsive table-striped" cellspacing="0" width="100%">
 
                                     <tr>
                                         <th class="col-md-2">Venue Name</th> <td class="col-md-2"> {{$vdata->first_name}}</td>

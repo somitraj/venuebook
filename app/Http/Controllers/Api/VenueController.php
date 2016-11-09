@@ -16,6 +16,7 @@ use Venue\Models\UserVenue;
 use Venue\Models\Venue;
 use Venue\Models\VenueMenuItem;
 use Venue\Models\VenueType;
+use Venue\Models\Status;
 
 
 
@@ -59,6 +60,7 @@ class VenueController extends Controller
             $userinfo->setAttribute('profile_image', $request->get('profile_image'));
 
             $userinfo->setAttribute('locality', $request->get('locality'));
+            $userinfo->status_id=1;
 
             $userinfo->save();
 
@@ -72,6 +74,7 @@ class VenueController extends Controller
             $venues->phone_no_2 = $request->phone_no_2;
             $venues->space_area = $request->space_area;
             $venues->person_capacity = $request->person_capacity;
+            $venues->hall_charge = $request->hall_charge;
             $venues->district_id = $request->district_id;
             $venues->established_date = $request->established_date;
             $venues->image = $request->image;
@@ -79,16 +82,15 @@ class VenueController extends Controller
             $venues->setAttribute('country_id', $userinfo->country_id);
             $venues->setAttribute('locality', $request->get('locality'));
             $venues->venue_type_id = $request->venue_type_id;
+            $venues->status_id=1;
             $venues->save();
             //$venues->userVenues();
 
-            $uservenue=new UserVenue();
-            $uservenue->user_id=$user->id;
-            $uservenue->venue_id=$venues->id;
+            $uservenue = new UserVenue();
+            $uservenue->user_id = $user->id;
+            $uservenue->venue_id = $venues->id;
+            $uservenue->status_id=1;
             $uservenue->save();
-
-
-
 
 
         } catch (\Exception $e) {
@@ -142,37 +144,35 @@ class VenueController extends Controller
         }
 
     }
-   /* public function GetVenueDetails($id)
-    {
-       // return $id;
-        $venues=new Venue();
-        $venues=DB::table('venues')->where('venues.user_id','=',$id)->get();
-        return $venues;
 
-    }*/
+    /* public function GetVenueDetails($id)
+     {
+        // return $id;
+         $venues=new Venue();
+         $venues=DB::table('venues')->where('venues.user_id','=',$id)->get();
+         return $venues;
+
+     }*/
     public function GetVenueData1($id)
     {
         try {
             /*$idv=$request->get('venue_id');*/
-            $venuedata =DB::table('user_venue')  //table join gareko
+            $venuedata = DB::table('user_venue')//table join gareko
             ->join('users', 'users.id', '=', 'user_venue.user_id')
                 ->join('venues', 'venues.id', '=', 'user_venue.venue_id')
                 ->join('user_info', 'user_info.user_id', '=', 'users.id')
                 ->join('gallery', 'gallery.venue_id', '=', 'user_venue.venue_id')
-                ->select('gallery.*','venues.*','users.*','user_info.*')
-                ->where('gallery.venue_id','=',$id)
+                ->select('gallery.*', 'venues.*', 'users.*', 'user_info.*')
+                ->where('gallery.venue_id', '=', $id)
                 ->get();
 
 
             return $venuedata;
 
 
-        }
-        catch(\Exception $e){
+        } catch (\Exception $e) {
             throw $e;
         }
-
-
 
 
     }
@@ -182,38 +182,35 @@ class VenueController extends Controller
     {
         try {
 
-            $user_id=$request->user_id;
+            $user_id = $request->user_id;
             /*return $user_id;*/
-            $item_name=$request->item1;
+            $item_name = $request->item1;
             /*return $item_name;*/
             $userVenue = UserVenue::where('user_id', '=', $user_id)->first();
             /*return $userVenue;*/
-            if(!$userVenue) {
+            if (!$userVenue) {
                 throw \Exception('no venue found');
             }
-            $venuId=$userVenue->venue_id;
+            $venuId = $userVenue->venue_id;
             /*return $venuId;*/
-            $inventory1=TblMenuItem::where('item_name','=',$item_name)->first();
-            if(!$inventory1)
-            {
+            $inventory1 = TblMenuItem::where('item_name', '=', $item_name)->first();
+            if (!$inventory1) {
 
-                $inventory1=new TblMenuItem();//model ko User ko object create
+                $inventory1 = new TblMenuItem();//model ko User ko object create
 
             }
 
 
-
-            $menu_id=$inventory1->id;
+            $menu_id = $inventory1->id;
             /*return $menu_id;*/
-            $inventory=VenueMenuItem::where('menu_item_id','=',$menu_id)
+            $inventory = VenueMenuItem::where('menu_item_id', '=', $menu_id)
                 ->where('venue_id', '=', $venuId)
                 ->first();
             /*$inventory=VenueMenuItem::all('venue_id','menu_item_id');*/
             /*return $inventory;*/
 
 
-            if(!$inventory)
-            {
+            if (!$inventory) {
                 $inventory = new VenueMenuItem();
 
             }
@@ -236,33 +233,110 @@ class VenueController extends Controller
 
 
     }
+
     public function GetInventorylist($id)
     {
         try {
             $userVenue = UserVenue::where('user_id', '=', $id)->first();
             /*return $userVenue;*/
-            $venuId=$userVenue->venue_id;
+            $venuId = $userVenue->venue_id;
             /*return $venuId;*/
-            $inventorydata =DB::table('tbl_menu_items')  //table join gareko
-                ->join('venue_menu_items','venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
+            $inventorydata = DB::table('tbl_menu_items')//table join gareko
+            ->join('venue_menu_items', 'venue_menu_items.menu_item_id', '=', 'tbl_menu_items.id')
                 ->join('venues', 'venues.id', '=', 'venue_menu_items.venue_id')
-                ->select('venues.id', 'tbl_menu_items.item_name','venue_menu_items.price_per')
+                ->select('venues.id', 'tbl_menu_items.item_name', 'venue_menu_items.price_per')
                 ->where('venues.id', '=', $venuId)
                 ->get();
             return $inventorydata;
 
 
-        }
-        catch(\Exception $e){
+        } catch (\Exception $e) {
             throw $e;
         }
 
+    }
+    public function GetManagerList(Request $request)
+    {
+        try {
+            /* $users = new User();
+             $users=User::all();
+             $users=UserInfo::all();
+             $users=UserType::all();*/
+
+
+            $users = DB::table('users')
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'user_venue.venue_id', '=', 'venues.id')
+                ->join('status', 'user_venue.status_id', '=', 'status.id')
+                ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
+                ->where('users.user_type_id', '=', 2)
+                ->where('status.id', '=', 1)
+                ->get();
+
+            return $users;
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+    }
+        public function DeleteVenue($id)
+    {
+       // return $id;
+        $venues = Venue::where('id', '=', $id)->select('status_id')->first();
+return $venues;
+        if ($venues->status_id == 1) {
+            $venues = DB::table('venues')
+                ->where('id', $id)
+                ->update(['status_id' => 2
+                ]);
+            return $venues;
+        } else {
+            $venues = DB::table('venues')
+                ->where('id', $id)
+                ->update(['status_id' => 1
+                ]);
+            return $venues;
+        }
+
+    }
+
+    public function VenueDeactive()
+    {
+        try {
+            /* $users = new User();
+             $users=User::all();
+             $users=UserInfo::all();
+             $users=UserType::all();*/
+
+
+            $users = DB::table('users')
+                ->join('user_info', 'users.id', '=', 'user_info.user_id')
+                ->join('user_types', 'users.user_type_id', '=', 'user_types.id')
+                ->join('user_venue', 'users.id', '=', 'user_venue.user_id')
+                ->join('venues', 'user_venue.venue_id', '=', 'venues.id')
+                ->join('status', 'user_venue.status_id', '=', 'status.id')
+                ->select('users.*', 'user_info.first_name', 'user_info.last_name', 'user_types.type_name', 'venues.name')
+                ->where('users.user_type_id', '=', 2)
+                ->where('status_id', '=', 2)
+                ->get();
+
+            return $users;
+
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 
 
 
 
 }
+
+
+
 
 
 

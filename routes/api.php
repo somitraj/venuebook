@@ -34,7 +34,7 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->get('item', 'ItemController@GetItem');
     $api->get('userlist', 'UserController@GetUserList');
     $api->any('specificuser/{id}', 'UserController@GetSpecificUserList');
-    $api->get('managerlist', 'UserController@GetManagerList');
+    $api->get('managerlist', 'VenueController@GetManagerList');
    // $api->get('venuelist', 'UserController@GetVenueList');
     $api->get('venuelist', 'VenueController@Register');
     $api->any('venuedata', 'VenueController@GetVenueData');
@@ -55,9 +55,23 @@ $api->version('v1',['namespace'=>"Venue\Http\Controllers\Api"], function ($api) 
     $api->any('edituser/{id}', 'UserController@EditUserDetails');
     /*$api->any('edituserdata/{id}', 'UserController@EditUserData');*/
     $api->any('editvenuedetails/{id}', 'VenueController@GetVenueData');
+
+
+    $api->any('deleteuserdetails/{id}', 'UserController@DeleteUser');
+    $api->any('deactiveuser', 'UserController@UserDeactive');
+    $api->any('activeuser/{id}', 'UserController@UserActive');
+
+
+    $api->any('deletevenuedetails/{id}', 'VenueController@DeleteVenue');
+    $api->any('deactivevenue/{id}', 'VenueController@VenueDeactive');
+
+
     $api->any('password', 'UserController@ChangePassword');
-    $api->any('menuselect', 'UserController@MenuSelect');
+    $api->any('menuselect/{id}', 'UserController@MenuSelect');
     $api->any('editinfo', 'UserController@EditInfo');
+    $api->any('editvenueinfo', 'UserController@EditVenueInfo');
+    $api->any('book1', 'BookingController@Book1');
+
 
 
 

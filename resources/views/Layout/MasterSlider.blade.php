@@ -74,6 +74,7 @@
                 Capacity : {{$vd->person_capacity}} <br>
                 Locality : {{$vd->locality}} <br>
                 Established Date : {{$vd->established_date}} <br>
+                Hall Charge : {{$vd->hall_charge}} <br>
 
             </div>
         </div>
@@ -81,9 +82,9 @@
     <br>
     @if(!Auth::check() || Auth::user()->user_type_id==3)
         @if(!Auth::check())
-            <h4 style="text-align: center"><a href="/Book"><button class="btn-success">Book Now</button></a></h4>
+            <h4 style="text-align: center"><a href="/Book?id={{$vd1->venue_id}}"><button class="btn-success">Book Now</button></a></h4>
             @elseif(Auth::user()->user_type_id==3)
-              <h4 style="text-align: center"><a href="Book"><button class="btn-success">Book Now</button></a></h4>
+              <h4 style="text-align: center"><a href="Book?id={{$vd1->venue_id}}"><button class="btn-success">Book Now</button></a></h4>
             @endif
 
     @endif

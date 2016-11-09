@@ -12,7 +12,6 @@ class TblCountry extends Model {
     protected $fillable = ['id', 'name', 'code'];
     public $timestamps=false;
 
-
     public function tblProvinces() {
         return $this->hasMany(\Venue\Models\TblProvince::class, 'country_id', 'id');
     }

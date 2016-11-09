@@ -12,10 +12,8 @@ class MessageBoxType extends Model {
     protected $fillable = ['id', 'type_name'];
     public $timestamps=false;
 
-
     public function tblMessageBoxes() {
         return $this->hasMany(\Venue\Models\TblMessageBox::class, 'box_type_id', 'id');
-
     }
 
 

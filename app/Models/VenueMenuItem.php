@@ -12,7 +12,6 @@ class VenueMenuItem extends Model {
     protected $fillable = ['id', 'venue_id', 'menu_item_id', 'price', 'price_per'];
     public $timestamps=false;
 
-
     public function tblMenuItem() {
         return $this->belongsTo(\Venue\Models\TblMenuItem::class, 'menu_item_id', 'id');
     }

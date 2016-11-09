@@ -12,7 +12,6 @@ class TblZone extends Model {
     protected $fillable = ['id', 'name', 'code', 'province_id'];
     public $timestamps=false;
 
-
     public function tblZone() {
         return $this->belongsTo(\Venue\Models\TblZone::class, 'province_id', 'id');
     }
