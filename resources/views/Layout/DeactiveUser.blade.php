@@ -76,7 +76,7 @@ foreach($proimage as $pro){
                                 <td>{{$user->type_name}}</td>
                             <td><a href="/admin/userdetails\{{$user->id}}" class="btn btn-success btn-block btn">View</a></td>
                             {{--<td><a href="useredit\{{$user->id}}" class="btn btn-warning btn-block btn">Edit</a></td>--}}
-                            <td><a href="useractive\{{$user->id}}" class="btn btn-primary btn-block btn">Reactivate</a></td>
+                            <td><a href="/admin/useractive\{{$user->id}}" class="btn btn-primary btn-block btn">Reactivate</a></td>
 
                         </tr>
                     @endforeach

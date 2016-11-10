@@ -13,6 +13,8 @@ use Dingo\Api\Exception\ValidationHttpException;
 use Venue\ExceptionCode;
 use Venue\Http\Controllers\Controller;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Venue\Models\UserInfo;
+use Venue\Models\UserVenue;
 use Venue\User;
 
 class AuthController extends Controller
@@ -35,6 +37,7 @@ class AuthController extends Controller
         }
 
         $user=\Venue\Models\User::where('username','=',$request->username)->first();
+
         if(!$user)
         {
             throw new \Exception('Invalid username',ExceptionCode::INVALID_USER);
@@ -44,6 +47,14 @@ class AuthController extends Controller
         {
             throw new \Exception('Invalid Password',ExceptionCode::INVALID_PASSWORD);
         }
+        $userinfo=UserInfo::where('user_id','=',$user->id )
+            ->where('status_id','=',1)
+            ->first();
+        if(!$userinfo) {
+            throw new \Exception('Invalid user', ExceptionCode::INVALID_USER);
+
+        }
+
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
                 return $this->response->errorUnauthorized();
@@ -53,5 +64,8 @@ class AuthController extends Controller
         }
         $user=\Venue\Models\User::where('username','=',$request->username)->first()->toArray();  //database bata data tanna
         return response()->json(compact('user','token'));
+        $userinfo=\Venue\Models\UserInfo::where('user_id','=',$request->id)->where('status_id','=',1)->first()->toArray();
+        return response()->json(compact('userinfo','token'));
+
     }
 }

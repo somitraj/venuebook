@@ -20,9 +20,9 @@ class UserController extends BaseController
 {
     public function login(FormBuilder $formBuilder, Request $request) //for login
     {
-        try
-        {
-            if (Auth::check())
+        try{
+
+           if (Auth::check())
             {   //checks user is logged in and if logged in and user try to go back to login page,home is returned
                 return view('Layout.Home', compact('form'));
 
