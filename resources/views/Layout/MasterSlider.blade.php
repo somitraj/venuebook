@@ -74,7 +74,7 @@
                 Capacity : {{$vd->person_capacity}} <br>
                 Locality : {{$vd->locality}} <br>
                 Established Date : {{$vd->established_date}} <br>
-                Hall Charge : {{$vd->hall_charge}} <br>
+                Hall Charge : Rs {{$vd->hall_charge}} <br>
 
             </div>
         </div>

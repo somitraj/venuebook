@@ -11,8 +11,8 @@ class TotalBookingForm extends Form
 
         $menutotal = $this->getData('grand_total');
         $hall_charge = $this->getData('hall_charge');
-        $default=0;
-        $total=$menutotal+$hall_charge+$default;
+        $extra_charge= $this->getData('extra_charge');
+        $total=$menutotal+$hall_charge+$extra_charge;
 
 
       $this
@@ -34,11 +34,12 @@ class TotalBookingForm extends Form
 
                 ]
             )
-            ->add('Extra','text', [
+            ->add('extra','text', [
                     'wrapper' => ['class' => 'form-group row'],
+                    'label'=>'Extra Item Charge',
                     'label_attr'=>['class'=>'col-md-3 control-label'],
                     'attr' => ['class' => 'col-md-9 form-control field-input','disabled'],
-                    'value'=>'Rs '.$default
+                    'value'=>'Rs '.$extra_charge
 
                 ]
             )
@@ -54,8 +55,6 @@ class TotalBookingForm extends Form
           ->add('I have read and accepted the Terms of use and Privacy Policy','checkbox',[
               'rules'=>['required']
           ])
-
-      /*    ->add('preview','button',['label'=>'Preview Your Booking','attr' =>['class'=> 'btn btn-primary btn-block'],])*/
 
             ->add('Book','submit',['attr' =>['class'=> 'btn btn-primary btn-block']]);
     }

@@ -20,22 +20,12 @@ $total=$q*$p;
 @extends('Layout/MainLayout')
 
 @section('content')
-   {{-- @foreach($book as $b)
-        {{$b->date}}
-        {{$b->time}}
-        {{$b->nop}}
-        {{$b->event}}
-
-
-
-    @endforeach--}}
-   <div class=""
-    @foreach($menu as $m)
-        {{$m['item_name']}}
-        {{$m['quantity']}}
-        {{$m['total']}}
-        {{$m['grand_total']}}
-
-    @endforeach
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li class="active">
+                <span class="glyphicon glyphicon-backward"></span> <a href="javascript:history.back()">Go Back To Booking Area</a>
+            </li>
+        </ol>
+    </div>
 
     @endsection

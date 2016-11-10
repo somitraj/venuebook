@@ -18,5 +18,7 @@ Route::group(["role"=>3,"prefix"=>"user",'middleware'=>'auth.user'],function()
     Route::any('BookTotal',['as'=>'user.BookTotal','uses'=>'BookingController@BookTotal']);
     Route::any('MenuSelect',['as'=>'user.MenuSelect','uses'=>'BookingController@MenuSelect']);
     Route::any("useredit/{id}",["as"=>'user.useredit', "uses"=>'UserController@EditUserDetails']);
+    Route::get('BookPreview',['as'=>'user.BookPreview','uses'=>'BookingController@BookPreview' ]);
+    Route::any('MenuSelect',['as'=>'user.MenuSelect', 'uses'=>'BookingController@MenuSelect' ]);
 
 });
